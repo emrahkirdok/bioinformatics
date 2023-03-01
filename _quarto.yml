@@ -1,0 +1,51 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "Biyoinformatik"
+  author: "Emrah Kırdök, Ph.D."
+  date: "2023/03/21"
+  #favicon: "images/ybva.png"
+  reader-mode: true
+
+  #sidebar:
+  #  logo: "images/ybva.png"
+
+  page-footer:
+    left: |
+      Biyoinformatik
+      Emrah Kırdök, Ph.D.
+    right: |
+      Bu kitap lisans üstü seviyede verilen
+      İleri Biyoinformatik dersi için
+      kaynak olarak kullanılacaktır.
+  site-url: https://emrahkirdok.github.io/bioinformatics/
+  repo-url: https://github.com/emrahkirdok/bioinformatics/
+  
+  chapters:
+    - index.qmd
+    - CONTRIBUTING.md
+    
+    - part: "Derse Hazırlık"
+      #chapters:
+      
+    - references.qmd
+
+
+bibliography : bibliography.bib
+lang: tr
+
+language:
+  tr:
+    crossref-fig-title: "Şekil"
+
+format:
+  html:
+    mainfont: helvetica
+    theme:
+      - darkly
+    code-link: true
+  pdf:
+    documentclass: scrbook
+    author-meta: "Emrah Kırdök"
