@@ -5,5 +5,26 @@
     "title": "Biyoinformatik",
     "section": "",
     "text": "Önsöz\nMerhabalar! Lisans üstü seviyede verilen İleri Biyoinformatik dersine hoşgeldiniz!"
+  },
+  {
+    "objectID": "10-appendices/software-used.html#programların-kurulumu",
+    "href": "10-appendices/software-used.html#programların-kurulumu",
+    "title": "Appendix A — Kullanılan Programlar",
+    "section": "A.1 Programların kurulumu",
+    "text": "A.1 Programların kurulumu\nProgramlar genel olarak Conda sistemi ile kurulacaktır."
+  },
+  {
+    "objectID": "10-appendices/software-used.html#fastq-işleme",
+    "href": "10-appendices/software-used.html#fastq-işleme",
+    "title": "Appendix A — Kullanılan Programlar",
+    "section": "A.2 FASTQ işleme",
+    "text": "A.2 FASTQ işleme\n\nfastQC\ncutadapt"
+  },
+  {
+    "objectID": "10-appendices/software-used.html#dna-hizalama",
+    "href": "10-appendices/software-used.html#dna-hizalama",
+    "title": "Appendix A — Kullanılan Programlar",
+    "section": "A.3 DNA hizalama",
+    "text": "A.3 DNA hizalama\n\nbwa\nsamtools"
   }
 ]
