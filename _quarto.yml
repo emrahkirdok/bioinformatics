@@ -31,7 +31,8 @@ book:
       #chapters:
       
     - references.qmd
-
+  appendices:
+    - 10-appendices/software-used.qmd
 
 bibliography : bibliography.bib
 lang: tr

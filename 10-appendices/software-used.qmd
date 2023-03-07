@@ -1,0 +1,16 @@
+# Kullanılan Programlar
+
+## Programların kurulumu
+
+Programlar genel olarak Conda sistemi ile kurulacaktır.
+
+## FASTQ işleme
+
++ [fastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
++ [cutadapt](https://cutadapt.readthedocs.io/en/stable/)
+
+
+## DNA hizalama
+
++ [bwa](https://bio-bwa.sourceforge.net/)
++ [samtools](http://www.htslib.org/)
