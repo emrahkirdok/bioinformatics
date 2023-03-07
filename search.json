@@ -21,6 +21,13 @@
     "text": "1.2 Mac işletim sistemi\nMac sistemler üzerine kullanacağımız bütün biyoinformatik araçları kurma imkanımız bulunmaktadır. Bunun için Mac tuşu ile boşluk tuşuna basıp Spotlight ekranını açarak (Şekil 1.1), terminal yazınız ve açılan penceyere aşağıdaki kodu yazınız.\nxcode-select --install\n\n\n\nŞekil 1.1: Mac üzerinde spotlight ekranı\n\n\nBir süre bekledikten sonra gerekli programlar kurulacaktır. Artık terminal programı üzerinden gerek uzak bilgisayarlarlar ssh bağlantısı, gerekse de kullanılacak biyoinformatik araçların kurulumunu gerçekleştirebilirsiniz."
   },
   {
+    "objectID": "00-setup/01-system.html#ubuntu-alt-sistemi-bakımı",
+    "href": "00-setup/01-system.html#ubuntu-alt-sistemi-bakımı",
+    "title": "1  Sistem kurulumu",
+    "section": "1.3 Ubuntu alt sistemi bakımı",
+    "text": "1.3 Ubuntu alt sistemi bakımı\nSisteminiz ara ara güncellemelisiniz. Öncelikle kullandığımız paketlerin en güncel versiyonlarını denetleyelim:\nsudo apt update\nDaha sonra sistemi güncelleyelim:\nsudo apt update"
+  },
+  {
     "objectID": "10-appendices/software-used.html#programların-kurulumu",
     "href": "10-appendices/software-used.html#programların-kurulumu",
     "title": "Appendix A — Kullanılan Programlar",
