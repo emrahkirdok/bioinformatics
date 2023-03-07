@@ -17,3 +17,17 @@ xcode-select --install
 ![Mac üzerinde spotlight ekranı](https://mac.install.guide/assets/images/ruby/find-macos-terminal.png){#fig-spotlight}
 
 Bir süre bekledikten sonra gerekli programlar kurulacaktır. Artık `terminal` programı üzerinden gerek uzak bilgisayarlarlar `ssh` bağlantısı, gerekse de kullanılacak biyoinformatik araçların kurulumunu gerçekleştirebilirsiniz.
+
+## Ubuntu alt sistemi bakımı
+
+Sisteminiz ara ara güncellemelisiniz. Öncelikle kullandığımız paketlerin en güncel versiyonlarını denetleyelim:
+
+```bash
+sudo apt update
+```
+
+Daha sonra sistemi güncelleyelim:
+
+```bash
+sudo apt update
+```
