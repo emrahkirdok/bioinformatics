@@ -220,7 +220,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#windows-işletim-sistemi" id="toc-windows-işletim-sistemi" class="nav-link active" data-scroll-target="#windows-işletim-sistemi"><span class="toc-section-number">1.1</span>  Windows işletim sistemi</a></li>
   <li><a href="#mac-işletim-sistemi" id="toc-mac-işletim-sistemi" class="nav-link" data-scroll-target="#mac-işletim-sistemi"><span class="toc-section-number">1.2</span>  Mac işletim sistemi</a></li>
-  <li><a href="#ubuntu-alt-sistemi-bakımı" id="toc-ubuntu-alt-sistemi-bakımı" class="nav-link" data-scroll-target="#ubuntu-alt-sistemi-bakımı"><span class="toc-section-number">1.3</span>  Ubuntu alt sistemi bakımı</a></li>
+  <li><a href="#ubuntu-alt-sistemi-bakımı" id="toc-ubuntu-alt-sistemi-bakımı" class="nav-link" data-scroll-target="#ubuntu-alt-sistemi-bakımı"><span class="toc-section-number">1.3</span>  Ubuntu alt sistemi bakımı</a>
+  <ul class="collapse">
+  <li><a href="#ubuntu-sisteminde-kullanıcı-ismi-sorunu" id="toc-ubuntu-sisteminde-kullanıcı-ismi-sorunu" class="nav-link" data-scroll-target="#ubuntu-sisteminde-kullanıcı-ismi-sorunu"><span class="toc-section-number">1.3.1</span>  Ubuntu sisteminde kullanıcı ismi sorunu</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -266,8 +269,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Daha sonra sistemi güncelleyelim:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="ubuntu-sisteminde-kullanıcı-ismi-sorunu" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="ubuntu-sisteminde-kullanıcı-ismi-sorunu"><span class="header-section-number">1.3.1</span> Ubuntu sisteminde kullanıcı ismi sorunu</h3>
+<p>Sorunlardan bir tanesi ön tanımlı kullanıcının <code>root</code> olmasıydı. Kullandığımız sistemler çok kullanıcılı sistemler. Her kullanıcının bazı hakları var. <code>root</code> kullanıcısı ise, en güçlü kullanıcı ve her şeyi yapma yeteneği var.</p>
+<p>O yüzden bu kullanıcı her zaman kullanmıuoruz. Eğer ubuntu alt sistemi <code>root</code> kullanıcısı ile açılıyorsa bunu değiştirmeliyiz.</p>
+<p>Önce ubuntu ekranını açalım ve yeni bir kullancı eklediğimizden emin olalım:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> adduser KULLANICI</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Bu şekilde yeni kullanıcı ekleyelim. Aşağıdaki gibi bir ekran karşımıza çıkacak (<a href="#fig-subsystem-user">Şekil&nbsp;<span>1.2</span></a>):</p>
+<div id="fig-subsystem-user" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://www.tenforums.com/attachments/tutorials/226571d1551986837-add-user-windows-subsystem-linux-wsl-distro-windows-10-a-add_user_to_wsl_distro_as_sudo.png?s=592aa6b59c0251c1bc67aa357234a02c" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Şekil&nbsp;1.2: Ubuntu alt sisteminde kullanıcı ekleme</figcaption><p></p>
+</figure>
+</div>
+<p>Şifrenizi girin (ancak imleç haraket etmeyecek, endişe etmeyin) ve tekrar girin.</p>
+<p>Kullanıcıyı oluşturduktan sonra, Windows’ta arama kısmına gelerek <strong>Komut İstemi</strong> yazın. bu da aslında Windows’un komut satırı arayüzü. Burada aşağıdaki satırı yazarak, yeni kullanıcınızı ön tanımlı olarak ekleyebilirsiniz.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ubuntu</span> config <span class="at">--default-user</span> KULLANICI</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

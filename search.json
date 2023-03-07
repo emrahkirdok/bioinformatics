@@ -25,7 +25,7 @@
     "href": "00-setup/01-system.html#ubuntu-alt-sistemi-bakımı",
     "title": "1  Sistem kurulumu",
     "section": "1.3 Ubuntu alt sistemi bakımı",
-    "text": "1.3 Ubuntu alt sistemi bakımı\nSisteminiz ara ara güncellemelisiniz. Öncelikle kullandığımız paketlerin en güncel versiyonlarını denetleyelim:\nsudo apt update\nDaha sonra sistemi güncelleyelim:\nsudo apt update"
+    "text": "1.3 Ubuntu alt sistemi bakımı\nSisteminiz ara ara güncellemelisiniz. Öncelikle kullandığımız paketlerin en güncel versiyonlarını denetleyelim:\nsudo apt update\nDaha sonra sistemi güncelleyelim:\nsudo apt update\n\n1.3.1 Ubuntu sisteminde kullanıcı ismi sorunu\nSorunlardan bir tanesi ön tanımlı kullanıcının root olmasıydı. Kullandığımız sistemler çok kullanıcılı sistemler. Her kullanıcının bazı hakları var. root kullanıcısı ise, en güçlü kullanıcı ve her şeyi yapma yeteneği var.\nO yüzden bu kullanıcı her zaman kullanmıuoruz. Eğer ubuntu alt sistemi root kullanıcısı ile açılıyorsa bunu değiştirmeliyiz.\nÖnce ubuntu ekranını açalım ve yeni bir kullancı eklediğimizden emin olalım:\nsudo adduser KULLANICI\nBu şekilde yeni kullanıcı ekleyelim. Aşağıdaki gibi bir ekran karşımıza çıkacak (Şekil 1.2):\n\n\n\nŞekil 1.2: Ubuntu alt sisteminde kullanıcı ekleme\n\n\nŞifrenizi girin (ancak imleç haraket etmeyecek, endişe etmeyin) ve tekrar girin.\nKullanıcıyı oluşturduktan sonra, Windows’ta arama kısmına gelerek Komut İstemi yazın. bu da aslında Windows’un komut satırı arayüzü. Burada aşağıdaki satırı yazarak, yeni kullanıcınızı ön tanımlı olarak ekleyebilirsiniz.\nubuntu config --default-user KULLANICI"
   },
   {
     "objectID": "10-appendices/software-used.html#programların-kurulumu",
