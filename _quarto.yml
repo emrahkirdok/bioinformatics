@@ -28,7 +28,8 @@ book:
     - CONTRIBUTING.md
     
     - part: "Derse Hazırlık"
-      #chapters:
+      chapters:
+        - 00-setup/01-system.qmd
       
     - references.qmd
   appendices:

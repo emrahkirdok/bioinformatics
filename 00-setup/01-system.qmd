@@ -1,0 +1,19 @@
+# Sistem kurulumu
+
+
+## Windows işletim sistemi
+
+Uzaktaki sunucuya bağlanmak için [Mobaxterm](https://mobaxterm.mobatek.net/) yazılımını kullanabiliriz.
+
+
+## Mac işletim sistemi
+
+Mac sistemler üzerine kullanacağımız bütün biyoinformatik araçları kurma imkanımız bulunmaktadır. Bunun için Mac tuşu ile boşluk tuşuna basıp Spotlight ekranını açarak (@fig-spotlight),  `terminal` yazınız ve açılan penceyere aşağıdaki kodu yazınız.
+
+```bash
+xcode-select --install
+```
+
+![Mac üzerinde spotlight ekranı](https://mac.install.guide/assets/images/ruby/find-macos-terminal.png){@fig-spotlight}
+
+Bir süre bekledikten sonra 
