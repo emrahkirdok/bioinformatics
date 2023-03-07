@@ -18,7 +18,7 @@
     "href": "00-setup/01-system.html#mac-işletim-sistemi",
     "title": "1  Sistem kurulumu",
     "section": "1.2 Mac işletim sistemi",
-    "text": "1.2 Mac işletim sistemi\nMac sistemler üzerine kullanacağımız bütün biyoinformatik araçları kurma imkanımız bulunmaktadır. Bunun için Mac tuşu ile boşluk tuşuna basıp Spotlight ekranını açarak (?fig-spotlight), terminal yazınız ve açılan penceyere aşağıdaki kodu yazınız.\nxcode-select --install\n{?fig-spotlight}\nBir süre bekledikten sonra"
+    "text": "1.2 Mac işletim sistemi\nMac sistemler üzerine kullanacağımız bütün biyoinformatik araçları kurma imkanımız bulunmaktadır. Bunun için Mac tuşu ile boşluk tuşuna basıp Spotlight ekranını açarak (?fig-spotlight), terminal yazınız ve açılan penceyere aşağıdaki kodu yazınız.\nxcode-select --install\n{?fig-spotlight}\nBir süre bekledikten sonra gerekli programlar kurulacaktır. Artık terminal programı üzerinden gerek uzak bilgisayarlarlar ssh bağlantısı, gerekse de kullanılacak biyoinformatik araçların kurulumunu gerçekleştirebilirsiniz."
   },
   {
     "objectID": "10-appendices/software-used.html#programların-kurulumu",
