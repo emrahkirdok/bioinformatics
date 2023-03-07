@@ -31,3 +31,26 @@ Daha sonra sistemi güncelleyelim:
 ```bash
 sudo apt update
 ```
+### Ubuntu sisteminde kullanıcı ismi sorunu
+
+Sorunlardan bir tanesi ön tanımlı kullanıcının `root` olmasıydı. Kullandığımız sistemler çok kullanıcılı sistemler. Her kullanıcının bazı hakları var. `root` kullanıcısı ise, en güçlü kullanıcı ve her şeyi yapma yeteneği var.
+
+O yüzden bu kullanıcı her zaman kullanmıuoruz. Eğer ubuntu alt sistemi `root` kullanıcısı ile açılıyorsa bunu değiştirmeliyiz.
+
+Önce ubuntu ekranını açalım ve yeni bir kullancı eklediğimizden emin olalım:
+
+```bash
+sudo adduser KULLANICI
+``` 
+
+Bu şekilde yeni kullanıcı ekleyelim. Aşağıdaki gibi bir ekran karşımıza çıkacak (@fig-subsystem-user):
+
+![Ubuntu alt sisteminde kullanıcı ekleme](https://www.tenforums.com/attachments/tutorials/226571d1551986837-add-user-windows-subsystem-linux-wsl-distro-windows-10-a-add_user_to_wsl_distro_as_sudo.png?s=592aa6b59c0251c1bc67aa357234a02c){#fig-subsystem-user}
+
+Şifrenizi girin (ancak imleç haraket etmeyecek, endişe etmeyin) ve tekrar girin.
+
+Kullanıcıyı oluşturduktan sonra, Windows'ta arama kısmına gelerek **Komut İstemi** yazın. bu da aslında Windows'un komut satırı arayüzü. Burada aşağıdaki satırı yazarak, yeni kullanıcınızı ön tanımlı olarak ekleyebilirsiniz.
+
+```bash
+ubuntu config --default-user KULLANICI
+```
