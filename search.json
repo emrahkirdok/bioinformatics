@@ -7,6 +7,20 @@
     "text": "Önsöz\nMerhabalar! Lisans üstü seviyede verilen İleri Biyoinformatik dersine hoşgeldiniz!"
   },
   {
+    "objectID": "00-setup/01-system.html#windows-işletim-sistemi",
+    "href": "00-setup/01-system.html#windows-işletim-sistemi",
+    "title": "1  Sistem kurulumu",
+    "section": "1.1 Windows işletim sistemi",
+    "text": "1.1 Windows işletim sistemi\nUzaktaki sunucuya bağlanmak için Mobaxterm yazılımını kullanabiliriz."
+  },
+  {
+    "objectID": "00-setup/01-system.html#mac-işletim-sistemi",
+    "href": "00-setup/01-system.html#mac-işletim-sistemi",
+    "title": "1  Sistem kurulumu",
+    "section": "1.2 Mac işletim sistemi",
+    "text": "1.2 Mac işletim sistemi\nMac sistemler üzerine kullanacağımız bütün biyoinformatik araçları kurma imkanımız bulunmaktadır. Bunun için Mac tuşu ile boşluk tuşuna basıp Spotlight ekranını açarak (?fig-spotlight), terminal yazınız ve açılan penceyere aşağıdaki kodu yazınız.\nxcode-select --install\n{?fig-spotlight}\nBir süre bekledikten sonra"
+  },
+  {
     "objectID": "10-appendices/software-used.html#programların-kurulumu",
     "href": "10-appendices/software-used.html#programların-kurulumu",
     "title": "Appendix A — Kullanılan Programlar",
