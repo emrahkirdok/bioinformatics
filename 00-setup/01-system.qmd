@@ -29,7 +29,7 @@ sudo apt update
 Daha sonra sistemi güncelleyelim:
 
 ```bash
-sudo apt update
+sudo apt upgrade
 ```
 ### Ubuntu sisteminde kullanıcı ismi sorunu
 
