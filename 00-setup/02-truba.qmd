@@ -12,7 +12,7 @@ Normalde uzak bir bilgisyara bağlanma sürecini şöyle özetleyebilirzi. İnte
 
 ```{dot}
 digraph g{
-    "Yerel Bilgisayar" --> "TRUBA";
+    "Yerel Bilgisayar" -> "TRUBA";
 }
 ```
 
@@ -20,6 +20,6 @@ Bu şekilde yapılan bir bağlantıda, TRUBA sistemine doğrudan bir hesap açı
 
 ```{dot}
 digraph g{
-"Yerel Bilgisayar" --> "OpenVPN" --> "TRUBA";
+"Yerel Bilgisayar" -> "OpenVPN" -> "TRUBA";
 }
 ```
