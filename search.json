@@ -28,6 +28,13 @@
     "text": "1.3 Ubuntu alt sistemi bakımı\nSisteminiz ara ara güncellemelisiniz. Öncelikle kullandığımız paketlerin en güncel versiyonlarını denetleyelim:\nsudo apt update\nDaha sonra sistemi güncelleyelim:\nsudo apt upgrade\n\n1.3.1 Ubuntu sisteminde kullanıcı ismi sorunu\nSorunlardan bir tanesi ön tanımlı kullanıcının root olmasıydı. Kullandığımız sistemler çok kullanıcılı sistemler. Her kullanıcının bazı hakları var. root kullanıcısı ise, en güçlü kullanıcı ve her şeyi yapma yeteneği var.\nO yüzden bu kullanıcı her zaman kullanmıuoruz. Eğer ubuntu alt sistemi root kullanıcısı ile açılıyorsa bunu değiştirmeliyiz.\nÖnce ubuntu ekranını açalım ve yeni bir kullancı eklediğimizden emin olalım:\nsudo adduser KULLANICI\nBu şekilde yeni kullanıcı ekleyelim. Aşağıdaki gibi bir ekran karşımıza çıkacak (Şekil 1.2):\n\n\n\nŞekil 1.2: Ubuntu alt sisteminde kullanıcı ekleme\n\n\nŞifrenizi girin (ancak imleç haraket etmeyecek, endişe etmeyin) ve tekrar girin.\nKullanıcıyı oluşturduktan sonra, Windows’ta arama kısmına gelerek Komut İstemi yazın. bu da aslında Windows’un komut satırı arayüzü. Burada aşağıdaki satırı yazarak, yeni kullanıcınızı ön tanımlı olarak ekleyebilirsiniz.\nubuntu config --default-user KULLANICI"
   },
   {
+    "objectID": "00-setup/02-truba.html",
+    "href": "00-setup/02-truba.html",
+    "title": "2  Truba",
+    "section": "",
+    "text": "Ders kapsamında TRUBA sunucularını kullanacağız. Bu imkanı bize sundukları için teşekkür ederiz.\nÖncelikle TRUBA internet sitesine giderek sistemi inceleyelim.\nTRUBA kaynaklarına üniversite içerisinden rahatlıkla bağlanabilirsiniz, ancak üniversite dışından bağlanmak için ise bilgisayarınza OpenVPN programını kurmanız gerekmektedir.\nAyrıntılar için Kurulum kılavuzunu inceleyin ve bilgisayarınza uygun olan kılavuz ile OpenVPN kurulumuunu tamamlayınız.\nNormalde uzak bir bilgisyara bağlanma sürecini şöyle özetleyebilirzi. İnternet üzerinde, sizin bilgisyarınız ve uzak bilgisayar arasında şifreli bir tünel (ssh) bağlantısı kurulmaktadır.\n\n\n\n\n\n\n\ng\n\n  \n\nYerel Bilgisayar\n\n Yerel Bilgisayar   \n\nTRUBA\n\n TRUBA   \n\nYerel Bilgisayar->TRUBA\n\n   \n\n\n\n\n\nBu şekilde yapılan bir bağlantıda, TRUBA sistemine doğrudan bir hesap açılmaktadır. Ancak, ULAKBİM üzerinden yapılmayan bağlantılar güvenli olmayabiir. Bağlantınızın güvenliği için OpenVPN tercih ediyoruz.\n\n\n\n\n\n\n\ng\n\n  \n\nYerel Bilgisayar\n\n Yerel Bilgisayar   \n\nOpenVPN\n\n OpenVPN   \n\nYerel Bilgisayar->OpenVPN\n\n    \n\nTRUBA\n\n TRUBA   \n\nOpenVPN->TRUBA"
+  },
+  {
     "objectID": "10-appendices/software-used.html#programların-kurulumu",
     "href": "10-appendices/software-used.html#programların-kurulumu",
     "title": "Appendix A — Kullanılan Programlar",
