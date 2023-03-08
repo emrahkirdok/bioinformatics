@@ -30,6 +30,7 @@ book:
     - part: "Derse Hazırlık"
       chapters:
         - 00-setup/01-system.qmd
+        - 00-setup/02-truba.qmd
       
     - references.qmd
   appendices:
