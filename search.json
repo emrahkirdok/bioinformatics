@@ -67,7 +67,7 @@
     "href": "00-setup/03-command-line.html#dosya-ve-klasör-kopyalama",
     "title": "3  Komut satırı kullanımı",
     "section": "3.5 Dosya ve klasör kopyalama",
-    "text": "3.5 Dosya ve klasör kopyalama\nİlk olarak örnek dosyamızı kopyalayarak işe başlayalım. cp komutu dosya ve klasörleri kopyalamak için kullanılır. Klasörleri kopyalamak istiyorsak -r işaretini eklememiz gerekir.\ncp -r /truba/home/egitim/test .\nBu komut bize, /truba/home/egitim/test klasörünü, . yani bulunduğumuz klasöre kpopyalamamızı sağlamaktadır.\nLinux üzerinde bunun gibi kısayollar bulunmaktadır.\n\n. bulunduğumuz klasör\n~ ev klasörümüz\n\nŞimdi tekrar bulunduğumuz klasör içindekileri listeleyelim:\nls -l\nŞimdi de test klasörüne girelim:\ncd test\n``` \n\nVe içindekileri listeleyelim:\n\n```bash\nls -l"
+    "text": "3.5 Dosya ve klasör kopyalama\nİlk olarak örnek dosyamızı kopyalayarak işe başlayalım. cp komutu dosya ve klasörleri kopyalamak için kullanılır. Klasörleri kopyalamak istiyorsak -r işaretini eklememiz gerekir.\ncp -r /truba/home/egitim/test .\nBu komut bize, /truba/home/egitim/test klasörünü, . yani bulunduğumuz klasöre kpopyalamamızı sağlamaktadır.\nLinux üzerinde bunun gibi kısayollar bulunmaktadır.\n\n. bulunduğumuz klasör\n~ ev klasörümüz\n\nŞimdi tekrar bulunduğumuz klasör içindekileri listeleyelim:\nls -l\nŞimdi de test klasörüne girelim:\ncd test\nVe içindekileri listeleyelim:\nls -l"
   },
   {
     "objectID": "00-setup/03-command-line.html#dosyalarda-işlem-yapmak",
