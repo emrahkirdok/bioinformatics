@@ -23,7 +23,7 @@ pwd
 
 Benim ekranımda bu komutun çıktısı şöyle oldu:
 
-```
+```bash
 /truba/home/egitim
 ```
 
@@ -54,7 +54,7 @@ ls -l
 
 Benim ekranımda şöyle bir görüntü çıktı (@fig-command-line). 
 
-![ls -l komutu çıktısı](){#fig-command-line}
+![ls -l komutu çıktısı](images/command-line.png){#fig-command-line}
 
 ## Klasörler arasında gezinti
 
