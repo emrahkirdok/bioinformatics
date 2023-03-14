@@ -35,6 +35,41 @@
     "text": "Ders kapsamında TRUBA sunucularını kullanacağız. Bu imkanı bize sundukları için teşekkür ederiz.\nÖncelikle TRUBA internet sitesine giderek sistemi inceleyelim.\nTRUBA kaynaklarına üniversite içerisinden rahatlıkla bağlanabilirsiniz, ancak üniversite dışından bağlanmak için ise bilgisayarınza OpenVPN programını kurmanız gerekmektedir.\nAyrıntılar için Kurulum kılavuzunu inceleyin ve bilgisayarınza uygun olan kılavuz ile OpenVPN kurulumuunu tamamlayınız.\nNormalde uzak bir bilgisyara bağlanma sürecini şöyle özetleyebilirzi. İnternet üzerinde, sizin bilgisyarınız ve uzak bilgisayar arasında şifreli bir tünel (ssh) bağlantısı kurulmaktadır.\n\n\n\n\n\n\n\ng\n\n  \n\nYerel Bilgisayar\n\n Yerel Bilgisayar   \n\nTRUBA\n\n TRUBA   \n\nYerel Bilgisayar->TRUBA\n\n   \n\n\n\n\n\nBu şekilde yapılan bir bağlantıda, TRUBA sistemine doğrudan bir hesap açılmaktadır. Ancak, ULAKBİM üzerinden yapılmayan bağlantılar güvenli olmayabiir. Bağlantınızın güvenliği için OpenVPN tercih ediyoruz.\n\n\n\n\n\n\n\ng\n\n  \n\nYerel Bilgisayar\n\n Yerel Bilgisayar   \n\nOpenVPN\n\n OpenVPN   \n\nYerel Bilgisayar->OpenVPN\n\n    \n\nTRUBA\n\n TRUBA   \n\nOpenVPN->TRUBA"
   },
   {
+    "objectID": "00-setup/03-command-line.html#linuxta-dosya-yapısı",
+    "href": "00-setup/03-command-line.html#linuxta-dosya-yapısı",
+    "title": "3  Komut satırı kullanımı",
+    "section": "3.1 Linux’ta dosya yapısı",
+    "text": "3.1 Linux’ta dosya yapısı\nGirdiğimiz ekran aslında bizim kullanıcı klasörümüz. Linux işletim sisteminde dosya yapısı kök / işareti ile başlar. Bu işaret aynı zamanda klasörleri birbirinden ayrır.\nBulunduğumuz klasörü elde etmek için pwd (print working directory) komutunu yazalım:\npwd\nBenim ekranımda bu komutun çıktısı şöyle oldu:\n/truba/home/egitim\nhome klasörü, kullanıcıların klasörlerinin bulunduğu konumu işaret etmektedir."
+  },
+  {
+    "objectID": "00-setup/03-command-line.html#klasör-oluşturma",
+    "href": "00-setup/03-command-line.html#klasör-oluşturma",
+    "title": "3  Komut satırı kullanımı",
+    "section": "3.2 Klasör oluşturma",
+    "text": "3.2 Klasör oluşturma\nŞimdi komut satırını öğrenmek için gerekli olan dosyaları yükleyeceğimiz klasörü oluşturalum. mkdir komutu klasör oluşturmak için kullanılır. İlk olarak kendi ismimizi kullanarak bir klasör oluşturalım:\nmkdir emrah"
+  },
+  {
+    "objectID": "00-setup/03-command-line.html#klasör-içindekileri-inceleme",
+    "href": "00-setup/03-command-line.html#klasör-içindekileri-inceleme",
+    "title": "3  Komut satırı kullanımı",
+    "section": "3.3 Klasör içindekileri inceleme",
+    "text": "3.3 Klasör içindekileri inceleme\nBir klasör içindeki dosyaları listelemek için ls komutunu kullanabiliriz:\nls\nEğer daha ayrıntılı bilgi istersek, ls -l komutunu kullanabiliriz. Bu komut, dosya ve klasörleri listeler:\nls -l\n``` \n\nBenim ekranımda şöyle bir görüntü çıktı (@fig-command-line). \n\n![ls -l komutu çıktısı](){#fig-command-line}\n\n## Klasörler arasında gezinti\n\nBir klasörün içerisine girmek için `cd` (change directory) komutu kullanılır:\n\n```bash\ncd emrah\nŞimdi hangi klasörde olduğumuza bakalım:\npwd"
+  },
+  {
+    "objectID": "00-setup/03-command-line.html#dosya-ve-klasör-kopyalama",
+    "href": "00-setup/03-command-line.html#dosya-ve-klasör-kopyalama",
+    "title": "3  Komut satırı kullanımı",
+    "section": "3.4 Dosya ve klasör kopyalama",
+    "text": "3.4 Dosya ve klasör kopyalama\nİlk olarak örnek dosyamızı kopyalayarak işe başlayalım. cp komutu dosya ve klasörleri kopyalamak için kullanılır. Klasörleri kopyalamak istiyorsak -r işaretini eklememiz gerekir.\ncp -r /truba/home/egitim/test .\nBu komut bize, /truba/home/egitim/test klasörünü, . yani bulunduğumuz klasöre kpopyalamamızı sağlamaktadır.\nLinux üzerinde bunun gibi kısayollar bulunmaktadır.\n\n. bulunduğumuz klasör\n~ ev klasörümüz\n\nŞimdi tekrar bulunduğumuz klasör içindekileri listeleyelim:\nls -l\nŞimdi de test klasörüne girelim:\ncd test\n``` \n\nVe içindekileri listeleyelim:\n\n```bash\nls -l"
+  },
+  {
+    "objectID": "00-setup/03-command-line.html#dosyalarda-işlem-yapmak",
+    "href": "00-setup/03-command-line.html#dosyalarda-işlem-yapmak",
+    "title": "3  Komut satırı kullanımı",
+    "section": "3.5 Dosyalarda işlem yapmak",
+    "text": "3.5 Dosyalarda işlem yapmak\nŞimdi ornek.fasta dosyasının içini inceleyelim. cat komutu bize bir dosyanın içindekileri ekrana yazdırma şansı verir:\ncat ornek.fasta\nDikkat ederseniz hepsini ekrana yazdırdı. Ancak dosyamız çok büyükse bunu yapma şansımız yok. O zaman less komutunu kullanabiliriz:\nless\nless aslında metin dosyalarını incelememizi sağlayan bir komut satırı programı. Bu sayede bir dosyanın içindekilere bakabiliriz. Bu programdan çıkmak için q tuşuna basınız."
+  },
+  {
     "objectID": "10-appendices/software-used.html#programların-kurulumu",
     "href": "10-appendices/software-used.html#programların-kurulumu",
     "title": "Appendix A — Kullanılan Programlar",

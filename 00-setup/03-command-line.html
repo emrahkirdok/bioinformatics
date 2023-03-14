@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Biyoinformatik - 1&nbsp; Sistem kurulumu</title>
+<title>Biyoinformatik - 3&nbsp; Komut satırı kullanımı</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,8 +93,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../00-setup/02-truba.html" rel="next">
-<link href="../CONTRIBUTING.html" rel="prev">
+<link href="../references.html" rel="next">
+<link href="../00-setup/02-truba.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sistem kurulumu</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Komut satırı kullanımı</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -184,7 +184,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../00-setup/01-system.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sistem kurulumu</span></a>
+  <a href="../00-setup/01-system.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sistem kurulumu</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -194,7 +194,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../00-setup/03-command-line.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Komut satırı kullanımı</span></a>
+  <a href="../00-setup/03-command-line.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Komut satırı kullanımı</span></a>
   </div>
 </li>
       </ul>
@@ -228,12 +228,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Içindekiler</h2>
    
   <ul>
-  <li><a href="#windows-işletim-sistemi" id="toc-windows-işletim-sistemi" class="nav-link active" data-scroll-target="#windows-işletim-sistemi"><span class="toc-section-number">1.1</span>  Windows işletim sistemi</a></li>
-  <li><a href="#mac-işletim-sistemi" id="toc-mac-işletim-sistemi" class="nav-link" data-scroll-target="#mac-işletim-sistemi"><span class="toc-section-number">1.2</span>  Mac işletim sistemi</a></li>
-  <li><a href="#ubuntu-alt-sistemi-bakımı" id="toc-ubuntu-alt-sistemi-bakımı" class="nav-link" data-scroll-target="#ubuntu-alt-sistemi-bakımı"><span class="toc-section-number">1.3</span>  Ubuntu alt sistemi bakımı</a>
-  <ul class="collapse">
-  <li><a href="#ubuntu-sisteminde-kullanıcı-ismi-sorunu" id="toc-ubuntu-sisteminde-kullanıcı-ismi-sorunu" class="nav-link" data-scroll-target="#ubuntu-sisteminde-kullanıcı-ismi-sorunu"><span class="toc-section-number">1.3.1</span>  Ubuntu sisteminde kullanıcı ismi sorunu</a></li>
-  </ul></li>
+  <li><a href="#linuxta-dosya-yapısı" id="toc-linuxta-dosya-yapısı" class="nav-link active" data-scroll-target="#linuxta-dosya-yapısı"><span class="toc-section-number">3.1</span>  Linux’ta dosya yapısı</a></li>
+  <li><a href="#klasör-oluşturma" id="toc-klasör-oluşturma" class="nav-link" data-scroll-target="#klasör-oluşturma"><span class="toc-section-number">3.2</span>  Klasör oluşturma</a></li>
+  <li><a href="#klasör-içindekileri-inceleme" id="toc-klasör-içindekileri-inceleme" class="nav-link" data-scroll-target="#klasör-içindekileri-inceleme"><span class="toc-section-number">3.3</span>  Klasör içindekileri inceleme</a></li>
+  <li><a href="#dosya-ve-klasör-kopyalama" id="toc-dosya-ve-klasör-kopyalama" class="nav-link" data-scroll-target="#dosya-ve-klasör-kopyalama"><span class="toc-section-number">3.4</span>  Dosya ve klasör kopyalama</a></li>
+  <li><a href="#dosyalarda-işlem-yapmak" id="toc-dosyalarda-işlem-yapmak" class="nav-link" data-scroll-target="#dosyalarda-işlem-yapmak"><span class="toc-section-number">3.5</span>  Dosyalarda işlem yapmak</a></li>
   </ul>
 </nav>
     </div>
@@ -242,7 +241,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sistem kurulumu</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Komut satırı kullanımı</span></h1>
 </div>
 
 
@@ -257,47 +256,75 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="windows-işletim-sistemi" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="windows-işletim-sistemi"><span class="header-section-number">1.1</span> Windows işletim sistemi</h2>
-<p>Uzaktaki sunucuya bağlanmak için <a href="https://mobaxterm.mobatek.net/">Mobaxterm</a> yazılımını kullanabiliriz.</p>
+<p>Bu döküman kapsamında, TRUBA üzerinde komut satırı kullanımını inceleyeceğiz.</p>
+<p>Öncelikle sistemimimize bağlanalım:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> egitim@172.16.7.1 </span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Sisteme girdikten sonra çıkan ekranı <code>enter</code> tuşuna basarak geçelim.</p>
+<section id="linuxta-dosya-yapısı" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="linuxta-dosya-yapısı"><span class="header-section-number">3.1</span> Linux’ta dosya yapısı</h2>
+<p>Girdiğimiz ekran aslında bizim kullanıcı klasörümüz. Linux işletim sisteminde dosya yapısı kök <code>/</code> işareti ile başlar. Bu işaret aynı zamanda klasörleri birbirinden ayrır.</p>
+<p>Bulunduğumuz klasörü elde etmek için <code>pwd</code> (print working directory) komutunu yazalım:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Benim ekranımda bu komutun çıktısı şöyle oldu:</p>
+<pre><code>/truba/home/egitim</code></pre>
+<p><code>home</code> klasörü, kullanıcıların klasörlerinin bulunduğu konumu işaret etmektedir.</p>
 </section>
-<section id="mac-işletim-sistemi" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="mac-işletim-sistemi"><span class="header-section-number">1.2</span> Mac işletim sistemi</h2>
-<p>Mac sistemler üzerine kullanacağımız bütün biyoinformatik araçları kurma imkanımız bulunmaktadır. Bunun için Mac tuşu ile boşluk tuşuna basıp Spotlight ekranını açarak (<a href="#fig-spotlight">Şekil&nbsp;<span>1.1</span></a>), <code>terminal</code> yazınız ve açılan penceyere aşağıdaki kodu yazınız.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">xcode-select</span> <span class="at">--install</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="fig-spotlight" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://mac.install.guide/assets/images/ruby/find-macos-terminal.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Şekil&nbsp;1.1: Mac üzerinde spotlight ekranı</figcaption><p></p>
-</figure>
-</div>
-<p>Bir süre bekledikten sonra gerekli programlar kurulacaktır. Artık <code>terminal</code> programı üzerinden gerek uzak bilgisayarlarlar <code>ssh</code> bağlantısı, gerekse de kullanılacak biyoinformatik araçların kurulumunu gerçekleştirebilirsiniz.</p>
+<section id="klasör-oluşturma" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="klasör-oluşturma"><span class="header-section-number">3.2</span> Klasör oluşturma</h2>
+<p>Şimdi komut satırını öğrenmek için gerekli olan dosyaları yükleyeceğimiz klasörü oluşturalum. <code>mkdir</code> komutu klasör oluşturmak için kullanılır. İlk olarak kendi ismimizi kullanarak bir klasör oluşturalım:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> emrah</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="ubuntu-alt-sistemi-bakımı" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="ubuntu-alt-sistemi-bakımı"><span class="header-section-number">1.3</span> Ubuntu alt sistemi bakımı</h2>
-<p>Sisteminiz ara ara güncellemelisiniz. Öncelikle kullandığımız paketlerin en güncel versiyonlarını denetleyelim:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Daha sonra sistemi güncelleyelim:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt upgrade</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="ubuntu-sisteminde-kullanıcı-ismi-sorunu" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="ubuntu-sisteminde-kullanıcı-ismi-sorunu"><span class="header-section-number">1.3.1</span> Ubuntu sisteminde kullanıcı ismi sorunu</h3>
-<p>Sorunlardan bir tanesi ön tanımlı kullanıcının <code>root</code> olmasıydı. Kullandığımız sistemler çok kullanıcılı sistemler. Her kullanıcının bazı hakları var. <code>root</code> kullanıcısı ise, en güçlü kullanıcı ve her şeyi yapma yeteneği var.</p>
-<p>O yüzden bu kullanıcı her zaman kullanmıuoruz. Eğer ubuntu alt sistemi <code>root</code> kullanıcısı ile açılıyorsa bunu değiştirmeliyiz.</p>
-<p>Önce ubuntu ekranını açalım ve yeni bir kullancı eklediğimizden emin olalım:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> adduser KULLANICI</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Bu şekilde yeni kullanıcı ekleyelim. Aşağıdaki gibi bir ekran karşımıza çıkacak (<a href="#fig-subsystem-user">Şekil&nbsp;<span>1.2</span></a>):</p>
-<div id="fig-subsystem-user" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://www.tenforums.com/attachments/tutorials/226571d1551986837-add-user-windows-subsystem-linux-wsl-distro-windows-10-a-add_user_to_wsl_distro_as_sudo.png?s=592aa6b59c0251c1bc67aa357234a02c" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Şekil&nbsp;1.2: Ubuntu alt sisteminde kullanıcı ekleme</figcaption><p></p>
-</figure>
-</div>
-<p>Şifrenizi girin (ancak imleç haraket etmeyecek, endişe etmeyin) ve tekrar girin.</p>
-<p>Kullanıcıyı oluşturduktan sonra, Windows’ta arama kısmına gelerek <strong>Komut İstemi</strong> yazın. bu da aslında Windows’un komut satırı arayüzü. Burada aşağıdaki satırı yazarak, yeni kullanıcınızı ön tanımlı olarak ekleyebilirsiniz.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ubuntu</span> config <span class="at">--default-user</span> KULLANICI</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="klasör-içindekileri-inceleme" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="klasör-içindekileri-inceleme"><span class="header-section-number">3.3</span> Klasör içindekileri inceleme</h2>
+<p>Bir klasör içindeki dosyaları listelemek için <code>ls</code> komutunu kullanabiliriz:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Eğer daha ayrıntılı bilgi istersek, <code>ls -l</code> komutunu kullanabiliriz. Bu komut, dosya ve klasörleri listeler:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">&nbsp;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Benim</span> ekranımda şöyle bir görüntü çıktı <span class="er">(</span><span class="ex">@fig-command-line</span><span class="kw">)</span><span class="bu">.</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ex">![ls</span> <span class="at">-l</span> komutu çıktısı]<span class="er">(</span><span class="kw">)</span><span class="ex">{#fig-command-line}</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">## Klasörler arasında gezinti</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Bir</span> klasörün içerisine girmek için <span class="kw">`</span>cd<span class="kw">`</span> <span class="kw">(</span><span class="ex">change</span> directory<span class="kw">)</span> <span class="ex">komutu</span> kullanılır:</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span>bash</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> emrah</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Şimdi hangi klasörde olduğumuza bakalım:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="dosya-ve-klasör-kopyalama" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="dosya-ve-klasör-kopyalama"><span class="header-section-number">3.4</span> Dosya ve klasör kopyalama</h2>
+<p>İlk olarak örnek dosyamızı kopyalayarak işe başlayalım. <code>cp</code> komutu dosya ve klasörleri kopyalamak için kullanılır. Klasörleri kopyalamak istiyorsak <code>-r</code> işaretini eklememiz gerekir.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> /truba/home/egitim/test .</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Bu komut bize, <code>/truba/home/egitim/test</code> klasörünü, <code>.</code> yani bulunduğumuz klasöre kpopyalamamızı sağlamaktadır.</p>
+<p>Linux üzerinde bunun gibi kısayollar bulunmaktadır.</p>
+<ul>
+<li><code>.</code> bulunduğumuz klasör</li>
+<li><code>~</code> ev klasörümüz</li>
+</ul>
+<p>Şimdi tekrar bulunduğumuz klasör içindekileri listeleyelim:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Şimdi de <code>test</code> klasörüne girelim:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> test</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">&nbsp;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Ve</span> içindekileri listeleyelim:</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span>bash</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="dosyalarda-işlem-yapmak" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="dosyalarda-işlem-yapmak"><span class="header-section-number">3.5</span> Dosyalarda işlem yapmak</h2>
+<p>Şimdi <code>ornek.fasta</code> dosyasının içini inceleyelim. <code>cat</code> komutu bize bir dosyanın içindekileri ekrana yazdırma şansı verir:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ornek.fasta</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dikkat ederseniz hepsini ekrana yazdırdı. Ancak dosyamız çok büyükse bunu yapma şansımız yok. O zaman <code>less</code> komutunu kullanabiliriz:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>less</code> aslında metin dosyalarını incelememizi sağlayan bir komut satırı programı. Bu sayede bir dosyanın içindekilere bakabiliriz. Bu programdan çıkmak için <code>q</code> tuşuna basınız.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -436,13 +463,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../CONTRIBUTING.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Katkı Sağlama</span>
+      <a href="../00-setup/02-truba.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Truba</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../00-setup/02-truba.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Truba</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../references.html" class="pagination-link">
+        <span class="nav-page-text">Kaynakça</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
