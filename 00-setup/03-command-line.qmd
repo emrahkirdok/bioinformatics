@@ -46,11 +46,11 @@ Bir klasör içindeki dosyaları listelemek için `ls` komutunu kullanabiliriz:
 ls
 ```
 
-Eğer daha ayrıntılı bilgi istersek, `ls -l` komutunu kullanabiliriz. Bu komut, dosya ve klasörleri listeler:
+Eğer daha ayrıntılı bilgi istersek, `ls -l` komutunu kullanabiliriz. Bu komut, dosya ve klasörleri listeler
 
 ```bash
 ls -l
-``` 
+```
 
 Benim ekranımda şöyle bir görüntü çıktı (@fig-command-line). 
 
@@ -63,7 +63,6 @@ Bir klasörün içerisine girmek için `cd` (change directory) komutu kullanıl�
 ```bash
 cd emrah
 ```
-
 Şimdi hangi klasörde olduğumuza bakalım:
 
 ```bash
