@@ -231,8 +231,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#linuxta-dosya-yapısı" id="toc-linuxta-dosya-yapısı" class="nav-link active" data-scroll-target="#linuxta-dosya-yapısı"><span class="toc-section-number">3.1</span>  Linux’ta dosya yapısı</a></li>
   <li><a href="#klasör-oluşturma" id="toc-klasör-oluşturma" class="nav-link" data-scroll-target="#klasör-oluşturma"><span class="toc-section-number">3.2</span>  Klasör oluşturma</a></li>
   <li><a href="#klasör-içindekileri-inceleme" id="toc-klasör-içindekileri-inceleme" class="nav-link" data-scroll-target="#klasör-içindekileri-inceleme"><span class="toc-section-number">3.3</span>  Klasör içindekileri inceleme</a></li>
-  <li><a href="#dosya-ve-klasör-kopyalama" id="toc-dosya-ve-klasör-kopyalama" class="nav-link" data-scroll-target="#dosya-ve-klasör-kopyalama"><span class="toc-section-number">3.4</span>  Dosya ve klasör kopyalama</a></li>
-  <li><a href="#dosyalarda-işlem-yapmak" id="toc-dosyalarda-işlem-yapmak" class="nav-link" data-scroll-target="#dosyalarda-işlem-yapmak"><span class="toc-section-number">3.5</span>  Dosyalarda işlem yapmak</a></li>
+  <li><a href="#klasörler-arasında-gezinti" id="toc-klasörler-arasında-gezinti" class="nav-link" data-scroll-target="#klasörler-arasında-gezinti"><span class="toc-section-number">3.4</span>  Klasörler arasında gezinti</a></li>
+  <li><a href="#dosya-ve-klasör-kopyalama" id="toc-dosya-ve-klasör-kopyalama" class="nav-link" data-scroll-target="#dosya-ve-klasör-kopyalama"><span class="toc-section-number">3.5</span>  Dosya ve klasör kopyalama</a></li>
+  <li><a href="#dosyalarda-işlem-yapmak" id="toc-dosyalarda-işlem-yapmak" class="nav-link" data-scroll-target="#dosyalarda-işlem-yapmak"><span class="toc-section-number">3.6</span>  Dosyalarda işlem yapmak</a></li>
   </ul>
 </nav>
     </div>
@@ -278,27 +279,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="3.3" class="anchored" data-anchor-id="klasör-içindekileri-inceleme"><span class="header-section-number">3.3</span> Klasör içindekileri inceleme</h2>
 <p>Bir klasör içindeki dosyaları listelemek için <code>ls</code> komutunu kullanabiliriz:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Eğer daha ayrıntılı bilgi istersek, <code>ls -l</code> komutunu kullanabiliriz. Bu komut, dosya ve klasörleri listeler:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">&nbsp;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Benim</span> ekranımda şöyle bir görüntü çıktı <span class="er">(</span><span class="ex">@fig-command-line</span><span class="kw">)</span><span class="bu">.</span> </span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ex">![ls</span> <span class="at">-l</span> komutu çıktısı]<span class="er">(</span><span class="ex">images/command-line.png</span><span class="kw">)</span><span class="ex">{#fig-command-line}</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">## Klasörler arasında gezinti</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Bir</span> klasörün içerisine girmek için <span class="kw">`</span>cd<span class="kw">`</span> <span class="kw">(</span><span class="ex">change</span> directory<span class="kw">)</span> <span class="ex">komutu</span> kullanılır:</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span>bash</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> emrah</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Şimdi hangi klasörde olduğumuza bakalım:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Eğer daha ayrıntılı bilgi istersek, <code>ls -l</code> komutunu kullanabiliriz. Bu komut, dosya ve klasörleri listeler</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Benim ekranımda şöyle bir görüntü çıktı (<a href="#fig-command-line">Şekil&nbsp;<span>3.1</span></a>).</p>
+<div id="fig-command-line" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/command-line.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Şekil&nbsp;3.1: ls -l komutu çıktısı</figcaption><p></p>
+</figure>
+</div>
 </section>
-<section id="dosya-ve-klasör-kopyalama" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="dosya-ve-klasör-kopyalama"><span class="header-section-number">3.4</span> Dosya ve klasör kopyalama</h2>
+<section id="klasörler-arasında-gezinti" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="klasörler-arasında-gezinti"><span class="header-section-number">3.4</span> Klasörler arasında gezinti</h2>
+<p>Bir klasörün içerisine girmek için <code>cd</code> (change directory) komutu kullanılır:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> emrah</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Şimdi hangi klasörde olduğumuza bakalım:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="dosya-ve-klasör-kopyalama" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="dosya-ve-klasör-kopyalama"><span class="header-section-number">3.5</span> Dosya ve klasör kopyalama</h2>
 <p>İlk olarak örnek dosyamızı kopyalayarak işe başlayalım. <code>cp</code> komutu dosya ve klasörleri kopyalamak için kullanılır. Klasörleri kopyalamak istiyorsak <code>-r</code> işaretini eklememiz gerekir.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> /truba/home/egitim/test .</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> /truba/home/egitim/test .</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Bu komut bize, <code>/truba/home/egitim/test</code> klasörünü, <code>.</code> yani bulunduğumuz klasöre kpopyalamamızı sağlamaktadır.</p>
 <p>Linux üzerinde bunun gibi kısayollar bulunmaktadır.</p>
 <ul>
@@ -306,22 +307,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>~</code> ev klasörümüz</li>
 </ul>
 <p>Şimdi tekrar bulunduğumuz klasör içindekileri listeleyelim:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Şimdi de <code>test</code> klasörüne girelim:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> test</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">&nbsp;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Ve</span> içindekileri listeleyelim:</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span>bash</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> test</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">&nbsp;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Ve</span> içindekileri listeleyelim:</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span>bash</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="dosyalarda-işlem-yapmak" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="dosyalarda-işlem-yapmak"><span class="header-section-number">3.5</span> Dosyalarda işlem yapmak</h2>
+<section id="dosyalarda-işlem-yapmak" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="dosyalarda-işlem-yapmak"><span class="header-section-number">3.6</span> Dosyalarda işlem yapmak</h2>
 <p>Şimdi <code>ornek.fasta</code> dosyasının içini inceleyelim. <code>cat</code> komutu bize bir dosyanın içindekileri ekrana yazdırma şansı verir:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ornek.fasta</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ornek.fasta</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dikkat ederseniz hepsini ekrana yazdırdı. Ancak dosyamız çok büyükse bunu yapma şansımız yok. O zaman <code>less</code> komutunu kullanabiliriz:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>less</code> aslında metin dosyalarını incelememizi sağlayan bir komut satırı programı. Bu sayede bir dosyanın içindekilere bakabiliriz. Bu programdan çıkmak için <code>q</code> tuşuna basınız.</p>
 
 

@@ -53,21 +53,28 @@
     "href": "00-setup/03-command-line.html#klasör-içindekileri-inceleme",
     "title": "3  Komut satırı kullanımı",
     "section": "3.3 Klasör içindekileri inceleme",
-    "text": "3.3 Klasör içindekileri inceleme\nBir klasör içindeki dosyaları listelemek için ls komutunu kullanabiliriz:\nls\nEğer daha ayrıntılı bilgi istersek, ls -l komutunu kullanabiliriz. Bu komut, dosya ve klasörleri listeler:\nls -l\n``` \n\nBenim ekranımda şöyle bir görüntü çıktı (@fig-command-line). \n\n![ls -l komutu çıktısı](images/command-line.png){#fig-command-line}\n\n## Klasörler arasında gezinti\n\nBir klasörün içerisine girmek için `cd` (change directory) komutu kullanılır:\n\n```bash\ncd emrah\nŞimdi hangi klasörde olduğumuza bakalım:\npwd"
+    "text": "3.3 Klasör içindekileri inceleme\nBir klasör içindeki dosyaları listelemek için ls komutunu kullanabiliriz:\nls\nEğer daha ayrıntılı bilgi istersek, ls -l komutunu kullanabiliriz. Bu komut, dosya ve klasörleri listeler\nls -l\nBenim ekranımda şöyle bir görüntü çıktı (Şekil 3.1).\n\n\n\nŞekil 3.1: ls -l komutu çıktısı"
+  },
+  {
+    "objectID": "00-setup/03-command-line.html#klasörler-arasında-gezinti",
+    "href": "00-setup/03-command-line.html#klasörler-arasında-gezinti",
+    "title": "3  Komut satırı kullanımı",
+    "section": "3.4 Klasörler arasında gezinti",
+    "text": "3.4 Klasörler arasında gezinti\nBir klasörün içerisine girmek için cd (change directory) komutu kullanılır:\ncd emrah\nŞimdi hangi klasörde olduğumuza bakalım:\npwd"
   },
   {
     "objectID": "00-setup/03-command-line.html#dosya-ve-klasör-kopyalama",
     "href": "00-setup/03-command-line.html#dosya-ve-klasör-kopyalama",
     "title": "3  Komut satırı kullanımı",
-    "section": "3.4 Dosya ve klasör kopyalama",
-    "text": "3.4 Dosya ve klasör kopyalama\nİlk olarak örnek dosyamızı kopyalayarak işe başlayalım. cp komutu dosya ve klasörleri kopyalamak için kullanılır. Klasörleri kopyalamak istiyorsak -r işaretini eklememiz gerekir.\ncp -r /truba/home/egitim/test .\nBu komut bize, /truba/home/egitim/test klasörünü, . yani bulunduğumuz klasöre kpopyalamamızı sağlamaktadır.\nLinux üzerinde bunun gibi kısayollar bulunmaktadır.\n\n. bulunduğumuz klasör\n~ ev klasörümüz\n\nŞimdi tekrar bulunduğumuz klasör içindekileri listeleyelim:\nls -l\nŞimdi de test klasörüne girelim:\ncd test\n``` \n\nVe içindekileri listeleyelim:\n\n```bash\nls -l"
+    "section": "3.5 Dosya ve klasör kopyalama",
+    "text": "3.5 Dosya ve klasör kopyalama\nİlk olarak örnek dosyamızı kopyalayarak işe başlayalım. cp komutu dosya ve klasörleri kopyalamak için kullanılır. Klasörleri kopyalamak istiyorsak -r işaretini eklememiz gerekir.\ncp -r /truba/home/egitim/test .\nBu komut bize, /truba/home/egitim/test klasörünü, . yani bulunduğumuz klasöre kpopyalamamızı sağlamaktadır.\nLinux üzerinde bunun gibi kısayollar bulunmaktadır.\n\n. bulunduğumuz klasör\n~ ev klasörümüz\n\nŞimdi tekrar bulunduğumuz klasör içindekileri listeleyelim:\nls -l\nŞimdi de test klasörüne girelim:\ncd test\n``` \n\nVe içindekileri listeleyelim:\n\n```bash\nls -l"
   },
   {
     "objectID": "00-setup/03-command-line.html#dosyalarda-işlem-yapmak",
     "href": "00-setup/03-command-line.html#dosyalarda-işlem-yapmak",
     "title": "3  Komut satırı kullanımı",
-    "section": "3.5 Dosyalarda işlem yapmak",
-    "text": "3.5 Dosyalarda işlem yapmak\nŞimdi ornek.fasta dosyasının içini inceleyelim. cat komutu bize bir dosyanın içindekileri ekrana yazdırma şansı verir:\ncat ornek.fasta\nDikkat ederseniz hepsini ekrana yazdırdı. Ancak dosyamız çok büyükse bunu yapma şansımız yok. O zaman less komutunu kullanabiliriz:\nless\nless aslında metin dosyalarını incelememizi sağlayan bir komut satırı programı. Bu sayede bir dosyanın içindekilere bakabiliriz. Bu programdan çıkmak için q tuşuna basınız."
+    "section": "3.6 Dosyalarda işlem yapmak",
+    "text": "3.6 Dosyalarda işlem yapmak\nŞimdi ornek.fasta dosyasının içini inceleyelim. cat komutu bize bir dosyanın içindekileri ekrana yazdırma şansı verir:\ncat ornek.fasta\nDikkat ederseniz hepsini ekrana yazdırdı. Ancak dosyamız çok büyükse bunu yapma şansımız yok. O zaman less komutunu kullanabiliriz:\nless\nless aslında metin dosyalarını incelememizi sağlayan bir komut satırı programı. Bu sayede bir dosyanın içindekilere bakabiliriz. Bu programdan çıkmak için q tuşuna basınız."
   },
   {
     "objectID": "10-appendices/software-used.html#programların-kurulumu",
