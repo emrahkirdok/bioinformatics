@@ -1,0 +1,121 @@
+# Komut satırı kullanımı
+
+Bu döküman kapsamında, TRUBA üzerinde komut satırı kullanımını inceleyeceğiz.
+
+Öncelikle sistemimimize bağlanalım:
+
+```bash
+ssh egitim@172.16.7.1 
+```
+
+Sisteme girdikten sonra çıkan ekranı `enter` tuşuna basarak geçelim.
+
+## Linux'ta dosya yapısı
+
+Girdiğimiz ekran aslında bizim kullanıcı klasörümüz. Linux işletim sisteminde dosya yapısı kök `/` işareti ile başlar. Bu işaret aynı zamanda klasörleri birbirinden ayrır.
+
+Bulunduğumuz klasörü elde etmek için `pwd` (print working directory) komutunu yazalım:
+
+
+```bash
+pwd
+```
+
+Benim ekranımda bu komutun çıktısı şöyle oldu:
+
+```
+/truba/home/egitim
+```
+
+`home` klasörü, kullanıcıların klasörlerinin bulunduğu konumu işaret etmektedir.
+
+## Klasör oluşturma
+
+Şimdi komut satırını öğrenmek için gerekli olan dosyaları yükleyeceğimiz klasörü oluşturalum. `mkdir` komutu klasör oluşturmak için kullanılır. İlk olarak kendi ismimizi kullanarak bir klasör oluşturalım:
+
+
+```bash
+mkdir emrah
+```
+
+## Klasör içindekileri inceleme 
+
+Bir klasör içindeki dosyaları listelemek için `ls` komutunu kullanabiliriz:
+
+```bash
+ls
+```
+
+Eğer daha ayrıntılı bilgi istersek, `ls -l` komutunu kullanabiliriz. Bu komut, dosya ve klasörleri listeler:
+
+```bash
+ls -l
+``` 
+
+Benim ekranımda şöyle bir görüntü çıktı (@fig-command-line). 
+
+![ls -l komutu çıktısı](){#fig-command-line}
+
+## Klasörler arasında gezinti
+
+Bir klasörün içerisine girmek için `cd` (change directory) komutu kullanılır:
+
+```bash
+cd emrah
+```
+
+Şimdi hangi klasörde olduğumuza bakalım:
+
+```bash
+pwd
+```
+
+## Dosya ve klasör kopyalama
+
+İlk olarak örnek dosyamızı kopyalayarak işe başlayalım. `cp` komutu dosya ve klasörleri kopyalamak için kullanılır. Klasörleri kopyalamak istiyorsak `-r` işaretini eklememiz gerekir.
+
+```bash
+cp -r /truba/home/egitim/test .
+```
+
+Bu komut bize, `/truba/home/egitim/test` klasörünü, `.` yani bulunduğumuz klasöre kpopyalamamızı sağlamaktadır.
+
+Linux üzerinde bunun gibi kısayollar bulunmaktadır.
+
++ `.` bulunduğumuz klasör
++ `~` ev klasörümüz
+
+Şimdi tekrar bulunduğumuz klasör içindekileri listeleyelim:
+
+```bash
+ls -l
+```
+
+Şimdi de `test` klasörüne girelim:
+
+```bash
+cd test
+``` 
+
+Ve içindekileri listeleyelim:
+
+```bash
+ls -l
+```
+
+## Dosyalarda işlem yapmak
+
+Şimdi `ornek.fasta` dosyasının içini inceleyelim. `cat` komutu bize bir dosyanın içindekileri ekrana yazdırma şansı verir:
+
+```bash
+cat ornek.fasta
+```
+
+Dikkat ederseniz hepsini ekrana yazdırdı. Ancak dosyamız çok büyükse bunu yapma şansımız yok. O zaman `less` komutunu kullanabiliriz:
+
+```bash
+less
+```
+
+`less` aslında metin dosyalarını incelememizi sağlayan bir komut satırı programı. Bu sayede bir dosyanın içindekilere bakabiliriz. Bu programdan çıkmak için `q` tuşuna basınız.
+

@@ -31,6 +31,7 @@ book:
       chapters:
         - 00-setup/01-system.qmd
         - 00-setup/02-truba.qmd
+        - 00-setup/03-command-line.qmd
       
     - references.qmd
   appendices:
