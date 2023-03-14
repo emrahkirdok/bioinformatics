@@ -53,7 +53,7 @@
     "href": "00-setup/03-command-line.html#klasör-içindekileri-inceleme",
     "title": "3  Komut satırı kullanımı",
     "section": "3.3 Klasör içindekileri inceleme",
-    "text": "3.3 Klasör içindekileri inceleme\nBir klasör içindeki dosyaları listelemek için ls komutunu kullanabiliriz:\nls\nEğer daha ayrıntılı bilgi istersek, ls -l komutunu kullanabiliriz. Bu komut, dosya ve klasörleri listeler:\nls -l\n``` \n\nBenim ekranımda şöyle bir görüntü çıktı (@fig-command-line). \n\n![ls -l komutu çıktısı](){#fig-command-line}\n\n## Klasörler arasında gezinti\n\nBir klasörün içerisine girmek için `cd` (change directory) komutu kullanılır:\n\n```bash\ncd emrah\nŞimdi hangi klasörde olduğumuza bakalım:\npwd"
+    "text": "3.3 Klasör içindekileri inceleme\nBir klasör içindeki dosyaları listelemek için ls komutunu kullanabiliriz:\nls\nEğer daha ayrıntılı bilgi istersek, ls -l komutunu kullanabiliriz. Bu komut, dosya ve klasörleri listeler:\nls -l\n``` \n\nBenim ekranımda şöyle bir görüntü çıktı (@fig-command-line). \n\n![ls -l komutu çıktısı](images/command-line.png){#fig-command-line}\n\n## Klasörler arasında gezinti\n\nBir klasörün içerisine girmek için `cd` (change directory) komutu kullanılır:\n\n```bash\ncd emrah\nŞimdi hangi klasörde olduğumuza bakalım:\npwd"
   },
   {
     "objectID": "00-setup/03-command-line.html#dosya-ve-klasör-kopyalama",
