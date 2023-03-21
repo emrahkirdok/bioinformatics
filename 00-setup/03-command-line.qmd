@@ -118,3 +118,49 @@ less
 
 `less` aslında metin dosyalarını incelememizi sağlayan bir komut satırı programı. Bu sayede bir dosyanın içindekilere bakabiliriz. Bu programdan çıkmak için `q` tuşuna basınız.
 
+İstersek `less` programı ile dosyalar içerisinde arama da yapabiliriz. Bunun için ise, öncelikle `/` karakterine basalım, daha sonra da aramak istediğimiz kelimeyi yazalım. `less` programı sizin arama yaptığınızı anlayacaktır.
+
+Şimdi yine `ornek.fasta` dosyasını açalım ve "ENA" kelimesini arayalım
+
+## Dosyalarda arama yapmak
+
+İstersek `grep` komutu ile de bir dosya içerisinde arama yapabiliriz. Ancak bu sefer yaptığımız arama ekrana yazdırılacaktır:
+
+```bash
+grep ENA ornek.fasta
+```
+
+## Çıktı yönlendirme
+
+Linux temelli sistemlerin en önemli özelliklerinden bir tanesi de çıktı yönlendirmedir. Yukarıdaki komuta bakmıştık, istersek çıktıyı başka bit dosyaya yönlendirebiliriz. Bunun için `>` komutunu kullanmalıyız.
+
+```bash
+grep ENA ornek.fasta > arama.txt
+```
+
+Ne yaptık? Önce `ornek.fasta` dosyasında "ENA" kelimesini aradık, ve çıktıyı başka bir metin dosyasına yönlendirdirdik.
+
+## Boru (Pipe)
+
+Diğer önemli bir özellik ise, elimizdeki çıktıyı başka bir dosyaya yönlendirmek. Bunun için `|` karakterini kullanıyoruz.
+
+```bash
+grep ENA ornek.fasta | grep CAA
+```
+
+Yukarıdaki komuta bakarsak, önce "ENA" kelimesini arıyoruyz, sonra çıktıyı başka bir `grep` komutuna yönlendirip, `CAA` kelimesini arıyoruyz.
+
+İstersek o çıktıyı bir dosyaya gönderebiliriz:
+
+```bash
+grep ENA ornek.fasta | grep CAA > arama.txt
+```
+
+Ama dikkat edin! Artık `arama.txt` dosyasının üzerine yazdık! Eğer bu dosyayı korumak istiyorsanız başka bir dosya ismi vermelisiniz.
+
+:::{.callout-warning}
+## Varolan dosyanın üzerine yazma
+
+Eğer `>` kullanırsanız, ve varolan bir dosyayı hedef gösterirseniz, o dosyanın üzerine yazmış olursunuz!
+:::
+
