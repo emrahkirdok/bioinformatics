@@ -234,6 +234,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#klasörler-arasında-gezinti" id="toc-klasörler-arasında-gezinti" class="nav-link" data-scroll-target="#klasörler-arasında-gezinti"><span class="toc-section-number">3.4</span>  Klasörler arasında gezinti</a></li>
   <li><a href="#dosya-ve-klasör-kopyalama" id="toc-dosya-ve-klasör-kopyalama" class="nav-link" data-scroll-target="#dosya-ve-klasör-kopyalama"><span class="toc-section-number">3.5</span>  Dosya ve klasör kopyalama</a></li>
   <li><a href="#dosyalarda-işlem-yapmak" id="toc-dosyalarda-işlem-yapmak" class="nav-link" data-scroll-target="#dosyalarda-işlem-yapmak"><span class="toc-section-number">3.6</span>  Dosyalarda işlem yapmak</a></li>
+  <li><a href="#dosyalarda-arama-yapmak" id="toc-dosyalarda-arama-yapmak" class="nav-link" data-scroll-target="#dosyalarda-arama-yapmak"><span class="toc-section-number">3.7</span>  Dosyalarda arama yapmak</a></li>
+  <li><a href="#çıktı-yönlendirme" id="toc-çıktı-yönlendirme" class="nav-link" data-scroll-target="#çıktı-yönlendirme"><span class="toc-section-number">3.8</span>  Çıktı yönlendirme</a></li>
+  <li><a href="#boru-pipe" id="toc-boru-pipe" class="nav-link" data-scroll-target="#boru-pipe"><span class="toc-section-number">3.9</span>  Boru (Pipe)</a></li>
   </ul>
 </nav>
     </div>
@@ -320,6 +323,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Dikkat ederseniz hepsini ekrana yazdırdı. Ancak dosyamız çok büyükse bunu yapma şansımız yok. O zaman <code>less</code> komutunu kullanabiliriz:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>less</code> aslında metin dosyalarını incelememizi sağlayan bir komut satırı programı. Bu sayede bir dosyanın içindekilere bakabiliriz. Bu programdan çıkmak için <code>q</code> tuşuna basınız.</p>
+<p>İstersek <code>less</code> programı ile dosyalar içerisinde arama da yapabiliriz. Bunun için ise, öncelikle <code>/</code> karakterine basalım, daha sonra da aramak istediğimiz kelimeyi yazalım. <code>less</code> programı sizin arama yaptığınızı anlayacaktır.</p>
+<p>Şimdi yine <code>ornek.fasta</code> dosyasını açalım ve “ENA” kelimesini arayalım</p>
+</section>
+<section id="dosyalarda-arama-yapmak" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="dosyalarda-arama-yapmak"><span class="header-section-number">3.7</span> Dosyalarda arama yapmak</h2>
+<p>İstersek <code>grep</code> komutu ile de bir dosya içerisinde arama yapabiliriz. Ancak bu sefer yaptığımız arama ekrana yazdırılacaktır:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> ENA ornek.fasta</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="çıktı-yönlendirme" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="çıktı-yönlendirme"><span class="header-section-number">3.8</span> Çıktı yönlendirme</h2>
+<p>Linux temelli sistemlerin en önemli özelliklerinden bir tanesi de çıktı yönlendirmedir. Yukarıdaki komuta bakmıştık, istersek çıktıyı başka bit dosyaya yönlendirebiliriz. Bunun için <code>&gt;</code> komutunu kullanmalıyız.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> ENA ornek.fasta <span class="op">&gt;</span> arama.txt</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ne yaptık? Önce <code>ornek.fasta</code> dosyasında “ENA” kelimesini aradık, ve çıktıyı başka bir metin dosyasına yönlendirdirdik.</p>
+</section>
+<section id="boru-pipe" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="boru-pipe"><span class="header-section-number">3.9</span> Boru (Pipe)</h2>
+<p>Diğer önemli bir özellik ise, elimizdeki çıktıyı başka bir dosyaya yönlendirmek. Bunun için <code>|</code> karakterini kullanıyoruz.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> ENA ornek.fasta <span class="kw">|</span><span class="ex">&nbsp;grep</span> CAA</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Yukarıdaki komuta bakarsak, önce “ENA” kelimesini arıyoruyz, sonra çıktıyı başka bir <code>grep</code> komutuna yönlendirip, <code>CAA</code> kelimesini arıyoruyz.</p>
+<p>İstersek o çıktıyı bir dosyaya gönderebiliriz:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> ENA ornek.fasta <span class="kw">|</span><span class="ex">&nbsp;grep</span> CAA <span class="op">&gt;</span> arama.txt</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ama dikkat edin! Artık <code>arama.txt</code> dosyasının üzerine yazdık! Eğer bu dosyayı korumak istiyorsanız başka bir dosya ismi vermelisiniz.</p>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Varolan dosyanın üzerine yazma
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Eğer <code>&gt;</code> kullanırsanız, ve varolan bir dosyayı hedef gösterirseniz, o dosyanın üzerine yazmış olursunuz!</p>
+</div>
+</div>
 
 
 </section>

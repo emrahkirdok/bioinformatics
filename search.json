@@ -74,7 +74,28 @@
     "href": "00-setup/03-command-line.html#dosyalarda-işlem-yapmak",
     "title": "3  Komut satırı kullanımı",
     "section": "3.6 Dosyalarda işlem yapmak",
-    "text": "3.6 Dosyalarda işlem yapmak\nŞimdi ornek.fasta dosyasının içini inceleyelim. cat komutu bize bir dosyanın içindekileri ekrana yazdırma şansı verir:\ncat ornek.fasta\nDikkat ederseniz hepsini ekrana yazdırdı. Ancak dosyamız çok büyükse bunu yapma şansımız yok. O zaman less komutunu kullanabiliriz:\nless\nless aslında metin dosyalarını incelememizi sağlayan bir komut satırı programı. Bu sayede bir dosyanın içindekilere bakabiliriz. Bu programdan çıkmak için q tuşuna basınız."
+    "text": "3.6 Dosyalarda işlem yapmak\nŞimdi ornek.fasta dosyasının içini inceleyelim. cat komutu bize bir dosyanın içindekileri ekrana yazdırma şansı verir:\ncat ornek.fasta\nDikkat ederseniz hepsini ekrana yazdırdı. Ancak dosyamız çok büyükse bunu yapma şansımız yok. O zaman less komutunu kullanabiliriz:\nless\nless aslında metin dosyalarını incelememizi sağlayan bir komut satırı programı. Bu sayede bir dosyanın içindekilere bakabiliriz. Bu programdan çıkmak için q tuşuna basınız.\nİstersek less programı ile dosyalar içerisinde arama da yapabiliriz. Bunun için ise, öncelikle / karakterine basalım, daha sonra da aramak istediğimiz kelimeyi yazalım. less programı sizin arama yaptığınızı anlayacaktır.\nŞimdi yine ornek.fasta dosyasını açalım ve “ENA” kelimesini arayalım"
+  },
+  {
+    "objectID": "00-setup/03-command-line.html#dosyalarda-arama-yapmak",
+    "href": "00-setup/03-command-line.html#dosyalarda-arama-yapmak",
+    "title": "3  Komut satırı kullanımı",
+    "section": "3.7 Dosyalarda arama yapmak",
+    "text": "3.7 Dosyalarda arama yapmak\nİstersek grep komutu ile de bir dosya içerisinde arama yapabiliriz. Ancak bu sefer yaptığımız arama ekrana yazdırılacaktır:\ngrep ENA ornek.fasta"
+  },
+  {
+    "objectID": "00-setup/03-command-line.html#çıktı-yönlendirme",
+    "href": "00-setup/03-command-line.html#çıktı-yönlendirme",
+    "title": "3  Komut satırı kullanımı",
+    "section": "3.8 Çıktı yönlendirme",
+    "text": "3.8 Çıktı yönlendirme\nLinux temelli sistemlerin en önemli özelliklerinden bir tanesi de çıktı yönlendirmedir. Yukarıdaki komuta bakmıştık, istersek çıktıyı başka bit dosyaya yönlendirebiliriz. Bunun için > komutunu kullanmalıyız.\ngrep ENA ornek.fasta > arama.txt\nNe yaptık? Önce ornek.fasta dosyasında “ENA” kelimesini aradık, ve çıktıyı başka bir metin dosyasına yönlendirdirdik."
+  },
+  {
+    "objectID": "00-setup/03-command-line.html#boru-pipe",
+    "href": "00-setup/03-command-line.html#boru-pipe",
+    "title": "3  Komut satırı kullanımı",
+    "section": "3.9 Boru (Pipe)",
+    "text": "3.9 Boru (Pipe)\nDiğer önemli bir özellik ise, elimizdeki çıktıyı başka bir dosyaya yönlendirmek. Bunun için | karakterini kullanıyoruz.\ngrep ENA ornek.fasta | grep CAA\nYukarıdaki komuta bakarsak, önce “ENA” kelimesini arıyoruyz, sonra çıktıyı başka bir grep komutuna yönlendirip, CAA kelimesini arıyoruyz.\nİstersek o çıktıyı bir dosyaya gönderebiliriz:\ngrep ENA ornek.fasta | grep CAA > arama.txt\nAma dikkat edin! Artık arama.txt dosyasının üzerine yazdık! Eğer bu dosyayı korumak istiyorsanız başka bir dosya ismi vermelisiniz.\n\n\n\n\n\n\nVarolan dosyanın üzerine yazma\n\n\n\nEğer > kullanırsanız, ve varolan bir dosyayı hedef gösterirseniz, o dosyanın üzerine yazmış olursunuz!"
   },
   {
     "objectID": "10-appendices/software-used.html#programların-kurulumu",
