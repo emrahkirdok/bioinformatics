@@ -1,0 +1,41 @@
+# Fastq kalite kontrol
+
+ilk olarak fastq dosyalarının kalite kontrolünü işleyeceğiz
+
+Öncelikle TRUBA sistemimize girelim.
+
+Kendi oluşturduğumuz klasörlere girelim. Siz kendi isminizi yazınız.
+
+```bash
+cd emrah
+```
+
+Daha sonra ders klasörünü kopyalayalım:
+
+```bash
+cp -r /truba/home/egitim/Dersler/00-Fastq-Kalite_Kontrol .
+```
+
+Ve klasör içerisine girelim:
+
+```bash
+cd 00-Fastq-Kalite-Kontrol
+```
+
+İçeriğe bakalım:
+
+```bash
+ls -l
+```
+
+Data klasörü içeriğine bakalım:
+
+```bash
+ls -l data
+``` 
+
+istersek dosyayı inceleyebiliriz:
+
+```bash
+less data/sample1.fastq.gz
+```
