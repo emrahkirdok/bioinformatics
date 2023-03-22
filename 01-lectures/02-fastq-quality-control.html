@@ -284,6 +284,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> fastqc_before_trimming.sh</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Gönderdiğimiz işi şu şekilde kontrol edelim:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">-u</span> egitim</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Bunu ara ara takip edelim. İşimiz bittiğinide artık bu ekranda bir bilgi olmayacak.</p>
+<p>İşimiz bittiğinde sonra, çalışma klasörümüzde <code>slurm</code> ile başlayan bir dosya oluşacak. Bu dosyayı, <code>less</code> programı ile kontrol edelim. Bu doya bizim komutlarımızn çıktılarını gösterecek.</p>
+<p>Eğer başarılı olduysak <code>results/fastqc_before_trimming</code> klasörü içinde bir kaç dosya oluşacak. Onlara bakalım:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> results/fastqc_before_trimming</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 
