@@ -63,3 +63,14 @@ Gönderdiğimiz işi şu şekilde kontrol edelim:
 ```bash
 squeue -u egitim
 ```
+
+Bunu ara ara takip edelim. İşimiz bittiğinide artık bu ekranda bir bilgi olmayacak.
+
+İşimiz bittiğinde sonra, çalışma klasörümüzde `slurm` ile başlayan bir dosya oluşacak. Bu dosyayı, `less` programı ile kontrol edelim. Bu doya bizim komutlarımızn çıktılarını gösterecek.
+
+Eğer başarılı olduysak `results/fastqc_before_trimming` klasörü içinde bir kaç dosya oluşacak. Onlara bakalım:
+
+```bash
+ls -lh results/fastqc_before_trimming
+```
+
