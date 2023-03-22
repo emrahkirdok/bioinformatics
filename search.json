@@ -98,6 +98,13 @@
     "text": "3.9 Boru (Pipe)\nDiğer önemli bir özellik ise, elimizdeki çıktıyı başka bir dosyaya yönlendirmek. Bunun için | karakterini kullanıyoruz.\ngrep ENA ornek.fasta | grep CAA\nYukarıdaki komuta bakarsak, önce “ENA” kelimesini arıyoruyz, sonra çıktıyı başka bir grep komutuna yönlendirip, CAA kelimesini arıyoruyz.\nİstersek o çıktıyı bir dosyaya gönderebiliriz:\ngrep ENA ornek.fasta | grep CAA > arama.txt\nAma dikkat edin! Artık arama.txt dosyasının üzerine yazdık! Eğer bu dosyayı korumak istiyorsanız başka bir dosya ismi vermelisiniz.\n\n\n\n\n\n\nVarolan dosyanın üzerine yazma\n\n\n\nEğer > kullanırsanız, ve varolan bir dosyayı hedef gösterirseniz, o dosyanın üzerine yazmış olursunuz!"
   },
   {
+    "objectID": "01-lectures/02-fastq-quality-control.html",
+    "href": "01-lectures/02-fastq-quality-control.html",
+    "title": "4  Fastq kalite kontrol",
+    "section": "",
+    "text": "ilk olarak fastq dosyalarının kalite kontrolünü işleyeceğiz\nÖncelikle TRUBA sistemimize girelim.\nKendi oluşturduğumuz klasörlere girelim. Siz kendi isminizi yazınız.\ncd emrah\nDaha sonra ders klasörünü kopyalayalım:\ncp -r /truba/home/egitim/Dersler/00-Fastq-Kalite_Kontrol .\nVe klasör içerisine girelim:\ncd 00-Fastq-Kalite-Kontrol\nİçeriğe bakalım:\nls -l\nData klasörü içeriğine bakalım:\nls -l data\nistersek dosyayı inceleyebiliriz:\nless data/sample1.fastq.gz"
+  },
+  {
     "objectID": "10-appendices/software-used.html#programların-kurulumu",
     "href": "10-appendices/software-used.html#programların-kurulumu",
     "title": "Appendix A — Kullanılan Programlar",
