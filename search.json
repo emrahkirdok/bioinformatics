@@ -102,7 +102,7 @@
     "href": "01-lectures/02-fastq-quality-control.html",
     "title": "4  Fastq kalite kontrol",
     "section": "",
-    "text": "ilk olarak fastq dosyalarının kalite kontrolünü işleyeceğiz\nÖncelikle TRUBA sistemimize girelim.\nKendi oluşturduğumuz klasörlere girelim. Siz kendi isminizi yazınız.\ncd emrah\nDaha sonra ders klasörünü kopyalayalım:\ncp -r /truba/home/egitim/Dersler/00-Fastq-Kalite_Kontrol .\nVe klasör içerisine girelim:\ncd 00-Fastq-Kalite-Kontrol\nİçeriğe bakalım:\nls -l\nData klasörü içeriğine bakalım:\nls -l data\nistersek dosyayı inceleyebiliriz:\nless data/sample1.fastq.gz"
+    "text": "ilk olarak fastq dosyalarının kalite kontrolünü işleyeceğiz\nÖncelikle TRUBA sistemimize girelim.\nKendi oluşturduğumuz klasörlere girelim. Siz kendi isminizi yazınız.\ncd emrah\nDaha sonra ders klasörünü kopyalayalım:\ncp -r /truba/home/egitim/Dersler/00-Fastq-Kalite_Kontrol .\nVe klasör içerisine girelim:\ncd 00-Fastq-Kalite-Kontrol\nİçeriğe bakalım:\nls -l\nData klasörü içeriğine bakalım:\nls -l data\nistersek dosyayı inceleyebiliriz:\nless data/sample1.fastq.gz\nŞimdi bu incelediğimiz dosyanın kalite kontrol işlemini gerçekleştireceğiz. Bunun için fastqc programını kullancağız.\nBunun için TRUBA sistemine bir iş betiği göndermemiz gerekli. Bu iş betiği dosyasını inceleyelim:\ncat fastqc_before_trimming.sh\nBu iş betiği dosyası, istediğimiz komutları TRUBA sistemine gönderip çalıştıracak.\nBunun için Barbun isimli bilgisayardan, 4 tane işlemci rezerve ediyoruz ve egitim kullanıcı ismiyle işimizi slurm sistemine gönderityoruz.\nİş dosyasını çalıştıralım:\nsbatch fastqc_before_trimming.sh"
   },
   {
     "objectID": "10-appendices/software-used.html#programların-kurulumu",
