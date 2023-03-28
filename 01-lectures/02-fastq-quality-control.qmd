@@ -13,7 +13,7 @@ cd emrah
 Daha sonra ders klasörünü kopyalayalım:
 
 ```bash
-cp -r /truba/home/egitim/Dersler/00-Fastq-Kalite_Kontrol .
+cp -r /truba/home/egitim/Dersler/00-Fastq-Kalite-Kontrol .
 ```
 
 Ve klasör içerisine girelim:
@@ -28,17 +28,19 @@ cd 00-Fastq-Kalite-Kontrol
 ls -l
 ```
 
-Data klasörü içeriğine bakalım:
+`Data` klasörü içeriğine bakalım:
 
 ```bash
 ls -l data
 ``` 
 
-istersek dosyayı inceleyebiliriz:
+İstersek dosyayı inceleyebiliriz:
 
 ```bash
 less data/sample1.fastq.gz
 ```
+
+Bu dosyanın uzantısı `gz`. Biyoinformatik alanında kullanılan dosyalar genelde çok yer kapladıkları için sıkıştırılırlar. Bu uzantı da dosyanın sıkıştırıldığını bize söylüyor. Genelde `less` komutu sıkıştırılmış dosyaları açabilir. Ancak açamadıysa onun yerine `zless` komutunu deneyebilirsiniz. Bu program özel olarak `gz` uzantılı dosyaları açmak için tasarlanmıştır.
 
 Şimdi bu incelediğimiz dosyanın kalite kontrol işlemini gerçekleştireceğiz. Bunun için `fastqc` programını kullancağız.
 
@@ -51,6 +53,32 @@ cat fastqc_before_trimming.sh
 Bu iş betiği dosyası, istediğimiz komutları TRUBA sistemine gönderip çalıştıracak.
 
 Bunun için Barbun isimli bilgisayardan, 4 tane işlemci rezerve ediyoruz ve egitim kullanıcı ismiyle işimizi slurm sistemine gönderityoruz.
+
+Bu iş dosyasını inceleyelim
+
+Birinci satır genelde zorunlu olarak kullanılması gereken bir satır. Bu aslında dosyanın `bash` ile çalıştırılması gerektiğini söylüyor:
+
+```bash
+#!/bin/bash
+```
+
+`#SBATCH` ile başlayan satırlar ise, slurm sisteminde gerekli olan parametreleri belirliyor.
+
++ `--partition` opsiyonu ile kullanacağımız bilgisayarı belirleyebiliriyoruz
++ `--ntasks-per-node` opsyinu ile kaç tane çekirdek kullanmak istediğimizi belirliyoruz
++ `--user` opsiyonu ise kullancı ismimizi belirlememizi sağlıyor. Unutmayıni kullanıcı isminizi mutlaka belirlemeliziniz.
+
+`PATH` ile başlayan satır ise, kullanılacak programların yolunu belirtiyor.
+
+Ardından ilk olarak `mkdir` ile çıktı dosyalarımızı yazacağımız klasörü belirliyoruz.
+
+Daha sonra `fastqc` programını çalıştırıyoruz.
+
+Öncelile kullanıcı isminizi `nano` programı ile düzeltiniz:
+
+```bash
+nano fastqc_before_trimming.sh
+```
 
 İş dosyasını çalıştıralım:
 
@@ -74,3 +102,8 @@ Eğer başarılı olduysak `results/fastqc_before_trimming` klasörü içinde bi
 ls -lh results/fastqc_before_trimming
 ```
 
+Bu dosyayı bilgisayarımıza indirebiliriz. Önce yeni bir ubuntu ekranı ya da terminal ekranı açalım ve aşağıdaki komutu yazalım:
+
+```bash
+scp egitim@levrek1.ulakbim.gov.tr:/truba/home/egitim/emrah/00-Fastq-Kalite-Kontrol/results/fastqc-before-trimming/*html .
+```
