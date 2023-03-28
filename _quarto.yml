@@ -34,7 +34,7 @@ book:
         - 00-setup/03-command-line.qmd
     - part: "Dersler"
       chapters:
-        - 01-lectures/02-ynd.qmd
+        - 01-lectures/01-ynd.qmd
         - 01-lectures/02-fastq-quality-control.qmd
       
     - references.qmd
