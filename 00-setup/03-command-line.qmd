@@ -164,3 +164,22 @@ Ama dikkat edin! Artık `arama.txt` dosyasının üzerine yazdık! Eğer bu dosy
 Eğer `>` kullanırsanız, ve varolan bir dosyayı hedef gösterirseniz, o dosyanın üzerine yazmış olursunuz!
 :::
 
+## Metin dosyaları oluşturmak
+
+Şimdi ise metin dosyalarını oluşturma ve kaydetmeye bakalım. Metin tabanlı sistemlerde `nano` isimli metin editörü, bize metin dosyaları ile çalışma imkanı sağlar. 
+
+Daha önce oluşturduğumuz `arama.txt` dosyasını açalım:
+
+```bash
+nano arama.txt
+```
+
+Artık dosya içerisine istediğimiz bilgiyi yazabiliriz. Yazdıklarımız bittikten sonra `ctrl + o ` tuşu ile kaydedebiliriz. Ardından `ctrl + x` tuş kombinasyonuyla çıkış yapabilirsiniz.
+
+İsterseniz yeni bir dosya da oluşturabilirsiniz:
+
+```bash
+nano yeni-dosya.txt
+```
+
+Dikkat edin, boşluk karakteri kullanmadım. Onun yerine tire `-` karakterini kullandım
