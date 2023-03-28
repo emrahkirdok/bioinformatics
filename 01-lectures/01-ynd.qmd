@@ -1,0 +1,8 @@
+# Yeni Nesil Dizileme Teknolojileri
+
+Bu kısımda okunması gereken makaleleri ekiyorum:
+
++ [Goodwin et al., 2016](https://www.nature.com/articles/nrg.2016.49.)
++ [Slatko et al., 2018](https://currentprotocols.onlinelibrary.wiley.com/doi/abs/10.1002/cpmb.59)
++ [Voelkerding et al., 2009](https://academic.oup.com/clinchem/article/55/4/641/5629392?login=true) 
++ [Dönmez et al., 2015](https://dergipark.org.tr/tr/download/article-file/417947)
