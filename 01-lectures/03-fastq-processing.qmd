@@ -1,0 +1,23 @@
+# Fastq işleme adımları
+
+Yeni nesil dizileme teknolojilerinin ardaından elde edilen DNA okumlarının işlenmeleri gerekir. Bir önceki derste `fastqc` aracı ile elde ettiğimiz raporda şu noktalara dikkat etmiştik:
+
+
+Tekrar sistemimize giriş yapalım ve daha önce kendi ismimizde oluşturduğumuz klasöre giriş yapalım:
+
+```bash
+cd emrah
+```
+
+Daha sonra ders kapsamında işleyeceğimiz komutları ve veriyi içeren klasörü kopyalayalım:
+
+```bash
+cp -r /truba/home/egitim/Dersler/01-Fastq-kirpma .
+```
+
+Şimdi kopyaladığımız klasöre girelim:
+
+```bash
+cd 01-Fastq-kirpma
+```
+
