@@ -21,3 +21,65 @@ cp -r /truba/home/egitim/Dersler/01-Fastq-kirpma .
 cd 01-Fastq-kirpma
 ```
 
+Bu klasör içerisindeki dosyalara bakalım:
+
+```bash
+ls -lh
+```
+
+Bu klasör içeriisinde bulunan `data` klasörü, aslında kullanacağımız veriyi içermektedir. Aslında bir önceki derslerde kullandığımız verinin aynısını kullanıyoruz.
+
+Şimdi, elimizdeki `fastq` dosyasını, bir önceki derste elde ettiğimiz `fastqc` raporuna göre işleyelim.
+
+Bu iş için kullanacağımız program `cutadapt` olacak. Bu program, bir fastq dosyasında kalite kontrol işlemleri yapmak için kullanılmaktadır.
+
+Öncelikle kullanacağımız programın yolunu belirtelim ve programın opsiyonlarını inceleyelim:
+
+```bash
+PATH=${PATH}:/truba/home/egitim/miniconda3/envs/aMeta/bin/
+```
+
+Şimdi `cutadapt --help` komutu ile programın bütün opsiyonlarını öğrenebilirisniz. Ancak en önemlililer aşağıda:
+
++ `a`: ileri yönlü DNA okumalarında adaptörlerin kesilmesi
++ `A`: geri yönlü okumalardaki adaptörlerin kesilmesi
++ `q`: belirlenen eşik değerinin altındaki okuma kalitesine sahip nükleotidlerin kesilmesi
++ `minimum-length` kesimin ardından belirli nükleotidleriden kısa olan okumaları at
+
+Bizim fastq dosyalarımız tek yönlü olduğu için, sadece `a` opsiyonunu kullanacağız.
+
+Şimdi sbatch dosyamıza bakalım. Unutmayın, `account` satırını, kendi hesabınıza göre değiştirmeniz gerek.
+
+```bash
+cat Cutadapt_Adapter_Trimming.sh
+```
+
+Şimdi de dosyamızı çalıştıralım:
+
+```bash
+sbatch Cutadapt_Adapter_Trimming.sh
+```
+
+Eğer işlem doğru bir şekilde sonlanmışsa `results` isimli bir klasör oluşması gerekir.
+
+Şimdi bakalım:
+
+```bash
+ls -lh results
+```
+
+Uzantısı `.trimmed.fastq.gz` olan ik dosya oluşmuş olmalı.
+
+Peki gerçekten adaptörleri uzaklaştırdık mı? Bunun için tekrar `fastqc` programın çalıştırmalıyız. Aslında kullancağımız program, geçen hafta kullandığımızın aynısı. Ancak, `fastqc` programına işlenmiş dosyaları vermeliyiz.
+
+Bu işlemi yürütmek için ise `Fastqc_after_trimming.sh` dosyasını çalıştırmalıyız.
+
+```bash
+sbatch Fastqc_after_trimming.sh
+```
+
+Şimdi yeni bir konsol açalım ve oluşturduğumuz `fastqc` raporlarını incelemek için bilgisyarımıza indirelim:
+
+```bash
+scp egitim@levrek1.ulakbim.gov.tr:/truba/home/egitim/emrah/01-Fastq-kirpma/results/*html .
+```
