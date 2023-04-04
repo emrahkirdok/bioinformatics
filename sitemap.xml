@@ -2,38 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://emrahkirdok.github.io/bioinformatics/index.html</loc>
-    <lastmod>2023-04-03T20:46:43.945Z</lastmod>
+    <lastmod>2023-04-04T06:33:14.508Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/bioinformatics/CONTRIBUTING.html</loc>
-    <lastmod>2023-04-03T20:46:43.949Z</lastmod>
+    <lastmod>2023-04-04T06:33:14.508Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/bioinformatics/00-setup/01-system.html</loc>
-    <lastmod>2023-04-03T20:46:43.949Z</lastmod>
+    <lastmod>2023-04-04T06:33:14.508Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/bioinformatics/00-setup/02-truba.html</loc>
-    <lastmod>2023-04-03T20:46:43.953Z</lastmod>
+    <lastmod>2023-04-04T06:33:14.508Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/bioinformatics/00-setup/03-command-line.html</loc>
-    <lastmod>2023-04-03T20:46:43.953Z</lastmod>
+    <lastmod>2023-04-04T06:33:14.512Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/bioinformatics/01-lectures/01-ynd.html</loc>
-    <lastmod>2023-04-03T20:46:43.953Z</lastmod>
+    <lastmod>2023-04-04T06:33:14.512Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/bioinformatics/01-lectures/02-fastq-quality-control.html</loc>
-    <lastmod>2023-04-03T20:46:43.953Z</lastmod>
+    <lastmod>2023-04-04T06:33:14.512Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emrahkirdok.github.io/bioinformatics/01-lectures/03-fastq-processing.html</loc>
+    <lastmod>2023-04-04T06:33:14.512Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/bioinformatics/references.html</loc>
-    <lastmod>2023-04-03T20:46:43.953Z</lastmod>
+    <lastmod>2023-04-04T06:33:14.512Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/bioinformatics/10-appendices/software-used.html</loc>
-    <lastmod>2023-04-03T20:46:43.953Z</lastmod>
+    <lastmod>2023-04-04T06:33:14.512Z</lastmod>
   </url>
 </urlset>
