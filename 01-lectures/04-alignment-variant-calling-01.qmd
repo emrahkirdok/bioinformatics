@@ -1,0 +1,86 @@
+# Hizalama
+
+İlk olarak kullanım yolumuzu belirleyelim. Programlarımız bu klasör içerisinde bulunmaktadır. Linux üzerinde bulunan, `PATH` değişkeni, kullanılacak programların hangi klasörlerde aranacağını gösterir.
+
+İsterseniz öncelikle kendi sisteminizdeki `PATH` değişkenine bakınız:
+
+```bash
+echo ${PATH}
+```
+
+Geri dönen satıra baktığınızda, `:` ile ayrılan klasörler, programların aranacağı klasörleri göstermektedir. Çalıştırmak istediğiniz program, en soldaki klasörden başlayarak aranır. İlk bulunan klasördeki program çalıştırılır.
+
+Şimdi programları yükleyeceğimiz konumu `PATH` değişkeni içine ekleyelim:
+
+```bash
+PATH=${PATH}:/truba/home/egitim/miniconda3/envs/bioinformatics/bin/
+``` 
+
+Şimdi klasörün eklenip eklenmediğini kontrol edelim:
+
+```bash
+echo ${PATH}
+```
+
+Kullanacağımız programın ismi `bwa`. Öncelikle opsyionlarına bakalım:
+
+```bash
+bwa
+```
+
+Şimdi çalışmaya başlayalım (siz kendi klasörünüze giriniz):
+
+```bash
+cd emrah
+
+cp -r /truba/home/egitim/Dersler/02-Hizalama/ .
+```
+
+Bir sonraki adımda, referans genomu indeksleyelim
+
+```bash
+bwa index data/GCF_000191105.1_ASM19110v1_genomic.fna
+```
+
+Oluşan dosyalara bakalım:
+
+```bash
+ls -l data
+```
+
+Öncelikle çıktı klasörümüzü oluşturalım:
+
+```bash
+
+mkdir results
+```
+
+Siz bu satırları doğrudan çalıştırmayın. Genel olarak `slurm` sistemi üzerinden komutları çalıştırıyoruz
+
+```bash
+bwa aln data/GCF_000191105.1_ASM19110v1_genomic.fna data/ERR3079326_1.fastq.gz > results/ERR3079326_1.sai
+bwa aln data/GCF_000191105.1_ASM19110v1_genomic.fna data/ERR3079326_2.fastq.gz > results/ERR3079326_2.sai
+```
+
+Son olarak bütün dosyaları birleştirerek, hizalama `sam` dosyası elde ediyoruz.
+
+```bash
+bwa sampe data/GCF_000191105.1_ASM19110v1_genomic.fna results/ERR3079326_1.sai results/ERR3079326_2.sai data/ERR3079326_1.fastq.gz data/ERR3079326_2.fastq.gz > results/ERR3079326.sam
+
+```
+
+Bu komutların hepsini çalıştırmak için kısaca şunu yazabilirsiniz:
+
+```bash
+sbatch hizalama.sh
+``` 
+
+İşimiz bittiğinde, oluşan `sam` dosyasını inceleyelim:
+
+```bash
+less results/ERR3079326.sam
+```
+
+Sam dosya formatı hakkında bilgi almak için [Şu dosyayı inceleyebilirsiniz](https://samtools.github.io/hts-specs/SAMv1.pdf).
+
+

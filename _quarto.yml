@@ -37,6 +37,7 @@ book:
         - 01-lectures/01-ynd.qmd
         - 01-lectures/02-fastq-quality-control.qmd
         - 01-lectures/03-fastq-processing.qmd
+        - 01-lectures/04-alignment-variant-calling-01.qmd
       
     - references.qmd
   appendices:
