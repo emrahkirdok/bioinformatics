@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Biyoinformatik - 6&nbsp; Fastq işleme adımları</title>
+<title>Biyoinformatik - 7&nbsp; Hizalama</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,8 +93,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../01-lectures/04-alignment-variant-calling-01.html" rel="next">
-<link href="../01-lectures/02-fastq-quality-control.html" rel="prev">
+<link href="../references.html" rel="next">
+<link href="../01-lectures/03-fastq-processing.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Fastq işleme adımları</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hizalama</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -219,12 +219,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-lectures/03-fastq-processing.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Fastq işleme adımları</span></a>
+  <a href="../01-lectures/03-fastq-processing.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Fastq işleme adımları</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-lectures/04-alignment-variant-calling-01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hizalama</span></a>
+  <a href="../01-lectures/04-alignment-variant-calling-01.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hizalama</span></a>
   </div>
 </li>
       </ul>
@@ -261,7 +261,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Fastq işleme adımları</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hizalama</span></h1>
 </div>
 
 
@@ -276,41 +276,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p>Yeni nesil dizileme teknolojilerinin ardaından elde edilen DNA okumlarının işlenmeleri gerekir. Bir önceki derste <code>fastqc</code> aracı ile elde ettiğimiz raporda şu noktalara dikkat etmiştik:</p>
-<p>Tekrar sistemimize giriş yapalım ve daha önce kendi ismimizde oluşturduğumuz klasöre giriş yapalım:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> emrah</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Daha sonra ders kapsamında işleyeceğimiz komutları ve veriyi içeren klasörü kopyalayalım:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> /truba/home/egitim/Dersler/01-Fastq-kirpma .</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Şimdi kopyaladığımız klasöre girelim:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> 01-Fastq-kirpma</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Bu klasör içerisindeki dosyalara bakalım:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Bu klasör içeriisinde bulunan <code>data</code> klasörü, aslında kullanacağımız veriyi içermektedir. Aslında bir önceki derslerde kullandığımız verinin aynısını kullanıyoruz.</p>
-<p>Şimdi, elimizdeki <code>fastq</code> dosyasını, bir önceki derste elde ettiğimiz <code>fastqc</code> raporuna göre işleyelim.</p>
-<p>Bu iş için kullanacağımız program <code>cutadapt</code> olacak. Bu program, bir fastq dosyasında kalite kontrol işlemleri yapmak için kullanılmaktadır.</p>
-<p>Öncelikle kullanacağımız programın yolunu belirtelim ve programın opsiyonlarını inceleyelim:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="va">PATH</span><span class="op">=</span><span class="va">${PATH}</span>:/truba/home/egitim/miniconda3/envs/aMeta/bin/</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Şimdi <code>cutadapt --help</code> komutu ile programın bütün opsiyonlarını öğrenebilirisniz. Ancak en önemlililer aşağıda:</p>
-<ul>
-<li><code>a</code>: ileri yönlü DNA okumalarında adaptörlerin kesilmesi</li>
-<li><code>A</code>: geri yönlü okumalardaki adaptörlerin kesilmesi</li>
-<li><code>q</code>: belirlenen eşik değerinin altındaki okuma kalitesine sahip nükleotidlerin kesilmesi</li>
-<li><code>minimum-length</code> kesimin ardından belirli nükleotidleriden kısa olan okumaları at</li>
-</ul>
-<p>Bizim fastq dosyalarımız tek yönlü olduğu için, sadece <code>a</code> opsiyonunu kullanacağız.</p>
-<p>Şimdi sbatch dosyamıza bakalım. Unutmayın, <code>account</code> satırını, kendi hesabınıza göre değiştirmeniz gerek.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> Cutadapt_Adapter_Trimming.sh</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Şimdi de dosyamızı çalıştıralım:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> Cutadapt_Adapter_Trimming.sh</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Eğer işlem doğru bir şekilde sonlanmışsa <code>results</code> isimli bir klasör oluşması gerekir.</p>
-<p>Şimdi bakalım:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> results</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Uzantısı <code>.trimmed.fastq.gz</code> olan ik dosya oluşmuş olmalı.</p>
-<p>Peki gerçekten adaptörleri uzaklaştırdık mı? Bunun için tekrar <code>fastqc</code> programın çalıştırmalıyız. Aslında kullancağımız program, geçen hafta kullandığımızın aynısı. Ancak, <code>fastqc</code> programına işlenmiş dosyaları vermeliyiz.</p>
-<p>Bu işlemi yürütmek için ise <code>Fastqc_after_trimming.sh</code> dosyasını çalıştırmalıyız.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> Fastqc_after_trimming.sh</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Şimdi yeni bir konsol açalım ve oluşturduğumuz <code>fastqc</code> raporlarını incelemek için bilgisyarımıza indirelim:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scp</span> egitim@levrek1.ulakbim.gov.tr:/truba/home/egitim/emrah/01-Fastq-kirpma/results/<span class="pp">*</span>html .</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>İlk olarak kullanım yolumuzu belirleyelim. Programlarımız bu klasör içerisinde bulunmaktadır. Linux üzerinde bulunan, <code>PATH</code> değişkeni, kullanılacak programların hangi klasörlerde aranacağını gösterir.</p>
+<p>İsterseniz öncelikle kendi sisteminizdeki <code>PATH</code> değişkenine bakınız:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">${PATH}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Geri dönen satıra baktığınızda, <code>:</code> ile ayrılan klasörler, programların aranacağı klasörleri göstermektedir. Çalıştırmak istediğiniz program, en soldaki klasörden başlayarak aranır. İlk bulunan klasördeki program çalıştırılır.</p>
+<p>Şimdi programları yükleyeceğimiz konumu <code>PATH</code> değişkeni içine ekleyelim:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="va">PATH</span><span class="op">=</span><span class="va">${PATH}</span>:/truba/home/egitim/miniconda3/envs/bioinformatics/bin/</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Şimdi klasörün eklenip eklenmediğini kontrol edelim:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">${PATH}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Kullanacağımız programın ismi <code>bwa</code>. Öncelikle opsyionlarına bakalım:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Şimdi çalışmaya başlayalım (siz kendi klasörünüze giriniz):</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> emrah</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> /truba/home/egitim/Dersler/02-Hizalama/ .</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Bir sonraki adımda, referans genomu indeksleyelim</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> index data/GCF_000191105.1_ASM19110v1_genomic.fna</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Oluşan dosyalara bakalım:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span> data</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Öncelikle çıktı klasörümüzü oluşturalım:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> results</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Siz bu satırları doğrudan çalıştırmayın. Genel olarak <code>slurm</code> sistemi üzerinden komutları çalıştırıyoruz</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> aln data/GCF_000191105.1_ASM19110v1_genomic.fna data/ERR3079326_1.fastq.gz <span class="op">&gt;</span> results/ERR3079326_1.sai</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> aln data/GCF_000191105.1_ASM19110v1_genomic.fna data/ERR3079326_2.fastq.gz <span class="op">&gt;</span> results/ERR3079326_2.sai</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Son olarak bütün dosyaları birleştirerek, hizalama <code>sam</code> dosyası elde ediyoruz.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> sampe data/GCF_000191105.1_ASM19110v1_genomic.fna results/ERR3079326_1.sai results/ERR3079326_2.sai data/ERR3079326_1.fastq.gz data/ERR3079326_2.fastq.gz <span class="op">&gt;</span> results/ERR3079326.sam</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Bu komutların hepsini çalıştırmak için kısaca şunu yazabilirsiniz:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> hizalama.sh</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>İşimiz bittiğinde, oluşan <code>sam</code> dosyasını inceleyelim:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> results/ERR3079326.sam</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Sam dosya formatı hakkında bilgi almak için <a href="https://samtools.github.io/hts-specs/SAMv1.pdf">Şu dosyayı inceleyebilirsiniz</a>.</p>
 
 
 
@@ -450,13 +446,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../01-lectures/02-fastq-quality-control.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Fastq kalite kontrol</span></span>
+      <a href="../01-lectures/03-fastq-processing.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Fastq işleme adımları</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../01-lectures/04-alignment-variant-calling-01.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hizalama</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../references.html" class="pagination-link">
+        <span class="nav-page-text">Kaynakça</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
