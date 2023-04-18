@@ -43,6 +43,7 @@ samtools view -F 12 -q 30 -Sb results/ERR3079326.sam > results/ERR3079326.bam
 
 Oluşturduğumuz `bam` dosyasını sıralayarak indexleyelim:
 
+
 ```bash
 samtools sort results/ERR3079326.bam -o results/ERR3079326.sorted.bam
 
