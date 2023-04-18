@@ -1,0 +1,68 @@
+# Varyant Çağırma
+
+## SAM dosyaları
+
+DNA hizalama işleminin ardıdan, ham hizalama verisi bu dosya içerinde tutulur. Genotip ve varyant çağırma işleminden önce, bu dosya filtre edilir. Bu filtrasyon aşağıdaki basamakları kapsamaktadır:
+
++ Referans genom ile hizalanmayan okumaların uzaklaştırılması
++ Kötü hizalama kalitesine sahip okumaların uzaklaştırılması (`-q 30`)
+
+SAM dosyalarında, hizalama bilgisi, `flag` adı verilen bir değişken içinde saklanır. Bu `flag` bilgilerine [şu siteden](https://broadinstitute.github.io/picard/explain-flags.html) erişebilirsiniz.
+
+Hizalama kalitesi (`-q`) aslında, phred okuma kalitesinin bir fonksiyonu. Genelde 30 okuma kalitesinden daha düşük olan diziler, hizalama dosyasından uzaklaştırlır.
+
+Bunun ardından, `sam` dosyasını, daha az yer kaplayan `bam` dosyasına dönüştüreceğiz.
+
+Son olarak, `bam` dosyası içerindeki okumaları, pozisyonlara göre sıralayarak varyant çağırma adımına geçeceğiz.
+
+## Pratik
+
+Programları ekleyelim:
+
+```bash
+PATH=${PATH}:/truba/home/egitim/miniconda3/envs/bioinformatics/bin/
+``` 
+
+Öncelikle varyant çağırma dersini kopyalayalım:
+
+```bash
+cp -r /truba/home/egitim/Dersler/03-Varyant-Cagirma/ .
+```
+
+Öncelikle, `sam` dosyasının içeriğine `flagstat` komutu ile bakalım:
+
+```bash
+samtools flagstat results/ERR3079326.sam
+```
+
+Şimdi `sam` dosyasını filtreleyelim ve `bam` haline çevirelim:
+
+```bash
+samtools view -F 12 -q 30 -Sb results/ERR3079326.sam > results/ERR3079326.bam
+```
+
+Oluşturduğumuz `bam` dosyasını sıralayarak indexleyelim:
+
+```bash
+samtools sort results/ERR3079326.bam -o results/ERR3079326.sorted.bam
+
+samtools index results/ERR3079326.sorted.bam
+```
+
+Genotip çağıralım:
+
+```bash
+bcftools mpileup -Ov --fasta-ref data/GCF_000191105.1_ASM19110v1_genomic.fna results/ERR3079326.sorted.bam > results/ERR3079326.sorted.vcf
+```
+
+Son olarak varyant çağırma işlemini gerçekleştirelim:
+
+```bash
+bcftools call -mv -Ov -o results/calls.vcf results/ERR3079326.sorted.vcf
+```
+
+Bütün bu adımları çalıştırmak için:
+
+```bash
+sbatch hizalama-varyant.sh
+```
