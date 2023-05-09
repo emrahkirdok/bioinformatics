@@ -1,0 +1,45 @@
+# Varyant çağırma pratiği
+
+Şu klasörü kendi çalışma alanınıza kopyalayınız:
+
+```bash
+cp -r /truba/home/egitim/Dersler/05-Pratik-01 .
+``` 
+
+Bu klasör içerisinde aşağıdaki dosyalar bulunmaktadır:
+
+
+```
+05-Pratik-01
+|
+|----------------- protokol.sh
+|
+|----------------- data
+|                    |
+|                    |---- ERR3079326_1.fastq.gz
+|                    |---- ERR3079326_2.fastq.gz
+|                    |---- ERR3079327_1.fastq.gz
+|                    |---- ERR3079327_2.fastq.gz
+|                    |---- ERR3079328_1.fastq.gz
+|                    |---- ERR3079328_2.fastq.gz
+|                    |---- ERR3079329_1.fastq.gz
+|                    |---- ERR3079329_2.fastq.gz
+|                    |---- ERR3079331_1.fastq.gz
+|                    |---- ERR3079331_2.fastq.gz
+|                    |---- ERR3079333_1.fastq.gz
+|                    |---- ERR307933_2.fastq.gz
+|                    |---- GCF_000191105.1_ASM19110v1_genomic.fna
+
+```
+
+Bu pratik kapsamında, farklı klinik `Streptococcus sanguinis`  örnekleri üzerinde varyant çağırma çalışması gerçekleştireceğiz. Sonrasında, elimizdeki varyantları kullanarak filogenetik ağaçlar oluşturacğız.
+
+Bu fast dosyalarının elde edildiği makale aşağıdadır:
+
++ [Rasmussen et al 2016](https://pubmed.ncbi.nlm.nih.gov/27325438/)
+
+Bu makalenin SRA biyoproje numarası ise:
+
++ [PRJEB30467](https://www.ncbi.nlm.nih.gov/bioproject/PRJEB30467)
+
+Klasörde verilen, `protokol.sh` dosyasını kullanarak; `data` klasöründeki `fastq` dosyalarını işleyin ve her dosyadan varyant çağırın.

@@ -40,6 +40,9 @@ book:
         - 01-lectures/04-alignment-variant-calling-01.qmd
         - 01-lectures/05-alignment-variant-calling-02.qmd
         - 01-lectures/06-bash-scripting.qmd
+    - part: "Pratikler"
+      chapters: 
+        - 02-practice/01-variant-practice.qmd
       
     - references.qmd
   appendices:
