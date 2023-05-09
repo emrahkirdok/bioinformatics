@@ -182,6 +182,13 @@
     "text": "9.5 Varyant cağırma\n# Oncelikle sonuclari depolayacagimiz klasorleri olsuturalim\nmkdir -p results/variant\n\n# genotip cagirma gerceklestirelim\nbcftools mpileup -Ov --fasta-ref data/${REFERENCE} results/alignment/${SAMPLE}.sorted.bam &gt; results/variant/${SAMPLE}.genotype.vcf\n\n# son olarak, varyant cagirma adimini yapalim\nbcftools call -mv -Ov -o results/variant/${SAMPLE}.calls.vcf results/variant/${SAMPLE}.genotype.vcf"
   },
   {
+    "objectID": "02-practice/01-variant-practice.html",
+    "href": "02-practice/01-variant-practice.html",
+    "title": "10  Varyant çağırma pratiği",
+    "section": "",
+    "text": "Şu klasörü kendi çalışma alanınıza kopyalayınız:\ncp -r /truba/home/egitim/Dersler/05-Pratik-01 .\nBu klasör içerisinde aşağıdaki dosyalar bulunmaktadır:\n05-Pratik-01\n|\n|----------------- protokol.sh\n|\n|----------------- data\n|                    |\n|                    |---- ERR3079326_1.fastq.gz\n|                    |---- ERR3079326_2.fastq.gz\n|                    |---- ERR3079327_1.fastq.gz\n|                    |---- ERR3079327_2.fastq.gz\n|                    |---- ERR3079328_1.fastq.gz\n|                    |---- ERR3079328_2.fastq.gz\n|                    |---- ERR3079329_1.fastq.gz\n|                    |---- ERR3079329_2.fastq.gz\n|                    |---- ERR3079331_1.fastq.gz\n|                    |---- ERR3079331_2.fastq.gz\n|                    |---- ERR3079333_1.fastq.gz\n|                    |---- ERR307933_2.fastq.gz\n|                    |---- GCF_000191105.1_ASM19110v1_genomic.fna\n\nBu pratik kapsamında, farklı klinik Streptococcus sanguinis örnekleri üzerinde varyant çağırma çalışması gerçekleştireceğiz. Sonrasında, elimizdeki varyantları kullanarak filogenetik ağaçlar oluşturacğız.\nBu fast dosyalarının elde edildiği makale aşağıdadır:\n\nRasmussen et al 2016\n\nBu makalenin SRA biyoproje numarası ise:\n\nPRJEB30467\n\nKlasörde verilen, protokol.sh dosyasını kullanarak; data klasöründeki fastq dosyalarını işleyin ve her dosyadan varyant çağırın."
+  },
+  {
     "objectID": "10-appendices/software-used.html#programların-kurulumu",
     "href": "10-appendices/software-used.html#programların-kurulumu",
     "title": "Ek A — Kullanılan Programlar",
