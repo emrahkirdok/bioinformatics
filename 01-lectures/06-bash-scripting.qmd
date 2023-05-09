@@ -1,0 +1,171 @@
+# Bash ile betik oluşturma
+
+Neden betik oluşturmak isteriz? Çünkü, yaptığımız işlemleri otomatize etmeyi hedefliyoruz.
+
+Bunu yaparken, aslında `bash` üzerinde yazdığımız bütün komultları, bir `sh` dosyası içerisinde topluyoruz. Ardından, `bash`'in değişken oluşutrma özelliğini kullanarak, komutlarımızı genelleştiriyoruz.
+
+Bir örnek verelim. `bwa` programı ile bir referans genomu indeksleyelim:
+
+```bash
+bwa index data/GCF_000191105.1_ASM19110v1_genomic.fna
+```
+
+Bu komutu yazdığımızda, `bwa` programı, `data/GCF_000191105.1_ASM19110v1_genomic.fna` konumundaki dosyasyı indekslemeye başlar. Ancak bu komut, sadece belirli bir dosyaya özgüdür. Ancak `bash` ile betik oluşturma işinde, amacımız komultarı genelleştirmek.
+
+Şimdi `REFERENCE` isminde bir değişken tanımlayalım:
+
+```bash
+REFERENCE=GCF_000191105.1_ASM19110v1_genomic.fna
+```
+
+Artık, `bwa` komutumuzu şu şekilde değiştirebiliriz:
+
+```bash
+bwa index data/${REFERENCE}
+```
+
+Burada, tanımladığımız değişkeni `${}` karakterleri ile tekrar kullanabildik.
+
+Dolayısıyla, artık oluşturduğumuz komut daha genel olmaya başladı.
+
+## Değişken oluşturma
+
+Bu işlemleri konsol üzerinde yapalım. Bir değişken oluşturalım:
+
+```bash
+SAMPLE=ERR3079326
+```
+
+:::{.callout-important}
+## Karakter kullanımı
+
+Değişken oluştururken, sadece İngilizce karakterler kullanın!
+:::
+
+Bu değişkeni ekrana yazdıralım:
+
+```bash
+echo ${SAMPLE}
+```
+
+Artık değişken içerisindeki bilgiyi ekrana yazdırabildiniz.
+
+İsterseniz, bu değişkenin sağına ve soluna başka şeyler ekleyebilirsiniz. Bu sayede, tek bir değişken kullanımı ile, birden fazla dosyayı işaret edebilirsiniz:
+
+```bash
+echo data/${SAMPLE}_1.fastq.gz
+```
+
+Bir değişkeni, tanımlamadan kullanamazsınız. Mesela daha önce hiç tanımlamadığıız bir değişken kullanalım. Değişkenin ismi `BOS` olsun:
+
+
+```bash
+echo ${BOS}
+```
+
+Bunu yazdığımızda, ekrana boş bir satır yazdırıldı.
+
+Ama bu değişkeni tanımlarsak, artık kullanabilirz:
+
+```bash
+BOS=ERR65245
+echo ${BOS}
+```
+
+## Dosya sistemleri
+
+Bir projede dosya sistemi önemlidir. Çünkü uzun vadede, biyoinformatik projelerinde büyük miktarda dosya oluşturulur. Bu çıktıları ve dosyaları uygun konumlarda saklarsanız, projeleri daha rahat yönetebilirsiniz.
+
+Ders kapsamında yaptığımız projede, aşağıdaki dosya sistemi kullanıldı:
+
+```
+04-Bash-scripting
+|
+|----------------- data
+|                    |
+|                    |---- ERR3079326_1.fastq.gz
+|                    |---- ERR3079326_2.fastq.gz
+|                    |---- GCF_000191105.1_ASM19110v1_genomic.fna
+|
+|----------------- results
+|                     |
+|                     |--- processed
+|                     |
+|                     |--- alignment
+|                     |
+|                     |--- variant
+|
+|----------------- protokol.sh
+```
+
+Burada, `data` klasöründe, ham veri bulunmakta. 
+
+Sonuçlar klasöründe ise, bu ham verinin işlenerek elde edilen çıktıların depolandığı yer.
+
+Sonuçlar klasöründe, `processed` klasörü, ham `fastq` dosyalarının işlenmesi, sonucunda elde edilen çıktıları depoluyor. 
+
+Sonuçlar klasöründe, `alignment` klasörü, işlenmiş `fastq` dosyalarının, `data` klasörü içerisinde bulunan referans genoma hizlanması sonucunda elde edilen verileri depoluyor.
+
+Sonuçlar klasöründeki, `variant` klasörü ise, hizalama dosyalarından elde edlen varyant bilgilerini depoluyor.
+
+## Fastq ön işleme
+
+```bash
+# Oncelikle cikti dosyalarimizi saklayacagimiz klasoru olusturalim
+
+mkdir -p results/processed/
+
+# Daha sonra cutadapt araci ile, fastq dosyalarini isleyelim
+cutadapt -q ${QUALITY} -m 10 \
+        --trim-n -a AGATCGGAAGAG -A AGATCGGAAGAG \
+        -j ${THREADS} \
+        -o results/processed/${SAMPLE}_1.fastq.gz \
+        -p results/processed/${SAMPLE}_2.fastq.gz data/${SAMPLE}_1.fastq.gz data/${SAMPLE}_2.fastq.gz
+
+```
+
+## Hizalama adımı
+
+```bash
+# Oncelikle referans genomu indeksleyelim
+bwa index data/${REFERENCE}
+
+# cikti klasorunu olusturalim
+mkdir -p results/alignment
+
+# Daha sonra ileri ve geri okumalarimizi referans genoma hizalayalim
+bwa aln -t ${THREADS} data/${REFERENCE} results/processed/${SAMPLE}_1.fastq.gz > results/alignment/${SAMPLE}_1.sai
+
+bwa aln -t ${THREADS} data/${REFERENCE} results/processed/${SAMPLE}_2.fastq.gz > results/alignment/${SAMPLE}_2.sai
+
+# hizalama dosyasi olsturalim
+bwa sampe data/${REFERENCE} \
+        results/alignment/${SAMPLE}_1.sai results/alignment/${SAMPLE}_2.sai \
+        data/${SAMPLE}_1.fastq.gz data/${SAMPLE}_2.fastq.gz > results/alignment/${SAMPLE}.sam
+
+# hizalama istatistiklerini elde edelim
+samtools flagstat results/alignment/${SAMPLE}.sam > results/alignment/istatistik_${SAMPLE}.txt
+
+# hizalanmamis ve kotu hizalanan okumalarari filtreleylim
+samtools view -F 12 -q 30 -Sb results/alignment/${SAMPLE}.sam > results/alignment/${SAMPLE}.bam
+
+# hizalama dosyasini siralayalim
+samtools sort results/alignment/${SAMPLE}.bam -o results/alignment/${SAMPLE}.sorted.bam
+
+samtools index results/alignment/${SAMPLE}.sorted.bam
+
+```
+
+
+## Varyant cağırma
+
+```bash
+# Oncelikle sonuclari depolayacagimiz klasorleri olsuturalim
+mkdir -p results/variant
+
+# genotip cagirma gerceklestirelim
+bcftools mpileup -Ov --fasta-ref data/${REFERENCE} results/alignment/${SAMPLE}.sorted.bam > results/variant/${SAMPLE}.genotype.vcf
+
+# son olarak, varyant cagirma adimini yapalim
+bcftools call -mv -Ov -o results/variant/${SAMPLE}.calls.vcf results/variant/${SAMPLE}.genotype.vcf
+```
