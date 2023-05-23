@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.340">
+<meta name="generator" content="quarto-1.3.353">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -274,7 +274,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Içindekiler</h2>
+   
+  <ul>
+  <li><a href="#referans-genom-indeksleme" id="toc-referans-genom-indeksleme" class="nav-link active" data-scroll-target="#referans-genom-indeksleme"><span class="header-section-number">10.1</span> Referans genom indeksleme</a></li>
+  <li><a href="#örneklerle-varyant-analizi" id="toc-örneklerle-varyant-analizi" class="nav-link" data-scroll-target="#örneklerle-varyant-analizi"><span class="header-section-number">10.2</span> Örneklerle varyant analizi</a></li>
+  <li><a href="#döngüler-ile-otomatizasyon" id="toc-döngüler-ile-otomatizasyon" class="nav-link" data-scroll-target="#döngüler-ile-otomatizasyon"><span class="header-section-number">10.3</span> Döngüler ile otomatizasyon</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -301,7 +309,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Bu klasör içerisinde aşağıdaki dosyalar bulunmaktadır:</p>
 <pre><code>05-Pratik-01
 |
+|----------------- index.sh
 |----------------- protokol.sh
+|----------------- protokol_otomatik.sh
 |
 |----------------- data
 |                    |
@@ -316,7 +326,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 |                    |---- ERR3079331_1.fastq.gz
 |                    |---- ERR3079331_2.fastq.gz
 |                    |---- ERR3079333_1.fastq.gz
-|                    |---- ERR307933_2.fastq.gz
+|                    |---- ERR3079333_2.fastq.gz
 |                    |---- GCF_000191105.1_ASM19110v1_genomic.fna
 </code></pre>
 <p>Bu pratik kapsamında, farklı klinik <code>Streptococcus sanguinis</code> örnekleri üzerinde varyant çağırma çalışması gerçekleştireceğiz. Sonrasında, elimizdeki varyantları kullanarak filogenetik ağaçlar oluşturacğız.</p>
@@ -329,8 +339,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="https://www.ncbi.nlm.nih.gov/bioproject/PRJEB30467">PRJEB30467</a></li>
 </ul>
 <p>Klasörde verilen, <code>protokol.sh</code> dosyasını kullanarak; <code>data</code> klasöründeki <code>fastq</code> dosyalarını işleyin ve her dosyadan varyant çağırın.</p>
+<p>Öncelikle kopyaladığımız klasör içerisinde girelim</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span>  05-Pratik-01</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Şimdi <code>ls</code> komutu ile, klasör içerisinde <code>index.sh</code>, <code>protokol.sh</code>, <code>protokol_otomatik.sh</code> dosyalarının olup olmadıklarına bakalım:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Bu betikleri incelersek, <code>index.sh</code> referans genomumuzu indekslemek için kullandığımız betik olacak. Diğer betik <code>protokol.sh</code> ise, örnek dosyalarımızı referans genoma hizalama ve varyant çağırma için kullanacağımız betik olacak.</p>
+<section id="referans-genom-indeksleme" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="referans-genom-indeksleme"><span class="header-section-number">10.1</span> Referans genom indeksleme</h2>
+<p>Bu işlem için öncelikle referenans genomu indekslemeniz gerekecektir. Bu işlemi bir kere yapmanız yeterli olacaktır.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> index.sh</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Bu işlemin bitip bitmediğini, <code>squeue</code> komutu ile kontrol edelim:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">-u</span> egitim</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Burada <code>egitim</code> kullanıcı adını siz kendi kullanıcı isminizle değiştirmelisiniz.</p>
+<p>Bu adım tamamlandıktan sonra <code>data</code> klasörü içinde indeks dosyaları oluşmuş mu onları kontrol edelim:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> data</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>İndeks dosyaları oluşmuşsa, bir sonraki adıma geçebiliriz.</p>
+</section>
+<section id="örneklerle-varyant-analizi" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="örneklerle-varyant-analizi"><span class="header-section-number">10.2</span> Örneklerle varyant analizi</h2>
+<p>Bu adımıda ise <code>protokol.sh</code> betiğini kullanacağız. Bu betiği <code>nano</code> isimli programla açarak, <code>SAMPLE</code> değişkenini örnek isimleriyle değiştirmemiz gereklidir.</p>
+<p>Bunu her örnek için tekrar etmeliyiz.</p>
+<p>Örnek vermek gerekirse, öncelikle <code>ERR3079333</code> için bu adımı gerçekleştirelim:</p>
+<ol type="1">
+<li><code>protokol.sh</code> dosyasını aç</li>
+<li><code>SAMPLE</code> değişkenini değiştir</li>
+<li><code>sbatch protokol.sh</code> ile protokolu çalıştır.</li>
+</ol>
+<p>Ardından bu işlemi her örnek için gerçekleştirelim.</p>
+</section>
+<section id="döngüler-ile-otomatizasyon" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="döngüler-ile-otomatizasyon"><span class="header-section-number">10.3</span> Döngüler ile otomatizasyon</h2>
+<p>Bunu istersek otomatize edebiliriz. Her örnek için bir protokol gönderebiliriz. Bunun için <code>protokol_otomatik.sh</code> isimli betiğe bakalım.</p>
+<p>Bu betiğin içindeki tek değişiklik şu:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="va">SAMPLE</span><span class="op">=</span><span class="va">$1</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Burada, biz betiğe komut satırı üzerinden bir opsiyon atıyoruz. Bu sayede sürekli dosyayı değiştirmekten kurtuluyoruz. Yani sürekli <code>SAMPLE</code> değişkenini değiştirmektense, <code>sbatch protokol_otomatize.sh ERR3079326</code> yazdığımızda, <code>SAMPLE</code> değişkenine otomatik olarak <code>ERR3079326</code> değeri atanmış oluyor.</p>
+<p>Tabii bir <code>for</code> dongüsü yazarak, bunu tamamen otomatize edebiliriz:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="va">SAMPLES</span><span class="op">=</span><span class="st">"ERR3079326 ERR3079327 ERR3079328 ERR3079329 ERR3079331 ERR3079333"</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> SAMPLE <span class="kw">in</span> <span class="va">${SAMPLES}</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sbatch</span> protokol_otomatik.sh <span class="va">${SAMPLE}</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Bu işlemi yaptığımızda, <code>SAMPLES</code> içerisindeki bütün örnek isimleri için, <code>protokol_otomatik.sh</code> betiği çalıştırılacaktır.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

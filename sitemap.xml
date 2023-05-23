@@ -2,58 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://emrahkirdok.github.io/bioinformatics/index.html</loc>
-    <lastmod>2023-05-09T08:22:31.127Z</lastmod>
+    <lastmod>2023-05-23T07:07:42.411Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/bioinformatics/CONTRIBUTING.html</loc>
-    <lastmod>2023-05-09T08:22:31.131Z</lastmod>
+    <lastmod>2023-05-23T07:07:42.415Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/bioinformatics/00-setup/01-system.html</loc>
-    <lastmod>2023-05-09T08:22:31.143Z</lastmod>
+    <lastmod>2023-05-23T07:07:42.423Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/bioinformatics/00-setup/02-truba.html</loc>
-    <lastmod>2023-05-09T08:22:31.151Z</lastmod>
+    <lastmod>2023-05-23T07:07:42.431Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/bioinformatics/00-setup/03-command-line.html</loc>
-    <lastmod>2023-05-09T08:22:31.179Z</lastmod>
+    <lastmod>2023-05-23T07:07:42.451Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/bioinformatics/01-lectures/01-ynd.html</loc>
-    <lastmod>2023-05-09T08:22:31.183Z</lastmod>
+    <lastmod>2023-05-23T07:07:42.455Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/bioinformatics/01-lectures/02-fastq-quality-control.html</loc>
-    <lastmod>2023-05-09T08:22:31.195Z</lastmod>
+    <lastmod>2023-05-23T07:07:42.463Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/bioinformatics/01-lectures/03-fastq-processing.html</loc>
-    <lastmod>2023-05-09T08:22:31.203Z</lastmod>
+    <lastmod>2023-05-23T07:07:42.471Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/bioinformatics/01-lectures/04-alignment-variant-calling-01.html</loc>
-    <lastmod>2023-05-09T08:22:31.211Z</lastmod>
+    <lastmod>2023-05-23T07:07:42.475Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/bioinformatics/01-lectures/05-alignment-variant-calling-02.html</loc>
-    <lastmod>2023-05-09T08:22:31.223Z</lastmod>
+    <lastmod>2023-05-23T07:07:42.483Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/bioinformatics/01-lectures/06-bash-scripting.html</loc>
-    <lastmod>2023-05-09T08:22:31.247Z</lastmod>
+    <lastmod>2023-05-23T07:07:42.503Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/bioinformatics/02-practice/01-variant-practice.html</loc>
-    <lastmod>2023-05-09T08:22:31.255Z</lastmod>
+    <lastmod>2023-05-23T07:07:42.511Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/bioinformatics/references.html</loc>
-    <lastmod>2023-05-09T08:22:31.259Z</lastmod>
+    <lastmod>2023-05-23T07:07:42.515Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/bioinformatics/10-appendices/software-used.html</loc>
-    <lastmod>2023-05-09T08:22:31.267Z</lastmod>
+    <lastmod>2023-05-23T07:07:42.523Z</lastmod>
   </url>
 </urlset>
