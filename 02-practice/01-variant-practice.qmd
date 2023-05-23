@@ -12,7 +12,9 @@ Bu klasör içerisinde aşağıdaki dosyalar bulunmaktadır:
 ```
 05-Pratik-01
 |
+|----------------- index.sh
 |----------------- protokol.sh
+|----------------- protokol_otomatik.sh
 |
 |----------------- data
 |                    |
@@ -27,7 +29,7 @@ Bu klasör içerisinde aşağıdaki dosyalar bulunmaktadır:
 |                    |---- ERR3079331_1.fastq.gz
 |                    |---- ERR3079331_2.fastq.gz
 |                    |---- ERR3079333_1.fastq.gz
-|                    |---- ERR307933_2.fastq.gz
+|                    |---- ERR3079333_2.fastq.gz
 |                    |---- GCF_000191105.1_ASM19110v1_genomic.fna
 
 ```
@@ -43,3 +45,79 @@ Bu makalenin SRA biyoproje numarası ise:
 + [PRJEB30467](https://www.ncbi.nlm.nih.gov/bioproject/PRJEB30467)
 
 Klasörde verilen, `protokol.sh` dosyasını kullanarak; `data` klasöründeki `fastq` dosyalarını işleyin ve her dosyadan varyant çağırın.
+
+Öncelikle kopyaladığımız klasör içerisinde girelim
+
+```bash
+cd  05-Pratik-01
+```
+
+Şimdi `ls` komutu ile, klasör içerisinde `index.sh`, `protokol.sh`, `protokol_otomatik.sh` dosyalarının olup olmadıklarına bakalım:
+
+```bash
+ls
+```
+
+Bu betikleri incelersek, `index.sh` referans genomumuzu indekslemek için kullandığımız betik olacak. Diğer betik `protokol.sh` ise, örnek dosyalarımızı referans genoma hizalama ve varyant çağırma için kullanacağımız betik olacak. 
+
+## Referans genom indeksleme
+
+Bu işlem için öncelikle referenans genomu indekslemeniz gerekecektir. Bu işlemi bir kere yapmanız yeterli olacaktır.
+
+```bash
+sbatch index.sh
+```
+
+Bu işlemin bitip bitmediğini, `squeue` komutu ile kontrol edelim:
+
+```bash
+squeue -u egitim
+```
+
+Burada `egitim` kullanıcı adını siz kendi kullanıcı isminizle değiştirmelisiniz.
+
+Bu adım tamamlandıktan sonra `data` klasörü içinde indeks dosyaları oluşmuş mu onları kontrol edelim:
+
+```bash
+ls data
+```
+
+İndeks dosyaları oluşmuşsa, bir sonraki adıma geçebiliriz.
+
+## Örneklerle varyant analizi
+
+Bu adımıda ise `protokol.sh` betiğini kullanacağız. Bu betiği `nano` isimli programla açarak, `SAMPLE` değişkenini örnek isimleriyle değiştirmemiz gereklidir.
+
+Bunu her örnek için tekrar etmeliyiz. 
+
+Örnek vermek gerekirse, öncelikle `ERR3079333` için bu adımı gerçekleştirelim:
+
+1. `protokol.sh` dosyasını aç 
+2. `SAMPLE` değişkenini değiştir
+3. `sbatch protokol.sh` ile protokolu çalıştır.
+
+Ardından bu işlemi her örnek için gerçekleştirelim. 
+
+## Döngüler ile otomatizasyon
+
+Bunu istersek otomatize edebiliriz. Her örnek için bir protokol gönderebiliriz. Bunun için `protokol_otomatik.sh` isimli betiğe bakalım.
+
+Bu betiğin içindeki tek değişiklik şu:
+
+```bash
+SAMPLE=$1
+```
+
+Burada, biz betiğe komut satırı üzerinden bir opsiyon atıyoruz. Bu sayede sürekli dosyayı değiştirmekten kurtuluyoruz. Yani sürekli `SAMPLE` değişkenini değiştirmektense, `sbatch protokol_otomatize.sh ERR3079326` yazdığımızda, `SAMPLE` değişkenine otomatik olarak `ERR3079326` değeri atanmış oluyor. 
+
+Tabii bir `for` dongüsü yazarak, bunu tamamen otomatize edebiliriz:
+
+```bash
+SAMPLES="ERR3079326 ERR3079327 ERR3079328 ERR3079329 ERR3079331 ERR3079333"
+for SAMPLE in ${SAMPLES}
+do
+    sbatch protokol_otomatik.sh ${SAMPLE}
+done
+```
+
+Bu işlemi yaptığımızda, `SAMPLES` içerisindeki bütün örnek isimleri için, `protokol_otomatik.sh` betiği çalıştırılacaktır.
