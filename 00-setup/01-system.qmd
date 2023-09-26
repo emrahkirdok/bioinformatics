@@ -14,7 +14,7 @@ Mac sistemler üzerine kullanacağımız bütün biyoinformatik araçları kurma
 xcode-select --install
 ```
 
-![Mac üzerinde spotlight ekranı](https://mac.install.guide/assets/images/ruby/find-macos-terminal.png){#fig-spotlight}
+![Mac üzerinde spotlight ekranı](images/macos.png){#fig-spotlight}
 
 Bir süre bekledikten sonra gerekli programlar kurulacaktır. Artık `terminal` programı üzerinden gerek uzak bilgisayarlarlar `ssh` bağlantısı, gerekse de kullanılacak biyoinformatik araçların kurulumunu gerçekleştirebilirsiniz.
 
@@ -45,7 +45,7 @@ sudo adduser KULLANICI
 
 Bu şekilde yeni kullanıcı ekleyelim. Aşağıdaki gibi bir ekran karşımıza çıkacak (@fig-subsystem-user):
 
-![Ubuntu alt sisteminde kullanıcı ekleme](https://www.tenforums.com/attachments/tutorials/226571d1551986837-add-user-windows-subsystem-linux-wsl-distro-windows-10-a-add_user_to_wsl_distro_as_sudo.png?s=592aa6b59c0251c1bc67aa357234a02c){#fig-subsystem-user}
+![Ubuntu alt sisteminde kullanıcı ekleme](images/adduser.png){#fig-subsystem-user}
 
 Şifrenizi girin (ancak imleç haraket etmeyecek, endişe etmeyin) ve tekrar girin.
 

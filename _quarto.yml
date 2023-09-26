@@ -6,6 +6,7 @@ book:
   title: "Biyoinformatik"
   author: "Emrah Kırdök, Ph.D."
   date: "2023/03/21"
+  language: tr
   #favicon: "images/ybva.png"
   reader-mode: true
 
@@ -64,3 +65,5 @@ format:
   pdf:
     documentclass: scrbook
     author-meta: "Emrah Kırdök"
+    margin-left: 2.5cm
+    margin-right: 2.5cm
