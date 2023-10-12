@@ -65,7 +65,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating slimcontent">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -244,7 +244,7 @@ ul.task-list li input[type="checkbox"] {
         
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -268,13 +268,13 @@ ul.task-list li input[type="checkbox"] {
 <p>TRUBA kaynaklarına üniversite içerisinden rahatlıkla bağlanabilirsiniz, ancak üniversite dışından bağlanmak için ise bilgisayarınza OpenVPN programını kurmanız gerekmektedir.</p>
 <p>Ayrıntılar için <a href="https://docs.truba.gov.tr/TRUBA/kullanici-el-kitabi/open-vpn/index.html">Kurulum kılavuzunu</a> inceleyin ve bilgisayarınza uygun olan kılavuz ile OpenVPN kurulumunu tamamlayınız.</p>
 <p>Kurulum tamamlandıktan sonra, TRUBA tarafından size gönderilen kullanıcı ismi ve şifreniz ile, OpenVPN sistemine bağlanmanız gerekmektedir. Ardından, mobaxterm ile TRUBA sistemine bağlanabiliriz.</p>
-<p>Normalde uzak bir bilgisyara bağlanma sürecini şöyle özetleyebilirzi. İnternet üzerinde, sizin bilgisyarınız ve uzak bilgisayar arasında şifreli bir tünel (<code>ssh</code>) bağlantısı kurulmaktadır. Bunu <span class="quarto-unresolved-ref">?fig-graph-1</span>’de rahatlıkla görebiliriz.</p>
-<div class="cell page-columns page-full" data-fig-label="fig-graph-1" data-fig-width="100px" data-fig-height="100px">
-
-<div class="no-row-height column-margin column-container"><div class="cell-output-display">
+<p>Normalde uzak bir bilgisyara bağlanma sürecini şöyle özetleyebiliriz. İnternet üzerinde, sizin bilgisyarınız ve uzak bilgisayar arasında şifreli bir tünel (<code>ssh</code>) bağlantısı kurulmaktadır. Bunu <a href="#fig-graph-1">Şekil&nbsp;<span>2.1</span></a>’de rahatlıkla görebiliriz. Bu şekilde yapılan bir bağlantıda, TRUBA sistemine şifreli bir tünel açılmaktadır.</p>
+<div class="cell" data-fig-width="200px" data-fig-height="200px">
+<div class="cell-output-display">
+<div id="fig-graph-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
 <div>
-<div>
-<svg width="100" height="100" viewbox="0.00 0.00 116.13 116.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<svg width="200" height="200" viewbox="0.00 0.00 116.13 116.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
 <title>
 g
@@ -294,15 +294,18 @@ Yerel Bilgisayar-&gt;TRUBA
 <path fill="none" stroke="black" d="M54.07,-36.3C54.07,-44.02 54.07,-53.29 54.07,-61.89"></path> <polygon fill="black" stroke="black" points="50.57,-61.9 54.07,-71.9 57.57,-61.9 50.57,-61.9"></polygon> </g> </g>
 </svg>
 </div>
-<p>Figs</p>
+<figcaption class="figure-caption">Şekil&nbsp;2.1: ULAKBİM ağı içerisinden, TRUBA’ya doğrudan <code>ssh</code> bağlantısı kurabilirsiniz.</figcaption>
+</figure>
 </div>
-</div></div></div>
-<p>Bu şekilde yapılan bir bağlantıda, TRUBA sistemine doğrudan bir hesap açılmaktadır. Ancak, ULAKBİM üzerinden yapılmayan bağlantılar güvenli olmayabiir. Bağlantınızın güvenliği için OpenVPN tercih ediyoruz.</p>
-<div class="cell">
+</div>
+</div>
+<p>Ancak, ULAKBİM üzerinden yapılmayan bağlantılar güvenli olmayabir. Bu tip bilgisayar sistemleri yoğunlukla saldırı altındadır. Bu yüzden güvenli bir bağlantı oluşturmak için farklı yöntemler kullanılabilir. Bazı sunucu sistemleri iki faktörlü doğrulama kullanırken, TRUBA sistemi, ULAKBİM dışındaki bağlantılarda öncelikle sanal ağa bağlanmanızı zorunlu tutmaktadır. Bağlantı güvenliği için öncelikle OpenVPN ile sanal ağa, oradan da TRUBA’ya bağlanıyoruz (<a href="#fig-graph-2">Şekil&nbsp;<span>2.2</span></a>).</p>
+<div class="cell" data-fig-width="200px" data-fig-height="200px">
 <div class="cell-output-display">
+<div id="fig-graph-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
 <div>
-<div>
-<svg width="672" height="480" viewbox="0.00 0.00 116.13 188.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<svg width="200" height="200" viewbox="0.00 0.00 116.13 188.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 184)">
 <title>
 g
@@ -330,6 +333,8 @@ OpenVPN-&gt;TRUBA
 <path fill="none" stroke="black" d="M54.07,-108.3C54.07,-116.02 54.07,-125.29 54.07,-133.89"></path> <polygon fill="black" stroke="black" points="50.57,-133.9 54.07,-143.9 57.57,-133.9 50.57,-133.9"></polygon> </g> </g>
 </svg>
 </div>
+<figcaption class="figure-caption">Şekil&nbsp;2.2: Üniversite ağı dışından yapacağınız bağlantılarda öncelikle OpenVPN üzerinde ULAKBİM sanal ağına bağlanmalısınız.</figcaption>
+</figure>
 </div>
 </div>
 </div>
