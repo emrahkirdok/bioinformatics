@@ -6,12 +6,21 @@ Ders kapsamında TRUBA sunucularını kullanacağız. Bu imkanı bize sunduklar�
 
 TRUBA kaynaklarına üniversite içerisinden rahatlıkla bağlanabilirsiniz, ancak üniversite dışından bağlanmak için ise bilgisayarınza OpenVPN programını kurmanız gerekmektedir. 
 
-Ayrıntılar için [Kurulum kılavuzunu](https://docs.truba.gov.tr/TRUBA/kullanici-el-kitabi/open-vpn/index.html) inceleyin ve bilgisayarınza uygun olan kılavuz ile OpenVPN kurulumuunu tamamlayınız.
+Ayrıntılar için [Kurulum kılavuzunu](https://docs.truba.gov.tr/TRUBA/kullanici-el-kitabi/open-vpn/index.html) inceleyin ve bilgisayarınza uygun olan kılavuz ile OpenVPN kurulumunu tamamlayınız.
 
-Normalde uzak bir bilgisyara bağlanma sürecini şöyle özetleyebilirzi. İnternet üzerinde, sizin bilgisyarınız ve uzak bilgisayar arasında şifreli bir tünel (ssh) bağlantısı kurulmaktadır.
+Kurulum tamamlandıktan sonra, TRUBA tarafından size gönderilen kullanıcı ismi ve şifreniz ile, OpenVPN sistemine bağlanmanız gerekmektedir. Ardından, mobaxterm ile TRUBA sistemine bağlanabiliriz.
+
+Normalde uzak bir bilgisyara bağlanma sürecini şöyle özetleyebilirzi. İnternet üzerinde, sizin bilgisyarınız ve uzak bilgisayar arasında şifreli bir tünel (`ssh`) bağlantısı kurulmaktadır. Bunu @fig-graph-1'de rahatlıkla görebiliriz.
 
 ```{dot}
+// | fig-label: fig-graph-1
+// | fig-cap: "Figs"
+// | fig-width: 100px
+// | fig-height: 100px
+// | column: margin
 digraph g{
+    rankdir = "BT";
+    node [shape = "rect"];
     "Yerel Bilgisayar" -> "TRUBA";
 }
 ```
@@ -20,6 +29,8 @@ Bu şekilde yapılan bir bağlantıda, TRUBA sistemine doğrudan bir hesap açı
 
 ```{dot}
 digraph g{
-"Yerel Bilgisayar" -> "OpenVPN" -> "TRUBA";
+    rankdir = "BT";
+    node [shape = "rect"];
+    "Yerel Bilgisayar" -> "OpenVPN" -> "TRUBA";
 }
 ```
