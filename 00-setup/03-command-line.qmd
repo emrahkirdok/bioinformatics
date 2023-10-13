@@ -1,8 +1,8 @@
 # Komut satırı kullanımı
 
-Bu döküman kapsamında, TRUBA üzerinde komut satırı kullanımını inceleyeceğiz.
+Ders kapsamında yapacağımız çalışmalarda öncelikle TRUBA üzerinde komut satırı kullanımını inceleyeceğiz.
 
-Öncelikle sistemimimize bağlanalım:
+Öncelikle sistemimimize bağlanalım. Burada `egitim` yerine size verilen kullanıcı ismini girmelisiniz. Daha sonra yine size verilen şifrenizi yazarak sisteme bağlanabilirsiniz. Ancak şifrenizi yazarken ekrandaki imleç hareket etmeyecektir. Siz normal bir şekilde şifrenizi yazın:
 
 ```bash
 ssh egitim@172.16.7.1 
@@ -12,9 +12,11 @@ Sisteme girdikten sonra çıkan ekranı `enter` tuşuna basarak geçelim.
 
 ## Linux'ta dosya yapısı
 
-Girdiğimiz ekran aslında bizim kullanıcı klasörümüz. Linux işletim sisteminde dosya yapısı kök `/` işareti ile başlar. Bu işaret aynı zamanda klasörleri birbirinden ayrır.
+Girdiğimiz ekran aslında bizim kullanıcı klasörümüz olacaktır. TRUBA - ve genel olarak linux sistemleri - çok kullancılı bilgisayarlardır. Bunun anlamı, sistem üzerinde farklı kullanıcılar bulunmakta ve TRUBA sistemi de bütün işleyişi kontrol etmektedir. Her kullanıcı, kendi klasörü içerisinde bütün yazma (W), okuma (R), ve çalıştırma (X) haklarına sahiptir. Ancak diğer kullanıcıların klasörlerinde, ve sistem ile ilgili klasörlerde çok kısıtlı haklara sahip olabilirler.
 
-Bulunduğumuz klasörü elde etmek için `pwd` (print working directory) komutunu yazalım:
+Linux işletim sisteminde dosya yapısı kök `/` işareti ile başlar. Bu işaret aynı zamanda klasörleri birbirinden ayrır.
+
+Bulunduğumuz klasör konumunu öğrenmek için `pwd` (print working directory) komutunu yazalım:
 
 
 ```bash
@@ -35,7 +37,7 @@ Benim ekranımda bu komutun çıktısı şöyle oldu:
 
 
 ```bash
-mkdir emrah
+mkdir deneme_dersi
 ```
 
 ## Klasör içindekileri inceleme 
@@ -74,7 +76,7 @@ pwd
 İlk olarak örnek dosyamızı kopyalayarak işe başlayalım. `cp` komutu dosya ve klasörleri kopyalamak için kullanılır. Klasörleri kopyalamak istiyorsak `-r` işaretini eklememiz gerekir.
 
 ```bash
-cp -r /truba/home/egitim/test .
+cp -r /truba/home/egitim90/ornek_veri .
 ```
 
 Bu komut bize, `/truba/home/egitim/test` klasörünü, `.` yani bulunduğumuz klasöre kpopyalamamızı sağlamaktadır.
