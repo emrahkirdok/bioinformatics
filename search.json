@@ -39,14 +39,14 @@
     "href": "00-setup/03-command-line.html#linuxta-dosya-yapısı",
     "title": "3  Komut satırı kullanımı",
     "section": "3.1 Linux’ta dosya yapısı",
-    "text": "3.1 Linux’ta dosya yapısı\nGirdiğimiz ekran aslında bizim kullanıcı klasörümüz. Linux işletim sisteminde dosya yapısı kök / işareti ile başlar. Bu işaret aynı zamanda klasörleri birbirinden ayrır.\nBulunduğumuz klasörü elde etmek için pwd (print working directory) komutunu yazalım:\npwd\nBenim ekranımda bu komutun çıktısı şöyle oldu:\n/truba/home/egitim\nhome klasörü, kullanıcıların klasörlerinin bulunduğu konumu işaret etmektedir."
+    "text": "3.1 Linux’ta dosya yapısı\nGirdiğimiz ekran aslında bizim kullanıcı klasörümüz olacaktır. TRUBA - ve genel olarak linux sistemleri - çok kullancılı bilgisayarlardır. Bunun anlamı, sistem üzerinde farklı kullanıcılar bulunmakta ve TRUBA sistemi de bütün işleyişi kontrol etmektedir. Her kullanıcı, kendi klasörü içerisinde bütün yazma (W), okuma (R), ve çalıştırma (X) haklarına sahiptir. Ancak diğer kullanıcıların klasörlerinde, ve sistem ile ilgili klasörlerde çok kısıtlı haklara sahip olabilirler.\nLinux işletim sisteminde dosya yapısı kök / işareti ile başlar. Bu işaret aynı zamanda klasörleri birbirinden ayrır.\nBulunduğumuz klasör konumunu öğrenmek için pwd (print working directory) komutunu yazalım:\npwd\nBenim ekranımda bu komutun çıktısı şöyle oldu:\n/truba/home/egitim\nhome klasörü, kullanıcıların klasörlerinin bulunduğu konumu işaret etmektedir."
   },
   {
     "objectID": "00-setup/03-command-line.html#klasör-oluşturma",
     "href": "00-setup/03-command-line.html#klasör-oluşturma",
     "title": "3  Komut satırı kullanımı",
     "section": "3.2 Klasör oluşturma",
-    "text": "3.2 Klasör oluşturma\nŞimdi komut satırını öğrenmek için gerekli olan dosyaları yükleyeceğimiz klasörü oluşturalum. mkdir komutu klasör oluşturmak için kullanılır. İlk olarak kendi ismimizi kullanarak bir klasör oluşturalım:\nmkdir emrah"
+    "text": "3.2 Klasör oluşturma\nŞimdi komut satırını öğrenmek için gerekli olan dosyaları yükleyeceğimiz klasörü oluşturalum. mkdir komutu klasör oluşturmak için kullanılır. İlk olarak kendi ismimizi kullanarak bir klasör oluşturalım:\nmkdir deneme_dersi"
   },
   {
     "objectID": "00-setup/03-command-line.html#klasör-içindekileri-inceleme",
@@ -67,7 +67,7 @@
     "href": "00-setup/03-command-line.html#dosya-ve-klasör-kopyalama",
     "title": "3  Komut satırı kullanımı",
     "section": "3.5 Dosya ve klasör kopyalama",
-    "text": "3.5 Dosya ve klasör kopyalama\nİlk olarak örnek dosyamızı kopyalayarak işe başlayalım. cp komutu dosya ve klasörleri kopyalamak için kullanılır. Klasörleri kopyalamak istiyorsak -r işaretini eklememiz gerekir.\ncp -r /truba/home/egitim/test .\nBu komut bize, /truba/home/egitim/test klasörünü, . yani bulunduğumuz klasöre kpopyalamamızı sağlamaktadır.\nLinux üzerinde bunun gibi kısayollar bulunmaktadır.\n\n. bulunduğumuz klasör\n~ ev klasörümüz\n\nŞimdi tekrar bulunduğumuz klasör içindekileri listeleyelim:\nls -l\nŞimdi de test klasörüne girelim:\ncd test\nVe içindekileri listeleyelim:\nls -l"
+    "text": "3.5 Dosya ve klasör kopyalama\nİlk olarak örnek dosyamızı kopyalayarak işe başlayalım. cp komutu dosya ve klasörleri kopyalamak için kullanılır. Klasörleri kopyalamak istiyorsak -r işaretini eklememiz gerekir.\ncp -r /truba/home/egitim90/ornek_veri .\nBu komut bize, /truba/home/egitim/test klasörünü, . yani bulunduğumuz klasöre kpopyalamamızı sağlamaktadır.\nLinux üzerinde bunun gibi kısayollar bulunmaktadır.\n\n. bulunduğumuz klasör\n~ ev klasörümüz\n\nŞimdi tekrar bulunduğumuz klasör içindekileri listeleyelim:\nls -l\nŞimdi de test klasörüne girelim:\ncd test\nVe içindekileri listeleyelim:\nls -l"
   },
   {
     "objectID": "00-setup/03-command-line.html#dosyalarda-işlem-yapmak",

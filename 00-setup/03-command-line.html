@@ -312,14 +312,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Bu döküman kapsamında, TRUBA üzerinde komut satırı kullanımını inceleyeceğiz.</p>
-<p>Öncelikle sistemimimize bağlanalım:</p>
+<p>Ders kapsamında yapacağımız çalışmalarda öncelikle TRUBA üzerinde komut satırı kullanımını inceleyeceğiz.</p>
+<p>Öncelikle sistemimimize bağlanalım. Burada <code>egitim</code> yerine size verilen kullanıcı ismini girmelisiniz. Daha sonra yine size verilen şifrenizi yazarak sisteme bağlanabilirsiniz. Ancak şifrenizi yazarken ekrandaki imleç hareket etmeyecektir. Siz normal bir şekilde şifrenizi yazın:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> egitim@172.16.7.1 </span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Sisteme girdikten sonra çıkan ekranı <code>enter</code> tuşuna basarak geçelim.</p>
 <section id="linuxta-dosya-yapısı" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="linuxta-dosya-yapısı"><span class="header-section-number">3.1</span> Linux’ta dosya yapısı</h2>
-<p>Girdiğimiz ekran aslında bizim kullanıcı klasörümüz. Linux işletim sisteminde dosya yapısı kök <code>/</code> işareti ile başlar. Bu işaret aynı zamanda klasörleri birbirinden ayrır.</p>
-<p>Bulunduğumuz klasörü elde etmek için <code>pwd</code> (print working directory) komutunu yazalım:</p>
+<p>Girdiğimiz ekran aslında bizim kullanıcı klasörümüz olacaktır. TRUBA - ve genel olarak linux sistemleri - çok kullancılı bilgisayarlardır. Bunun anlamı, sistem üzerinde farklı kullanıcılar bulunmakta ve TRUBA sistemi de bütün işleyişi kontrol etmektedir. Her kullanıcı, kendi klasörü içerisinde bütün yazma (W), okuma (R), ve çalıştırma (X) haklarına sahiptir. Ancak diğer kullanıcıların klasörlerinde, ve sistem ile ilgili klasörlerde çok kısıtlı haklara sahip olabilirler.</p>
+<p>Linux işletim sisteminde dosya yapısı kök <code>/</code> işareti ile başlar. Bu işaret aynı zamanda klasörleri birbirinden ayrır.</p>
+<p>Bulunduğumuz klasör konumunu öğrenmek için <code>pwd</code> (print working directory) komutunu yazalım:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Benim ekranımda bu komutun çıktısı şöyle oldu:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/truba/home/egitim</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -328,7 +329,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="klasör-oluşturma" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="klasör-oluşturma"><span class="header-section-number">3.2</span> Klasör oluşturma</h2>
 <p>Şimdi komut satırını öğrenmek için gerekli olan dosyaları yükleyeceğimiz klasörü oluşturalum. <code>mkdir</code> komutu klasör oluşturmak için kullanılır. İlk olarak kendi ismimizi kullanarak bir klasör oluşturalım:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> emrah</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> deneme_dersi</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="klasör-içindekileri-inceleme" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="klasör-içindekileri-inceleme"><span class="header-section-number">3.3</span> Klasör içindekileri inceleme</h2>
@@ -354,7 +355,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="dosya-ve-klasör-kopyalama" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="dosya-ve-klasör-kopyalama"><span class="header-section-number">3.5</span> Dosya ve klasör kopyalama</h2>
 <p>İlk olarak örnek dosyamızı kopyalayarak işe başlayalım. <code>cp</code> komutu dosya ve klasörleri kopyalamak için kullanılır. Klasörleri kopyalamak istiyorsak <code>-r</code> işaretini eklememiz gerekir.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> /truba/home/egitim/test .</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> /truba/home/egitim90/ornek_veri .</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Bu komut bize, <code>/truba/home/egitim/test</code> klasörünü, <code>.</code> yani bulunduğumuz klasöre kpopyalamamızı sağlamaktadır.</p>
 <p>Linux üzerinde bunun gibi kısayollar bulunmaktadır.</p>
 <ul>
