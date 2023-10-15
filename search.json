@@ -7,6 +7,27 @@
     "text": "Önsöz\nMerhabalar! Lisans üstü seviyede verilen İleri Biyoinformatik dersine hoşgeldiniz!"
   },
   {
+    "objectID": "index.html#ders-hakkında-ön-bilgi",
+    "href": "index.html#ders-hakkında-ön-bilgi",
+    "title": "Biyoinformatik",
+    "section": "Ders hakkında ön bilgi",
+    "text": "Ders hakkında ön bilgi\nDersimiz çoğunlukla yüz yüze işlenecektir. Ancak akademik programıma bağlı olarak çevrimiçi işleme opsiyonunu da kullanacağız.\nDers kapsamında Mersin Üniversitesi Fen Fakültesi 30 kişilik bilgisayar laboratuvarını kullanacağız."
+  },
+  {
+    "objectID": "index.html#dersin-işlenme-yöntemi",
+    "href": "index.html#dersin-işlenme-yöntemi",
+    "title": "Biyoinformatik",
+    "section": "Dersin işlenme yöntemi",
+    "text": "Dersin işlenme yöntemi\nDers kapsamında Türkiye Ulusal e-Bilişim Altyapısı’nın (TRUBA) yüksek başarımlı bilgisayar sistemlerini kullanacağız. Bu imkanı bize sağlayarak, öğrencilere eğitim hesapları açtıkları için teşekkür ederiz."
+  },
+  {
+    "objectID": "index.html#konular",
+    "href": "index.html#konular",
+    "title": "Biyoinformatik",
+    "section": "Konular",
+    "text": "Konular\nAltyapı kısmı, TRUBA sistemine nasıl bağlanılacağı, komutların kullanımı ve TRUBA sisteminde iş göndermek için gerekli betiklerin tanıtımına ayrılmıştır.\nBölüm 2, TRUBA sisteminin tanıtımını ve sisteme nasıl bağlanacağımız hakkında gerekli bilgileri içermektedir. Daha sonra Bölüm 3 kısmında ise, TRUBA sisteminin ve linux komut satırının kullanımı hakkında gerekli bilgiler ve pratikler verilmiştir."
+  },
+  {
     "objectID": "00-setup/01-system.html#windows-işletim-sistemi",
     "href": "00-setup/01-system.html#windows-işletim-sistemi",
     "title": "1  Sistem kurulumu",
