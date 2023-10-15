@@ -1,6 +1,6 @@
-# Truba
+# Truba {#sec-truba}
 
-Ders kapsamında TRUBA sunucularını kullanacağız. Bu imkanı bize sundukları için teşekkür ederiz.
+Ders kapsamında TRUBA sunucularını kullanacağız. Bu imkanı bize sundukları için teşekkür ederiz. 
 
 Öncelikle [TRUBA](https://docs.truba.gov.tr/index.html) internet sitesine giderek sistemi inceleyelim.
 

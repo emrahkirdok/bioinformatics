@@ -1,4 +1,4 @@
-# Komut satırı kullanımı
+# Komut satırı kullanımı {#sec-command-line}
 
 Ders kapsamında yapacağımız çalışmalarda öncelikle TRUBA üzerinde komut satırı kullanımını inceleyeceğiz.
 

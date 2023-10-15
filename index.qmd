@@ -1,3 +1,19 @@
 # Önsöz {.unnumbered}
 
 Merhabalar! Lisans üstü seviyede verilen **İleri Biyoinformatik** dersine hoşgeldiniz!
+
+## Ders hakkında ön bilgi
+
+Dersimiz çoğunlukla yüz yüze işlenecektir. Ancak akademik programıma bağlı olarak çevrimiçi işleme opsiyonunu da kullanacağız. 
+
+Ders kapsamında Mersin Üniversitesi Fen Fakültesi 30 kişilik bilgisayar laboratuvarını kullanacağız.
+
+## Dersin işlenme yöntemi
+
+Ders kapsamında Türkiye Ulusal e-Bilişim Altyapısı'nın (TRUBA) yüksek başarımlı bilgisayar sistemlerini kullanacağız. Bu imkanı bize sağlayarak, öğrencilere eğitim hesapları açtıkları için teşekkür ederiz.
+
+## Konular
+
+Altyapı kısmı, TRUBA sistemine nasıl bağlanılacağı, komutların kullanımı ve TRUBA sisteminde iş göndermek için gerekli betiklerin tanıtımına ayrılmıştır.
+
+@sec-truba, TRUBA sisteminin tanıtımını ve sisteme nasıl bağlanacağımız hakkında gerekli bilgileri içermektedir. Daha sonra @sec-command-line kısmında ise, TRUBA sisteminin ve linux komut satırının kullanımı hakkında gerekli bilgiler ve pratikler verilmiştir. 
