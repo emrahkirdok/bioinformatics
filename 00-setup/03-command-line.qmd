@@ -184,4 +184,25 @@ Artık dosya içerisine istediğimiz bilgiyi yazabiliriz. Yazdıklarımız bitti
 nano yeni-dosya.txt
 ```
 
-Dikkat edin, boşluk karakteri kullanmadım. Onun yerine tire `-` karakterini kullandım
+Dikkat edin, boşluk karakteri kullanmadım. Onun yerine tire `-` karakterini kullandım.
+
+## `for ` döngüsü kullanımı
+
+For döngüsü şu şeklde kullanılır.
+
+Bir değişken belirleyelim:
+
+```bash
+FILES="a.txt b.txt c.txt"
+```
+
+Elimizde 3 farklı dosya olsun. Bu üç dosyaya belirli işlemleri uygulamak istiyoruz. For döngüsü sayesinde bu işlemleri tek tek bütün dosyalara sırayla uygulayabiliriz:
+
+```bash
+for FILE in ${FILES}
+do
+    echo ${FILE}
+done
+```
+
+Bu betik, öncelikle FILES içersisindeki dosyaları sırayla FILE içersine atacak. ve `do` kısmından sonra gelen adımı uygulayacak.
