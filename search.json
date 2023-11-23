@@ -123,7 +123,14 @@
     "href": "00-setup/03-command-line.html#metin-dosyaları-oluşturmak",
     "title": "3  Komut satırı kullanımı",
     "section": "3.10 Metin dosyaları oluşturmak",
-    "text": "3.10 Metin dosyaları oluşturmak\nŞimdi ise metin dosyalarını oluşturma ve kaydetmeye bakalım. Metin tabanlı sistemlerde nano isimli metin editörü, bize metin dosyaları ile çalışma imkanı sağlar.\nDaha önce oluşturduğumuz arama.txt dosyasını açalım:\nnano arama.txt\nArtık dosya içerisine istediğimiz bilgiyi yazabiliriz. Yazdıklarımız bittikten sonra ctrl + o tuşu ile kaydedebiliriz. Ardından ctrl + x tuş kombinasyonuyla çıkış yapabilirsiniz.\nİsterseniz yeni bir dosya da oluşturabilirsiniz:\nnano yeni-dosya.txt\nDikkat edin, boşluk karakteri kullanmadım. Onun yerine tire - karakterini kullandım"
+    "text": "3.10 Metin dosyaları oluşturmak\nŞimdi ise metin dosyalarını oluşturma ve kaydetmeye bakalım. Metin tabanlı sistemlerde nano isimli metin editörü, bize metin dosyaları ile çalışma imkanı sağlar.\nDaha önce oluşturduğumuz arama.txt dosyasını açalım:\nnano arama.txt\nArtık dosya içerisine istediğimiz bilgiyi yazabiliriz. Yazdıklarımız bittikten sonra ctrl + o tuşu ile kaydedebiliriz. Ardından ctrl + x tuş kombinasyonuyla çıkış yapabilirsiniz.\nİsterseniz yeni bir dosya da oluşturabilirsiniz:\nnano yeni-dosya.txt\nDikkat edin, boşluk karakteri kullanmadım. Onun yerine tire - karakterini kullandım."
+  },
+  {
+    "objectID": "00-setup/03-command-line.html#for-döngüsü-kullanımı",
+    "href": "00-setup/03-command-line.html#for-döngüsü-kullanımı",
+    "title": "3  Komut satırı kullanımı",
+    "section": "3.11 for döngüsü kullanımı",
+    "text": "3.11 for döngüsü kullanımı\nFor döngüsü şu şeklde kullanılır.\nBir değişken belirleyelim:\nFILES=\"a.txt b.txt c.txt\"\nElimizde 3 farklı dosya olsun. Bu üç dosyaya belirli işlemleri uygulamak istiyoruz. For döngüsü sayesinde bu işlemleri tek tek bütün dosyalara sırayla uygulayabiliriz:\nfor FILE in ${FILES}\ndo\n    echo ${FILE}\ndone\nBu betik, öncelikle FILES içersisindeki dosyaları sırayla FILE içersine atacak. ve do kısmından sonra gelen adımı uygulayacak."
   },
   {
     "objectID": "01-lectures/01-ynd.html",

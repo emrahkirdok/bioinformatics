@@ -289,6 +289,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#çıktı-yönlendirme" id="toc-çıktı-yönlendirme" class="nav-link" data-scroll-target="#çıktı-yönlendirme"><span class="header-section-number">3.8</span> Çıktı yönlendirme</a></li>
   <li><a href="#boru-pipe" id="toc-boru-pipe" class="nav-link" data-scroll-target="#boru-pipe"><span class="header-section-number">3.9</span> Boru (Pipe)</a></li>
   <li><a href="#metin-dosyaları-oluşturmak" id="toc-metin-dosyaları-oluşturmak" class="nav-link" data-scroll-target="#metin-dosyaları-oluşturmak"><span class="header-section-number">3.10</span> Metin dosyaları oluşturmak</a></li>
+  <li><a href="#for-döngüsü-kullanımı" id="toc-for-döngüsü-kullanımı" class="nav-link" data-scroll-target="#for-döngüsü-kullanımı"><span class="header-section-number">3.11</span> <code>for</code> döngüsü kullanımı</a></li>
   </ul>
 </nav>
     </div>
@@ -420,7 +421,19 @@ Varolan dosyanın üzerine yazma
 <p>Artık dosya içerisine istediğimiz bilgiyi yazabiliriz. Yazdıklarımız bittikten sonra <code>ctrl + o</code> tuşu ile kaydedebiliriz. Ardından <code>ctrl + x</code> tuş kombinasyonuyla çıkış yapabilirsiniz.</p>
 <p>İsterseniz yeni bir dosya da oluşturabilirsiniz:</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> yeni-dosya.txt</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Dikkat edin, boşluk karakteri kullanmadım. Onun yerine tire <code>-</code> karakterini kullandım</p>
+<p>Dikkat edin, boşluk karakteri kullanmadım. Onun yerine tire <code>-</code> karakterini kullandım.</p>
+</section>
+<section id="for-döngüsü-kullanımı" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="for-döngüsü-kullanımı"><span class="header-section-number">3.11</span> <code>for</code> döngüsü kullanımı</h2>
+<p>For döngüsü şu şeklde kullanılır.</p>
+<p>Bir değişken belirleyelim:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="va">FILES</span><span class="op">=</span><span class="st">"a.txt b.txt c.txt"</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Elimizde 3 farklı dosya olsun. Bu üç dosyaya belirli işlemleri uygulamak istiyoruz. For döngüsü sayesinde bu işlemleri tek tek bütün dosyalara sırayla uygulayabiliriz:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> FILE <span class="kw">in</span> <span class="va">${FILES}</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="va">${FILE}</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Bu betik, öncelikle FILES içersisindeki dosyaları sırayla FILE içersine atacak. ve <code>do</code> kısmından sonra gelen adımı uygulayacak.</p>
 
 
 </section>
