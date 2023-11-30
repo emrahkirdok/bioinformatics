@@ -42,13 +42,13 @@ mkdir deneme_dersi
 
 ## Klasör içindekileri inceleme 
 
-Bir klasör içindeki dosyaları listelemek için `ls` komutunu kullanabiliriz:
+Oluşturduğumuz klasör içindeki dosyaları listelemek için `ls` komutunu kullanabiliriz. Klasörün içinde değilsek klasör adını yazmalıyız; klasör adı yazmadığımız durumda her neredeysek oradaki dosyaları listeleyecektir: 
 
 ```bash
-ls
+ls deneme_dersi
 ```
 
-Eğer daha ayrıntılı bilgi istersek, `ls -l` komutunu kullanabiliriz. Bu komut, dosya ve klasörleri listeler
+Eğer daha ayrıntılı bilgi istersek, `ls -l` komutunu kullanabiliriz. Bu komut, dosya ve klasörleri listeler; yime istersek klasör adı belirtebiliriz:
 
 ```bash
 ls -l
@@ -73,23 +73,21 @@ pwd
 
 ## Dosya ve klasör kopyalama
 
-İlk olarak örnek dosyamızı kopyalayarak işe başlayalım. `cp` komutu dosya ve klasörleri kopyalamak için kullanılır. Klasörleri kopyalamak istiyorsak `-r` işaretini eklememiz gerekir.
+İlk olarak örnek dosyamızı kopyalayarak işe başlayalım. `cp` komutu dosya ve klasörleri kopyalamak için kullanılır. Klasörleri kopyalamak istiyorsak `-r` işaretini eklememiz gerekir. Kopyalamak istediğimiz dosyanın tam konumunu bilmeliyiz ve eksiksiz olarak kodumuzda bu konumu vermeliyiz. Sondaki `.` işareti, bulunduğumuz yere bu klasörün kopyalanmasını sağlar.
 
 ```bash
 cp -r /truba/home/egitim90/ornek_veri .
 ```
-
-Bu komut bize, `/truba/home/egitim/test` klasörünü, `.` yani bulunduğumuz klasöre kpopyalamamızı sağlamaktadır.
 
 Linux üzerinde bunun gibi kısayollar bulunmaktadır.
 
 + `.` bulunduğumuz klasör
 + `~` ev klasörümüz
 
-Şimdi tekrar bulunduğumuz klasör içindekileri listeleyelim:
+Şimdi tekrar bulunduğumuz klasör içindekileri listeleyelim, alternatif bir örnek olarak bu sefer içindekilerin değiştirilme tarihine göre sıralayan bir kodla çalışalım:
 
 ```bash
-ls -l
+ls -ltrh
 ```
 
 Şimdi de `test` klasörüne girelim:
@@ -118,7 +116,7 @@ Dikkat ederseniz hepsini ekrana yazdırdı. Ancak dosyamız çok büyükse bunu 
 less
 ```
 
-`less` aslında metin dosyalarını incelememizi sağlayan bir komut satırı programı. Bu sayede bir dosyanın içindekilere bakabiliriz. Bu programdan çıkmak için `q` tuşuna basınız.
+`less` aslında metin dosyalarını incelememizi sağlayan bir komut satırı programı. Bu sayede bir dosyanın içindekilere bakabiliriz. Bu programdan çıkmak için `Q` tuşuna basınız.
 
 İstersek `less` programı ile dosyalar içerisinde arama da yapabiliriz. Bunun için ise, öncelikle `/` karakterine basalım, daha sonra da aramak istediğimiz kelimeyi yazalım. `less` programı sizin arama yaptığınızı anlayacaktır.
 
@@ -134,13 +132,13 @@ grep ENA ornek.fasta
 
 ## Çıktı yönlendirme
 
-Linux temelli sistemlerin en önemli özelliklerinden bir tanesi de çıktı yönlendirmedir. Yukarıdaki komuta bakmıştık, istersek çıktıyı başka bit dosyaya yönlendirebiliriz. Bunun için `>` komutunu kullanmalıyız.
+Linux temelli sistemlerin en önemli özelliklerinden bir tanesi de çıktı yönlendirmedir. Yukarıdaki komuta bakmıştık, istersek çıktıyı başka bir dosyaya yönlendirebiliriz. Bunun için `>` komutunu kullanmalıyız. Bu dosyayı önceden oluşturmuş olmamıza gerek yoktur, bu kodu yazdığımızda otomatik olarak oluşacaktır:
 
 ```bash
 grep ENA ornek.fasta > arama.txt
 ```
 
-Ne yaptık? Önce `ornek.fasta` dosyasında "ENA" kelimesini aradık, ve çıktıyı başka bir metin dosyasına yönlendirdirdik.
+Özetle: önce `ornek.fasta` dosyasında "ENA" kelimesini arayıp ekrana yazdırdık. Çıktıyı, yani içerisinde "ENA" kelimesi geçen kısımları başka bir metin dosyasına yönlendirdirdik ve bu dosyanın içinde saklamış olduk.
 
 ## Boru (Pipe)
 
@@ -163,14 +161,14 @@ Ama dikkat edin! Artık `arama.txt` dosyasının üzerine yazdık! Eğer bu dosy
 :::{.callout-warning}
 ## Varolan dosyanın üzerine yazma
 
-Eğer `>` kullanırsanız, ve varolan bir dosyayı hedef gösterirseniz, o dosyanın üzerine yazmış olursunuz!
+Eğer `>` kullanırsanız, ve varolan bir dosyayı hedef gösterirseniz, o dosyanın üzerine yazmış olursunuz! Dosyanın içindeki eski bilgileri kaybederiz!
 :::
 
 ## Metin dosyaları oluşturmak
 
 Şimdi ise metin dosyalarını oluşturma ve kaydetmeye bakalım. Metin tabanlı sistemlerde `nano` isimli metin editörü, bize metin dosyaları ile çalışma imkanı sağlar. 
 
-Daha önce oluşturduğumuz `arama.txt` dosyasını açalım:
+Daha önce oluşturduğumuz `arama.txt` dosyasını metin editörü ile açalım. Yukarıda bahsedilen `cat` komutu ile düzenleme yapamayız, sadece okuyabiliriz:
 
 ```bash
 nano arama.txt
@@ -178,7 +176,7 @@ nano arama.txt
 
 Artık dosya içerisine istediğimiz bilgiyi yazabiliriz. Yazdıklarımız bittikten sonra `ctrl + o ` tuşu ile kaydedebiliriz. Ardından `ctrl + x` tuş kombinasyonuyla çıkış yapabilirsiniz.
 
-İsterseniz yeni bir dosya da oluşturabilirsiniz:
+İsterseniz yeni bir dosya oluşturabilirsiniz, benzer şekilde önceden var olmasına gerek yoktur, bu komutu yazarken otomatik olarak oluşacaktır:
 
 ```bash
 nano yeni-dosya.txt
@@ -188,7 +186,14 @@ Dikkat edin, boşluk karakteri kullanmadım. Onun yerine tire `-` karakterini ku
 
 ## `for ` döngüsü kullanımı
 
-For döngüsü şu şeklde kullanılır.
+For döngüsü mantığına bakalım:
+
+Bir klasör içerisinde 15 tane dosya var ve bu dosyaların hepsine uygulamak istediğimiz bir işlem var diyelim. Bu işlemi her dosyaya ayrı ayrı uygulamak yerine, `for` döngüsü kullanarak aynı anda hepsine uygulama yapılabilir.
+Dosyaların hepsini bir değişkende toplayalım, dosya isimlerini tek tek elle yazmamız gerekebilir, eğer bu dosya adlarında veya uzantılarında belli başlı ortak özellikler varsa, daha pratik bir kodlama yapabiliriz. 
+Artık dosyaları tek tek yazmak yerine, değişken ismi ile bu dosyalar bütününü temsil edebiliriz.
+`for` döngüsü bu değişkendeki dosyaları tek tek alır, işlemi yapar, işlem tamamlanınca bir sonraki dosyaya geçer, işlemi yapar, tamamlar, ve bu şekilde artık işlem yapılacak dosya kalmayana kadar bu döngüyü devam ettirir. 
+
+For döngüsü şu şekilde kullanılır.
 
 Bir değişken belirleyelim:
 
@@ -206,3 +211,9 @@ done
 ```
 
 Bu betik, öncelikle FILES içersisindeki dosyaları sırayla FILE içersine atacak. ve `do` kısmından sonra gelen adımı uygulayacak.
+
+For döngüsü özet:
+
+Klasördeki değişkendeki her bir dosya için;
+Klasöre işlem uygula,
+Dosyaların hepsi işlenince bitir.
