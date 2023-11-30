@@ -334,9 +334,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="klasör-içindekileri-inceleme" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="klasör-içindekileri-inceleme"><span class="header-section-number">3.3</span> Klasör içindekileri inceleme</h2>
-<p>Bir klasör içindeki dosyaları listelemek için <code>ls</code> komutunu kullanabiliriz:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Eğer daha ayrıntılı bilgi istersek, <code>ls -l</code> komutunu kullanabiliriz. Bu komut, dosya ve klasörleri listeler</p>
+<p>Oluşturduğumuz klasör içindeki dosyaları listelemek için <code>ls</code> komutunu kullanabiliriz. Klasörün içinde değilsek klasör adını yazmalıyız; klasör adı yazmadığımız durumda her neredeysek oradaki dosyaları listeleyecektir:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> deneme_dersi</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Eğer daha ayrıntılı bilgi istersek, <code>ls -l</code> komutunu kullanabiliriz. Bu komut, dosya ve klasörleri listeler; yime istersek klasör adı belirtebiliriz:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Benim ekranımda şöyle bir görüntü çıktı (<a href="#fig-command-line">Şekil&nbsp;<span>3.1</span></a>).</p>
 <div id="fig-command-line" class="quarto-figure quarto-figure-center anchored">
@@ -355,16 +355,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="dosya-ve-klasör-kopyalama" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="dosya-ve-klasör-kopyalama"><span class="header-section-number">3.5</span> Dosya ve klasör kopyalama</h2>
-<p>İlk olarak örnek dosyamızı kopyalayarak işe başlayalım. <code>cp</code> komutu dosya ve klasörleri kopyalamak için kullanılır. Klasörleri kopyalamak istiyorsak <code>-r</code> işaretini eklememiz gerekir.</p>
+<p>İlk olarak örnek dosyamızı kopyalayarak işe başlayalım. <code>cp</code> komutu dosya ve klasörleri kopyalamak için kullanılır. Klasörleri kopyalamak istiyorsak <code>-r</code> işaretini eklememiz gerekir. Kopyalamak istediğimiz dosyanın tam konumunu bilmeliyiz ve eksiksiz olarak kodumuzda bu konumu vermeliyiz. Sondaki <code>.</code> işareti, bulunduğumuz yere bu klasörün kopyalanmasını sağlar.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> /truba/home/egitim90/ornek_veri .</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Bu komut bize, <code>/truba/home/egitim/test</code> klasörünü, <code>.</code> yani bulunduğumuz klasöre kpopyalamamızı sağlamaktadır.</p>
 <p>Linux üzerinde bunun gibi kısayollar bulunmaktadır.</p>
 <ul>
 <li><code>.</code> bulunduğumuz klasör</li>
 <li><code>~</code> ev klasörümüz</li>
 </ul>
-<p>Şimdi tekrar bulunduğumuz klasör içindekileri listeleyelim:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Şimdi tekrar bulunduğumuz klasör içindekileri listeleyelim, alternatif bir örnek olarak bu sefer içindekilerin değiştirilme tarihine göre sıralayan bir kodla çalışalım:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-ltrh</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Şimdi de <code>test</code> klasörüne girelim:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> test</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Ve içindekileri listeleyelim:</p>
@@ -376,7 +375,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ornek.fasta</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dikkat ederseniz hepsini ekrana yazdırdı. Ancak dosyamız çok büyükse bunu yapma şansımız yok. O zaman <code>less</code> komutunu kullanabiliriz:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><code>less</code> aslında metin dosyalarını incelememizi sağlayan bir komut satırı programı. Bu sayede bir dosyanın içindekilere bakabiliriz. Bu programdan çıkmak için <code>q</code> tuşuna basınız.</p>
+<p><code>less</code> aslında metin dosyalarını incelememizi sağlayan bir komut satırı programı. Bu sayede bir dosyanın içindekilere bakabiliriz. Bu programdan çıkmak için <code>Q</code> tuşuna basınız.</p>
 <p>İstersek <code>less</code> programı ile dosyalar içerisinde arama da yapabiliriz. Bunun için ise, öncelikle <code>/</code> karakterine basalım, daha sonra da aramak istediğimiz kelimeyi yazalım. <code>less</code> programı sizin arama yaptığınızı anlayacaktır.</p>
 <p>Şimdi yine <code>ornek.fasta</code> dosyasını açalım ve “ENA” kelimesini arayalım</p>
 </section>
@@ -387,9 +386,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="çıktı-yönlendirme" class="level2" data-number="3.8">
 <h2 data-number="3.8" class="anchored" data-anchor-id="çıktı-yönlendirme"><span class="header-section-number">3.8</span> Çıktı yönlendirme</h2>
-<p>Linux temelli sistemlerin en önemli özelliklerinden bir tanesi de çıktı yönlendirmedir. Yukarıdaki komuta bakmıştık, istersek çıktıyı başka bit dosyaya yönlendirebiliriz. Bunun için <code>&gt;</code> komutunu kullanmalıyız.</p>
+<p>Linux temelli sistemlerin en önemli özelliklerinden bir tanesi de çıktı yönlendirmedir. Yukarıdaki komuta bakmıştık, istersek çıktıyı başka bir dosyaya yönlendirebiliriz. Bunun için <code>&gt;</code> komutunu kullanmalıyız. Bu dosyayı önceden oluşturmuş olmamıza gerek yoktur, bu kodu yazdığımızda otomatik olarak oluşacaktır:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> ENA ornek.fasta <span class="op">&gt;</span> arama.txt</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Ne yaptık? Önce <code>ornek.fasta</code> dosyasında “ENA” kelimesini aradık, ve çıktıyı başka bir metin dosyasına yönlendirdirdik.</p>
+<p>Özetle: önce <code>ornek.fasta</code> dosyasında “ENA” kelimesini arayıp ekrana yazdırdık. Çıktıyı, yani içerisinde “ENA” kelimesi geçen kısımları başka bir metin dosyasına yönlendirdirdik ve bu dosyanın içinde saklamış olduk.</p>
 </section>
 <section id="boru-pipe" class="level2" data-number="3.9">
 <h2 data-number="3.9" class="anchored" data-anchor-id="boru-pipe"><span class="header-section-number">3.9</span> Boru (Pipe)</h2>
@@ -409,23 +408,25 @@ Varolan dosyanın üzerine yazma
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Eğer <code>&gt;</code> kullanırsanız, ve varolan bir dosyayı hedef gösterirseniz, o dosyanın üzerine yazmış olursunuz!</p>
+<p>Eğer <code>&gt;</code> kullanırsanız, ve varolan bir dosyayı hedef gösterirseniz, o dosyanın üzerine yazmış olursunuz! Dosyanın içindeki eski bilgileri kaybederiz!</p>
 </div>
 </div>
 </section>
 <section id="metin-dosyaları-oluşturmak" class="level2" data-number="3.10">
 <h2 data-number="3.10" class="anchored" data-anchor-id="metin-dosyaları-oluşturmak"><span class="header-section-number">3.10</span> Metin dosyaları oluşturmak</h2>
 <p>Şimdi ise metin dosyalarını oluşturma ve kaydetmeye bakalım. Metin tabanlı sistemlerde <code>nano</code> isimli metin editörü, bize metin dosyaları ile çalışma imkanı sağlar.</p>
-<p>Daha önce oluşturduğumuz <code>arama.txt</code> dosyasını açalım:</p>
+<p>Daha önce oluşturduğumuz <code>arama.txt</code> dosyasını metin editörü ile açalım. Yukarıda bahsedilen <code>cat</code> komutu ile düzenleme yapamayız, sadece okuyabiliriz:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> arama.txt</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Artık dosya içerisine istediğimiz bilgiyi yazabiliriz. Yazdıklarımız bittikten sonra <code>ctrl + o</code> tuşu ile kaydedebiliriz. Ardından <code>ctrl + x</code> tuş kombinasyonuyla çıkış yapabilirsiniz.</p>
-<p>İsterseniz yeni bir dosya da oluşturabilirsiniz:</p>
+<p>İsterseniz yeni bir dosya oluşturabilirsiniz, benzer şekilde önceden var olmasına gerek yoktur, bu komutu yazarken otomatik olarak oluşacaktır:</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> yeni-dosya.txt</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dikkat edin, boşluk karakteri kullanmadım. Onun yerine tire <code>-</code> karakterini kullandım.</p>
 </section>
 <section id="for-döngüsü-kullanımı" class="level2" data-number="3.11">
 <h2 data-number="3.11" class="anchored" data-anchor-id="for-döngüsü-kullanımı"><span class="header-section-number">3.11</span> <code>for</code> döngüsü kullanımı</h2>
-<p>For döngüsü şu şeklde kullanılır.</p>
+<p>For döngüsü mantığına bakalım:</p>
+<p>Bir klasör içerisinde 15 tane dosya var ve bu dosyaların hepsine uygulamak istediğimiz bir işlem var diyelim. Bu işlemi her dosyaya ayrı ayrı uygulamak yerine, <code>for</code> döngüsü kullanarak aynı anda hepsine uygulama yapılabilir. Dosyaların hepsini bir değişkende toplayalım, dosya isimlerini tek tek elle yazmamız gerekebilir, eğer bu dosya adlarında veya uzantılarında belli başlı ortak özellikler varsa, daha pratik bir kodlama yapabiliriz. Artık dosyaları tek tek yazmak yerine, değişken ismi ile bu dosyalar bütününü temsil edebiliriz. <code>for</code> döngüsü bu değişkendeki dosyaları tek tek alır, işlemi yapar, işlem tamamlanınca bir sonraki dosyaya geçer, işlemi yapar, tamamlar, ve bu şekilde artık işlem yapılacak dosya kalmayana kadar bu döngüyü devam ettirir.</p>
+<p>For döngüsü şu şekilde kullanılır.</p>
 <p>Bir değişken belirleyelim:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="va">FILES</span><span class="op">=</span><span class="st">"a.txt b.txt c.txt"</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Elimizde 3 farklı dosya olsun. Bu üç dosyaya belirli işlemleri uygulamak istiyoruz. For döngüsü sayesinde bu işlemleri tek tek bütün dosyalara sırayla uygulayabiliriz:</p>
@@ -434,6 +435,8 @@ Varolan dosyanın üzerine yazma
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="va">${FILE}</span></span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Bu betik, öncelikle FILES içersisindeki dosyaları sırayla FILE içersine atacak. ve <code>do</code> kısmından sonra gelen adımı uygulayacak.</p>
+<p>For döngüsü özet:</p>
+<p>Klasördeki değişkendeki her bir dosya için; Klasöre işlem uygula, Dosyaların hepsi işlenince bitir.</p>
 
 
 </section>
