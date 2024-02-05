@@ -1,5 +1,5 @@
 
-# Giriş 
+# Markdown Kullanımı 
 
 Bu belgede markdown kullanımının öğretilmesi amaçlanmıştır.
 
