@@ -218,23 +218,23 @@
   {
     "objectID": "00-setup/04-markdown-kullanim.html",
     "href": "00-setup/04-markdown-kullanim.html",
-    "title": "4  Giriş",
+    "title": "4  Markdown Kullanımı",
     "section": "",
     "text": "4.1 Üzerinde Durulacak Konular",
     "crumbs": [
       "Derse Hazırlık",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Giriş</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Markdown Kullanımı</span>"
     ]
   },
   {
     "objectID": "00-setup/04-markdown-kullanim.html#üzerinde-durulacak-konular",
     "href": "00-setup/04-markdown-kullanim.html#üzerinde-durulacak-konular",
-    "title": "4  Giriş",
+    "title": "4  Markdown Kullanımı",
     "section": "",
     "text": "Başlık ekleme\nAlt başlıkları ekleme\nVurgulamalar\nMadde ekleme ve sıralama\nBağlantı ekleme\nKod ekleme\nTablo ekleme\nGörsel ekleme\n\n\n4.1.1 Başlık Ekleme\nMarkdown kullanırken başlık eklemek amacıyla # kullanılır. Örneğin # Staj yazıldığı durumda başlık Staj şeklinde görünecektir.\n# Staj\n\n\n4.1.2 Alt Başlıklar Ekleme\nBaşlığın altına alt başlıklar eklenmek isteniyorsa, oluşturulacak her alt başlık için fazladan bir # eklenir. Örneğin staj başlığı altında zorunlu staj 1 yazılması istendiği zaman, bunun ## zorunlu staj 1 şeklinde yazılması gerekir.\nEğer zorunlu staj 1 alt başlığının alt başlıkları varsa yazılacak alt başlıklar için fazladan bir # daha eklenir. Örneğin bu alt başlıklardan biri 1. gün olsun. Bunun başlık şeklinde yazılması için ### 1. gün şeklinde yazılması gerekir.\n\n\n4.1.3 Vurgulamalar\nMarkdown kullanırken kelime ya da cümlelerin vurgulanması farklı şekillerde yapılabilir.\n\n4.1.3.1 Metni Kalın Şekilde Yazma\nKelime veya cümlenin kalın yazılması için;\n**kelime** ya da __kelime__\nBunun çıktısı şu şekilde görünecektir:\nkelime ya da kelime\n\n\n4.1.3.2 Metni İtalik Şekilde Yazma\nKelime veya cümlenin italik yazılması için;\n*kelime* ya da _kelime_ \nşeklinde yazılması gerekir.\nBunun çıktısı şu şekilde görünecektir:\nkelime ya da kelime\n\n\n4.1.3.3 Kalın ve İtalik Yazma\nKelime veya cümlenin hem kalın hem italik yazılması için;\n***kelime*** ya da ___kelime___\nşeklinde yazılması gerekir.\nBunun çıktısının\nkelime ya da kelime\nşeklinde yazılması gerekir.\n\n\n\n4.1.4 Madde Ekleme ve Sıralama\n\n4.1.4.1 Madde Ekleme\nMarkdown kullanırken madde eklenmesi isteniyorsa satır başına + ya da - eklemek yeterli olacaktır. Örneğin hücre organellerinin maddeler halinde yazılması isteniyorsa her satır başına + ya da - konması yeterli olacaktır.\nörneğin;\n+ kloroplast\n+ mitokondri\n+ endoplazmik retikulum...\nyazıldığı zaman elde edilen çıktı:\n\nkloroplast\nmitokondri\nendoplazmik retikulum…\n\nşeklinde olacaktır.\n\n\n4.1.4.2 Sıralama\nSıralama yapılırken madde ekleme ile benzer bir mantık yürütülür. bunun için satır başına 1. yazılırsa sıralama yapılacaktır.\nÖrneğin;\n1. a\n2. b\n3. c\nyazıldığı zaman elde edilen çıktı\n\na\nb\nc\n\nşeklinde olacaktır.\n\n\n\n4.1.5 Bağlantı Ekleme\nMarkdown kullanılırken bağlantı eklenmesi isteniyorsa\n[bağlantı adı](bağlantı)\nşeklinde yazılması uygun olacaktır. Örneğin komut satırına\n[nature](https://www.nature.com/)\nyazılması durumunda elde edilen çıktı nature şeklinde olacaktır.\n\n\n4.1.6 Kod Ekleme\nMarkdown kullanırken satır içine kod eklenmesi isteniyorsa\n`kod`\nşeklinde yazılması yeterli olacaktır. Bu bize satır içinde kod yazımını sağlayacaktır.\nEğer kod bloğu eklemek istersek şu karakterleri kullanmalıyız:\n```\nkod\n```\nyazıldığı zaman ekranda yazılan çıktı:\nkod\nşeklinde olacaktır.\n\n\n4.1.7 Tablo ekleme\nTablo eklerken aşağıdaki girdinin çıktısı tablodaki gibi oalcaktır.\n|    |  x   |  y   |\n|----|:-----|-----:|\n|a   |  dld |  sls |\n|b   |  hkh |  tyt |\n\n\n\n\nx\ny\n\n\n\n\na\ndld\nsls\n\n\nb\nhkh\ntyt\n\n\n\n\n\n4.1.8 Görsel Ekleme\nMarkdown kullanırken görsel eklenmesi bağlantı ekleme ile benzer bir mantıkla yapılır. bunun için\n![altyazı](resim adresi)\nşeklinde yazılması uygun olacaktır. örneğin komut satırına\n![markdown](https://icons.veryicon.com/png/o/object/material_design_icons/markdown-1.png)\nyazılması durumunda elde edilecek çıktı\n\n\n\nmarkdown\n\n\nşeklinde olacaktır.",
     "crumbs": [
       "Derse Hazırlık",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Giriş</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Markdown Kullanımı</span>"
     ]
   },
   {
