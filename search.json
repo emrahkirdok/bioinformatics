@@ -4,251 +4,435 @@
     "href": "index.html",
     "title": "Biyoinformatik",
     "section": "",
-    "text": "Önsöz\nMerhabalar! Lisans üstü seviyede verilen İleri Biyoinformatik dersine hoşgeldiniz!"
+    "text": "Önsöz\nMerhabalar! Lisans üstü seviyede verilen İleri Biyoinformatik dersine hoşgeldiniz!",
+    "crumbs": [
+      "Önsöz"
+    ]
   },
   {
     "objectID": "index.html#ders-hakkında-ön-bilgi",
     "href": "index.html#ders-hakkında-ön-bilgi",
     "title": "Biyoinformatik",
     "section": "Ders hakkında ön bilgi",
-    "text": "Ders hakkında ön bilgi\nDersimiz çoğunlukla yüz yüze işlenecektir. Ancak akademik programıma bağlı olarak çevrimiçi işleme opsiyonunu da kullanacağız.\nDers kapsamında Mersin Üniversitesi Fen Fakültesi 30 kişilik bilgisayar laboratuvarını kullanacağız."
+    "text": "Ders hakkında ön bilgi\nDersimiz çoğunlukla yüz yüze işlenecektir. Ancak akademik programıma bağlı olarak çevrimiçi işleme opsiyonunu da kullanacağız.\nDers kapsamında Mersin Üniversitesi Fen Fakültesi 30 kişilik bilgisayar laboratuvarını kullanacağız.",
+    "crumbs": [
+      "Önsöz"
+    ]
   },
   {
     "objectID": "index.html#dersin-işlenme-yöntemi",
     "href": "index.html#dersin-işlenme-yöntemi",
     "title": "Biyoinformatik",
     "section": "Dersin işlenme yöntemi",
-    "text": "Dersin işlenme yöntemi\nDers kapsamında Türkiye Ulusal e-Bilişim Altyapısı’nın (TRUBA) yüksek başarımlı bilgisayar sistemlerini kullanacağız. Bu imkanı bize sağlayarak, öğrencilere eğitim hesapları açtıkları için teşekkür ederiz."
+    "text": "Dersin işlenme yöntemi\nDers kapsamında Türkiye Ulusal e-Bilişim Altyapısı’nın (TRUBA) yüksek başarımlı bilgisayar sistemlerini kullanacağız. Bu imkanı bize sağlayarak, öğrencilere eğitim hesapları açtıkları için teşekkür ederiz.",
+    "crumbs": [
+      "Önsöz"
+    ]
   },
   {
     "objectID": "index.html#konular",
     "href": "index.html#konular",
     "title": "Biyoinformatik",
     "section": "Konular",
-    "text": "Konular\nAltyapı kısmı, TRUBA sistemine nasıl bağlanılacağı, komutların kullanımı ve TRUBA sisteminde iş göndermek için gerekli betiklerin tanıtımına ayrılmıştır.\nBölüm 2, TRUBA sisteminin tanıtımını ve sisteme nasıl bağlanacağımız hakkında gerekli bilgileri içermektedir. Daha sonra Bölüm 3 kısmında ise, TRUBA sisteminin ve linux komut satırının kullanımı hakkında gerekli bilgiler ve pratikler verilmiştir."
+    "text": "Konular\nAltyapı kısmı, TRUBA sistemine nasıl bağlanılacağı, komutların kullanımı ve TRUBA sisteminde iş göndermek için gerekli betiklerin tanıtımına ayrılmıştır.\n2  Truba, TRUBA sisteminin tanıtımını ve sisteme nasıl bağlanacağımız hakkında gerekli bilgileri içermektedir. Daha sonra 3  Komut satırı kullanımı kısmında ise, TRUBA sisteminin ve linux komut satırının kullanımı hakkında gerekli bilgiler ve pratikler verilmiştir.",
+    "crumbs": [
+      "Önsöz"
+    ]
   },
   {
-    "objectID": "00-setup/01-system.html#windows-işletim-sistemi",
-    "href": "00-setup/01-system.html#windows-işletim-sistemi",
+    "objectID": "00-setup/01-system.html",
+    "href": "00-setup/01-system.html",
     "title": "1  Sistem kurulumu",
-    "section": "1.1 Windows işletim sistemi",
-    "text": "1.1 Windows işletim sistemi\nUzaktaki sunucuya bağlanmak için Mobaxterm yazılımını kullanabiliriz."
+    "section": "",
+    "text": "1.1 Windows işletim sistemi\nUzaktaki sunucuya bağlanmak için Mobaxterm yazılımını kullanabiliriz.",
+    "crumbs": [
+      "Derse Hazırlık",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sistem kurulumu</span>"
+    ]
   },
   {
     "objectID": "00-setup/01-system.html#mac-işletim-sistemi",
     "href": "00-setup/01-system.html#mac-işletim-sistemi",
     "title": "1  Sistem kurulumu",
     "section": "1.2 Mac işletim sistemi",
-    "text": "1.2 Mac işletim sistemi\nMac sistemler üzerine kullanacağımız bütün biyoinformatik araçları kurma imkanımız bulunmaktadır. Bunun için Mac tuşu ile boşluk tuşuna basıp Spotlight ekranını açarak (Şekil 1.1), terminal yazınız ve açılan penceyere aşağıdaki kodu yazınız.\nxcode-select --install\n\n\n\nŞekil 1.1: Mac üzerinde spotlight ekranı\n\n\nBir süre bekledikten sonra gerekli programlar kurulacaktır. Artık terminal programı üzerinden gerek uzak bilgisayarlarlar ssh bağlantısı, gerekse de kullanılacak biyoinformatik araçların kurulumunu gerçekleştirebilirsiniz."
+    "text": "1.2 Mac işletim sistemi\nMac sistemler üzerine kullanacağımız bütün biyoinformatik araçları kurma imkanımız bulunmaktadır. Bunun için Mac tuşu ile boşluk tuşuna basıp Spotlight ekranını açarak (Şekil 1.1), terminal yazınız ve açılan penceyere aşağıdaki kodu yazınız.\nxcode-select --install\n\n\n\n\n\n\nŞekil 1.1: Mac üzerinde spotlight ekranı\n\n\n\nBir süre bekledikten sonra gerekli programlar kurulacaktır. Artık terminal programı üzerinden gerek uzak bilgisayarlarlar ssh bağlantısı, gerekse de kullanılacak biyoinformatik araçların kurulumunu gerçekleştirebilirsiniz.",
+    "crumbs": [
+      "Derse Hazırlık",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sistem kurulumu</span>"
+    ]
   },
   {
     "objectID": "00-setup/01-system.html#ubuntu-alt-sistemi-bakımı",
     "href": "00-setup/01-system.html#ubuntu-alt-sistemi-bakımı",
     "title": "1  Sistem kurulumu",
     "section": "1.3 Ubuntu alt sistemi bakımı",
-    "text": "1.3 Ubuntu alt sistemi bakımı\nSisteminiz ara ara güncellemelisiniz. Öncelikle kullandığımız paketlerin en güncel versiyonlarını denetleyelim:\nsudo apt update\nDaha sonra sistemi güncelleyelim:\nsudo apt upgrade\n\n1.3.1 Ubuntu sisteminde kullanıcı ismi sorunu\nSorunlardan bir tanesi ön tanımlı kullanıcının root olmasıydı. Kullandığımız sistemler çok kullanıcılı sistemler. Her kullanıcının bazı hakları var. root kullanıcısı ise, en güçlü kullanıcı ve her şeyi yapma yeteneği var.\nO yüzden bu kullanıcı her zaman kullanmıuoruz. Eğer ubuntu alt sistemi root kullanıcısı ile açılıyorsa bunu değiştirmeliyiz.\nÖnce ubuntu ekranını açalım ve yeni bir kullancı eklediğimizden emin olalım:\nsudo adduser KULLANICI\nBu şekilde yeni kullanıcı ekleyelim. Aşağıdaki gibi bir ekran karşımıza çıkacak (Şekil 1.2):\n\n\n\nŞekil 1.2: Ubuntu alt sisteminde kullanıcı ekleme\n\n\nŞifrenizi girin (ancak imleç haraket etmeyecek, endişe etmeyin) ve tekrar girin.\nKullanıcıyı oluşturduktan sonra, Windows’ta arama kısmına gelerek Komut İstemi yazın. bu da aslında Windows’un komut satırı arayüzü. Burada aşağıdaki satırı yazarak, yeni kullanıcınızı ön tanımlı olarak ekleyebilirsiniz.\nubuntu config --default-user KULLANICI"
+    "text": "1.3 Ubuntu alt sistemi bakımı\nSisteminiz ara ara güncellemelisiniz. Öncelikle kullandığımız paketlerin en güncel versiyonlarını denetleyelim:\nsudo apt update\nDaha sonra sistemi güncelleyelim:\nsudo apt upgrade\n\n1.3.1 Ubuntu sisteminde kullanıcı ismi sorunu\nSorunlardan bir tanesi ön tanımlı kullanıcının root olmasıydı. Kullandığımız sistemler çok kullanıcılı sistemler. Her kullanıcının bazı hakları var. root kullanıcısı ise, en güçlü kullanıcı ve her şeyi yapma yeteneği var.\nO yüzden bu kullanıcı her zaman kullanmıuoruz. Eğer ubuntu alt sistemi root kullanıcısı ile açılıyorsa bunu değiştirmeliyiz.\nÖnce ubuntu ekranını açalım ve yeni bir kullancı eklediğimizden emin olalım:\nsudo adduser KULLANICI\nBu şekilde yeni kullanıcı ekleyelim. Aşağıdaki gibi bir ekran karşımıza çıkacak (Şekil 1.2):\n\n\n\n\n\n\nŞekil 1.2: Ubuntu alt sisteminde kullanıcı ekleme\n\n\n\nŞifrenizi girin (ancak imleç haraket etmeyecek, endişe etmeyin) ve tekrar girin.\nKullanıcıyı oluşturduktan sonra, Windows’ta arama kısmına gelerek Komut İstemi yazın. bu da aslında Windows’un komut satırı arayüzü. Burada aşağıdaki satırı yazarak, yeni kullanıcınızı ön tanımlı olarak ekleyebilirsiniz.\nubuntu config --default-user KULLANICI",
+    "crumbs": [
+      "Derse Hazırlık",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sistem kurulumu</span>"
+    ]
   },
   {
     "objectID": "00-setup/02-truba.html",
     "href": "00-setup/02-truba.html",
     "title": "2  Truba",
     "section": "",
-    "text": "Ders kapsamında TRUBA sunucularını kullanacağız. Bu imkanı bize sundukları için teşekkür ederiz.\nÖncelikle TRUBA internet sitesine giderek sistemi inceleyelim.\nTRUBA kaynaklarına üniversite içerisinden rahatlıkla bağlanabilirsiniz, ancak üniversite dışından bağlanmak için ise bilgisayarınza OpenVPN programını kurmanız gerekmektedir.\nAyrıntılar için Kurulum kılavuzunu inceleyin ve bilgisayarınza uygun olan kılavuz ile OpenVPN kurulumunu tamamlayınız.\nKurulum tamamlandıktan sonra, TRUBA tarafından size gönderilen kullanıcı ismi ve şifreniz ile, OpenVPN sistemine bağlanmanız gerekmektedir. Ardından, mobaxterm ile TRUBA sistemine bağlanabiliriz.\nNormalde uzak bir bilgisyara bağlanma sürecini şöyle özetleyebiliriz. İnternet üzerinde, sizin bilgisyarınız ve uzak bilgisayar arasında şifreli bir tünel (ssh) bağlantısı kurulmaktadır. Bunu Şekil 2.1’de rahatlıkla görebiliriz. Bu şekilde yapılan bir bağlantıda, TRUBA sistemine şifreli bir tünel açılmaktadır.\n\n\n\n\n\n\n\n\ng\n\n  \n\nYerel Bilgisayar\n\n Yerel Bilgisayar   \n\nTRUBA\n\n TRUBA   \n\nYerel Bilgisayar-&gt;TRUBA\n\n   \n\n\nŞekil 2.1: ULAKBİM ağı içerisinden, TRUBA’ya doğrudan ssh bağlantısı kurabilirsiniz.\n\n\n\n\nAncak, ULAKBİM üzerinden yapılmayan bağlantılar güvenli olmayabir. Bu tip bilgisayar sistemleri yoğunlukla saldırı altındadır. Bu yüzden güvenli bir bağlantı oluşturmak için farklı yöntemler kullanılabilir. Bazı sunucu sistemleri iki faktörlü doğrulama kullanırken, TRUBA sistemi, ULAKBİM dışındaki bağlantılarda öncelikle sanal ağa bağlanmanızı zorunlu tutmaktadır. Bağlantı güvenliği için öncelikle OpenVPN ile sanal ağa, oradan da TRUBA’ya bağlanıyoruz (Şekil 2.2).\n\n\n\n\n\n\n\n\ng\n\n  \n\nYerel Bilgisayar\n\n Yerel Bilgisayar   \n\nOpenVPN\n\n OpenVPN   \n\nYerel Bilgisayar-&gt;OpenVPN\n\n    \n\nTRUBA\n\n TRUBA   \n\nOpenVPN-&gt;TRUBA\n\n   \n\n\nŞekil 2.2: Üniversite ağı dışından yapacağınız bağlantılarda öncelikle OpenVPN üzerinde ULAKBİM sanal ağına bağlanmalısınız."
+    "text": "Ders kapsamında TRUBA sunucularını kullanacağız. Bu imkanı bize sundukları için teşekkür ederiz.\nÖncelikle TRUBA internet sitesine giderek sistemi inceleyelim.\nTRUBA kaynaklarına üniversite içerisinden rahatlıkla bağlanabilirsiniz, ancak üniversite dışından bağlanmak için ise bilgisayarınza OpenVPN programını kurmanız gerekmektedir.\nAyrıntılar için Kurulum kılavuzunu inceleyin ve bilgisayarınza uygun olan kılavuz ile OpenVPN kurulumunu tamamlayınız.\nKurulum tamamlandıktan sonra, TRUBA tarafından size gönderilen kullanıcı ismi ve şifreniz ile, OpenVPN sistemine bağlanmanız gerekmektedir. Ardından, mobaxterm ile TRUBA sistemine bağlanabiliriz.\nNormalde uzak bir bilgisyara bağlanma sürecini şöyle özetleyebiliriz. İnternet üzerinde, sizin bilgisyarınız ve uzak bilgisayar arasında şifreli bir tünel (ssh) bağlantısı kurulmaktadır. Bunu Şekil 2.1’de rahatlıkla görebiliriz. Bu şekilde yapılan bir bağlantıda, TRUBA sistemine şifreli bir tünel açılmaktadır.\n\n\n\n\n\n\n\n\ng\n\n\n\nYerel Bilgisayar\n\nYerel Bilgisayar\n\n\n\nTRUBA\n\nTRUBA\n\n\n\nYerel Bilgisayar-&gt;TRUBA\n\n\n\n\n\n\n\n\nŞekil 2.1: ULAKBİM ağı içerisinden, TRUBA’ya doğrudan ssh bağlantısı kurabilirsiniz.\n\n\n\n\n\nAncak, ULAKBİM üzerinden yapılmayan bağlantılar güvenli olmayabir. Bu tip bilgisayar sistemleri yoğunlukla saldırı altındadır. Bu yüzden güvenli bir bağlantı oluşturmak için farklı yöntemler kullanılabilir. Bazı sunucu sistemleri iki faktörlü doğrulama kullanırken, TRUBA sistemi, ULAKBİM dışındaki bağlantılarda öncelikle sanal ağa bağlanmanızı zorunlu tutmaktadır. Bağlantı güvenliği için öncelikle OpenVPN ile sanal ağa, oradan da TRUBA’ya bağlanıyoruz (Şekil 2.2).\n\n\n\n\n\n\n\n\ng\n\n\n\nYerel Bilgisayar\n\nYerel Bilgisayar\n\n\n\nOpenVPN\n\nOpenVPN\n\n\n\nYerel Bilgisayar-&gt;OpenVPN\n\n\n\n\n\nTRUBA\n\nTRUBA\n\n\n\nOpenVPN-&gt;TRUBA\n\n\n\n\n\n\n\n\nŞekil 2.2: Üniversite ağı dışından yapacağınız bağlantılarda öncelikle OpenVPN üzerinde ULAKBİM sanal ağına bağlanmalısınız.",
+    "crumbs": [
+      "Derse Hazırlık",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Truba</span>"
+    ]
+  },
+  {
+    "objectID": "00-setup/03-command-line.html",
+    "href": "00-setup/03-command-line.html",
+    "title": "3  Komut satırı kullanımı",
+    "section": "",
+    "text": "3.1 Linux’ta dosya yapısı\nGirdiğimiz ekran aslında bizim kullanıcı klasörümüz olacaktır. TRUBA - ve genel olarak linux sistemleri - çok kullancılı bilgisayarlardır. Bunun anlamı, sistem üzerinde farklı kullanıcılar bulunmakta ve TRUBA sistemi de bütün işleyişi kontrol etmektedir. Her kullanıcı, kendi klasörü içerisinde bütün yazma (W), okuma (R), ve çalıştırma (X) haklarına sahiptir. Ancak diğer kullanıcıların klasörlerinde, ve sistem ile ilgili klasörlerde çok kısıtlı haklara sahip olabilirler.\nLinux işletim sisteminde dosya yapısı kök / işareti ile başlar. Bu işaret aynı zamanda klasörleri birbirinden ayrır.\nBulunduğumuz klasör konumunu öğrenmek için pwd (print working directory) komutunu yazalım:\nBenim ekranımda bu komutun çıktısı şöyle oldu:\nhome klasörü, kullanıcıların klasörlerinin bulunduğu konumu işaret etmektedir.",
+    "crumbs": [
+      "Derse Hazırlık",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
+    ]
   },
   {
     "objectID": "00-setup/03-command-line.html#linuxta-dosya-yapısı",
     "href": "00-setup/03-command-line.html#linuxta-dosya-yapısı",
     "title": "3  Komut satırı kullanımı",
-    "section": "3.1 Linux’ta dosya yapısı",
-    "text": "3.1 Linux’ta dosya yapısı\nGirdiğimiz ekran aslında bizim kullanıcı klasörümüz olacaktır. TRUBA - ve genel olarak linux sistemleri - çok kullancılı bilgisayarlardır. Bunun anlamı, sistem üzerinde farklı kullanıcılar bulunmakta ve TRUBA sistemi de bütün işleyişi kontrol etmektedir. Her kullanıcı, kendi klasörü içerisinde bütün yazma (W), okuma (R), ve çalıştırma (X) haklarına sahiptir. Ancak diğer kullanıcıların klasörlerinde, ve sistem ile ilgili klasörlerde çok kısıtlı haklara sahip olabilirler.\nLinux işletim sisteminde dosya yapısı kök / işareti ile başlar. Bu işaret aynı zamanda klasörleri birbirinden ayrır.\nBulunduğumuz klasör konumunu öğrenmek için pwd (print working directory) komutunu yazalım:\npwd\nBenim ekranımda bu komutun çıktısı şöyle oldu:\n/truba/home/egitim\nhome klasörü, kullanıcıların klasörlerinin bulunduğu konumu işaret etmektedir."
+    "section": "",
+    "text": "pwd\n\n/truba/home/egitim",
+    "crumbs": [
+      "Derse Hazırlık",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
+    ]
   },
   {
     "objectID": "00-setup/03-command-line.html#klasör-oluşturma",
     "href": "00-setup/03-command-line.html#klasör-oluşturma",
     "title": "3  Komut satırı kullanımı",
     "section": "3.2 Klasör oluşturma",
-    "text": "3.2 Klasör oluşturma\nŞimdi komut satırını öğrenmek için gerekli olan dosyaları yükleyeceğimiz klasörü oluşturalum. mkdir komutu klasör oluşturmak için kullanılır. İlk olarak kendi ismimizi kullanarak bir klasör oluşturalım:\nmkdir deneme_dersi"
+    "text": "3.2 Klasör oluşturma\nŞimdi komut satırını öğrenmek için gerekli olan dosyaları yükleyeceğimiz klasörü oluşturalum. mkdir komutu klasör oluşturmak için kullanılır. İlk olarak kendi ismimizi kullanarak bir klasör oluşturalım:\nmkdir deneme_dersi",
+    "crumbs": [
+      "Derse Hazırlık",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
+    ]
   },
   {
     "objectID": "00-setup/03-command-line.html#klasör-içindekileri-inceleme",
     "href": "00-setup/03-command-line.html#klasör-içindekileri-inceleme",
     "title": "3  Komut satırı kullanımı",
     "section": "3.3 Klasör içindekileri inceleme",
-    "text": "3.3 Klasör içindekileri inceleme\nOluşturduğumuz klasör içindeki dosyaları listelemek için ls komutunu kullanabiliriz. Klasörün içinde değilsek klasör adını yazmalıyız; klasör adı yazmadığımız durumda her neredeysek oradaki dosyaları listeleyecektir:\nls deneme_dersi\nEğer daha ayrıntılı bilgi istersek, ls -l komutunu kullanabiliriz. Bu komut, dosya ve klasörleri listeler; yime istersek klasör adı belirtebiliriz:\nls -l\nBenim ekranımda şöyle bir görüntü çıktı (Şekil 3.1).\n\n\n\nŞekil 3.1: ls -l komutu çıktısı"
+    "text": "3.3 Klasör içindekileri inceleme\nOluşturduğumuz klasör içindeki dosyaları listelemek için ls komutunu kullanabiliriz. Klasörün içinde değilsek klasör adını yazmalıyız; klasör adı yazmadığımız durumda her neredeysek oradaki dosyaları listeleyecektir:\nls deneme_dersi\nEğer daha ayrıntılı bilgi istersek, ls -l komutunu kullanabiliriz. Bu komut, dosya ve klasörleri listeler; yime istersek klasör adı belirtebiliriz:\nls -l\nBenim ekranımda şöyle bir görüntü çıktı (Şekil 3.1).\n\n\n\n\n\n\nŞekil 3.1: ls -l komutu çıktısı",
+    "crumbs": [
+      "Derse Hazırlık",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
+    ]
   },
   {
     "objectID": "00-setup/03-command-line.html#klasörler-arasında-gezinti",
     "href": "00-setup/03-command-line.html#klasörler-arasında-gezinti",
     "title": "3  Komut satırı kullanımı",
     "section": "3.4 Klasörler arasında gezinti",
-    "text": "3.4 Klasörler arasında gezinti\nBir klasörün içerisine girmek için cd (change directory) komutu kullanılır:\ncd emrah\nŞimdi hangi klasörde olduğumuza bakalım:\npwd"
+    "text": "3.4 Klasörler arasında gezinti\nBir klasörün içerisine girmek için cd (change directory) komutu kullanılır:\ncd emrah\nŞimdi hangi klasörde olduğumuza bakalım:\npwd",
+    "crumbs": [
+      "Derse Hazırlık",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
+    ]
   },
   {
     "objectID": "00-setup/03-command-line.html#dosya-ve-klasör-kopyalama",
     "href": "00-setup/03-command-line.html#dosya-ve-klasör-kopyalama",
     "title": "3  Komut satırı kullanımı",
     "section": "3.5 Dosya ve klasör kopyalama",
-    "text": "3.5 Dosya ve klasör kopyalama\nİlk olarak örnek dosyamızı kopyalayarak işe başlayalım. cp komutu dosya ve klasörleri kopyalamak için kullanılır. Klasörleri kopyalamak istiyorsak -r işaretini eklememiz gerekir. Kopyalamak istediğimiz dosyanın tam konumunu bilmeliyiz ve eksiksiz olarak kodumuzda bu konumu vermeliyiz. Sondaki . işareti, bulunduğumuz yere bu klasörün kopyalanmasını sağlar.\ncp -r /truba/home/egitim90/ornek_veri .\nLinux üzerinde bunun gibi kısayollar bulunmaktadır.\n\n. bulunduğumuz klasör\n~ ev klasörümüz\n\nŞimdi tekrar bulunduğumuz klasör içindekileri listeleyelim, alternatif bir örnek olarak bu sefer içindekilerin değiştirilme tarihine göre sıralayan bir kodla çalışalım:\nls -ltrh\nŞimdi de test klasörüne girelim:\ncd test\nVe içindekileri listeleyelim:\nls -l"
+    "text": "3.5 Dosya ve klasör kopyalama\nİlk olarak örnek dosyamızı kopyalayarak işe başlayalım. cp komutu dosya ve klasörleri kopyalamak için kullanılır. Klasörleri kopyalamak istiyorsak -r işaretini eklememiz gerekir. Kopyalamak istediğimiz dosyanın tam konumunu bilmeliyiz ve eksiksiz olarak kodumuzda bu konumu vermeliyiz. Sondaki . işareti, bulunduğumuz yere bu klasörün kopyalanmasını sağlar.\ncp -r /truba/home/egitim90/ornek_veri .\nLinux üzerinde bunun gibi kısayollar bulunmaktadır.\n\n. bulunduğumuz klasör\n~ ev klasörümüz\n\nŞimdi tekrar bulunduğumuz klasör içindekileri listeleyelim, alternatif bir örnek olarak bu sefer içindekilerin değiştirilme tarihine göre sıralayan bir kodla çalışalım:\nls -ltrh\nŞimdi de test klasörüne girelim:\ncd test\nVe içindekileri listeleyelim:\nls -l",
+    "crumbs": [
+      "Derse Hazırlık",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
+    ]
   },
   {
     "objectID": "00-setup/03-command-line.html#dosyalarda-işlem-yapmak",
     "href": "00-setup/03-command-line.html#dosyalarda-işlem-yapmak",
     "title": "3  Komut satırı kullanımı",
     "section": "3.6 Dosyalarda işlem yapmak",
-    "text": "3.6 Dosyalarda işlem yapmak\nŞimdi ornek.fasta dosyasının içini inceleyelim. cat komutu bize bir dosyanın içindekileri ekrana yazdırma şansı verir:\ncat ornek.fasta\nDikkat ederseniz hepsini ekrana yazdırdı. Ancak dosyamız çok büyükse bunu yapma şansımız yok. O zaman less komutunu kullanabiliriz:\nless\nless aslında metin dosyalarını incelememizi sağlayan bir komut satırı programı. Bu sayede bir dosyanın içindekilere bakabiliriz. Bu programdan çıkmak için Q tuşuna basınız.\nİstersek less programı ile dosyalar içerisinde arama da yapabiliriz. Bunun için ise, öncelikle / karakterine basalım, daha sonra da aramak istediğimiz kelimeyi yazalım. less programı sizin arama yaptığınızı anlayacaktır.\nŞimdi yine ornek.fasta dosyasını açalım ve “ENA” kelimesini arayalım"
+    "text": "3.6 Dosyalarda işlem yapmak\nŞimdi ornek.fasta dosyasının içini inceleyelim. cat komutu bize bir dosyanın içindekileri ekrana yazdırma şansı verir:\ncat ornek.fasta\nDikkat ederseniz hepsini ekrana yazdırdı. Ancak dosyamız çok büyükse bunu yapma şansımız yok. O zaman less komutunu kullanabiliriz:\nless\nless aslında metin dosyalarını incelememizi sağlayan bir komut satırı programı. Bu sayede bir dosyanın içindekilere bakabiliriz. Bu programdan çıkmak için Q tuşuna basınız.\nİstersek less programı ile dosyalar içerisinde arama da yapabiliriz. Bunun için ise, öncelikle / karakterine basalım, daha sonra da aramak istediğimiz kelimeyi yazalım. less programı sizin arama yaptığınızı anlayacaktır.\nŞimdi yine ornek.fasta dosyasını açalım ve “ENA” kelimesini arayalım",
+    "crumbs": [
+      "Derse Hazırlık",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
+    ]
   },
   {
     "objectID": "00-setup/03-command-line.html#dosyalarda-arama-yapmak",
     "href": "00-setup/03-command-line.html#dosyalarda-arama-yapmak",
     "title": "3  Komut satırı kullanımı",
     "section": "3.7 Dosyalarda arama yapmak",
-    "text": "3.7 Dosyalarda arama yapmak\nİstersek grep komutu ile de bir dosya içerisinde arama yapabiliriz. Ancak bu sefer yaptığımız arama ekrana yazdırılacaktır:\ngrep ENA ornek.fasta"
+    "text": "3.7 Dosyalarda arama yapmak\nİstersek grep komutu ile de bir dosya içerisinde arama yapabiliriz. Ancak bu sefer yaptığımız arama ekrana yazdırılacaktır:\ngrep ENA ornek.fasta",
+    "crumbs": [
+      "Derse Hazırlık",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
+    ]
   },
   {
     "objectID": "00-setup/03-command-line.html#çıktı-yönlendirme",
     "href": "00-setup/03-command-line.html#çıktı-yönlendirme",
     "title": "3  Komut satırı kullanımı",
     "section": "3.8 Çıktı yönlendirme",
-    "text": "3.8 Çıktı yönlendirme\nLinux temelli sistemlerin en önemli özelliklerinden bir tanesi de çıktı yönlendirmedir. Yukarıdaki komuta bakmıştık, istersek çıktıyı başka bir dosyaya yönlendirebiliriz. Bunun için &gt; komutunu kullanmalıyız. Bu dosyayı önceden oluşturmuş olmamıza gerek yoktur, bu kodu yazdığımızda otomatik olarak oluşacaktır:\ngrep ENA ornek.fasta &gt; arama.txt\nÖzetle: önce ornek.fasta dosyasında “ENA” kelimesini arayıp ekrana yazdırdık. Çıktıyı, yani içerisinde “ENA” kelimesi geçen kısımları başka bir metin dosyasına yönlendirdirdik ve bu dosyanın içinde saklamış olduk."
+    "text": "3.8 Çıktı yönlendirme\nLinux temelli sistemlerin en önemli özelliklerinden bir tanesi de çıktı yönlendirmedir. Yukarıdaki komuta bakmıştık, istersek çıktıyı başka bir dosyaya yönlendirebiliriz. Bunun için &gt; komutunu kullanmalıyız. Bu dosyayı önceden oluşturmuş olmamıza gerek yoktur, bu kodu yazdığımızda otomatik olarak oluşacaktır:\ngrep ENA ornek.fasta &gt; arama.txt\nÖzetle: önce ornek.fasta dosyasında “ENA” kelimesini arayıp ekrana yazdırdık. Çıktıyı, yani içerisinde “ENA” kelimesi geçen kısımları başka bir metin dosyasına yönlendirdirdik ve bu dosyanın içinde saklamış olduk.",
+    "crumbs": [
+      "Derse Hazırlık",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
+    ]
   },
   {
     "objectID": "00-setup/03-command-line.html#boru-pipe",
     "href": "00-setup/03-command-line.html#boru-pipe",
     "title": "3  Komut satırı kullanımı",
     "section": "3.9 Boru (Pipe)",
-    "text": "3.9 Boru (Pipe)\nDiğer önemli bir özellik ise, elimizdeki çıktıyı başka bir dosyaya yönlendirmek. Bunun için | karakterini kullanıyoruz.\ngrep ENA ornek.fasta | grep CAA\nYukarıdaki komuta bakarsak, önce “ENA” kelimesini arıyoruyz, sonra çıktıyı başka bir grep komutuna yönlendirip, CAA kelimesini arıyoruyz.\nİstersek o çıktıyı bir dosyaya gönderebiliriz:\ngrep ENA ornek.fasta | grep CAA &gt; arama.txt\nAma dikkat edin! Artık arama.txt dosyasının üzerine yazdık! Eğer bu dosyayı korumak istiyorsanız başka bir dosya ismi vermelisiniz.\n\n\n\n\n\n\nVarolan dosyanın üzerine yazma\n\n\n\nEğer &gt; kullanırsanız, ve varolan bir dosyayı hedef gösterirseniz, o dosyanın üzerine yazmış olursunuz! Dosyanın içindeki eski bilgileri kaybederiz!"
+    "text": "3.9 Boru (Pipe)\nDiğer önemli bir özellik ise, elimizdeki çıktıyı başka bir dosyaya yönlendirmek. Bunun için | karakterini kullanıyoruz.\ngrep ENA ornek.fasta | grep CAA\nYukarıdaki komuta bakarsak, önce “ENA” kelimesini arıyoruyz, sonra çıktıyı başka bir grep komutuna yönlendirip, CAA kelimesini arıyoruyz.\nİstersek o çıktıyı bir dosyaya gönderebiliriz:\ngrep ENA ornek.fasta | grep CAA &gt; arama.txt\nAma dikkat edin! Artık arama.txt dosyasının üzerine yazdık! Eğer bu dosyayı korumak istiyorsanız başka bir dosya ismi vermelisiniz.\n\n\n\n\n\n\nVarolan dosyanın üzerine yazma\n\n\n\nEğer &gt; kullanırsanız, ve varolan bir dosyayı hedef gösterirseniz, o dosyanın üzerine yazmış olursunuz! Dosyanın içindeki eski bilgileri kaybederiz!",
+    "crumbs": [
+      "Derse Hazırlık",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
+    ]
   },
   {
     "objectID": "00-setup/03-command-line.html#metin-dosyaları-oluşturmak",
     "href": "00-setup/03-command-line.html#metin-dosyaları-oluşturmak",
     "title": "3  Komut satırı kullanımı",
     "section": "3.10 Metin dosyaları oluşturmak",
-    "text": "3.10 Metin dosyaları oluşturmak\nŞimdi ise metin dosyalarını oluşturma ve kaydetmeye bakalım. Metin tabanlı sistemlerde nano isimli metin editörü, bize metin dosyaları ile çalışma imkanı sağlar.\nDaha önce oluşturduğumuz arama.txt dosyasını metin editörü ile açalım. Yukarıda bahsedilen cat komutu ile düzenleme yapamayız, sadece okuyabiliriz:\nnano arama.txt\nArtık dosya içerisine istediğimiz bilgiyi yazabiliriz. Yazdıklarımız bittikten sonra ctrl + o tuşu ile kaydedebiliriz. Ardından ctrl + x tuş kombinasyonuyla çıkış yapabilirsiniz.\nİsterseniz yeni bir dosya oluşturabilirsiniz, benzer şekilde önceden var olmasına gerek yoktur, bu komutu yazarken otomatik olarak oluşacaktır:\nnano yeni-dosya.txt\nDikkat edin, boşluk karakteri kullanmadım. Onun yerine tire - karakterini kullandım."
+    "text": "3.10 Metin dosyaları oluşturmak\nŞimdi ise metin dosyalarını oluşturma ve kaydetmeye bakalım. Metin tabanlı sistemlerde nano isimli metin editörü, bize metin dosyaları ile çalışma imkanı sağlar.\nDaha önce oluşturduğumuz arama.txt dosyasını metin editörü ile açalım. Yukarıda bahsedilen cat komutu ile düzenleme yapamayız, sadece okuyabiliriz:\nnano arama.txt\nArtık dosya içerisine istediğimiz bilgiyi yazabiliriz. Yazdıklarımız bittikten sonra ctrl + o tuşu ile kaydedebiliriz. Ardından ctrl + x tuş kombinasyonuyla çıkış yapabilirsiniz.\nİsterseniz yeni bir dosya oluşturabilirsiniz, benzer şekilde önceden var olmasına gerek yoktur, bu komutu yazarken otomatik olarak oluşacaktır:\nnano yeni-dosya.txt\nDikkat edin, boşluk karakteri kullanmadım. Onun yerine tire - karakterini kullandım.",
+    "crumbs": [
+      "Derse Hazırlık",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
+    ]
   },
   {
     "objectID": "00-setup/03-command-line.html#for-döngüsü-kullanımı",
     "href": "00-setup/03-command-line.html#for-döngüsü-kullanımı",
     "title": "3  Komut satırı kullanımı",
     "section": "3.11 for döngüsü kullanımı",
-    "text": "3.11 for döngüsü kullanımı\nFor döngüsü mantığına bakalım:\nBir klasör içerisinde 15 tane dosya var ve bu dosyaların hepsine uygulamak istediğimiz bir işlem var diyelim. Bu işlemi her dosyaya ayrı ayrı uygulamak yerine, for döngüsü kullanarak aynı anda hepsine uygulama yapılabilir. Dosyaların hepsini bir değişkende toplayalım, dosya isimlerini tek tek elle yazmamız gerekebilir, eğer bu dosya adlarında veya uzantılarında belli başlı ortak özellikler varsa, daha pratik bir kodlama yapabiliriz. Artık dosyaları tek tek yazmak yerine, değişken ismi ile bu dosyalar bütününü temsil edebiliriz. for döngüsü bu değişkendeki dosyaları tek tek alır, işlemi yapar, işlem tamamlanınca bir sonraki dosyaya geçer, işlemi yapar, tamamlar, ve bu şekilde artık işlem yapılacak dosya kalmayana kadar bu döngüyü devam ettirir.\nFor döngüsü şu şekilde kullanılır.\nBir değişken belirleyelim:\nFILES=\"a.txt b.txt c.txt\"\nElimizde 3 farklı dosya olsun. Bu üç dosyaya belirli işlemleri uygulamak istiyoruz. For döngüsü sayesinde bu işlemleri tek tek bütün dosyalara sırayla uygulayabiliriz:\nfor FILE in ${FILES}\ndo\n    echo ${FILE}\ndone\nBu betik, öncelikle FILES içersisindeki dosyaları sırayla FILE içersine atacak. ve do kısmından sonra gelen adımı uygulayacak.\nFor döngüsü özet:\nKlasördeki değişkendeki her bir dosya için; Klasöre işlem uygula, Dosyaların hepsi işlenince bitir."
+    "text": "3.11 for döngüsü kullanımı\nFor döngüsü mantığına bakalım:\nBir klasör içerisinde 15 tane dosya var ve bu dosyaların hepsine uygulamak istediğimiz bir işlem var diyelim. Bu işlemi her dosyaya ayrı ayrı uygulamak yerine, for döngüsü kullanarak aynı anda hepsine uygulama yapılabilir. Dosyaların hepsini bir değişkende toplayalım, dosya isimlerini tek tek elle yazmamız gerekebilir, eğer bu dosya adlarında veya uzantılarında belli başlı ortak özellikler varsa, daha pratik bir kodlama yapabiliriz. Artık dosyaları tek tek yazmak yerine, değişken ismi ile bu dosyalar bütününü temsil edebiliriz. for döngüsü bu değişkendeki dosyaları tek tek alır, işlemi yapar, işlem tamamlanınca bir sonraki dosyaya geçer, işlemi yapar, tamamlar, ve bu şekilde artık işlem yapılacak dosya kalmayana kadar bu döngüyü devam ettirir.\nFor döngüsü şu şekilde kullanılır.\nBir değişken belirleyelim:\nFILES=\"a.txt b.txt c.txt\"\nElimizde 3 farklı dosya olsun. Bu üç dosyaya belirli işlemleri uygulamak istiyoruz. For döngüsü sayesinde bu işlemleri tek tek bütün dosyalara sırayla uygulayabiliriz:\nfor FILE in ${FILES}\ndo\n    echo ${FILE}\ndone\nBu betik, öncelikle FILES içersisindeki dosyaları sırayla FILE içersine atacak. ve do kısmından sonra gelen adımı uygulayacak.\nFor döngüsü özet:\nKlasördeki değişkendeki her bir dosya için; Klasöre işlem uygula, Dosyaların hepsi işlenince bitir.",
+    "crumbs": [
+      "Derse Hazırlık",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
+    ]
   },
   {
     "objectID": "01-lectures/01-ynd.html",
     "href": "01-lectures/01-ynd.html",
     "title": "4  Yeni Nesil Dizileme Teknolojileri",
     "section": "",
-    "text": "Bu kısımda okunması gereken makaleleri ekiyorum:\n\nGoodwin et al., 2016\nSlatko et al., 2018\nVoelkerding et al., 2009\nDönmez et al., 2015"
+    "text": "Bu kısımda okunması gereken makaleleri ekiyorum:\n\nGoodwin et al., 2016\nSlatko et al., 2018\nVoelkerding et al., 2009\nDönmez et al., 2015",
+    "crumbs": [
+      "Dersler",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Yeni Nesil Dizileme Teknolojileri</span>"
+    ]
   },
   {
     "objectID": "01-lectures/02-fastq-quality-control.html",
     "href": "01-lectures/02-fastq-quality-control.html",
     "title": "5  Fastq kalite kontrol",
     "section": "",
-    "text": "ilk olarak fastq dosyalarının kalite kontrolünü işleyeceğiz\nÖncelikle TRUBA sistemimize girelim.\nKendi oluşturduğumuz klasörlere girelim. Siz kendi isminizi yazınız.\ncd emrah\nDaha sonra ders klasörünü kopyalayalım:\ncp -r /truba/home/egitim/Dersler/00-Fastq-Kalite-Kontrol .\nVe klasör içerisine girelim:\ncd 00-Fastq-Kalite-Kontrol\nİçeriğe bakalım:\nls -l\nData klasörü içeriğine bakalım:\nls -l data\nİstersek dosyayı inceleyebiliriz:\nless data/sample1.fastq.gz\nBu dosyanın uzantısı gz. Biyoinformatik alanında kullanılan dosyalar genelde çok yer kapladıkları için sıkıştırılırlar. Bu uzantı da dosyanın sıkıştırıldığını bize söylüyor. Genelde less komutu sıkıştırılmış dosyaları açabilir. Ancak açamadıysa onun yerine zless komutunu deneyebilirsiniz. Bu program özel olarak gz uzantılı dosyaları açmak için tasarlanmıştır.\nŞimdi bu incelediğimiz dosyanın kalite kontrol işlemini gerçekleştireceğiz. Bunun için fastqc programını kullancağız.\nBunun için TRUBA sistemine bir iş betiği göndermemiz gerekli. Bu iş betiği dosyasını inceleyelim:\ncat fastqc_before_trimming.sh\nBu iş betiği dosyası, istediğimiz komutları TRUBA sistemine gönderip çalıştıracak.\nBunun için Barbun isimli bilgisayardan, 4 tane işlemci rezerve ediyoruz ve egitim kullanıcı ismiyle işimizi slurm sistemine gönderityoruz.\nBu iş dosyasını inceleyelim\nBirinci satır genelde zorunlu olarak kullanılması gereken bir satır. Bu aslında dosyanın bash ile çalıştırılması gerektiğini söylüyor:\n#!/bin/bash\n#SBATCH ile başlayan satırlar ise, slurm sisteminde gerekli olan parametreleri belirliyor.\n\n--partition opsiyonu ile kullanacağımız bilgisayarı belirleyebiliriyoruz\n--ntasks-per-node opsyinu ile kaç tane çekirdek kullanmak istediğimizi belirliyoruz\n--user opsiyonu ise kullancı ismimizi belirlememizi sağlıyor. Unutmayıni kullanıcı isminizi mutlaka belirlemeliziniz.\n\nPATH ile başlayan satır ise, kullanılacak programların yolunu belirtiyor.\nArdından ilk olarak mkdir ile çıktı dosyalarımızı yazacağımız klasörü belirliyoruz.\nDaha sonra fastqc programını çalıştırıyoruz.\nÖncelile kullanıcı isminizi nano programı ile düzeltiniz:\nnano fastqc_before_trimming.sh\nİş dosyasını çalıştıralım:\nsbatch fastqc_before_trimming.sh\nGönderdiğimiz işi şu şekilde kontrol edelim:\nsqueue -u egitim\nBunu ara ara takip edelim. İşimiz bittiğinide artık bu ekranda bir bilgi olmayacak.\nİşimiz bittiğinde sonra, çalışma klasörümüzde slurm ile başlayan bir dosya oluşacak. Bu dosyayı, less programı ile kontrol edelim. Bu doya bizim komutlarımızn çıktılarını gösterecek.\nEğer başarılı olduysak results/fastqc_before_trimming klasörü içinde bir kaç dosya oluşacak. Onlara bakalım:\nls -lh results/fastqc_before_trimming\nBu dosyayı bilgisayarımıza indirebiliriz. Önce yeni bir ubuntu ekranı ya da terminal ekranı açalım ve aşağıdaki komutu yazalım:\nscp egitim@levrek1.ulakbim.gov.tr:/truba/home/egitim/emrah/00-Fastq-Kalite-Kontrol/results/fastqc-before-trimming/*html ."
+    "text": "ilk olarak fastq dosyalarının kalite kontrolünü işleyeceğiz\nÖncelikle TRUBA sistemimize girelim.\nKendi oluşturduğumuz klasörlere girelim. Siz kendi isminizi yazınız.\ncd emrah\nDaha sonra ders klasörünü kopyalayalım:\ncp -r /truba/home/egitim/Dersler/00-Fastq-Kalite-Kontrol .\nVe klasör içerisine girelim:\ncd 00-Fastq-Kalite-Kontrol\nİçeriğe bakalım:\nls -l\nData klasörü içeriğine bakalım:\nls -l data\nİstersek dosyayı inceleyebiliriz:\nless data/sample1.fastq.gz\nBu dosyanın uzantısı gz. Biyoinformatik alanında kullanılan dosyalar genelde çok yer kapladıkları için sıkıştırılırlar. Bu uzantı da dosyanın sıkıştırıldığını bize söylüyor. Genelde less komutu sıkıştırılmış dosyaları açabilir. Ancak açamadıysa onun yerine zless komutunu deneyebilirsiniz. Bu program özel olarak gz uzantılı dosyaları açmak için tasarlanmıştır.\nŞimdi bu incelediğimiz dosyanın kalite kontrol işlemini gerçekleştireceğiz. Bunun için fastqc programını kullancağız.\nBunun için TRUBA sistemine bir iş betiği göndermemiz gerekli. Bu iş betiği dosyasını inceleyelim:\ncat fastqc_before_trimming.sh\nBu iş betiği dosyası, istediğimiz komutları TRUBA sistemine gönderip çalıştıracak.\nBunun için Barbun isimli bilgisayardan, 4 tane işlemci rezerve ediyoruz ve egitim kullanıcı ismiyle işimizi slurm sistemine gönderityoruz.\nBu iş dosyasını inceleyelim\nBirinci satır genelde zorunlu olarak kullanılması gereken bir satır. Bu aslında dosyanın bash ile çalıştırılması gerektiğini söylüyor:\n#!/bin/bash\n#SBATCH ile başlayan satırlar ise, slurm sisteminde gerekli olan parametreleri belirliyor.\n\n--partition opsiyonu ile kullanacağımız bilgisayarı belirleyebiliriyoruz\n--ntasks-per-node opsyinu ile kaç tane çekirdek kullanmak istediğimizi belirliyoruz\n--user opsiyonu ise kullancı ismimizi belirlememizi sağlıyor. Unutmayıni kullanıcı isminizi mutlaka belirlemeliziniz.\n\nPATH ile başlayan satır ise, kullanılacak programların yolunu belirtiyor.\nArdından ilk olarak mkdir ile çıktı dosyalarımızı yazacağımız klasörü belirliyoruz.\nDaha sonra fastqc programını çalıştırıyoruz.\nÖncelile kullanıcı isminizi nano programı ile düzeltiniz:\nnano fastqc_before_trimming.sh\nİş dosyasını çalıştıralım:\nsbatch fastqc_before_trimming.sh\nGönderdiğimiz işi şu şekilde kontrol edelim:\nsqueue -u egitim\nBunu ara ara takip edelim. İşimiz bittiğinide artık bu ekranda bir bilgi olmayacak.\nİşimiz bittiğinde sonra, çalışma klasörümüzde slurm ile başlayan bir dosya oluşacak. Bu dosyayı, less programı ile kontrol edelim. Bu doya bizim komutlarımızn çıktılarını gösterecek.\nEğer başarılı olduysak results/fastqc_before_trimming klasörü içinde bir kaç dosya oluşacak. Onlara bakalım:\nls -lh results/fastqc_before_trimming\nBu dosyayı bilgisayarımıza indirebiliriz. Önce yeni bir ubuntu ekranı ya da terminal ekranı açalım ve aşağıdaki komutu yazalım:\nscp egitim@levrek1.ulakbim.gov.tr:/truba/home/egitim/emrah/00-Fastq-Kalite-Kontrol/results/fastqc-before-trimming/*html .",
+    "crumbs": [
+      "Dersler",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Fastq kalite kontrol</span>"
+    ]
   },
   {
     "objectID": "01-lectures/03-fastq-processing.html",
     "href": "01-lectures/03-fastq-processing.html",
     "title": "6  Fastq işleme adımları",
     "section": "",
-    "text": "Yeni nesil dizileme teknolojilerinin ardaından elde edilen DNA okumlarının işlenmeleri gerekir. Bir önceki derste fastqc aracı ile elde ettiğimiz raporda şu noktalara dikkat etmiştik:\nTekrar sistemimize giriş yapalım ve daha önce kendi ismimizde oluşturduğumuz klasöre giriş yapalım:\ncd emrah\nDaha sonra ders kapsamında işleyeceğimiz komutları ve veriyi içeren klasörü kopyalayalım:\ncp -r /truba/home/egitim/Dersler/01-Fastq-kirpma .\nŞimdi kopyaladığımız klasöre girelim:\ncd 01-Fastq-kirpma\nBu klasör içerisindeki dosyalara bakalım:\nls -lh\nBu klasör içeriisinde bulunan data klasörü, aslında kullanacağımız veriyi içermektedir. Aslında bir önceki derslerde kullandığımız verinin aynısını kullanıyoruz.\nŞimdi, elimizdeki fastq dosyasını, bir önceki derste elde ettiğimiz fastqc raporuna göre işleyelim.\nBu iş için kullanacağımız program cutadapt olacak. Bu program, bir fastq dosyasında kalite kontrol işlemleri yapmak için kullanılmaktadır.\nÖncelikle kullanacağımız programın yolunu belirtelim ve programın opsiyonlarını inceleyelim:\nPATH=${PATH}:/truba/home/egitim/miniconda3/envs/aMeta/bin/\nŞimdi cutadapt --help komutu ile programın bütün opsiyonlarını öğrenebilirisniz. Ancak en önemlililer aşağıda:\n\na: ileri yönlü DNA okumalarında adaptörlerin kesilmesi\nA: geri yönlü okumalardaki adaptörlerin kesilmesi\nq: belirlenen eşik değerinin altındaki okuma kalitesine sahip nükleotidlerin kesilmesi\nminimum-length kesimin ardından belirli nükleotidleriden kısa olan okumaları at\n\nBizim fastq dosyalarımız tek yönlü olduğu için, sadece a opsiyonunu kullanacağız.\nŞimdi sbatch dosyamıza bakalım. Unutmayın, account satırını, kendi hesabınıza göre değiştirmeniz gerek.\ncat Cutadapt_Adapter_Trimming.sh\nŞimdi de dosyamızı çalıştıralım:\nsbatch Cutadapt_Adapter_Trimming.sh\nEğer işlem doğru bir şekilde sonlanmışsa results isimli bir klasör oluşması gerekir.\nŞimdi bakalım:\nls -lh results\nUzantısı .trimmed.fastq.gz olan ik dosya oluşmuş olmalı.\nPeki gerçekten adaptörleri uzaklaştırdık mı? Bunun için tekrar fastqc programın çalıştırmalıyız. Aslında kullancağımız program, geçen hafta kullandığımızın aynısı. Ancak, fastqc programına işlenmiş dosyaları vermeliyiz.\nBu işlemi yürütmek için ise Fastqc_after_trimming.sh dosyasını çalıştırmalıyız.\nsbatch Fastqc_after_trimming.sh\nŞimdi yeni bir konsol açalım ve oluşturduğumuz fastqc raporlarını incelemek için bilgisyarımıza indirelim:\nscp egitim@levrek1.ulakbim.gov.tr:/truba/home/egitim/emrah/01-Fastq-kirpma/results/*html ."
+    "text": "Yeni nesil dizileme teknolojilerinin ardaından elde edilen DNA okumlarının işlenmeleri gerekir. Bir önceki derste fastqc aracı ile elde ettiğimiz raporda şu noktalara dikkat etmiştik:\nTekrar sistemimize giriş yapalım ve daha önce kendi ismimizde oluşturduğumuz klasöre giriş yapalım:\ncd emrah\nDaha sonra ders kapsamında işleyeceğimiz komutları ve veriyi içeren klasörü kopyalayalım:\ncp -r /truba/home/egitim/Dersler/01-Fastq-kirpma .\nŞimdi kopyaladığımız klasöre girelim:\ncd 01-Fastq-kirpma\nBu klasör içerisindeki dosyalara bakalım:\nls -lh\nBu klasör içeriisinde bulunan data klasörü, aslında kullanacağımız veriyi içermektedir. Aslında bir önceki derslerde kullandığımız verinin aynısını kullanıyoruz.\nŞimdi, elimizdeki fastq dosyasını, bir önceki derste elde ettiğimiz fastqc raporuna göre işleyelim.\nBu iş için kullanacağımız program cutadapt olacak. Bu program, bir fastq dosyasında kalite kontrol işlemleri yapmak için kullanılmaktadır.\nÖncelikle kullanacağımız programın yolunu belirtelim ve programın opsiyonlarını inceleyelim:\nPATH=${PATH}:/truba/home/egitim/miniconda3/envs/aMeta/bin/\nŞimdi cutadapt --help komutu ile programın bütün opsiyonlarını öğrenebilirisniz. Ancak en önemlililer aşağıda:\n\na: ileri yönlü DNA okumalarında adaptörlerin kesilmesi\nA: geri yönlü okumalardaki adaptörlerin kesilmesi\nq: belirlenen eşik değerinin altındaki okuma kalitesine sahip nükleotidlerin kesilmesi\nminimum-length kesimin ardından belirli nükleotidleriden kısa olan okumaları at\n\nBizim fastq dosyalarımız tek yönlü olduğu için, sadece a opsiyonunu kullanacağız.\nŞimdi sbatch dosyamıza bakalım. Unutmayın, account satırını, kendi hesabınıza göre değiştirmeniz gerek.\ncat Cutadapt_Adapter_Trimming.sh\nŞimdi de dosyamızı çalıştıralım:\nsbatch Cutadapt_Adapter_Trimming.sh\nEğer işlem doğru bir şekilde sonlanmışsa results isimli bir klasör oluşması gerekir.\nŞimdi bakalım:\nls -lh results\nUzantısı .trimmed.fastq.gz olan ik dosya oluşmuş olmalı.\nPeki gerçekten adaptörleri uzaklaştırdık mı? Bunun için tekrar fastqc programın çalıştırmalıyız. Aslında kullancağımız program, geçen hafta kullandığımızın aynısı. Ancak, fastqc programına işlenmiş dosyaları vermeliyiz.\nBu işlemi yürütmek için ise Fastqc_after_trimming.sh dosyasını çalıştırmalıyız.\nsbatch Fastqc_after_trimming.sh\nŞimdi yeni bir konsol açalım ve oluşturduğumuz fastqc raporlarını incelemek için bilgisyarımıza indirelim:\nscp egitim@levrek1.ulakbim.gov.tr:/truba/home/egitim/emrah/01-Fastq-kirpma/results/*html .",
+    "crumbs": [
+      "Dersler",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Fastq işleme adımları</span>"
+    ]
   },
   {
     "objectID": "01-lectures/04-alignment-variant-calling-01.html",
     "href": "01-lectures/04-alignment-variant-calling-01.html",
     "title": "7  Hizalama",
     "section": "",
-    "text": "İlk olarak kullanım yolumuzu belirleyelim. Programlarımız bu klasör içerisinde bulunmaktadır. Linux üzerinde bulunan, PATH değişkeni, kullanılacak programların hangi klasörlerde aranacağını gösterir.\nİsterseniz öncelikle kendi sisteminizdeki PATH değişkenine bakınız:\necho ${PATH}\nGeri dönen satıra baktığınızda, : ile ayrılan klasörler, programların aranacağı klasörleri göstermektedir. Çalıştırmak istediğiniz program, en soldaki klasörden başlayarak aranır. İlk bulunan klasördeki program çalıştırılır.\nŞimdi programları yükleyeceğimiz konumu PATH değişkeni içine ekleyelim:\nPATH=${PATH}:/truba/home/egitim/miniconda3/envs/bioinformatics/bin/\nŞimdi klasörün eklenip eklenmediğini kontrol edelim:\necho ${PATH}\nKullanacağımız programın ismi bwa. Öncelikle opsyionlarına bakalım:\nbwa\nŞimdi çalışmaya başlayalım (siz kendi klasörünüze giriniz):\ncd emrah\n\ncp -r /truba/home/egitim/Dersler/02-Hizalama/ .\nBir sonraki adımda, referans genomu indeksleyelim\nbwa index data/GCF_000191105.1_ASM19110v1_genomic.fna\nOluşan dosyalara bakalım:\nls -l data\nÖncelikle çıktı klasörümüzü oluşturalım:\n\nmkdir results\nSiz bu satırları doğrudan çalıştırmayın. Genel olarak slurm sistemi üzerinden komutları çalıştırıyoruz\nbwa aln data/GCF_000191105.1_ASM19110v1_genomic.fna data/ERR3079326_1.fastq.gz &gt; results/ERR3079326_1.sai\nbwa aln data/GCF_000191105.1_ASM19110v1_genomic.fna data/ERR3079326_2.fastq.gz &gt; results/ERR3079326_2.sai\nSon olarak bütün dosyaları birleştirerek, hizalama sam dosyası elde ediyoruz.\nbwa sampe data/GCF_000191105.1_ASM19110v1_genomic.fna results/ERR3079326_1.sai results/ERR3079326_2.sai data/ERR3079326_1.fastq.gz data/ERR3079326_2.fastq.gz &gt; results/ERR3079326.sam\nBu komutların hepsini çalıştırmak için kısaca şunu yazabilirsiniz:\nsbatch hizalama.sh\nİşimiz bittiğinde, oluşan sam dosyasını inceleyelim:\nless results/ERR3079326.sam\nSam dosya formatı hakkında bilgi almak için Şu dosyayı inceleyebilirsiniz."
+    "text": "İlk olarak kullanım yolumuzu belirleyelim. Programlarımız bu klasör içerisinde bulunmaktadır. Linux üzerinde bulunan, PATH değişkeni, kullanılacak programların hangi klasörlerde aranacağını gösterir.\nİsterseniz öncelikle kendi sisteminizdeki PATH değişkenine bakınız:\necho ${PATH}\nGeri dönen satıra baktığınızda, : ile ayrılan klasörler, programların aranacağı klasörleri göstermektedir. Çalıştırmak istediğiniz program, en soldaki klasörden başlayarak aranır. İlk bulunan klasördeki program çalıştırılır.\nŞimdi programları yükleyeceğimiz konumu PATH değişkeni içine ekleyelim:\nPATH=${PATH}:/truba/home/egitim/miniconda3/envs/bioinformatics/bin/\nŞimdi klasörün eklenip eklenmediğini kontrol edelim:\necho ${PATH}\nKullanacağımız programın ismi bwa. Öncelikle opsyionlarına bakalım:\nbwa\nŞimdi çalışmaya başlayalım (siz kendi klasörünüze giriniz):\ncd emrah\n\ncp -r /truba/home/egitim/Dersler/02-Hizalama/ .\nBir sonraki adımda, referans genomu indeksleyelim\nbwa index data/GCF_000191105.1_ASM19110v1_genomic.fna\nOluşan dosyalara bakalım:\nls -l data\nÖncelikle çıktı klasörümüzü oluşturalım:\n\nmkdir results\nSiz bu satırları doğrudan çalıştırmayın. Genel olarak slurm sistemi üzerinden komutları çalıştırıyoruz\nbwa aln data/GCF_000191105.1_ASM19110v1_genomic.fna data/ERR3079326_1.fastq.gz &gt; results/ERR3079326_1.sai\nbwa aln data/GCF_000191105.1_ASM19110v1_genomic.fna data/ERR3079326_2.fastq.gz &gt; results/ERR3079326_2.sai\nSon olarak bütün dosyaları birleştirerek, hizalama sam dosyası elde ediyoruz.\nbwa sampe data/GCF_000191105.1_ASM19110v1_genomic.fna results/ERR3079326_1.sai results/ERR3079326_2.sai data/ERR3079326_1.fastq.gz data/ERR3079326_2.fastq.gz &gt; results/ERR3079326.sam\nBu komutların hepsini çalıştırmak için kısaca şunu yazabilirsiniz:\nsbatch hizalama.sh\nİşimiz bittiğinde, oluşan sam dosyasını inceleyelim:\nless results/ERR3079326.sam\nSam dosya formatı hakkında bilgi almak için Şu dosyayı inceleyebilirsiniz.",
+    "crumbs": [
+      "Dersler",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hizalama</span>"
+    ]
+  },
+  {
+    "objectID": "01-lectures/05-alignment-variant-calling-02.html",
+    "href": "01-lectures/05-alignment-variant-calling-02.html",
+    "title": "8  Varyant Çağırma",
+    "section": "",
+    "text": "8.1 SAM dosyaları\nDNA hizalama işleminin ardıdan, ham hizalama verisi bu dosya içerinde tutulur. Genotip ve varyant çağırma işleminden önce, bu dosya filtre edilir. Bu filtrasyon aşağıdaki basamakları kapsamaktadır:\nSAM dosyalarında, hizalama bilgisi, flag adı verilen bir değişken içinde saklanır. Bu flag bilgilerine şu siteden erişebilirsiniz.\nHizalama kalitesi (-q) aslında, phred okuma kalitesinin bir fonksiyonu. Genelde 30 okuma kalitesinden daha düşük olan diziler, hizalama dosyasından uzaklaştırlır.\nBunun ardından, sam dosyasını, daha az yer kaplayan bam dosyasına dönüştüreceğiz.\nSon olarak, bam dosyası içerindeki okumaları, pozisyonlara göre sıralayarak varyant çağırma adımına geçeceğiz.",
+    "crumbs": [
+      "Dersler",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Varyant Çağırma</span>"
+    ]
   },
   {
     "objectID": "01-lectures/05-alignment-variant-calling-02.html#sam-dosyaları",
     "href": "01-lectures/05-alignment-variant-calling-02.html#sam-dosyaları",
     "title": "8  Varyant Çağırma",
-    "section": "8.1 SAM dosyaları",
-    "text": "8.1 SAM dosyaları\nDNA hizalama işleminin ardıdan, ham hizalama verisi bu dosya içerinde tutulur. Genotip ve varyant çağırma işleminden önce, bu dosya filtre edilir. Bu filtrasyon aşağıdaki basamakları kapsamaktadır:\n\nReferans genom ile hizalanmayan okumaların uzaklaştırılması\nKötü hizalama kalitesine sahip okumaların uzaklaştırılması (-q 30)\n\nSAM dosyalarında, hizalama bilgisi, flag adı verilen bir değişken içinde saklanır. Bu flag bilgilerine şu siteden erişebilirsiniz.\nHizalama kalitesi (-q) aslında, phred okuma kalitesinin bir fonksiyonu. Genelde 30 okuma kalitesinden daha düşük olan diziler, hizalama dosyasından uzaklaştırlır.\nBunun ardından, sam dosyasını, daha az yer kaplayan bam dosyasına dönüştüreceğiz.\nSon olarak, bam dosyası içerindeki okumaları, pozisyonlara göre sıralayarak varyant çağırma adımına geçeceğiz."
+    "section": "",
+    "text": "Referans genom ile hizalanmayan okumaların uzaklaştırılması\nKötü hizalama kalitesine sahip okumaların uzaklaştırılması (-q 30)",
+    "crumbs": [
+      "Dersler",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Varyant Çağırma</span>"
+    ]
   },
   {
     "objectID": "01-lectures/05-alignment-variant-calling-02.html#pratik",
     "href": "01-lectures/05-alignment-variant-calling-02.html#pratik",
     "title": "8  Varyant Çağırma",
     "section": "8.2 Pratik",
-    "text": "8.2 Pratik\nProgramları ekleyelim:\nPATH=${PATH}:/truba/home/egitim/miniconda3/envs/bioinformatics/bin/\nÖncelikle varyant çağırma dersini kopyalayalım:\ncp -r /truba/home/egitim/Dersler/03-Varyant-Cagirma/ .\nÖncelikle, sam dosyasının içeriğine flagstat komutu ile bakalım:\nsamtools flagstat results/ERR3079326.sam\nŞimdi sam dosyasını filtreleyelim ve bam haline çevirelim:\nsamtools view -F 12 -q 30 -Sb results/ERR3079326.sam &gt; results/ERR3079326.bam\nOluşturduğumuz bam dosyasını sıralayarak indexleyelim:\nsamtools sort results/ERR3079326.bam -o results/ERR3079326.sorted.bam\n\nsamtools index results/ERR3079326.sorted.bam\nGenotip çağıralım:\nbcftools mpileup -Ov --fasta-ref data/GCF_000191105.1_ASM19110v1_genomic.fna results/ERR3079326.sorted.bam &gt; results/ERR3079326.sorted.vcf\nSon olarak varyant çağırma işlemini gerçekleştirelim:\nbcftools call -mv -Ov -o results/calls.vcf results/ERR3079326.sorted.vcf\nBütün bu adımları çalıştırmak için:\nsbatch hizalama-varyant.sh"
+    "text": "8.2 Pratik\nProgramları ekleyelim:\nPATH=${PATH}:/truba/home/egitim/miniconda3/envs/bioinformatics/bin/\nÖncelikle varyant çağırma dersini kopyalayalım:\ncp -r /truba/home/egitim/Dersler/03-Varyant-Cagirma/ .\nÖncelikle, sam dosyasının içeriğine flagstat komutu ile bakalım:\nsamtools flagstat results/ERR3079326.sam\nŞimdi sam dosyasını filtreleyelim ve bam haline çevirelim:\nsamtools view -F 12 -q 30 -Sb results/ERR3079326.sam &gt; results/ERR3079326.bam\nOluşturduğumuz bam dosyasını sıralayarak indexleyelim:\nsamtools sort results/ERR3079326.bam -o results/ERR3079326.sorted.bam\n\nsamtools index results/ERR3079326.sorted.bam\nGenotip çağıralım:\nbcftools mpileup -Ov --fasta-ref data/GCF_000191105.1_ASM19110v1_genomic.fna results/ERR3079326.sorted.bam &gt; results/ERR3079326.sorted.vcf\nSon olarak varyant çağırma işlemini gerçekleştirelim:\nbcftools call -mv -Ov -o results/calls.vcf results/ERR3079326.sorted.vcf\nBütün bu adımları çalıştırmak için:\nsbatch hizalama-varyant.sh",
+    "crumbs": [
+      "Dersler",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Varyant Çağırma</span>"
+    ]
+  },
+  {
+    "objectID": "01-lectures/06-bash-scripting.html",
+    "href": "01-lectures/06-bash-scripting.html",
+    "title": "9  Bash ile betik oluşturma",
+    "section": "",
+    "text": "9.1 Değişken oluşturma\nBu işlemleri konsol üzerinde yapalım. Bir değişken oluşturalım:\nBu değişkeni ekrana yazdıralım:\nArtık değişken içerisindeki bilgiyi ekrana yazdırabildiniz.\nİsterseniz, bu değişkenin sağına ve soluna başka şeyler ekleyebilirsiniz. Bu sayede, tek bir değişken kullanımı ile, birden fazla dosyayı işaret edebilirsiniz:\nBir değişkeni, tanımlamadan kullanamazsınız. Mesela daha önce hiç tanımlamadığıız bir değişken kullanalım. Değişkenin ismi BOS olsun:\nBunu yazdığımızda, ekrana boş bir satır yazdırıldı.\nAma bu değişkeni tanımlarsak, artık kullanabilirz:",
+    "crumbs": [
+      "Dersler",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Bash ile betik oluşturma</span>"
+    ]
   },
   {
     "objectID": "01-lectures/06-bash-scripting.html#değişken-oluşturma",
     "href": "01-lectures/06-bash-scripting.html#değişken-oluşturma",
     "title": "9  Bash ile betik oluşturma",
-    "section": "9.1 Değişken oluşturma",
-    "text": "9.1 Değişken oluşturma\nBu işlemleri konsol üzerinde yapalım. Bir değişken oluşturalım:\nSAMPLE=ERR3079326\n\n\n\n\n\n\nKarakter kullanımı\n\n\n\nDeğişken oluştururken, sadece İngilizce karakterler kullanın!\n\n\nBu değişkeni ekrana yazdıralım:\necho ${SAMPLE}\nArtık değişken içerisindeki bilgiyi ekrana yazdırabildiniz.\nİsterseniz, bu değişkenin sağına ve soluna başka şeyler ekleyebilirsiniz. Bu sayede, tek bir değişken kullanımı ile, birden fazla dosyayı işaret edebilirsiniz:\necho data/${SAMPLE}_1.fastq.gz\nBir değişkeni, tanımlamadan kullanamazsınız. Mesela daha önce hiç tanımlamadığıız bir değişken kullanalım. Değişkenin ismi BOS olsun:\necho ${BOS}\nBunu yazdığımızda, ekrana boş bir satır yazdırıldı.\nAma bu değişkeni tanımlarsak, artık kullanabilirz:\nBOS=ERR65245\necho ${BOS}"
+    "section": "",
+    "text": "SAMPLE=ERR3079326\n\n\n\n\n\n\nKarakter kullanımı\n\n\n\nDeğişken oluştururken, sadece İngilizce karakterler kullanın!\n\n\n\necho ${SAMPLE}\n\n\necho data/${SAMPLE}_1.fastq.gz\n\necho ${BOS}\n\n\nBOS=ERR65245\necho ${BOS}",
+    "crumbs": [
+      "Dersler",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Bash ile betik oluşturma</span>"
+    ]
   },
   {
     "objectID": "01-lectures/06-bash-scripting.html#dosya-sistemleri",
     "href": "01-lectures/06-bash-scripting.html#dosya-sistemleri",
     "title": "9  Bash ile betik oluşturma",
     "section": "9.2 Dosya sistemleri",
-    "text": "9.2 Dosya sistemleri\nBir projede dosya sistemi önemlidir. Çünkü uzun vadede, biyoinformatik projelerinde büyük miktarda dosya oluşturulur. Bu çıktıları ve dosyaları uygun konumlarda saklarsanız, projeleri daha rahat yönetebilirsiniz.\nDers kapsamında yaptığımız projede, aşağıdaki dosya sistemi kullanıldı:\n04-Bash-scripting\n|\n|----------------- data\n|                    |\n|                    |---- ERR3079326_1.fastq.gz\n|                    |---- ERR3079326_2.fastq.gz\n|                    |---- GCF_000191105.1_ASM19110v1_genomic.fna\n|\n|----------------- results\n|                     |\n|                     |--- processed\n|                     |\n|                     |--- alignment\n|                     |\n|                     |--- variant\n|\n|----------------- protokol.sh\nBurada, data klasöründe, ham veri bulunmakta.\nSonuçlar klasöründe ise, bu ham verinin işlenerek elde edilen çıktıların depolandığı yer.\nSonuçlar klasöründe, processed klasörü, ham fastq dosyalarının işlenmesi, sonucunda elde edilen çıktıları depoluyor.\nSonuçlar klasöründe, alignment klasörü, işlenmiş fastq dosyalarının, data klasörü içerisinde bulunan referans genoma hizlanması sonucunda elde edilen verileri depoluyor.\nSonuçlar klasöründeki, variant klasörü ise, hizalama dosyalarından elde edlen varyant bilgilerini depoluyor."
+    "text": "9.2 Dosya sistemleri\nBir projede dosya sistemi önemlidir. Çünkü uzun vadede, biyoinformatik projelerinde büyük miktarda dosya oluşturulur. Bu çıktıları ve dosyaları uygun konumlarda saklarsanız, projeleri daha rahat yönetebilirsiniz.\nDers kapsamında yaptığımız projede, aşağıdaki dosya sistemi kullanıldı:\n04-Bash-scripting\n|\n|----------------- data\n|                    |\n|                    |---- ERR3079326_1.fastq.gz\n|                    |---- ERR3079326_2.fastq.gz\n|                    |---- GCF_000191105.1_ASM19110v1_genomic.fna\n|\n|----------------- results\n|                     |\n|                     |--- processed\n|                     |\n|                     |--- alignment\n|                     |\n|                     |--- variant\n|\n|----------------- protokol.sh\nBurada, data klasöründe, ham veri bulunmakta.\nSonuçlar klasöründe ise, bu ham verinin işlenerek elde edilen çıktıların depolandığı yer.\nSonuçlar klasöründe, processed klasörü, ham fastq dosyalarının işlenmesi, sonucunda elde edilen çıktıları depoluyor.\nSonuçlar klasöründe, alignment klasörü, işlenmiş fastq dosyalarının, data klasörü içerisinde bulunan referans genoma hizlanması sonucunda elde edilen verileri depoluyor.\nSonuçlar klasöründeki, variant klasörü ise, hizalama dosyalarından elde edlen varyant bilgilerini depoluyor.",
+    "crumbs": [
+      "Dersler",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Bash ile betik oluşturma</span>"
+    ]
   },
   {
     "objectID": "01-lectures/06-bash-scripting.html#fastq-ön-işleme",
     "href": "01-lectures/06-bash-scripting.html#fastq-ön-işleme",
     "title": "9  Bash ile betik oluşturma",
     "section": "9.3 Fastq ön işleme",
-    "text": "9.3 Fastq ön işleme\n# Oncelikle cikti dosyalarimizi saklayacagimiz klasoru olusturalim\n\nmkdir -p results/processed/\n\n# Daha sonra cutadapt araci ile, fastq dosyalarini isleyelim\ncutadapt -q ${QUALITY} -m 10 \\\n        --trim-n -a AGATCGGAAGAG -A AGATCGGAAGAG \\\n        -j ${THREADS} \\\n        -o results/processed/${SAMPLE}_1.fastq.gz \\\n        -p results/processed/${SAMPLE}_2.fastq.gz data/${SAMPLE}_1.fastq.gz data/${SAMPLE}_2.fastq.gz"
+    "text": "9.3 Fastq ön işleme\n# Oncelikle cikti dosyalarimizi saklayacagimiz klasoru olusturalim\n\nmkdir -p results/processed/\n\n# Daha sonra cutadapt araci ile, fastq dosyalarini isleyelim\ncutadapt -q ${QUALITY} -m 10 \\\n        --trim-n -a AGATCGGAAGAG -A AGATCGGAAGAG \\\n        -j ${THREADS} \\\n        -o results/processed/${SAMPLE}_1.fastq.gz \\\n        -p results/processed/${SAMPLE}_2.fastq.gz data/${SAMPLE}_1.fastq.gz data/${SAMPLE}_2.fastq.gz",
+    "crumbs": [
+      "Dersler",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Bash ile betik oluşturma</span>"
+    ]
   },
   {
     "objectID": "01-lectures/06-bash-scripting.html#hizalama-adımı",
     "href": "01-lectures/06-bash-scripting.html#hizalama-adımı",
     "title": "9  Bash ile betik oluşturma",
     "section": "9.4 Hizalama adımı",
-    "text": "9.4 Hizalama adımı\n# Oncelikle referans genomu indeksleyelim\nbwa index data/${REFERENCE}\n\n# cikti klasorunu olusturalim\nmkdir -p results/alignment\n\n# Daha sonra ileri ve geri okumalarimizi referans genoma hizalayalim\nbwa aln -t ${THREADS} data/${REFERENCE} results/processed/${SAMPLE}_1.fastq.gz &gt; results/alignment/${SAMPLE}_1.sai\n\nbwa aln -t ${THREADS} data/${REFERENCE} results/processed/${SAMPLE}_2.fastq.gz &gt; results/alignment/${SAMPLE}_2.sai\n\n# hizalama dosyasi olsturalim\nbwa sampe data/${REFERENCE} \\\n        results/alignment/${SAMPLE}_1.sai results/alignment/${SAMPLE}_2.sai \\\n        data/${SAMPLE}_1.fastq.gz data/${SAMPLE}_2.fastq.gz &gt; results/alignment/${SAMPLE}.sam\n\n# hizalama istatistiklerini elde edelim\nsamtools flagstat results/alignment/${SAMPLE}.sam &gt; results/alignment/istatistik_${SAMPLE}.txt\n\n# hizalanmamis ve kotu hizalanan okumalarari filtreleylim\nsamtools view -F 12 -q 30 -Sb results/alignment/${SAMPLE}.sam &gt; results/alignment/${SAMPLE}.bam\n\n# hizalama dosyasini siralayalim\nsamtools sort results/alignment/${SAMPLE}.bam -o results/alignment/${SAMPLE}.sorted.bam\n\nsamtools index results/alignment/${SAMPLE}.sorted.bam"
+    "text": "9.4 Hizalama adımı\n# Oncelikle referans genomu indeksleyelim\nbwa index data/${REFERENCE}\n\n# cikti klasorunu olusturalim\nmkdir -p results/alignment\n\n# Daha sonra ileri ve geri okumalarimizi referans genoma hizalayalim\nbwa aln -t ${THREADS} data/${REFERENCE} results/processed/${SAMPLE}_1.fastq.gz &gt; results/alignment/${SAMPLE}_1.sai\n\nbwa aln -t ${THREADS} data/${REFERENCE} results/processed/${SAMPLE}_2.fastq.gz &gt; results/alignment/${SAMPLE}_2.sai\n\n# hizalama dosyasi olsturalim\nbwa sampe data/${REFERENCE} \\\n        results/alignment/${SAMPLE}_1.sai results/alignment/${SAMPLE}_2.sai \\\n        data/${SAMPLE}_1.fastq.gz data/${SAMPLE}_2.fastq.gz &gt; results/alignment/${SAMPLE}.sam\n\n# hizalama istatistiklerini elde edelim\nsamtools flagstat results/alignment/${SAMPLE}.sam &gt; results/alignment/istatistik_${SAMPLE}.txt\n\n# hizalanmamis ve kotu hizalanan okumalarari filtreleylim\nsamtools view -F 12 -q 30 -Sb results/alignment/${SAMPLE}.sam &gt; results/alignment/${SAMPLE}.bam\n\n# hizalama dosyasini siralayalim\nsamtools sort results/alignment/${SAMPLE}.bam -o results/alignment/${SAMPLE}.sorted.bam\n\nsamtools index results/alignment/${SAMPLE}.sorted.bam",
+    "crumbs": [
+      "Dersler",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Bash ile betik oluşturma</span>"
+    ]
   },
   {
     "objectID": "01-lectures/06-bash-scripting.html#varyant-cağırma",
     "href": "01-lectures/06-bash-scripting.html#varyant-cağırma",
     "title": "9  Bash ile betik oluşturma",
     "section": "9.5 Varyant cağırma",
-    "text": "9.5 Varyant cağırma\n# Oncelikle sonuclari depolayacagimiz klasorleri olsuturalim\nmkdir -p results/variant\n\n# genotip cagirma gerceklestirelim\nbcftools mpileup -Ov --fasta-ref data/${REFERENCE} results/alignment/${SAMPLE}.sorted.bam &gt; results/variant/${SAMPLE}.genotype.vcf\n\n# son olarak, varyant cagirma adimini yapalim\nbcftools call -mv -Ov -o results/variant/${SAMPLE}.calls.vcf results/variant/${SAMPLE}.genotype.vcf"
+    "text": "9.5 Varyant cağırma\n# Oncelikle sonuclari depolayacagimiz klasorleri olsuturalim\nmkdir -p results/variant\n\n# genotip cagirma gerceklestirelim\nbcftools mpileup -Ov --fasta-ref data/${REFERENCE} results/alignment/${SAMPLE}.sorted.bam &gt; results/variant/${SAMPLE}.genotype.vcf\n\n# son olarak, varyant cagirma adimini yapalim\nbcftools call -mv -Ov -o results/variant/${SAMPLE}.calls.vcf results/variant/${SAMPLE}.genotype.vcf",
+    "crumbs": [
+      "Dersler",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Bash ile betik oluşturma</span>"
+    ]
+  },
+  {
+    "objectID": "02-practice/01-variant-practice.html",
+    "href": "02-practice/01-variant-practice.html",
+    "title": "10  Varyant çağırma pratiği",
+    "section": "",
+    "text": "10.1 Referans genom indeksleme\nBu işlem için öncelikle referenans genomu indekslemeniz gerekecektir. Bu işlemi bir kere yapmanız yeterli olacaktır.\nBu işlemin bitip bitmediğini, squeue komutu ile kontrol edelim:\nBurada egitim kullanıcı adını siz kendi kullanıcı isminizle değiştirmelisiniz.\nBu adım tamamlandıktan sonra data klasörü içinde indeks dosyaları oluşmuş mu onları kontrol edelim:\nİndeks dosyaları oluşmuşsa, bir sonraki adıma geçebiliriz.",
+    "crumbs": [
+      "Pratikler",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Varyant çağırma pratiği</span>"
+    ]
   },
   {
     "objectID": "02-practice/01-variant-practice.html#referans-genom-indeksleme",
     "href": "02-practice/01-variant-practice.html#referans-genom-indeksleme",
     "title": "10  Varyant çağırma pratiği",
-    "section": "10.1 Referans genom indeksleme",
-    "text": "10.1 Referans genom indeksleme\nBu işlem için öncelikle referenans genomu indekslemeniz gerekecektir. Bu işlemi bir kere yapmanız yeterli olacaktır.\nsbatch index.sh\nBu işlemin bitip bitmediğini, squeue komutu ile kontrol edelim:\nsqueue -u egitim\nBurada egitim kullanıcı adını siz kendi kullanıcı isminizle değiştirmelisiniz.\nBu adım tamamlandıktan sonra data klasörü içinde indeks dosyaları oluşmuş mu onları kontrol edelim:\nls data\nİndeks dosyaları oluşmuşsa, bir sonraki adıma geçebiliriz."
+    "section": "",
+    "text": "sbatch index.sh\n\nsqueue -u egitim\n\n\nls data",
+    "crumbs": [
+      "Pratikler",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Varyant çağırma pratiği</span>"
+    ]
   },
   {
     "objectID": "02-practice/01-variant-practice.html#örneklerle-varyant-analizi",
     "href": "02-practice/01-variant-practice.html#örneklerle-varyant-analizi",
     "title": "10  Varyant çağırma pratiği",
     "section": "10.2 Örneklerle varyant analizi",
-    "text": "10.2 Örneklerle varyant analizi\nBu adımıda ise protokol.sh betiğini kullanacağız. Bu betiği nano isimli programla açarak, SAMPLE değişkenini örnek isimleriyle değiştirmemiz gereklidir.\nBunu her örnek için tekrar etmeliyiz.\nÖrnek vermek gerekirse, öncelikle ERR3079333 için bu adımı gerçekleştirelim:\n\nprotokol.sh dosyasını aç\nSAMPLE değişkenini değiştir\nsbatch protokol.sh ile protokolu çalıştır.\n\nArdından bu işlemi her örnek için gerçekleştirelim."
+    "text": "10.2 Örneklerle varyant analizi\nBu adımıda ise protokol.sh betiğini kullanacağız. Bu betiği nano isimli programla açarak, SAMPLE değişkenini örnek isimleriyle değiştirmemiz gereklidir.\nBunu her örnek için tekrar etmeliyiz.\nÖrnek vermek gerekirse, öncelikle ERR3079333 için bu adımı gerçekleştirelim:\n\nprotokol.sh dosyasını aç\nSAMPLE değişkenini değiştir\nsbatch protokol.sh ile protokolu çalıştır.\n\nArdından bu işlemi her örnek için gerçekleştirelim.",
+    "crumbs": [
+      "Pratikler",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Varyant çağırma pratiği</span>"
+    ]
   },
   {
     "objectID": "02-practice/01-variant-practice.html#döngüler-ile-otomatizasyon",
     "href": "02-practice/01-variant-practice.html#döngüler-ile-otomatizasyon",
     "title": "10  Varyant çağırma pratiği",
     "section": "10.3 Döngüler ile otomatizasyon",
-    "text": "10.3 Döngüler ile otomatizasyon\nBunu istersek otomatize edebiliriz. Her örnek için bir protokol gönderebiliriz. Bunun için protokol_otomatik.sh isimli betiğe bakalım.\nBu betiğin içindeki tek değişiklik şu:\nSAMPLE=$1\nBurada, biz betiğe komut satırı üzerinden bir opsiyon atıyoruz. Bu sayede sürekli dosyayı değiştirmekten kurtuluyoruz. Yani sürekli SAMPLE değişkenini değiştirmektense, sbatch protokol_otomatize.sh ERR3079326 yazdığımızda, SAMPLE değişkenine otomatik olarak ERR3079326 değeri atanmış oluyor.\nTabii bir for dongüsü yazarak, bunu tamamen otomatize edebiliriz:\nSAMPLES=\"ERR3079326 ERR3079327 ERR3079328 ERR3079329 ERR3079331 ERR3079333\"\nfor SAMPLE in ${SAMPLES}\ndo\n    sbatch protokol_otomatik.sh ${SAMPLE}\ndone\nBu işlemi yaptığımızda, SAMPLES içerisindeki bütün örnek isimleri için, protokol_otomatik.sh betiği çalıştırılacaktır."
+    "text": "10.3 Döngüler ile otomatizasyon\nBunu istersek otomatize edebiliriz. Her örnek için bir protokol gönderebiliriz. Bunun için protokol_otomatik.sh isimli betiğe bakalım.\nBu betiğin içindeki tek değişiklik şu:\nSAMPLE=$1\nBurada, biz betiğe komut satırı üzerinden bir opsiyon atıyoruz. Bu sayede sürekli dosyayı değiştirmekten kurtuluyoruz. Yani sürekli SAMPLE değişkenini değiştirmektense, sbatch protokol_otomatize.sh ERR3079326 yazdığımızda, SAMPLE değişkenine otomatik olarak ERR3079326 değeri atanmış oluyor.\nTabii bir for dongüsü yazarak, bunu tamamen otomatize edebiliriz:\nSAMPLES=\"ERR3079326 ERR3079327 ERR3079328 ERR3079329 ERR3079331 ERR3079333\"\nfor SAMPLE in ${SAMPLES}\ndo\n    sbatch protokol_otomatik.sh ${SAMPLE}\ndone\nBu işlemi yaptığımızda, SAMPLES içerisindeki bütün örnek isimleri için, protokol_otomatik.sh betiği çalıştırılacaktır.",
+    "crumbs": [
+      "Pratikler",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Varyant çağırma pratiği</span>"
+    ]
   },
   {
-    "objectID": "10-appendices/software-used.html#programların-kurulumu",
-    "href": "10-appendices/software-used.html#programların-kurulumu",
+    "objectID": "10-appendices/software-used.html",
+    "href": "10-appendices/software-used.html",
     "title": "Ek A — Kullanılan Programlar",
-    "section": "A.1 Programların kurulumu",
-    "text": "A.1 Programların kurulumu\nProgramlar genel olarak Conda sistemi ile kurulacaktır."
+    "section": "",
+    "text": "A.1 Programların kurulumu\nProgramlar genel olarak Conda sistemi ile kurulacaktır.",
+    "crumbs": [
+      "Ekler",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Kullanılan Programlar</span>"
+    ]
   },
   {
     "objectID": "10-appendices/software-used.html#fastq-işleme",
     "href": "10-appendices/software-used.html#fastq-işleme",
     "title": "Ek A — Kullanılan Programlar",
     "section": "A.2 FASTQ işleme",
-    "text": "A.2 FASTQ işleme\n\nfastQC\ncutadapt"
+    "text": "A.2 FASTQ işleme\n\nfastQC\ncutadapt",
+    "crumbs": [
+      "Ekler",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Kullanılan Programlar</span>"
+    ]
   },
   {
     "objectID": "10-appendices/software-used.html#dna-hizalama",
     "href": "10-appendices/software-used.html#dna-hizalama",
     "title": "Ek A — Kullanılan Programlar",
     "section": "A.3 DNA hizalama",
-    "text": "A.3 DNA hizalama\n\nbwa\nsamtools"
+    "text": "A.3 DNA hizalama\n\nbwa\nsamtools",
+    "crumbs": [
+      "Ekler",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Kullanılan Programlar</span>"
+    ]
   }
 ]
