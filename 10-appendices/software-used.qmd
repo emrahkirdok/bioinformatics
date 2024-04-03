@@ -4,6 +4,35 @@
 
 Programlar genel olarak Conda sistemi ile kurulacaktır.
 
+```bash
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+```
+
+Ancak `conda init` komutunu çalıştırmayalım!
+
+Sonra betiği silelim:
+
+```bash
+rm Miniconda3-latest-Linux-x86_64.sh
+```
+
+Conda'yı güncelleyelim:
+
+```
+eval "$(/truba/home/$USER/miniconda3/bin/conda shell.bash hook)"
+conda update conda
+```
+
+Sonra ilk çevremizi kuralım:
+
+```bash
+conda create --name quality-control
+conda activate quality-control
+
+conda install fastqc cutadapt -c bioconda
+```
+
 ## FASTQ işleme
 
 + [fastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
