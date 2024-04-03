@@ -30,8 +30,8 @@ book:
     
     - part: "Derse Hazırlık"
       chapters:
-        - 00-setup/01-system.qmd
-        - 00-setup/02-truba.qmd
+        - 00-setup/01-truba.qmd
+        - 00-setup/02-system.qmd
         - 00-setup/03-command-line.qmd
         - 00-setup/04-markdown-kullanim.qmd
     - part: "Dersler"

@@ -8,6 +8,10 @@ ncelikle TRUBA sistemimize girelim.
 
 [Bağlantı](https://drive.google.com/file/d/1v3GF_Z9bLWfVim_IqQv_WPxngoSLQ2W6/view)
 
+Şu bağlantıya tıklayarak dosyalarımız indirelim ve TRUBA sistemine yükleyelim:
+
+[Bağlantı](https://drive.google.com/file/d/1v3GF_Z9bLWfVim_IqQv_WPxngoSLQ2W6/view)
+
 Kendi oluşturduğumuz klasörlere girelim. Siz kendi isminizi yazınız.
 
 ```bash

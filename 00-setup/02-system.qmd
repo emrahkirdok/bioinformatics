@@ -1,10 +1,8 @@
 # Sistem kurulumu
 
-
 ## Windows işletim sistemi
 
 Uzaktaki sunucuya bağlanmak için [Mobaxterm](https://mobaxterm.mobatek.net/) yazılımını kullanabiliriz.
-
 
 ## Mac işletim sistemi
 

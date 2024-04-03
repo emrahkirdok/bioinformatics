@@ -16,4 +16,15 @@ Ders kapsamında Türkiye Ulusal e-Bilişim Altyapısı'nın (TRUBA) yüksek ba�
 
 Altyapı kısmı, TRUBA sistemine nasıl bağlanılacağı, komutların kullanımı ve TRUBA sisteminde iş göndermek için gerekli betiklerin tanıtımına ayrılmıştır.
 
-@sec-truba, TRUBA sisteminin tanıtımını ve sisteme nasıl bağlanacağımız hakkında gerekli bilgileri içermektedir. Daha sonra @sec-command-line kısmında ise, TRUBA sisteminin ve linux komut satırının kullanımı hakkında gerekli bilgiler ve pratikler verilmiştir. 
+Birinci kısımda genel olarak TRUBA sistemi ve komut satırı üzerine bilgiler verlecektir. @sec-truba, TRUBA sisteminin tanıtımını ve sisteme nasıl bağlanacağımız hakkında gerekli bilgileri içermektedir. Daha sonra @sec-command-line kısmında ise, TRUBA sisteminin ve linux komut satırının kullanımı hakkında gerekli bilgiler ve pratikler verilmiştir. 
+
+İkinci kısımda ise, kullanılacak verinin niteliği, bu verinin yeni Nesil dizileme teknolojileri ile eldesi, saklanması ve en sonunda da elde edilmesi anlatılacaktır.
+
+Üçüncü kısımda ise DNA hizalama ve varyant çağırma üzerine temel bilgiler aktarılmıştır.
+
+Dördüncü kısımda Metagenomik yöntemler irdelencektir.
+
+Beşinci kısımda filogenetik 
+
+Altıncı kısımda ise RNA dizleme ve bu verinin analizi anlatılacaktır.
+
