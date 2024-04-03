@@ -429,7 +429,18 @@
     "href": "10-appendices/software-used.html",
     "title": "Ek A — Kullanılan Programlar",
     "section": "",
-    "text": "A.1 Programların kurulumu\nProgramlar genel olarak Conda sistemi ile kurulacaktır.",
+    "text": "A.1 Programların kurulumu\nProgramlar genel olarak Conda sistemi ile kurulacaktır.\nAncak conda init komutunu çalıştırmayalım!\nSonra betiği silelim:\nConda’yı güncelleyelim:\nSonra ilk çevremizi kuralım:",
+    "crumbs": [
+      "Ekler",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Kullanılan Programlar</span>"
+    ]
+  },
+  {
+    "objectID": "10-appendices/software-used.html#programların-kurulumu",
+    "href": "10-appendices/software-used.html#programların-kurulumu",
+    "title": "Ek A — Kullanılan Programlar",
+    "section": "",
+    "text": "wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh\nbash Miniconda3-latest-Linux-x86_64.sh\n\n\nrm Miniconda3-latest-Linux-x86_64.sh\n\neval \"$(/truba/home/$USER/miniconda3/bin/conda shell.bash hook)\"\nconda update conda\n\nconda create --name quality-control\nconda activate quality-control\n\nconda install fastqc cutadapt -c bioconda",
     "crumbs": [
       "Ekler",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Kullanılan Programlar</span>"
