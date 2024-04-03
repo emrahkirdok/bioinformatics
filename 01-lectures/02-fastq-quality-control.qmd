@@ -2,24 +2,29 @@
 
 ilk olarak fastq dosyalarının kalite kontrolünü işleyeceğiz
 
-Öncelikle TRUBA sistemimize girelim.
+ncelikle TRUBA sistemimize girelim.
+
+Şu bağlantıya tıklayarak dosyalarımız indirelim ve TRUBA sistemine yükleyelim:
+
+[Bağlantı](https://drive.google.com/file/d/1v3GF_Z9bLWfVim_IqQv_WPxngoSLQ2W6/view)
 
 Kendi oluşturduğumuz klasörlere girelim. Siz kendi isminizi yazınız.
 
 ```bash
-cd emrah
+mkdir Dersler
+cd Dersler
 ```
 
-Daha sonra ders klasörünü kopyalayalım:
+Daha sonra indirdiğimiz klasörü TRUBA sistemine yükleyerek aşağıdaki komutla açalım
 
 ```bash
-cp -r /truba/home/egitim/Dersler/00-Fastq-Kalite-Kontrol .
+tar -xzf 2024_04_03_ders_qc_01.tar.gz
 ```
 
 Ve klasör içerisine girelim:
 
 ```bash
-cd 00-Fastq-Kalite-Kontrol
+cd 2024_04_03_ders_qc_01
 ```
 
 İçeriğe bakalım:
