@@ -2,7 +2,7 @@
 
 ## Programların kurulumu
 
-Programlar genel olarak Conda sistemi ile kurulacaktır.
+Programlar genel olarak Conda sistemi ile kurulacaktır. Kurmak için aşağıdaki komutları uygulayalım:
 
 ```bash
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
@@ -32,7 +32,6 @@ conda activate quality-control
 
 conda install fastqc cutadapt -c bioconda
 ```
-
 ## FASTQ işleme
 
 + [fastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
