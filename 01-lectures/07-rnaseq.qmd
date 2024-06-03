@@ -1,0 +1,19 @@
+# RNA Dizileme
+
+Bu proje kapsamında, RNA dizileme veri analizi çalışması yapılacaktır. Projeyi aşağıdaki şekilde şematize edebiliriz (@fig-graph-4):
+
+```{dot}
+// | label: fig-graph-3
+// | fig-cap: "RNA dizileme veri analizi şeması"
+// | fig-width: 200px
+// | fig-height: 200px
+
+digraph g{
+    rankdir = "BT";
+    node [shape = "rect"];
+    "Ham Fastq Dosyaları" -> "Ön İşlem" -> "İşlenmiş Fastq dosyaları" -> "Referans Genoma\nHizalama" -> "Sam ve Bam\ndosyaları Eldesi" -> "DNA sayı matrisi";
+    "Referans Genom" -> "Referans Genoma\nHizalama";
+}
+```
+
+
