@@ -20,3 +20,31 @@ Verilerini kullanacağımız makaleye aşağıdaki bağlantıdan ulaşabilirsini
 
 + [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6066579/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6066579/)
 
+## Klasör yapısı
+
+Yapacağınız çalışmada aşağıdaki klasör yapısını korumanız sizin için kullanışlı olur:
+
+```
+Project
+    |
+    |
+    |-- data
+    |    |
+    |    |--- raw
+    |    |--- ref
+    |
+    |-- results
+         |
+         |--- processed
+         |--- alignment
+         |--- counts
+
+```
+
+## Adımlar
+
+Projeniz aşağıda belirtilen adımları içermelidir:
+
+1. `Fastq` ön işlem adımları: Ham ve işlenmiş `FastQC` raporları
+2. Hizalama sonuçlar
+3. RNASeq sayı matrisi
