@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.552">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Biyoinformatik - 1&nbsp; Sistem kurulumu</title>
+<title>Biyoinformatik - 1&nbsp; Truba</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,7 +30,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../00-setup/02-truba.html" rel="next">
+<link href="../00-setup/02-system.html" rel="next">
 <link href="../CONTRIBUTING.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -115,7 +81,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../00-setup/01-system.html">Derse Hazırlık</a></li><li class="breadcrumb-item"><a href="../00-setup/01-system.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sistem kurulumu</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../00-setup/01-truba.html">Derse Hazırlık</a></li><li class="breadcrumb-item"><a href="../00-setup/01-truba.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Truba</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -171,14 +137,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../00-setup/01-system.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sistem kurulumu</span></span></a>
+  <a href="../00-setup/01-truba.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Truba</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../00-setup/02-truba.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Truba</span></span></a>
+  <a href="../00-setup/02-system.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sistem kurulumu</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -288,25 +254,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Içindekiler</h2>
-   
-  <ul>
-  <li><a href="#windows-işletim-sistemi" id="toc-windows-işletim-sistemi" class="nav-link active" data-scroll-target="#windows-işletim-sistemi"><span class="header-section-number">1.1</span> Windows işletim sistemi</a></li>
-  <li><a href="#mac-işletim-sistemi" id="toc-mac-işletim-sistemi" class="nav-link" data-scroll-target="#mac-işletim-sistemi"><span class="header-section-number">1.2</span> Mac işletim sistemi</a></li>
-  <li><a href="#ubuntu-alt-sistemi-bakımı" id="toc-ubuntu-alt-sistemi-bakımı" class="nav-link" data-scroll-target="#ubuntu-alt-sistemi-bakımı"><span class="header-section-number">1.3</span> Ubuntu alt sistemi bakımı</a>
-  <ul class="collapse">
-  <li><a href="#ubuntu-sisteminde-kullanıcı-ismi-sorunu" id="toc-ubuntu-sisteminde-kullanıcı-ismi-sorunu" class="nav-link" data-scroll-target="#ubuntu-sisteminde-kullanıcı-ismi-sorunu"><span class="header-section-number">1.3.1</span> Ubuntu sisteminde kullanıcı ismi sorunu</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../00-setup/01-system.html">Derse Hazırlık</a></li><li class="breadcrumb-item"><a href="../00-setup/01-system.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sistem kurulumu</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../00-setup/01-truba.html">Derse Hazırlık</a></li><li class="breadcrumb-item"><a href="../00-setup/01-truba.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Truba</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sistem kurulumu</span></h1>
+<h1 class="title"><span id="sec-truba" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Truba</span></span></h1>
 </div>
 
 
@@ -323,56 +278,105 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="windows-işletim-sistemi" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="windows-işletim-sistemi"><span class="header-section-number">1.1</span> Windows işletim sistemi</h2>
-<p>Uzaktaki sunucuya bağlanmak için <a href="https://mobaxterm.mobatek.net/">Mobaxterm</a> yazılımını kullanabiliriz.</p>
-</section>
-<section id="mac-işletim-sistemi" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="mac-işletim-sistemi"><span class="header-section-number">1.2</span> Mac işletim sistemi</h2>
-<p>Mac sistemler üzerine kullanacağımız bütün biyoinformatik araçları kurma imkanımız bulunmaktadır. Bunun için Mac tuşu ile boşluk tuşuna basıp Spotlight ekranını açarak (<a href="#fig-spotlight" class="quarto-xref">Şekil&nbsp;<span>1.1</span></a>), <code>terminal</code> yazınız ve açılan penceyere aşağıdaki kodu yazınız.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">xcode-select</span> <span class="at">--install</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="fig-spotlight" class="quarto-figure quarto-figure-center quarto-float anchored">
+<p>Ders kapsamında TRUBA sunucularını kullanacağız. Bu imkanı bize sundukları için teşekkür ederiz.</p>
+<p>Öncelikle <a href="https://docs.truba.gov.tr/index.html">TRUBA</a> internet sitesine giderek sistemi inceleyelim.</p>
+<p>TRUBA kaynaklarına üniversite içerisinden rahatlıkla bağlanabilirsiniz, ancak üniversite dışından bağlanmak için ise bilgisayarınza OpenVPN programını kurmanız gerekmektedir.</p>
+<p>Ayrıntılar için <a href="https://docs.truba.gov.tr/TRUBA/kullanici-el-kitabi/open-vpn/index.html">Kurulum kılavuzunu</a> inceleyin ve bilgisayarınza uygun olan kılavuz ile OpenVPN kurulumunu tamamlayınız.</p>
+<p>Kurulum tamamlandıktan sonra, TRUBA tarafından size gönderilen kullanıcı ismi ve şifreniz ile, OpenVPN sistemine bağlanmanız gerekmektedir. Ardından, mobaxterm ile TRUBA sistemine bağlanabiliriz.</p>
+<p>Normalde uzak bir bilgisyara bağlanma sürecini şöyle özetleyebiliriz. İnternet üzerinde, sizin bilgisyarınız ve uzak bilgisayar arasında şifreli bir tünel (<code>ssh</code>) bağlantısı kurulmaktadır. Bunu <a href="#fig-graph-1" class="quarto-xref">Şekil&nbsp;<span>1.1</span></a>’de rahatlıkla görebiliriz. Bu şekilde yapılan bir bağlantıda, TRUBA sistemine şifreli bir tünel açılmaktadır.</p>
+<div class="cell" data-fig-width="200px" data-fig-height="200px" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-graph-1" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-spotlight-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/macos.png" class="img-fluid figure-img">
+<div aria-describedby="fig-graph-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<svg width="200" height="200" viewbox="0.00 0.00 116.13 116.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<title>g</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 112.13,-112 112.13,4 -4,4"></polygon>
+<!-- Yerel Bilgisayar -->
+<g id="node1" class="node">
+<title>Yerel Bilgisayar</title>
+<polygon fill="none" stroke="black" points="108.2,-36 -0.07,-36 -0.07,0 108.2,0 108.2,-36"></polygon>
+<text text-anchor="middle" x="54.07" y="-13.8" font-family="Times,serif" font-size="14.00">Yerel Bilgisayar</text>
+</g>
+<!-- TRUBA -->
+<g id="node2" class="node">
+<title>TRUBA</title>
+<polygon fill="none" stroke="black" points="86.02,-108 22.12,-108 22.12,-72 86.02,-72 86.02,-108"></polygon>
+<text text-anchor="middle" x="54.07" y="-85.8" font-family="Times,serif" font-size="14.00">TRUBA</text>
+</g>
+<!-- Yerel Bilgisayar&#45;&gt;TRUBA -->
+<g id="edge1" class="edge">
+<title>Yerel Bilgisayar-&gt;TRUBA</title>
+<path fill="none" stroke="black" d="M54.07,-36.3C54.07,-44.02 54.07,-53.29 54.07,-61.89"></path>
+<polygon fill="black" stroke="black" points="50.57,-61.9 54.07,-71.9 57.57,-61.9 50.57,-61.9"></polygon>
+</g>
+</g>
+</svg>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-spotlight-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Şekil&nbsp;1.1: Mac üzerinde spotlight ekranı
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-graph-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Şekil&nbsp;1.1: ULAKBİM ağı içerisinden, TRUBA’ya doğrudan <code>ssh</code> bağlantısı kurabilirsiniz.
 </figcaption>
 </figure>
 </div>
-<p>Bir süre bekledikten sonra gerekli programlar kurulacaktır. Artık <code>terminal</code> programı üzerinden gerek uzak bilgisayarlarlar <code>ssh</code> bağlantısı, gerekse de kullanılacak biyoinformatik araçların kurulumunu gerçekleştirebilirsiniz.</p>
-</section>
-<section id="ubuntu-alt-sistemi-bakımı" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="ubuntu-alt-sistemi-bakımı"><span class="header-section-number">1.3</span> Ubuntu alt sistemi bakımı</h2>
-<p>Sisteminiz ara ara güncellemelisiniz. Öncelikle kullandığımız paketlerin en güncel versiyonlarını denetleyelim:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Daha sonra sistemi güncelleyelim:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt upgrade</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="ubuntu-sisteminde-kullanıcı-ismi-sorunu" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="ubuntu-sisteminde-kullanıcı-ismi-sorunu"><span class="header-section-number">1.3.1</span> Ubuntu sisteminde kullanıcı ismi sorunu</h3>
-<p>Sorunlardan bir tanesi ön tanımlı kullanıcının <code>root</code> olmasıydı. Kullandığımız sistemler çok kullanıcılı sistemler. Her kullanıcının bazı hakları var. <code>root</code> kullanıcısı ise, en güçlü kullanıcı ve her şeyi yapma yeteneği var.</p>
-<p>O yüzden bu kullanıcı her zaman kullanmıuoruz. Eğer ubuntu alt sistemi <code>root</code> kullanıcısı ile açılıyorsa bunu değiştirmeliyiz.</p>
-<p>Önce ubuntu ekranını açalım ve yeni bir kullancı eklediğimizden emin olalım:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> adduser KULLANICI</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Bu şekilde yeni kullanıcı ekleyelim. Aşağıdaki gibi bir ekran karşımıza çıkacak (<a href="#fig-subsystem-user" class="quarto-xref">Şekil&nbsp;<span>1.2</span></a>):</p>
-<div id="fig-subsystem-user" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-subsystem-user-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/adduser.png" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-subsystem-user-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Şekil&nbsp;1.2: Ubuntu alt sisteminde kullanıcı ekleme
+</div>
+<p>Ancak, ULAKBİM üzerinden yapılmayan bağlantılar güvenli olmayabir. Bu tip bilgisayar sistemleri yoğunlukla saldırı altındadır. Bu yüzden güvenli bir bağlantı oluşturmak için farklı yöntemler kullanılabilir. Bazı sunucu sistemleri iki faktörlü doğrulama kullanırken, TRUBA sistemi, ULAKBİM dışındaki bağlantılarda öncelikle sanal ağa bağlanmanızı zorunlu tutmaktadır. Bağlantı güvenliği için öncelikle OpenVPN ile sanal ağa, oradan da TRUBA’ya bağlanıyoruz (<a href="#fig-graph-2" class="quarto-xref">Şekil&nbsp;<span>1.2</span></a>).</p>
+<div class="cell" data-fig-width="200px" data-fig-height="200px" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-graph-2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-graph-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<svg width="200" height="200" viewbox="0.00 0.00 116.13 188.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 184)">
+<title>g</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-184 112.13,-184 112.13,4 -4,4"></polygon>
+<!-- Yerel Bilgisayar -->
+<g id="node1" class="node">
+<title>Yerel Bilgisayar</title>
+<polygon fill="none" stroke="black" points="108.2,-36 -0.07,-36 -0.07,0 108.2,0 108.2,-36"></polygon>
+<text text-anchor="middle" x="54.07" y="-13.8" font-family="Times,serif" font-size="14.00">Yerel Bilgisayar</text>
+</g>
+<!-- OpenVPN -->
+<g id="node2" class="node">
+<title>OpenVPN</title>
+<polygon fill="none" stroke="black" points="91.4,-108 16.74,-108 16.74,-72 91.4,-72 91.4,-108"></polygon>
+<text text-anchor="middle" x="54.07" y="-85.8" font-family="Times,serif" font-size="14.00">OpenVPN</text>
+</g>
+<!-- Yerel Bilgisayar&#45;&gt;OpenVPN -->
+<g id="edge1" class="edge">
+<title>Yerel Bilgisayar-&gt;OpenVPN</title>
+<path fill="none" stroke="black" d="M54.07,-36.3C54.07,-44.02 54.07,-53.29 54.07,-61.89"></path>
+<polygon fill="black" stroke="black" points="50.57,-61.9 54.07,-71.9 57.57,-61.9 50.57,-61.9"></polygon>
+</g>
+<!-- TRUBA -->
+<g id="node3" class="node">
+<title>TRUBA</title>
+<polygon fill="none" stroke="black" points="86.02,-180 22.12,-180 22.12,-144 86.02,-144 86.02,-180"></polygon>
+<text text-anchor="middle" x="54.07" y="-157.8" font-family="Times,serif" font-size="14.00">TRUBA</text>
+</g>
+<!-- OpenVPN&#45;&gt;TRUBA -->
+<g id="edge2" class="edge">
+<title>OpenVPN-&gt;TRUBA</title>
+<path fill="none" stroke="black" d="M54.07,-108.3C54.07,-116.02 54.07,-125.29 54.07,-133.89"></path>
+<polygon fill="black" stroke="black" points="50.57,-133.9 54.07,-143.9 57.57,-133.9 50.57,-133.9"></polygon>
+</g>
+</g>
+</svg>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-graph-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Şekil&nbsp;1.2: Üniversite ağı dışından yapacağınız bağlantılarda öncelikle OpenVPN üzerinde ULAKBİM sanal ağına bağlanmalısınız.
 </figcaption>
 </figure>
 </div>
-<p>Şifrenizi girin (ancak imleç haraket etmeyecek, endişe etmeyin) ve tekrar girin.</p>
-<p>Kullanıcıyı oluşturduktan sonra, Windows’ta arama kısmına gelerek <strong>Komut İstemi</strong> yazın. bu da aslında Windows’un komut satırı arayüzü. Burada aşağıdaki satırı yazarak, yeni kullanıcınızı ön tanımlı olarak ekleyebilirsiniz.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ubuntu</span> config <span class="at">--default-user</span> KULLANICI</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -791,8 +795,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../00-setup/02-truba.html" class="pagination-link" aria-label="Truba">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Truba</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../00-setup/02-system.html" class="pagination-link" aria-label="Sistem kurulumu">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sistem kurulumu</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
