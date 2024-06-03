@@ -425,6 +425,39 @@
     ]
   },
   {
+    "objectID": "02-practice/02-rnaseq-project.html",
+    "href": "02-practice/02-rnaseq-project.html",
+    "title": "12  RNA Dizileme Proje Örneği",
+    "section": "",
+    "text": "12.1 Klasör yapısı\nYapacağınız çalışmada aşağıdaki klasör yapısını korumanız sizin için kullanışlı olur:",
+    "crumbs": [
+      "Pratikler",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>RNA Dizileme Proje Örneği</span>"
+    ]
+  },
+  {
+    "objectID": "02-practice/02-rnaseq-project.html#klasör-yapısı",
+    "href": "02-practice/02-rnaseq-project.html#klasör-yapısı",
+    "title": "12  RNA Dizileme Proje Örneği",
+    "section": "",
+    "text": "Project\n    |\n    |\n    |-- data\n    |    |\n    |    |--- raw\n    |    |--- ref\n    |\n    |-- results\n         |\n         |--- processed\n         |--- alignment\n         |--- counts",
+    "crumbs": [
+      "Pratikler",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>RNA Dizileme Proje Örneği</span>"
+    ]
+  },
+  {
+    "objectID": "02-practice/02-rnaseq-project.html#adımlar",
+    "href": "02-practice/02-rnaseq-project.html#adımlar",
+    "title": "12  RNA Dizileme Proje Örneği",
+    "section": "12.2 Adımlar",
+    "text": "12.2 Adımlar\nProjeniz aşağıda belirtilen adımları içermelidir:\n\nFastq ön işlem adımları: Ham ve işlenmiş FastQC raporları\nHizalama sonuçlar\nRNASeq sayı matrisi",
+    "crumbs": [
+      "Pratikler",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>RNA Dizileme Proje Örneği</span>"
+    ]
+  },
+  {
     "objectID": "10-appendices/software-used.html",
     "href": "10-appendices/software-used.html",
     "title": "Ek A — Kullanılan Programlar",

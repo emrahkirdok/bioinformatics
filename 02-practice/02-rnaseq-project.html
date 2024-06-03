@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Biyoinformatik - 1&nbsp; Truba</title>
+<title>Biyoinformatik - 12&nbsp; RNA Dizileme Proje Örneği</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../00-setup/02-system.html" rel="next">
-<link href="../CONTRIBUTING.html" rel="prev">
+<link href="../references.html" rel="next">
+<link href="../02-practice/01-variant-practice.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../00-setup/01-truba.html">Derse Hazırlık</a></li><li class="breadcrumb-item"><a href="../00-setup/01-truba.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Truba</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-practice/01-variant-practice.html">Pratikler</a></li><li class="breadcrumb-item"><a href="../02-practice/02-rnaseq-project.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">RNA Dizileme Proje Örneği</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -137,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../00-setup/01-truba.html" class="sidebar-item-text sidebar-link active">
+  <a href="../00-setup/01-truba.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Truba</span></span></a>
   </div>
 </li>
@@ -225,7 +225,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-practice/02-rnaseq-project.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-practice/02-rnaseq-project.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">RNA Dizileme Proje Örneği</span></span></a>
   </div>
 </li>
@@ -260,14 +260,21 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Içindekiler</h2>
+   
+  <ul>
+  <li><a href="#klasör-yapısı" id="toc-klasör-yapısı" class="nav-link active" data-scroll-target="#klasör-yapısı"><span class="header-section-number">12.1</span> Klasör yapısı</a></li>
+  <li><a href="#adımlar" id="toc-adımlar" class="nav-link" data-scroll-target="#adımlar"><span class="header-section-number">12.2</span> Adımlar</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../00-setup/01-truba.html">Derse Hazırlık</a></li><li class="breadcrumb-item"><a href="../00-setup/01-truba.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Truba</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-practice/01-variant-practice.html">Pratikler</a></li><li class="breadcrumb-item"><a href="../02-practice/02-rnaseq-project.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">RNA Dizileme Proje Örneği</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-truba" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Truba</span></span></h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">RNA Dizileme Proje Örneği</span></h1>
 </div>
 
 
@@ -284,105 +291,141 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Ders kapsamında TRUBA sunucularını kullanacağız. Bu imkanı bize sundukları için teşekkür ederiz.</p>
-<p>Öncelikle <a href="https://docs.truba.gov.tr/index.html">TRUBA</a> internet sitesine giderek sistemi inceleyelim.</p>
-<p>TRUBA kaynaklarına üniversite içerisinden rahatlıkla bağlanabilirsiniz, ancak üniversite dışından bağlanmak için ise bilgisayarınza OpenVPN programını kurmanız gerekmektedir.</p>
-<p>Ayrıntılar için <a href="https://docs.truba.gov.tr/TRUBA/kullanici-el-kitabi/open-vpn/index.html">Kurulum kılavuzunu</a> inceleyin ve bilgisayarınza uygun olan kılavuz ile OpenVPN kurulumunu tamamlayınız.</p>
-<p>Kurulum tamamlandıktan sonra, TRUBA tarafından size gönderilen kullanıcı ismi ve şifreniz ile, OpenVPN sistemine bağlanmanız gerekmektedir. Ardından, mobaxterm ile TRUBA sistemine bağlanabiliriz.</p>
-<p>Normalde uzak bir bilgisyara bağlanma sürecini şöyle özetleyebiliriz. İnternet üzerinde, sizin bilgisyarınız ve uzak bilgisayar arasında şifreli bir tünel (<code>ssh</code>) bağlantısı kurulmaktadır. Bunu <a href="#fig-graph-1" class="quarto-xref">Şekil&nbsp;<span>1.1</span></a>’de rahatlıkla görebiliriz. Bu şekilde yapılan bir bağlantıda, TRUBA sistemine şifreli bir tünel açılmaktadır.</p>
+<p>Bu proje kapsamında, RNA dizileme veri analizi çalışması yapılacaktır. Projeyi aşağıdaki şekilde şematize edebiliriz (<span class="quarto-unresolved-ref">?fig-graph-4</span>):</p>
 <div class="cell" data-fig-width="200px" data-fig-height="200px" data-layout-align="default">
 <div class="cell-output-display">
-<div id="fig-graph-1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-graph-3" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-graph-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-graph-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<svg width="200" height="200" viewbox="0.00 0.00 116.13 116.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<svg width="200" height="200" viewbox="0.00 0.00 297.56 415.20" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 411.2)">
 <title>g</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 112.13,-112 112.13,4 -4,4"></polygon>
-<!-- Yerel Bilgisayar -->
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-411.2 293.56,-411.2 293.56,4 -4,4"></polygon>
+<!-- Ham Fastq Dosyaları -->
 <g id="node1" class="node">
-<title>Yerel Bilgisayar</title>
-<polygon fill="none" stroke="black" points="108.2,-36 -0.07,-36 -0.07,0 108.2,0 108.2,-36"></polygon>
-<text text-anchor="middle" x="54.07" y="-13.8" font-family="Times,serif" font-size="14.00">Yerel Bilgisayar</text>
+<title>Ham Fastq Dosyaları</title>
+<polygon fill="none" stroke="black" points="149.41,-36 11.23,-36 11.23,0 149.41,0 149.41,-36"></polygon>
+<text text-anchor="middle" x="80.32" y="-13.8" font-family="Times,serif" font-size="14.00">Ham Fastq Dosyaları</text>
 </g>
-<!-- TRUBA -->
+<!-- Ön İşlem -->
 <g id="node2" class="node">
-<title>TRUBA</title>
-<polygon fill="none" stroke="black" points="86.02,-108 22.12,-108 22.12,-72 86.02,-72 86.02,-108"></polygon>
-<text text-anchor="middle" x="54.07" y="-85.8" font-family="Times,serif" font-size="14.00">TRUBA</text>
+<title>Ön İşlem</title>
+<polygon fill="none" stroke="black" points="114.82,-108 45.83,-108 45.83,-72 114.82,-72 114.82,-108"></polygon>
+<text text-anchor="middle" x="80.32" y="-85.8" font-family="Times,serif" font-size="14.00">Ön İşlem</text>
 </g>
-<!-- Yerel Bilgisayar&#45;&gt;TRUBA -->
+<!-- Ham Fastq Dosyaları&#45;&gt;Ön İşlem -->
 <g id="edge1" class="edge">
-<title>Yerel Bilgisayar-&gt;TRUBA</title>
-<path fill="none" stroke="black" d="M54.07,-36.3C54.07,-44.02 54.07,-53.29 54.07,-61.89"></path>
-<polygon fill="black" stroke="black" points="50.57,-61.9 54.07,-71.9 57.57,-61.9 50.57,-61.9"></polygon>
+<title>Ham Fastq Dosyaları-&gt;Ön İşlem</title>
+<path fill="none" stroke="black" d="M80.32,-36.3C80.32,-44.02 80.32,-53.29 80.32,-61.89"></path>
+<polygon fill="black" stroke="black" points="76.82,-61.9 80.32,-71.9 83.82,-61.9 76.82,-61.9"></polygon>
 </g>
-</g>
-</svg>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-graph-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Şekil&nbsp;1.1: ULAKBİM ağı içerisinden, TRUBA’ya doğrudan <code>ssh</code> bağlantısı kurabilirsiniz.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>Ancak, ULAKBİM üzerinden yapılmayan bağlantılar güvenli olmayabir. Bu tip bilgisayar sistemleri yoğunlukla saldırı altındadır. Bu yüzden güvenli bir bağlantı oluşturmak için farklı yöntemler kullanılabilir. Bazı sunucu sistemleri iki faktörlü doğrulama kullanırken, TRUBA sistemi, ULAKBİM dışındaki bağlantılarda öncelikle sanal ağa bağlanmanızı zorunlu tutmaktadır. Bağlantı güvenliği için öncelikle OpenVPN ile sanal ağa, oradan da TRUBA’ya bağlanıyoruz (<a href="#fig-graph-2" class="quarto-xref">Şekil&nbsp;<span>1.2</span></a>).</p>
-<div class="cell" data-fig-width="200px" data-fig-height="200px" data-layout-align="default">
-<div class="cell-output-display">
-<div id="fig-graph-2" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-graph-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div>
-<svg width="200" height="200" viewbox="0.00 0.00 116.13 188.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 184)">
-<title>g</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-184 112.13,-184 112.13,4 -4,4"></polygon>
-<!-- Yerel Bilgisayar -->
-<g id="node1" class="node">
-<title>Yerel Bilgisayar</title>
-<polygon fill="none" stroke="black" points="108.2,-36 -0.07,-36 -0.07,0 108.2,0 108.2,-36"></polygon>
-<text text-anchor="middle" x="54.07" y="-13.8" font-family="Times,serif" font-size="14.00">Yerel Bilgisayar</text>
-</g>
-<!-- OpenVPN -->
-<g id="node2" class="node">
-<title>OpenVPN</title>
-<polygon fill="none" stroke="black" points="91.4,-108 16.74,-108 16.74,-72 91.4,-72 91.4,-108"></polygon>
-<text text-anchor="middle" x="54.07" y="-85.8" font-family="Times,serif" font-size="14.00">OpenVPN</text>
-</g>
-<!-- Yerel Bilgisayar&#45;&gt;OpenVPN -->
-<g id="edge1" class="edge">
-<title>Yerel Bilgisayar-&gt;OpenVPN</title>
-<path fill="none" stroke="black" d="M54.07,-36.3C54.07,-44.02 54.07,-53.29 54.07,-61.89"></path>
-<polygon fill="black" stroke="black" points="50.57,-61.9 54.07,-71.9 57.57,-61.9 50.57,-61.9"></polygon>
-</g>
-<!-- TRUBA -->
+<!-- İşlenmiş Fastq dosyaları -->
 <g id="node3" class="node">
-<title>TRUBA</title>
-<polygon fill="none" stroke="black" points="86.02,-180 22.12,-180 22.12,-144 86.02,-144 86.02,-180"></polygon>
-<text text-anchor="middle" x="54.07" y="-157.8" font-family="Times,serif" font-size="14.00">TRUBA</text>
+<title>İşlenmiş Fastq dosyaları</title>
+<polygon fill="none" stroke="black" points="160.47,-180 0.18,-180 0.18,-144 160.47,-144 160.47,-180"></polygon>
+<text text-anchor="middle" x="80.32" y="-157.8" font-family="Times,serif" font-size="14.00">İşlenmiş Fastq dosyaları</text>
 </g>
-<!-- OpenVPN&#45;&gt;TRUBA -->
+<!-- Ön İşlem&#45;&gt;İşlenmiş Fastq dosyaları -->
 <g id="edge2" class="edge">
-<title>OpenVPN-&gt;TRUBA</title>
-<path fill="none" stroke="black" d="M54.07,-108.3C54.07,-116.02 54.07,-125.29 54.07,-133.89"></path>
-<polygon fill="black" stroke="black" points="50.57,-133.9 54.07,-143.9 57.57,-133.9 50.57,-133.9"></polygon>
+<title>Ön İşlem-&gt;İşlenmiş Fastq dosyaları</title>
+<path fill="none" stroke="black" d="M80.32,-108.3C80.32,-116.02 80.32,-125.29 80.32,-133.89"></path>
+<polygon fill="black" stroke="black" points="76.82,-133.9 80.32,-143.9 83.82,-133.9 76.82,-133.9"></polygon>
+</g>
+<!-- Referans Genoma\nHizalama -->
+<g id="node4" class="node">
+<title>Referans Genoma\nHizalama</title>
+<polygon fill="none" stroke="black" points="215.5,-257.4 99.14,-257.4 99.14,-216.2 215.5,-216.2 215.5,-257.4"></polygon>
+<text text-anchor="middle" x="157.32" y="-241" font-family="Times,serif" font-size="14.00">Referans Genoma</text>
+<text text-anchor="middle" x="157.32" y="-224.2" font-family="Times,serif" font-size="14.00">Hizalama</text>
+</g>
+<!-- İşlenmiş Fastq dosyaları&#45;&gt;Referans Genoma\nHizalama -->
+<g id="edge3" class="edge">
+<title>İşlenmiş Fastq dosyaları-&gt;Referans Genoma\nHizalama</title>
+<path fill="none" stroke="black" d="M98.57,-180.25C107.64,-188.83 118.81,-199.39 128.97,-208.99"></path>
+<polygon fill="black" stroke="black" points="126.82,-211.77 136.49,-216.1 131.62,-206.69 126.82,-211.77"></polygon>
+</g>
+<!-- Sam ve Bam\ndosyaları Eldesi -->
+<g id="node5" class="node">
+<title>Sam ve Bam\ndosyaları Eldesi</title>
+<polygon fill="none" stroke="black" points="211.75,-335 102.9,-335 102.9,-293.8 211.75,-293.8 211.75,-335"></polygon>
+<text text-anchor="middle" x="157.32" y="-318.6" font-family="Times,serif" font-size="14.00">Sam ve Bam</text>
+<text text-anchor="middle" x="157.32" y="-301.8" font-family="Times,serif" font-size="14.00">dosyaları Eldesi</text>
+</g>
+<!-- Referans Genoma\nHizalama&#45;&gt;Sam ve Bam\ndosyaları Eldesi -->
+<g id="edge4" class="edge">
+<title>Referans Genoma\nHizalama-&gt;Sam ve Bam\ndosyaları Eldesi</title>
+<path fill="none" stroke="black" d="M157.32,-257.66C157.32,-265.56 157.32,-274.82 157.32,-283.5"></path>
+<polygon fill="black" stroke="black" points="153.82,-283.67 157.32,-293.67 160.82,-283.67 153.82,-283.67"></polygon>
+</g>
+<!-- DNA sayı matrisi -->
+<g id="node6" class="node">
+<title>DNA sayı matrisi</title>
+<polygon fill="none" stroke="black" points="216.2,-407.2 98.45,-407.2 98.45,-371.2 216.2,-371.2 216.2,-407.2"></polygon>
+<text text-anchor="middle" x="157.32" y="-385" font-family="Times,serif" font-size="14.00">DNA sayı matrisi</text>
+</g>
+<!-- Sam ve Bam\ndosyaları Eldesi&#45;&gt;DNA sayı matrisi -->
+<g id="edge5" class="edge">
+<title>Sam ve Bam\ndosyaları Eldesi-&gt;DNA sayı matrisi</title>
+<path fill="none" stroke="black" d="M157.32,-335.29C157.32,-343.11 157.32,-352.21 157.32,-360.64"></path>
+<polygon fill="black" stroke="black" points="153.82,-360.81 157.32,-370.81 160.82,-360.81 153.82,-360.81"></polygon>
+</g>
+<!-- Referans Genom -->
+<g id="node7" class="node">
+<title>Referans Genom</title>
+<polygon fill="none" stroke="black" points="289.79,-180 178.86,-180 178.86,-144 289.79,-144 289.79,-180"></polygon>
+<text text-anchor="middle" x="234.32" y="-157.8" font-family="Times,serif" font-size="14.00">Referans Genom</text>
+</g>
+<!-- Referans Genom&#45;&gt;Referans Genoma\nHizalama -->
+<g id="edge6" class="edge">
+<title>Referans Genom-&gt;Referans Genoma\nHizalama</title>
+<path fill="none" stroke="black" d="M216.08,-180.25C207,-188.83 195.83,-199.39 185.68,-208.99"></path>
+<polygon fill="black" stroke="black" points="183.02,-206.69 178.16,-216.1 187.83,-211.77 183.02,-206.69"></polygon>
 </g>
 </g>
 </svg>
 </div>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-graph-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Şekil&nbsp;1.2: Üniversite ağı dışından yapacağınız bağlantılarda öncelikle OpenVPN üzerinde ULAKBİM sanal ağına bağlanmalısınız.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-graph-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Şekil&nbsp;12.1: RNA dizileme veri analizi şeması
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
+<p>Verilerini kullanacağımız makaleye aşağıdaki bağlantıdan ulaşabilirsiniz:</p>
+<ul>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6066579/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6066579/</a></li>
+</ul>
+<section id="klasör-yapısı" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="klasör-yapısı"><span class="header-section-number">12.1</span> Klasör yapısı</h2>
+<p>Yapacağınız çalışmada aşağıdaki klasör yapısını korumanız sizin için kullanışlı olur:</p>
+<pre><code>Project
+    |
+    |
+    |-- data
+    |    |
+    |    |--- raw
+    |    |--- ref
+    |
+    |-- results
+         |
+         |--- processed
+         |--- alignment
+         |--- counts
+</code></pre>
+</section>
+<section id="adımlar" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="adımlar"><span class="header-section-number">12.2</span> Adımlar</h2>
+<p>Projeniz aşağıda belirtilen adımları içermelidir:</p>
+<ol type="1">
+<li><code>Fastq</code> ön işlem adımları: Ham ve işlenmiş <code>FastQC</code> raporları</li>
+<li>Hizalama sonuçlar</li>
+<li>RNASeq sayı matrisi</li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -796,13 +839,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../CONTRIBUTING.html" class="pagination-link" aria-label="Katkı Sağlama">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Katkı Sağlama</span>
+      <a href="../02-practice/01-variant-practice.html" class="pagination-link" aria-label="Varyant çağırma pratiği">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Varyant çağırma pratiği</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../00-setup/02-system.html" class="pagination-link" aria-label="Sistem kurulumu">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sistem kurulumu</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../references.html" class="pagination-link" aria-label="Kaynakça">
+        <span class="nav-page-text">Kaynakça</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
