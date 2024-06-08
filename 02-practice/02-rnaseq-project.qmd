@@ -121,17 +121,6 @@ mkdir -p results/counts
 
 ```
 
-
-```bash
-
-mkdir -p results/processed
-
-mkdir -p results/alignment
-
-mkdir -p results/counts
-
-``` 
-
 ## Proje kapsamında eklenmesi gerekenler 
 
 Projeniz aşağıda belirtilen adımları içermelidir:
