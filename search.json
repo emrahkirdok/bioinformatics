@@ -429,7 +429,7 @@
     "href": "02-practice/02-rnaseq-project.html",
     "title": "12  RNA Dizileme Proje Örneği",
     "section": "",
-    "text": "12.1 Klasör yapısı\nYapacağınız çalışmada aşağıdaki klasör yapısını korumanız sizin için kullanışlı olur:",
+    "text": "12.1 Klasör yapısı\nYapacağınız çalışmada aşağıdaki klasör yapısını korumanız sizin için kullanışlı olur:\n## Veri\nProje kapsamında kullanılacak veri:\nVeriyi indirmek için öncelikle aşağıda bulunan belgeye bakalım. Bu belgede kullancağımız örnekler ve bu örneklerin metaveri bilgileri bulunmaktadır:\nhttps://github.com/emrahkirdok/rnaseq/blob/main/data.txt\nBu belgeye göre aşağıdaki tabloya bakalım:\nÖncelikle Proje dosyamızı oluşturalım. İlk olarak hangi klasördeyiz ona bakalım, rastgele bir yere proje dosyası oluşturmayalım:\nTercihen ev klasörümüze gelelim ve yeni bir proje klasörü oluşturalım:\nbu klasör içine girelim ve çalışacağımız dosyaları indirelim:\nAşağıdaki satırları tek tek yazarak çalışacağımız dosyaları indirebiliriz. Burada kullanılan wget komutu, uzaktaki bir sunucudan dosyaları indirmek için kullanılmaktadır.\nİşlem bittiğinde ls -ltrh ile kontrol edelim.\nDaha sonra proje klasörümüze geri dönüp, referans genom dosyaları için kullancağımız klasörü oluşturalım:\nReferans genom dosyalarını, son dersimzideki klasörden alabilirsiniz.\nSon olarak diğer klasörlerimizi oluşturalım. Sonuçları bu klasörler içerisinde depolayacağız:\nbash mkdir -p results/processed mkdir -p results/alignment mkdir -p results/counts",
     "crumbs": [
       "Pratikler",
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>RNA Dizileme Proje Örneği</span>"
@@ -440,18 +440,18 @@
     "href": "02-practice/02-rnaseq-project.html#klasör-yapısı",
     "title": "12  RNA Dizileme Proje Örneği",
     "section": "",
-    "text": "Project\n    |\n    |\n    |-- data\n    |    |\n    |    |--- raw\n    |    |--- ref\n    |\n    |-- results\n         |\n         |--- processed\n         |--- alignment\n         |--- counts",
+    "text": "Project\n    |\n    |\n    |-- data\n    |    |\n    |    |--- raw\n    |    |--- ref\n    |\n    |-- results\n         |\n         |--- processed\n         |--- alignment\n         |--- counts\n\n\n\n\n\n\n\n\n\nÖrnek ID\nKoşul\n\n\n\n\nSRR7029607\ncontrol\n\n\nSRR7029605\ncontrol\n\n\nSRR7405887\nzinc\n\n\nSRR7405886\nzinc\n\n\n\n\npwd\n\ncd\nmkdir Proje\ncd Proje\n``` \n\nArtık kendimize bir `data` klasörü oluşturalım ve bu klasör içinde de `raw` isimli başka bir klasör olsun:\n\n```bash\nmkdir data/raw\n\ncd data/raw\n\nwget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR702/007/SRR7029607/SRR7029607.fastq.gz\nwget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR702/005/SRR7029605/SRR7029605.fastq.gz\nwget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR740/007/SRR7405887/SRR7405887.fastq.gz\nwget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR740/006/SRR7405886/SRR7405886.fastq.gz\n\n\ncd ../../\nmkdir data/raw",
     "crumbs": [
       "Pratikler",
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>RNA Dizileme Proje Örneği</span>"
     ]
   },
   {
-    "objectID": "02-practice/02-rnaseq-project.html#adımlar",
-    "href": "02-practice/02-rnaseq-project.html#adımlar",
+    "objectID": "02-practice/02-rnaseq-project.html#proje-kapsamında-eklenmesi-gerekenler",
+    "href": "02-practice/02-rnaseq-project.html#proje-kapsamında-eklenmesi-gerekenler",
     "title": "12  RNA Dizileme Proje Örneği",
-    "section": "12.2 Adımlar",
-    "text": "12.2 Adımlar\nProjeniz aşağıda belirtilen adımları içermelidir:\n\nFastq ön işlem adımları: Ham ve işlenmiş FastQC raporları\nHizalama sonuçlar\nRNASeq sayı matrisi",
+    "section": "12.2 Proje kapsamında eklenmesi gerekenler",
+    "text": "12.2 Proje kapsamında eklenmesi gerekenler\nProjeniz aşağıda belirtilen adımları içermelidir:\n\n12.2.1 Fastq dosyası kalite kontrol sonuçları\nİlk olarak ham ve işlenmiş fastq dosyalarına ait FastQC raporlarını oluşturun. Bu dosyalar içerisinden aşağıdaki kısımlara odakalanabilirsiniz:\n\nNucleotide quality per base\nAdapter content\n\n\n\n12.2.2 Hizalama sonuçları\nBurada derste yaptığımız gibi bam dosyaları elde etmeniz gerekmektedir.\n\n\n12.2.3 RNAseq sayı matirisleri\nBu kısımda ise, results/counts klasörü içerisinde, incelediğimiz 4 farklı dosyaya ait count matrisler olmalı.",
     "crumbs": [
       "Pratikler",
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>RNA Dizileme Proje Örneği</span>"
