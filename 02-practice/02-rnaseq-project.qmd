@@ -116,7 +116,9 @@ Son olarak diğer klasörlerimizi oluşturalım. Sonuçları bu klasörler içer
 ```bash
 
 mkdir -p results/processed
+
 mkdir -p results/alignment
+
 mkdir -p results/counts
 
 ``` 
