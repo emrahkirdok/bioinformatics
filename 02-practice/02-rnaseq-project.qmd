@@ -62,6 +62,7 @@ Bu belgeye göre aşağıdaki tabloya bakalım:
 
 ```bash
 pwd
+
 ```
 
 Tercihen ev klasörümüze gelelim ve yeni bir proje klasörü oluşturalım:
@@ -70,18 +71,21 @@ Tercihen ev klasörümüze gelelim ve yeni bir proje klasörü oluşturalım:
 cd
 mkdir Proje
 cd Proje
+
 ``` 
 
 Artık kendimize bir `data` klasörü oluşturalım ve bu klasör içinde de `raw` isimli başka bir klasör olsun:
 
 ```bash
 mkdir data/raw
+
 ```
 
 bu klasör içine girelim ve çalışacağımız dosyaları indirelim:
 
 ```bash
 cd data/raw
+
 ```
 
 Aşağıdaki satırları tek tek yazarak çalışacağımız dosyaları indirebiliriz. Burada kullanılan `wget` komutu, uzaktaki bir sunucudan dosyaları indirmek için kullanılmaktadır.
@@ -92,6 +96,7 @@ wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR702/007/SRR7029607/SRR7029607.fastq.g
 wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR702/005/SRR7029605/SRR7029605.fastq.gz
 wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR740/007/SRR7405887/SRR7405887.fastq.gz
 wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR740/006/SRR7405886/SRR7405886.fastq.gz
+
 ```
 
 İşlem bittiğinde `ls -ltrh` ile kontrol edelim.
@@ -101,7 +106,9 @@ Daha sonra proje klasörümüze geri dönüp, referans genom dosyaları için ku
 ```bash
 cd ../../
 mkdir data/raw
+
 ```
+
 Referans genom dosyalarını, son dersimzideki klasörden alabilirsiniz.
 
 Son olarak diğer klasörlerimizi oluşturalım. Sonuçları bu klasörler içerisinde depolayacağız:
@@ -110,6 +117,7 @@ Son olarak diğer klasörlerimizi oluşturalım. Sonuçları bu klasörler içer
 mkdir -p results/processed
 mkdir -p results/alignment
 mkdir -p results/counts
+
 ``` 
 
 ## Proje kapsamında eklenmesi gerekenler 
