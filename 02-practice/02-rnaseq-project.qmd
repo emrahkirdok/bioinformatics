@@ -113,6 +113,15 @@ Referans genom dosyalarını, son dersimzideki klasörden alabilirsiniz.
 
 Son olarak diğer klasörlerimizi oluşturalım. Sonuçları bu klasörler içerisinde depolayacağız:
 
+
+```bash
+mkdir -p results/processed
+mkdir -p results/alignment
+mkdir -p results/counts
+
+```
+
+
 ```bash
 
 mkdir -p results/processed
