@@ -5,11 +5,10 @@ Bu proje kapsamında, RNA dizileme veri analizi çalışması yapılacaktır. Pr
 ```{dot}
 // | label: fig-graph-3
 // | fig-cap: "RNA dizileme veri analizi şeması"
-// | fig-width: 200px
-// | fig-height: 200px
+// | fig-width: 300px
+// | fig-height: 300px
 
 digraph g{
-    rankdir = "BT";
     node [shape = "rect"];
     "Ham Fastq Dosyaları" -> "Ön İşlem" -> "İşlenmiş Fastq dosyaları" -> "Referans Genoma\nHizalama" -> "Sam ve Bam\ndosyaları Eldesi" -> "DNA sayı matrisi";
     "Referans Genom" -> "Referans Genoma\nHizalama";
@@ -41,10 +40,93 @@ Project
 
 ```
 
-## Adımlar
+## Veri
+
+Proje kapsamında kullanılacak veri:
+
+Veriyi indirmek için öncelikle aşağıda bulunan belgeye bakalım. Bu belgede kullancağımız örnekler ve bu örneklerin metaveri bilgileri bulunmaktadır:
+
+[https://github.com/emrahkirdok/rnaseq/blob/main/data.txt](https://github.com/emrahkirdok/rnaseq/blob/main/data.txt)
+
+Bu belgeye göre aşağıdaki tabloya bakalım:
+
+| Örnek ID    | Koşul   |
+|-------------|---------|
+| SRR7029607  | control |
+| SRR7029605  | control |
+| SRR7405887  | zinc    |
+| SRR7405886  | zinc    |
+
+
+Öncelikle Proje dosyamızı oluşturalım. İlk olarak hangi klasördeyiz ona bakalım, rastgele bir yere proje dosyası oluşturmayalım:
+
+```bash
+pwd
+```
+
+Tercihen ev klasörümüze gelelim ve yeni bir proje klasörü oluşturalım:
+
+```bash
+cd
+mkdir Proje
+cd Proje
+``` 
+
+Artık kendimize bir `data` klasörü oluşturalım ve bu klasör içinde de `raw` isimli başka bir klasör olsun:
+
+```bash
+mkdir data/raw
+```
+
+bu klasör içine girelim ve çalışacağımız dosyaları indirelim:
+
+```bash
+cd data/raw
+```
+
+Aşağıdaki satırları tek tek yazarak çalışacağımız dosyaları indirebiliriz. Burada kullanılan `wget` komutu, uzaktaki bir sunucudan dosyaları indirmek için kullanılmaktadır.
+
+
+```bash
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR702/007/SRR7029607/SRR7029607.fastq.gz
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR702/005/SRR7029605/SRR7029605.fastq.gz
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR740/007/SRR7405887/SRR7405887.fastq.gz
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR740/006/SRR7405886/SRR7405886.fastq.gz
+```
+
+İşlem bittiğinde `ls -ltrh` ile kontrol edelim.
+
+Daha sonra proje klasörümüze geri dönüp, referans genom dosyaları için kullancağımız klasörü oluşturalım:
+
+```bash
+cd ../../
+mkdir data/raw
+```
+Referans genom dosyalarını, son dersimzideki klasörden alabilirsiniz.
+
+Son olarak diğer klasörlerimizi oluşturalım. Sonuçları bu klasörler içerisinde depolayacağız:
+
+```bash
+mkdir -p results/processed
+mkdir -p results/alignment
+mkdir -p results/counts
+``` 
+
+## Proje kapsamında eklenmesi gerekenler 
 
 Projeniz aşağıda belirtilen adımları içermelidir:
 
-1. `Fastq` ön işlem adımları: Ham ve işlenmiş `FastQC` raporları
-2. Hizalama sonuçlar
-3. RNASeq sayı matrisi
+### Fastq dosyası kalite kontrol sonuçları
+
+İlk olarak ham ve işlenmiş fastq dosyalarına ait `FastQC` raporlarını oluşturun. Bu dosyalar içerisinden aşağıdaki kısımlara odakalanabilirsiniz:
+
+- Nucleotide quality per base
+- Adapter content
+
+### Hizalama sonuçları
+
+Burada derste yaptığımız gibi `bam` dosyaları elde etmeniz gerekmektedir.
+
+### RNAseq sayı matirisleri
+
+Bu kısımda ise, `results/counts` klasörü içerisinde, incelediğimiz 4 farklı dosyaya ait count matrisler olmalı.
