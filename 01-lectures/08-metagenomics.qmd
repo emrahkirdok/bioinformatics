@@ -7,8 +7,34 @@ Metagenomik analizler, çevresel örneklerrde bulunan mikrobiyal içeriği incel
 2. O ortamda bulunan canlılar ne iş yapıyorlar?
 
 
-## Protokol
+
+## Alfa çeşitlilik
+
+On bin yıllık antik sakızda bulunan mikrobiyal profili inceleyelim. Gösterilen şekilde hem antik sakız örnekleri kullanılmıştır hem de karşılaştırmalı bazı veri setleri bulunmaktadır. Antik diş taşları ve insan mikrobiyota örneklerinden elde edilen metaphlan3 profilleri bu çalışmanın temelini oluşturmaktadır.
+
+![Filum seviyesinde mikrobiyal profiller](images/Figure-S1.png)
+
+## Beta çeşitlilik
+
+Bray curtis uzaklığı oluşturalım. Elimizde $i$ ve $j$ olmak üzere iki farklı ekolojik çevre olsun. Bu çevreler için aşağıdaki değişkenleri tanımlayalım:
+
++ Sadece $i$ çevreseinde bulunan mikrobiyal tür sayısı: $S_i$
++ Sadece $j$ çevreseinde bulunan mikrobiyal tür sayısı: $S_j$
++ Her iki ekolojik alanda birden bulunan tür sayısı: $S_{ij}$
+
+Bu tanımları kullanırsak, *Bray-Curts* uzaklığını aşağıdaki gibi hesaplayabiliriz:
+
+$$
+
+BC = \frac{S_i+ S_j}{2S_{ij}}
+
+$$
+
+Bu uzaklıkları görselleştrirelim:
 
 
-1. 
+
+NMDS ile görselleştirelim. NMDS metrik veriyi, $k$ boyutlu bir uzaya projekisyon ediyor. 
+
+![NMDS k=7 grafiği](images/Figure-1.png)
 
