@@ -1,0 +1,14 @@
+# Metagenomik
+
+Metagenomik analizler, çevresel örneklerrde bulunan mikrobiyal içeriği incelemektedir. İki temel iş var:
+
+
+1. Bir ortamda hangi canlılar var?
+2. O ortamda bulunan canlılar ne iş yapıyorlar?
+
+
+## Protokol
+
+
+1. 
+

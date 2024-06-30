@@ -1,0 +1,17 @@
+# Metagenomik pratik
+
+
+
+
+Figüre 1 oluşturmak için:
+
+```bash
+Rscript workflow/scripts/Figure-1.R --profile Data/microbial-profile.txt --metadata Data/microbial-metadata.txt --out Results/BetaDiversity/Figure-1.pdf
+
+```
+Figure 2 oluşturmak için
+
+```bash
+Rscript workflow/scripts/Figure-S1.R --profile Data/microbial-profile.txt --metadata Data/microbial-metadata.txt --out Results/BetaDiversity/Figure-S1.pdf
+```
+
