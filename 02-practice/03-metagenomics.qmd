@@ -21,7 +21,9 @@ conda create --file env/environment.yml
 conda activate harpix
 ```
 
-Çalışma kapsamında kullanacağımız veri setini aşağıda [https://zenodo.org/records/1025296](https://zenodo.org/records/10252965) bağlantısından indirebilirsiniz. Bu veri setini indirin ve proje klasörü içerisinde `Data` olarak kaydediniz. Ham fastq dosyaları ve ara adımlara ait `bam` ve `Metaphlan` dosyaları ise ayrı bir bağlantı olarak verilecektir. 
+Çalışma kapsamında kullanacağımız veri setini aşağıda [https://zenodo.org/records/1025296](https://zenodo.org/records/10252965) bağlantısından indirebilirsiniz. Bu veri setini indirin ve proje klasörü içerisinde `Data` olarak kaydediniz. 
+
+Bununla birlikte, `Metaphlan` programını çalıştırmak için gerekli olan ham fastq dosyaları ve ara adımlara ait `bam` ve `Metaphlan` dosyaları ise ayrı bir bağlantı olarak verilecektir. 
 
 Son olarak çalışmada kullanacağımız çıktıları depolayacağımız klasörleri oluşturalım:
 
@@ -32,7 +34,11 @@ mkdir -p Results/BetaDiversity
 
 ## Metaphlan3 ile analiz
 
-Bu programı çalıştırmak için öncelikle elinizde Metaphlan3 veri tabanının olması gereklidir. Programı indirdikten sonra ilk çalıştırmanızda bu veri tabanı otomatik bir şekilde kuruluyor. En basit şekilde `Metaphlan3` programını aşağıdaki şekilde çalıştırabilirsiniz:
+Bu programı çalıştırmak için öncelikle elinizde Metaphlan3 veri tabanının olması gereklidir. Programı indirdikten sonra ilk çalıştırmanızda bu veri tabanı otomatik bir şekilde kuruluyor. 
+
+Bu kısımda kullanılacak koda [bağlantıdan](https://github.com/emrahkirdok/bioinformatics/blob/main/02-practice/ancient-metagenomics/scripts/metaphlan.sh) ulaşabilirsiniz.
+
+En basit şekilde `Metaphlan3` programını aşağıdaki şekilde çalıştırabilirsiniz:
 
 ```bash
 metaphlan 
@@ -151,7 +157,6 @@ Rscript workflow/scripts/distance_plots.R --profile Data/microbial-profile.txt -
 
 Bu kodu çalıştırdığımızda iki farklı şekil oluşacak. @fig-braycurtis1 bize, her örneğin sahip olduğu bray curtis uzaklıklarını vermektedir. @fig-braycurtis2 ise sadece sakız örneklerinin, diğer karşılaştırma örneklerine olan uzaklıklarını göstermektedir.
 
-
 ![Çalışma kapsamında kullanıan bütün örneklerin sahip oldukları tipik Bray Curtis uzaklıkları](images/braycurtis1.png){#fig-braycurtis1}
 
 ![Sadece sakız örneklerinin, diğer karşılaştırma örneklerine olan uzaklıkları](images/braycurtis2.png){#fig-braycurtis2}
@@ -162,5 +167,3 @@ Ancak bu şekiller çok rahat okunmuyor. Bir görselleştirme yöntemi olan Non-
 Rscript scripts/Figure-1.R --profile data/microbial-profile.txt --metadata data/microbial-metadata.txt --out Results/BetaDiversity/Figure-1.pdf
 ```
 ![NMDS yöntemi ile görselleştirilmiş Bray Curtis uzaklık matrisi](images/Figure-1.png)
-
-
