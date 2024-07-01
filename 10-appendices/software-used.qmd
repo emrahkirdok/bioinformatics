@@ -1,6 +1,6 @@
 # Kullanılan Programlar
 
-## Programların kurulumu
+## Programların kurulumu {#sec-kurulum}
 
 Programlar genel olarak Conda sistemi ile kurulacaktır. Kurmak için aşağıdaki komutları uygulayalım:
 
