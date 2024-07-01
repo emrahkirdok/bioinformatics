@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Biyoinformatik - 13&nbsp; Metagenomik pratik</title>
+<title>Biyoinformatik - 14&nbsp; Metagenomik pratik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-practice/01-variant-practice.html">Pratikler</a></li><li class="breadcrumb-item"><a href="../02-practice/03-metagenomics.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Metagenomik pratik</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-practice/01-variant-practice.html">Pratikler</a></li><li class="breadcrumb-item"><a href="../02-practice/03-metagenomics.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Metagenomik pratik</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -236,8 +236,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../01-lectures/08-metagenomics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">[Antik] Metagenomik</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../01-lectures/06-bash-scripting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Bash ile betik oluşturma</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Bash ile betik oluşturma</span></span></a>
   </div>
 </li>
       </ul>
@@ -254,19 +260,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../02-practice/01-variant-practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Varyant çağırma pratiği</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Varyant çağırma pratiği</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../02-practice/02-rnaseq-project.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">RNA Dizileme Proje Örneği</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">RNA Dizileme Proje Örneği</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../02-practice/03-metagenomics.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Metagenomik pratik</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Metagenomik pratik</span></span></a>
   </div>
 </li>
       </ul>
@@ -304,18 +310,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Içindekiler</h2>
    
   <ul>
-  <li><a href="#proje-klasörünün-kurulumu" id="toc-proje-klasörünün-kurulumu" class="nav-link active" data-scroll-target="#proje-klasörünün-kurulumu"><span class="header-section-number">13.1</span> Proje klasörünün kurulumu</a></li>
-  <li><a href="#metaphlan3-ile-analiz" id="toc-metaphlan3-ile-analiz" class="nav-link" data-scroll-target="#metaphlan3-ile-analiz"><span class="header-section-number">13.2</span> Metaphlan3 ile analiz</a></li>
-  <li><a href="#alfa-ve-beta-çeşitlilik-analizleri" id="toc-alfa-ve-beta-çeşitlilik-analizleri" class="nav-link" data-scroll-target="#alfa-ve-beta-çeşitlilik-analizleri"><span class="header-section-number">13.3</span> Alfa ve Beta çeşitlilik analizleri</a></li>
+  <li><a href="#proje-klasörünün-kurulumu" id="toc-proje-klasörünün-kurulumu" class="nav-link active" data-scroll-target="#proje-klasörünün-kurulumu"><span class="header-section-number">14.1</span> Proje klasörünün kurulumu</a></li>
+  <li><a href="#metaphlan3-ile-analiz" id="toc-metaphlan3-ile-analiz" class="nav-link" data-scroll-target="#metaphlan3-ile-analiz"><span class="header-section-number">14.2</span> Metaphlan3 ile analiz</a></li>
+  <li><a href="#alfa-ve-beta-çeşitlilik-analizleri" id="toc-alfa-ve-beta-çeşitlilik-analizleri" class="nav-link" data-scroll-target="#alfa-ve-beta-çeşitlilik-analizleri"><span class="header-section-number">14.3</span> Alfa ve Beta çeşitlilik analizleri</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-practice/01-variant-practice.html">Pratikler</a></li><li class="breadcrumb-item"><a href="../02-practice/03-metagenomics.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Metagenomik pratik</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-practice/01-variant-practice.html">Pratikler</a></li><li class="breadcrumb-item"><a href="../02-practice/03-metagenomics.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Metagenomik pratik</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Metagenomik pratik</span></h1>
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Metagenomik pratik</span></h1>
 </div>
 
 
@@ -332,8 +338,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="proje-klasörünün-kurulumu" class="level2" data-number="13.1">
-<h2 data-number="13.1" class="anchored" data-anchor-id="proje-klasörünün-kurulumu"><span class="header-section-number">13.1</span> Proje klasörünün kurulumu</h2>
+<section id="proje-klasörünün-kurulumu" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="proje-klasörünün-kurulumu"><span class="header-section-number">14.1</span> Proje klasörünün kurulumu</h2>
 <p>Öncelikle çalışmada kullanacağımız kodları indirmek için depoyu çalışma alanımza klonlayalım:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/emrahkirdok/bioinformatics.git</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Ardından kodlarımızın bulunduğu klasöre gidelim:</p>
@@ -347,8 +353,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> Results/metaphlan</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> Results/BetaDiversity</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="metaphlan3-ile-analiz" class="level2" data-number="13.2">
-<h2 data-number="13.2" class="anchored" data-anchor-id="metaphlan3-ile-analiz"><span class="header-section-number">13.2</span> Metaphlan3 ile analiz</h2>
+<section id="metaphlan3-ile-analiz" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="metaphlan3-ile-analiz"><span class="header-section-number">14.2</span> Metaphlan3 ile analiz</h2>
 <p>Bu programı çalıştırmak için öncelikle elinizde Metaphlan3 veri tabanının olması gereklidir. Programı indirdikten sonra ilk çalıştırmanızda bu veri tabanı otomatik bir şekilde kuruluyor.</p>
 <p>Bu kısımda kullanılacak koda <a href="https://github.com/emrahkirdok/bioinformatics/blob/main/02-practice/ancient-metagenomics/scripts/metaphlan.sh">bağlantıdan</a> ulaşabilirsiniz.</p>
 <p>En basit şekilde <code>Metaphlan3</code> programını aşağıdaki şekilde çalıştırabilirsiniz:</p>
@@ -415,8 +421,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Bu tür profillerini <code>hclust2.py</code> programı ile bir ısı grafiğine çevirelim. Burada opsiyonları değiştirin, her zaman güzel grafikler oluşmuyor. Ayrıca bu programı ayrıca kurmanız gereklidir:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">hclust2.py</span> <span class="at">-i</span> Results/metaphlan/ble.txt <span class="at">-o</span> Results/metaphlan/abundance_heatmap_species.png <span class="at">--f_dist_f</span> braycurtis <span class="at">--s_dist_f</span> braycurtis <span class="at">--cell_aspect_ratio</span> 0.5 <span class="at">-l</span> <span class="at">--flabel_size</span> 10 <span class="at">--slabel_size</span> 10 <span class="at">--max_flabel_len</span> 100 <span class="at">--max_slabel_len</span> 100 <span class="at">--minv</span> 0.1 <span class="at">--dpi</span> 300</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="alfa-ve-beta-çeşitlilik-analizleri" class="level2" data-number="13.3">
-<h2 data-number="13.3" class="anchored" data-anchor-id="alfa-ve-beta-çeşitlilik-analizleri"><span class="header-section-number">13.3</span> Alfa ve Beta çeşitlilik analizleri</h2>
+<section id="alfa-ve-beta-çeşitlilik-analizleri" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="alfa-ve-beta-çeşitlilik-analizleri"><span class="header-section-number">14.3</span> Alfa ve Beta çeşitlilik analizleri</h2>
 <p>Örneklerimizde bulunan mikrobiyal içeriği incelemeye başlayabiliriz. Bunun için öncelikle iki tane dosyaya ihtiyacımız olacaktır:</p>
 <ul>
 <li><code>Data/microbial-profile.txt</code>: Antik diş taşları, diğer antik sakızlar, ve insan mikrobiyota projesinden elde edilmiş Metaphlan3 sonuçları</li>
@@ -427,27 +433,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> <span class="at">-S</span> Data/microbial-metadata.txt</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>İlk olarak örneklerde bulunan Phylum içeriklerine bakalım. Bu şekli oluşturmak için aşağıdaki komutu çalıştırmalısınız:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/Figure-S1.R <span class="at">--profile</span> Data/microbial-profile.txt <span class="at">--metadata</span> Data/microbial-metadata.txt <span class="at">--out</span> Results/BetaDiversity/Figure-S1.pdf</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Bu işlemin sonucunda <a href="#fig-S1" class="quarto-xref">Şekil&nbsp;<span>13.1</span></a>’de gösterilen şekil oluşmalı.</p>
+<p>Bu işlemin sonucunda <a href="#fig-S1" class="quarto-xref">Şekil&nbsp;<span>14.1</span></a>’de gösterilen şekil oluşmalı.</p>
 <div id="fig-S1" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-S1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/Figure-S1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-S1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Şekil&nbsp;13.1: Antik sakız örnekleri ve karşılaştırma verisinin filum içerikleri
+Şekil&nbsp;14.1: Antik sakız örnekleri ve karşılaştırma verisinin filum içerikleri
 </figcaption>
 </figure>
 </div>
 <p>Örneklerin arasındaki Bray-Curtis uzaklıklarına bakalım şimdi. Bunun için aşağıdaki kodu çalıştıralım:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> workflow/scripts/distance_plots.R <span class="at">--profile</span> Data/microbial-profile.txt <span class="at">--metadata</span> Data/microbial-metadata.txt <span class="at">--out1</span> Results/BetaDiversity/Bray_Curtis.pdf <span class="at">--out2</span> Results/BetaDiversity/Figure-S3.pdf</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Bu kodu çalıştırdığımızda iki farklı şekil oluşacak. <a href="#fig-braycurtis1" class="quarto-xref">Şekil&nbsp;<span>13.2</span></a> bize, her örneğin sahip olduğu bray curtis uzaklıklarını vermektedir. <a href="#fig-braycurtis2" class="quarto-xref">Şekil&nbsp;<span>13.3</span></a> ise sadece sakız örneklerinin, diğer karşılaştırma örneklerine olan uzaklıklarını göstermektedir.</p>
+<p>Bu kodu çalıştırdığımızda iki farklı şekil oluşacak. <a href="#fig-braycurtis1" class="quarto-xref">Şekil&nbsp;<span>14.2</span></a> bize, her örneğin sahip olduğu bray curtis uzaklıklarını vermektedir. <a href="#fig-braycurtis2" class="quarto-xref">Şekil&nbsp;<span>14.3</span></a> ise sadece sakız örneklerinin, diğer karşılaştırma örneklerine olan uzaklıklarını göstermektedir.</p>
 <div id="fig-braycurtis1" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-braycurtis1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/braycurtis1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-braycurtis1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Şekil&nbsp;13.2: Çalışma kapsamında kullanıan bütün örneklerin sahip oldukları tipik Bray Curtis uzaklıkları
+Şekil&nbsp;14.2: Çalışma kapsamında kullanıan bütün örneklerin sahip oldukları tipik Bray Curtis uzaklıkları
 </figcaption>
 </figure>
 </div>
@@ -457,7 +463,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <img src="images/braycurtis2.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-braycurtis2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Şekil&nbsp;13.3: Sadece sakız örneklerinin, diğer karşılaştırma örneklerine olan uzaklıkları
+Şekil&nbsp;14.3: Sadece sakız örneklerinin, diğer karşılaştırma örneklerine olan uzaklıkları
 </figcaption>
 </figure>
 </div>
@@ -886,7 +892,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../02-practice/02-rnaseq-project.html" class="pagination-link" aria-label="RNA Dizileme Proje Örneği">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">RNA Dizileme Proje Örneği</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">RNA Dizileme Proje Örneği</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

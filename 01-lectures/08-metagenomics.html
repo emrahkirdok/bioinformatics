@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Biyoinformatik - 2&nbsp; Sistem kurulumu</title>
+<title>Biyoinformatik - 10&nbsp; [Antik] Metagenomik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,8 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../00-setup/03-command-line.html" rel="next">
-<link href="../00-setup/01-truba.html" rel="prev">
+<link href="../01-lectures/06-bash-scripting.html" rel="next">
+<link href="../01-lectures/05-alignment-variant-calling-02.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -103,6 +69,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -115,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../00-setup/01-truba.html">Derse Hazırlık</a></li><li class="breadcrumb-item"><a href="../00-setup/02-system.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sistem kurulumu</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-lectures/01-ynd.html">Dersler</a></li><li class="breadcrumb-item"><a href="../01-lectures/08-metagenomics.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">[Antik] Metagenomik</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -177,7 +172,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../00-setup/02-system.html" class="sidebar-item-text sidebar-link active">
+  <a href="../00-setup/02-system.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sistem kurulumu</span></span></a>
   </div>
 </li>
@@ -236,7 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-lectures/08-metagenomics.html" class="sidebar-item-text sidebar-link">
+  <a href="../01-lectures/08-metagenomics.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">[Antik] Metagenomik</span></span></a>
   </div>
 </li>
@@ -310,21 +305,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Içindekiler</h2>
    
   <ul>
-  <li><a href="#windows-işletim-sistemi" id="toc-windows-işletim-sistemi" class="nav-link active" data-scroll-target="#windows-işletim-sistemi"><span class="header-section-number">2.1</span> Windows işletim sistemi</a></li>
-  <li><a href="#mac-işletim-sistemi" id="toc-mac-işletim-sistemi" class="nav-link" data-scroll-target="#mac-işletim-sistemi"><span class="header-section-number">2.2</span> Mac işletim sistemi</a></li>
-  <li><a href="#ubuntu-alt-sistemi-bakımı" id="toc-ubuntu-alt-sistemi-bakımı" class="nav-link" data-scroll-target="#ubuntu-alt-sistemi-bakımı"><span class="header-section-number">2.3</span> Ubuntu alt sistemi bakımı</a>
-  <ul class="collapse">
-  <li><a href="#ubuntu-sisteminde-kullanıcı-ismi-sorunu" id="toc-ubuntu-sisteminde-kullanıcı-ismi-sorunu" class="nav-link" data-scroll-target="#ubuntu-sisteminde-kullanıcı-ismi-sorunu"><span class="header-section-number">2.3.1</span> Ubuntu sisteminde kullanıcı ismi sorunu</a></li>
-  </ul></li>
+  <li><a href="#alfa-çeşitlilik" id="toc-alfa-çeşitlilik" class="nav-link active" data-scroll-target="#alfa-çeşitlilik"><span class="header-section-number">10.1</span> Alfa çeşitlilik</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../00-setup/01-truba.html">Derse Hazırlık</a></li><li class="breadcrumb-item"><a href="../00-setup/02-system.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sistem kurulumu</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-lectures/01-ynd.html">Dersler</a></li><li class="breadcrumb-item"><a href="../01-lectures/08-metagenomics.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">[Antik] Metagenomik</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sistem kurulumu</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">[Antik] Metagenomik</span></h1>
 </div>
 
 
@@ -341,55 +331,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="windows-işletim-sistemi" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="windows-işletim-sistemi"><span class="header-section-number">2.1</span> Windows işletim sistemi</h2>
-<p>Uzaktaki sunucuya bağlanmak için <a href="https://mobaxterm.mobatek.net/">Mobaxterm</a> yazılımını kullanabiliriz.</p>
-</section>
-<section id="mac-işletim-sistemi" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="mac-işletim-sistemi"><span class="header-section-number">2.2</span> Mac işletim sistemi</h2>
-<p>Mac sistemler üzerine kullanacağımız bütün biyoinformatik araçları kurma imkanımız bulunmaktadır. Bunun için Mac tuşu ile boşluk tuşuna basıp Spotlight ekranını açarak (<a href="#fig-spotlight" class="quarto-xref">Şekil&nbsp;<span>2.1</span></a>), <code>terminal</code> yazınız ve açılan penceyere aşağıdaki kodu yazınız.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">xcode-select</span> <span class="at">--install</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="fig-spotlight" class="quarto-figure quarto-figure-center quarto-float anchored">
+<p>Metagenomik analizlerde temel amaç, çevresel bir örnekte bulunan canlı kompozisyonunu incelemek, sınıfladırmak ve farklı ekolojik çevreler arasındaki içeriği karşılaştırmaktır. Bu analizleri temel olarak iki temel aşamaya ayırabiliriz:</p>
+<ol type="1">
+<li>Bir ortamda hangi canlılar var?</li>
+<li>O ortamda bulunan canlılar ne iş yapıyorlar?</li>
+</ol>
+<p>Bu sunum ve bununla ilgili çalışmalar daha çok ilk soru üzerine odaklamnacaktır.</p>
+<p>##&nbsp;Yeni nesil dizleme ve metagenomik</p>
+<p>Yapılan şey aslında çevresel örneklerden elde edilen DNA dizilerinin hangi canlılara ait olduklarını bulmak (<a href="#fig-metagenomics1" class="quarto-xref">Şekil&nbsp;<span>10.1</span></a>)</p>
+<div id="fig-metagenomics1" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-spotlight-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/macos.png" class="img-fluid figure-img">
+<div aria-describedby="fig-metagenomics1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/fig-metagenomik.png" id="fig-metagenomics1" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-spotlight-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Şekil&nbsp;2.1: Mac üzerinde spotlight ekranı
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-metagenomics1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Şekil&nbsp;10.1
 </figcaption>
 </figure>
 </div>
-<p>Bir süre bekledikten sonra gerekli programlar kurulacaktır. Artık <code>terminal</code> programı üzerinden gerek uzak bilgisayarlarlar <code>ssh</code> bağlantısı, gerekse de kullanılacak biyoinformatik araçların kurulumunu gerçekleştirebilirsiniz.</p>
-</section>
-<section id="ubuntu-alt-sistemi-bakımı" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="ubuntu-alt-sistemi-bakımı"><span class="header-section-number">2.3</span> Ubuntu alt sistemi bakımı</h2>
-<p>Sisteminiz ara ara güncellemelisiniz. Öncelikle kullandığımız paketlerin en güncel versiyonlarını denetleyelim:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Daha sonra sistemi güncelleyelim:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt upgrade</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="ubuntu-sisteminde-kullanıcı-ismi-sorunu" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="ubuntu-sisteminde-kullanıcı-ismi-sorunu"><span class="header-section-number">2.3.1</span> Ubuntu sisteminde kullanıcı ismi sorunu</h3>
-<p>Sorunlardan bir tanesi ön tanımlı kullanıcının <code>root</code> olmasıydı. Kullandığımız sistemler çok kullanıcılı sistemler. Her kullanıcının bazı hakları var. <code>root</code> kullanıcısı ise, en güçlü kullanıcı ve her şeyi yapma yeteneği var.</p>
-<p>O yüzden bu kullanıcı her zaman kullanmıuoruz. Eğer ubuntu alt sistemi <code>root</code> kullanıcısı ile açılıyorsa bunu değiştirmeliyiz.</p>
-<p>Önce ubuntu ekranını açalım ve yeni bir kullancı eklediğimizden emin olalım:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> adduser KULLANICI</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Bu şekilde yeni kullanıcı ekleyelim. Aşağıdaki gibi bir ekran karşımıza çıkacak (<a href="#fig-subsystem-user" class="quarto-xref">Şekil&nbsp;<span>2.2</span></a>):</p>
-<div id="fig-subsystem-user" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-subsystem-user-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/adduser.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-subsystem-user-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Şekil&nbsp;2.2: Ubuntu alt sisteminde kullanıcı ekleme
-</figcaption>
+<section id="alfa-çeşitlilik" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="alfa-çeşitlilik"><span class="header-section-number">10.1</span> Alfa çeşitlilik</h2>
+<p>On bin yıllık antik sakızda bulunan mikrobiyal profili inceleyelim. Gösterilen şekilde hem antik sakız örnekleri kullanılmıştır hem de karşılaştırmalı bazı veri setleri bulunmaktadır. Antik diş taşları ve insan mikrobiyota örneklerinden elde edilen metaphlan3 profilleri bu çalışmanın temelini oluşturmaktadır.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://emrahkirdok.github.io/bioinformatics/02-practice/images/Figure-S1.png" class="img-fluid figure-img"></p>
+<figcaption>Filum seviyesinde mikrobiyal profiller</figcaption>
 </figure>
 </div>
-<p>Şifrenizi girin (ancak imleç haraket etmeyecek, endişe etmeyin) ve tekrar girin.</p>
-<p>Kullanıcıyı oluşturduktan sonra, Windows’ta arama kısmına gelerek <strong>Komut İstemi</strong> yazın. bu da aslında Windows’un komut satırı arayüzü. Burada aşağıdaki satırı yazarak, yeni kullanıcınızı ön tanımlı olarak ekleyebilirsiniz.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ubuntu</span> config <span class="at">--default-user</span> KULLANICI</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>##&nbsp;Beta çeşitlilik</p>
+<p>Bray curtis uzaklığı oluşturalım. Elimizde <span class="math inline">\(i\)</span> ve <span class="math inline">\(j\)</span> olmak üzere iki farklı ekolojik çevre olsun. Bu çevreler için aşağıdaki değişkenleri tanımlayalım:</p>
+<ul>
+<li>Sadece <span class="math inline">\(i\)</span> çevreseinde bulunan mikrobiyal tür sayısı: <span class="math inline">\(S_i\)</span></li>
+<li>Sadece <span class="math inline">\(j\)</span> çevreseinde bulunan mikrobiyal tür sayısı: <span class="math inline">\(S_j\)</span></li>
+<li>Her iki ekolojik alanda birden bulunan tür sayısı: <span class="math inline">\(S_{ij}\)</span></li>
+</ul>
+<p>Bu tanımları kullanırsak, <em>Bray-Curts</em> uzaklığını aşağıdaki gibi hesaplayabiliriz:</p>
+<p>$$</p>
+<p>BC = </p>
+<p>$$</p>
+<p>Bu uzaklıkları görselleştrirelim:</p>
+<p>NMDS ile görselleştirelim. NMDS metrik veriyi, <span class="math inline">\(k\)</span> boyutlu bir uzaya projekisyon ediyor.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://emrahkirdok.github.io/bioinformatics/02-practice/images/Figure-1.png" class="img-fluid figure-img"></p>
+<figcaption>Metrik olmayan çok boyutlu ölçekleme tekniği grafiği</figcaption>
+</figure>
+</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -804,13 +793,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../00-setup/01-truba.html" class="pagination-link" aria-label="Truba">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Truba</span></span>
+      <a href="../01-lectures/05-alignment-variant-calling-02.html" class="pagination-link" aria-label="Varyant Çağırma">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Varyant Çağırma</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../00-setup/03-command-line.html" class="pagination-link" aria-label="Komut satırı kullanımı">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Komut satırı kullanımı</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../01-lectures/06-bash-scripting.html" class="pagination-link" aria-label="Bash ile betik oluşturma">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Bash ile betik oluşturma</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
