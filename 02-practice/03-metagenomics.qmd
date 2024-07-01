@@ -14,7 +14,7 @@ Ardından kodlarımızın bulunduğu klasöre gidelim:
 cd bioinformatics/02-practice/ancient-metagenomics
 ```
 
-Çalışma kapsamında kulanacağımız R kodlarını çalıştırmak için öncelikle `conda` ile R paketlerinin olduğu çevreyi kuralım. Ancak `Metaphlan3` programı bu paket içerisinde yok. O programı siz sunucu üzerinde kurmalısınız:
+Çalışma kapsamında kulanacağımız R kodlarını çalıştırmak için öncelikle `conda` ile R paketlerinin olduğu çevreyi kuralım. Ancak `Metaphlan3` programı bu paket içerisinde yok. O programı siz sunucu üzerinde kurmalısınız. Conda paketi kurulumu için @sec-kurulum kısmına bakabilirsiniz.
 
 ```bash
 conda create --file env/environment.yml
@@ -119,7 +119,14 @@ Bu tür profillerini `hclust2.py` programı ile bir ısı grafiğine çevirelim.
 - `Data/microbial-profile.txt`: Antik diş taşları, diğer antik sakızlar, ve insan mikrobiyota projesinden elde edilmiş Metaphlan3 sonuçları
 - `Data/microbial-metadata.txt`: Bu örneklere ait metabilgiler
 
-İlk olarak örneklerde bulunan Phylum içeriklerine bakalım. Bunun figürü oluşturmak için aşağıdaki komutu çalıştırmalısınız:
+Gelin bu dosyaları inceleyelim:
+
+```bash
+less -S Data/microbial-profile.txt
+less -S Data/microbial-metadata.txt
+```
+
+İlk olarak örneklerde bulunan Phylum içeriklerine bakalım. Bu şekli oluşturmak için aşağıdaki komutu çalıştırmalısınız:
 
 ```bash
 Rscript scripts/Figure-S1.R --profile Data/microbial-profile.txt --metadata Data/microbial-metadata.txt --out Results/BetaDiversity/Figure-S1.pdf
@@ -129,13 +136,19 @@ Bu işlemin sonucunda @fig-S1'de gösterilen şekil oluşmalı.
 
 ![Antik sakız örnekleri ve karşılaştırma verisinin filum içerikleri](images/Figure-S1.png){#fig-S1}
 
-Bray curtis uzaklığı:
+Örneklerin arasındaki Bray-Curtis uzaklıklarına bakalım şimdi. Bunun için aşağıdaki kodu çalıştıralım:
 
 ```bash
-Rscript workflow/scripts/distance_plots.R --profile Data/microbial-profile.txt --metadata Data/microbial-metadata.txt --out1 results/BetaDiversity/Bray_Curtis.pdf --out2 results/esults/BetaDiversity/Figure-S3.pdf
+Rscript workflow/scripts/distance_plots.R --profile Data/microbial-profile.txt --metadata Data/microbial-metadata.txt --out1 Results/BetaDiversity/Bray_Curtis.pdf --out2 Results/BetaDiversity/Figure-S3.pdf
 ```
 
-Nmds figürü. Bu uzaklıkların projecte edlmiş halleri 
+Bu kodu çalıştırdığımızda iki farklı şekil oluşacak. @fig-braycurtis1 bize, her örneğin sahip olduğu bray curtis uzaklıklarını vermektedir. @fig-braycurtis2 ise sadece sakız örneklerinin, diğer karşılaştırma örneklerine olan uzaklıklarını göstermektedir.
+
+
+![Çalışma kapsamında kullanıan bütün örneklerin sahip oldukları tipik Bray Curtis uzaklıkları](images/braycurtis1.png){#fig-braycurtis1}
+
+![Sadece sakız örneklerinin, diğer karşılaştırma örneklerine olan uzaklıkları](images/braycurtis2.png){#fig-braycurtis2}
+
 
 
 ```bash
