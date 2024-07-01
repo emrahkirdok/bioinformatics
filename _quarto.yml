@@ -46,6 +46,7 @@ book:
       chapters: 
         - 02-practice/01-variant-practice.qmd
         - 02-practice/02-rnaseq-project.qmd
+        - 02-practice/03-metagenomics.qmd
       
     - references.qmd
   appendices:
