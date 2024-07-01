@@ -37,7 +37,7 @@ Bu programı çalıştırmak için öncelikle elinizde Metaphlan3 veri tabanın�
 ```bash
 metaphlan 
     --input_type fastq data/ble004-b1e1l1p1_ACCAACT_L003_ARmerged.180518_ST-E00201_0274_AHLCM3CCXY.all_unmapped.fastq.gz 
-    -s Results/metaphlan/le004-b1e1l1p1_ACCAACT_L003_ARmerged.180518_ST-E00201_0274_AHLCM3CCXY.all.sam 
+    -s Results/metaphlan/ble004-b1e1l1p1_ACCAACT_L003_ARmerged.180518_ST-E00201_0274_AHLCM3CCXY.all.sam 
     --nproc 20
     --bowtie2out Results/metaphlan/le004-b1e1l1p1_ACCAACT_L003_ARmerged.180518_ST-E00201_0274_AHLCM3CCXY.all.bowtie2out \
     --bowtie2db ${DB} 
