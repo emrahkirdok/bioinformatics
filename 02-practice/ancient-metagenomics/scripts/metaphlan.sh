@@ -15,12 +15,12 @@ THREADS=10
 for FASTQ in $(grep ${ID} ${FILES})
 do
 	BASE=$(basename $FASTQ _unmapped.fastq.gz)
-	metaphlan --input_type fastq ${FASTQ} -s results/metaphlan/${BASE}.sam --nproc ${THREADS} --bowtie2out results/metaphlan/${BASE}.bowtie2out --bowtie2db ${DB} -x ${DBNAME} > results/metaphlan/${BASE}_metaphlan.txt
+	metaphlan --input_type fastq ${FASTQ} -s Results/metaphlan/${BASE}.sam --nproc ${THREADS} --bowtie2out Results/metaphlan/${BASE}.bowtie2out --bowtie2db ${DB} -x ${DBNAME} > Results/metaphlan/${BASE}_metaphlan.txt
 
 	# Convert sam files to a bam file, and sort
 	# This makes the process fast	
-	samtools view -Sb results/metaphlan/${BASE}.sam > results/metaphlan/${BASE}.bam
-	samtools sort results/metaphlan/${BASE}.bam > results/metaphlan/${BASE}.sorted.bam
+	samtools view -Sb Results/metaphlan/${BASE}.sam > Results/metaphlan/${BASE}.bam
+	samtools sort Results/metaphlan/${BASE}.bam > Results/metaphlan/${BASE}.sorted.bam
 done
 
 # Collect all bam files for a specific sample	
@@ -29,21 +29,21 @@ BAMS=""
 for FASTQ in $(grep ${ID} ${FILES})
 do
 	BASE=$(basename $FASTQ _unmapped.fastq.gz)
-	BAMS="${BAMS} results/metaphlan/${BASE}.sorted.bam"
+	BAMS="${BAMS} Results/metaphlan/${BASE}.sorted.bam"
 done
 
 # Merge all bam files that belongs to the specific sample
-samtools merge -o results/metaphlan/${ID}.bam ${BAMS}
-samtools sort results/metaphlan/${ID}.bam > results/metaphlan/${ID}.sorted.bam
+samtools merge -o Results/metaphlan/${ID}.bam ${BAMS}
+samtools sort Results/metaphlan/${ID}.bam > Results/metaphlan/${ID}.sorted.bam
 
 # Mark duplicates
-samtools markdup -r results/metaphlan/${ID}.sorted.bam  results/metaphlan/${ID}.sorted.rmdup.bam
+samtools markdup -r Results/metaphlan/${ID}.sorted.bam  Results/metaphlan/${ID}.sorted.rmdup.bam
 
 # Metaphlan3 can read sam files. But it has to be a sam file, so convert it to a sam file
-samtools view -h results/metaphlan/${ID}.sorted.rmdup.bam > results/metaphlan/${ID}.sorted.rmdup.sam
+samtools view -h Results/metaphlan/${ID}.sorted.rmdup.bam > Results/metaphlan/${ID}.sorted.rmdup.sam
 
 # Run metaphlan3 for the sam file
-metaphlan --input_type sam results/metaphlan/${ID}.sorted.rmdup.sam \
+metaphlan --input_type sam Results/metaphlan/${ID}.sorted.rmdup.sam \
 	-s ${ID}.sam --nproc ${THREADS} \
-	--bowtie2out results/metaphlan/${ID}.bowtie2out \
-	--bowtie2db ${DB} -x ${DBNAME} >  results/metaphlan/${ID}_metaphlan.txt
+	--bowtie2out Results/metaphlan/${ID}.bowtie2out \
+	--bowtie2db ${DB} -x ${DBNAME} >  Results/metaphlan/${ID}_metaphlan.txt

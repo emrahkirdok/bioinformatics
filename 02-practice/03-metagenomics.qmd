@@ -23,6 +23,13 @@ conda activate harpix
 
 Çalışma kapsamında kullanacağımız veri setini aşağıda [https://zenodo.org/records/1025296](https://zenodo.org/records/10252965) bağlantısından indirebilirsiniz. Bu veri setini indirin ve proje klasörü içerisinde `Data` olarak kaydediniz. Ham fastq dosyaları ve ara adımlara ait `bam` ve `Metaphlan` dosyaları ise ayrı bir bağlantı olarak verilecektir. 
 
+Son olarak çalışmada kullanacağımız çıktıları depolayacağımız klasörleri oluşturalım:
+
+```bash
+mkdir -p Results/metaphlan
+mkdir -R Results/BetaDiversity
+```
+
 ## Metaphlan3 ile analiz
 
 Bu programı çalıştırmak için öncelikle elinizde Metaphlan3 veri tabanının olması gereklidir. Programı indirdikten sonra ilk çalıştırmanızda bu veri tabanı otomatik bir şekilde kuruluyor. En basit şekilde `Metaphlan3` programını aşağıdaki şekilde çalıştırabilirsiniz:
@@ -30,11 +37,11 @@ Bu programı çalıştırmak için öncelikle elinizde Metaphlan3 veri tabanın�
 ```bash
 metaphlan 
     --input_type fastq data/ble004-b1e1l1p1_ACCAACT_L003_ARmerged.180518_ST-E00201_0274_AHLCM3CCXY.all_unmapped.fastq.gz 
-    -s results/metaphlan/le004-b1e1l1p1_ACCAACT_L003_ARmerged.180518_ST-E00201_0274_AHLCM3CCXY.all.sam 
+    -s Results/metaphlan/le004-b1e1l1p1_ACCAACT_L003_ARmerged.180518_ST-E00201_0274_AHLCM3CCXY.all.sam 
     --nproc 20
-    --bowtie2out results/metaphlan/le004-b1e1l1p1_ACCAACT_L003_ARmerged.180518_ST-E00201_0274_AHLCM3CCXY.all.bowtie2out \
+    --bowtie2out Results/metaphlan/le004-b1e1l1p1_ACCAACT_L003_ARmerged.180518_ST-E00201_0274_AHLCM3CCXY.all.bowtie2out \
     --bowtie2db ${DB} 
-    -x ${DBNAME} > results/metaphlan/${BASE}_metaphlan.txt
+    -x ${DBNAME} > Results/metaphlan/${BASE}_metaphlan.txt
 ``` 
 
 Eğer elimizde aynı örneğe ait olan birden fazla fastq dosyası varsa, bir `for` döngüsü yazabiliriz. Sakız makalesinde de bu süreç uygulandı. Önce her örneğe ait `fastq` dosyaları analiz edildi, daha elde edilen `sam` dosyaları birleştirilerek son bir analiz yapıldı:
@@ -55,12 +62,12 @@ THREADS=10
 for FASTQ in $(grep ${ID} ${FILES})
 do
 	BASE=$(basename $FASTQ _unmapped.fastq.gz)
-	metaphlan --input_type fastq ${FASTQ} -s results/metaphlan/${BASE}.sam --nproc ${THREADS} --bowtie2out results/metaphlan/${BASE}.bowtie2out --bowtie2db ${DB} -x ${DBNAME} > results/metaphlan/${BASE}_metaphlan.txt
+	metaphlan --input_type fastq ${FASTQ} -s Results/metaphlan/${BASE}.sam --nproc ${THREADS} --bowtie2out Results/metaphlan/${BASE}.bowtie2out --bowtie2db ${DB} -x ${DBNAME} > Results/metaphlan/${BASE}_metaphlan.txt
 
 	# Convert sam files to a bam file, and sort
 	# This makes the process fast	
-	samtools view -Sb results/metaphlan/${BASE}.sam > results/metaphlan/${BASE}.bam
-	samtools sort results/metaphlan/${BASE}.bam > results/metaphlan/${BASE}.sorted.bam
+	samtools view -Sb Results/metaphlan/${BASE}.sam > Results/metaphlan/${BASE}.bam
+	samtools sort Results/metaphlan/${BASE}.bam > Results/metaphlan/${BASE}.sorted.bam
 done
 ```
 
@@ -73,43 +80,42 @@ BAMS=""
 for FASTQ in $(grep ${ID} ${FILES})
 do
 	BASE=$(basename $FASTQ _unmapped.fastq.gz)
-	BAMS="${BAMS} results/metaphlan/${BASE}.sorted.bam"
+	BAMS="${BAMS} Results/metaphlan/${BASE}.sorted.bam"
 done
 
 # Merge all bam files that belongs to the specific sample
-samtools merge -o results/metaphlan/${ID}.bam ${BAMS}
-samtools sort results/metaphlan/${ID}.bam > results/metaphlan/${ID}.sorted.bam
+samtools merge -o Results/metaphlan/${ID}.bam ${BAMS}
+samtools sort Results/metaphlan/${ID}.bam > Results/metaphlan/${ID}.sorted.bam
 
 # Mark duplicates
-samtools markdup -r results/metaphlan/${ID}.sorted.bam  results/metaphlan/${ID}.sorted.rmdup.bam
+samtools markdup -r Results/metaphlan/${ID}.sorted.bam  Results/metaphlan/${ID}.sorted.rmdup.bam
 
 # Metaphlan3 can read sam files. But it has to be a sam file, so convert it to a sam file
-samtools view -h results/metaphlan/${ID}.sorted.rmdup.bam > results/metaphlan/${ID}.sorted.rmdup.sam
+samtools view -h Results/metaphlan/${ID}.sorted.rmdup.bam > Results/metaphlan/${ID}.sorted.rmdup.sam
 
 # Run metaphlan3 for the sam file
-metaphlan --input_type sam results/metaphlan/${ID}.sorted.rmdup.sam \
+metaphlan --input_type sam Results/metaphlan/${ID}.sorted.rmdup.sam \
 	-s ${ID}.sam --nproc ${THREADS} \
-	--bowtie2out results/metaphlan/${ID}.bowtie2out \
-	--bowtie2db ${DB} -x ${DBNAME} >  results/metaphlan/${ID}_metaphlan.txt
-
+	--bowtie2out Results/metaphlan/${ID}.bowtie2out \
+	--bowtie2db ${DB} -x ${DBNAME} >  Results/metaphlan/${ID}_metaphlan.txt
 ```
 
 Her örneğe ait olan Metaphlan dosyalarını birleştirelim. Aşağıda gösterilen `merge_metaphlan_tables.py` kodu, metaphlan ile gelmekte. Ancak her zaman `PATH` içerisinde olmuyor:
 
 ```bash
-merge_metaphlan_tables.py   results/metaphlan/ble*_metaphlan.txt  results/metaphlan/ble007_metaphlan.txt results/metaphlan/ble008_metaphlan.txt > results/metaphlan/ble.txt
+merge_metaphlan_tables.py   Results/metaphlan/ble*_metaphlan.txt  Results/metaphlan/ble007_metaphlan.txt Results/metaphlan/ble008_metaphlan.txt > Results/metaphlan/ble.txt
 ```
 
 Son olarak bu örnekler içerisindeki tür profillerini elde edelim:
 
 ```bash
-grep -E "s__|clade" results/metaphlan/ble.txt | sed 's/^.*s__//g' |cut -f1,3-8 | sed -e 's/clade_name/body_site/g' > results/metaphlan/ble.txt
+grep -E "s__|clade" Results/metaphlan/ble.txt | sed 's/^.*s__//g' |cut -f1,3-8 | sed -e 's/clade_name/body_site/g' > Results/metaphlan/ble.txt
 ```
 
 Bu tür profillerini `hclust2.py` programı ile bir ısı grafiğine çevirelim. Burada opsiyonları değiştirin, her zaman güzel grafikler oluşmuyor. Ayrıca bu programı ayrıca kurmanız gereklidir:
 
 ```bash
- hclust2.py -i results/metaphlan/ble.txt -o results/metaphlan/abundance_heatmap_species.png --f_dist_f braycurtis --s_dist_f braycurtis --cell_aspect_ratio 0.5 -l --flabel_size 10 --slabel_size 10 --max_flabel_len 100 --max_slabel_len 100 --minv 0.1 --dpi 300
+ hclust2.py -i Results/metaphlan/ble.txt -o Results/metaphlan/abundance_heatmap_species.png --f_dist_f braycurtis --s_dist_f braycurtis --cell_aspect_ratio 0.5 -l --flabel_size 10 --slabel_size 10 --max_flabel_len 100 --max_slabel_len 100 --minv 0.1 --dpi 300
 ```
 
 ## Alfa ve Beta çeşitlilik analizleri
@@ -152,7 +158,7 @@ Bu kodu çalıştırdığımızda iki farklı şekil oluşacak. @fig-braycurtis1
 Ancak bu şekiller çok rahat okunmuyor. Bir görselleştirme yöntemi olan Non-metric multidimensional scaling metodunu kullanarak, elimizdeki Bray-Curtis matrisini görselleştrelim (@fig-nmds). Aşağıdaki kodu çalıştırmamız gereklidir:
 
 ```bash
-Rscript scripts/Figure-1.R --profile data/microbial-profile.txt --metadata data/microbial-metadata.txt --out results/BetaDiversity/Figure-1.pdf
+Rscript scripts/Figure-1.R --profile data/microbial-profile.txt --metadata data/microbial-metadata.txt --out Results/BetaDiversity/Figure-1.pdf
 ```
 ![NMDS yöntemi ile görselleştirilmiş Bray Curtis uzaklık matrisi](images/Figure-1.png)
 

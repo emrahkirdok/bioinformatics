@@ -1,0 +1,2 @@
+Data/ble004-b1e1l1p1_ACCAACT_L003_ARmerged.180518_ST-E00201_0274_AHLCM3CCXY.all_unmapped.fastq.gz
+Data/ble004-b1e1l1p1_ACCAACT_L007_ARmerged.180509_ST-E00266_0291_AHLCWMCCXY.all_unmapped.fastq.gz
