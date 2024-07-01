@@ -1,0 +1,21 @@
+name: harpix
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - snakemake-minimal
+  - r
+  - r-vegan
+  - r-tidyverse
+  - r-corncob
+  - r-optparse
+  - r-RColorBrewer
+  - r-corncob
+  - r-ggpubr
+  - r-ggrepel
+  - r-magrittr
+  - r-randomForest
+  - r-reshape2
+  - r-gtools
+  - r-ggsci

@@ -1,17 +1,147 @@
 # Metagenomik pratik
 
+## Proje klasörünün kurulumu
 
-
-
-Figüre 1 oluşturmak için:
+Öncelikle çalışmada kullanacağımız kodları indirmek için depoyu çalışma alanımza klonlayalım:
 
 ```bash
-Rscript workflow/scripts/Figure-1.R --profile Data/microbial-profile.txt --metadata Data/microbial-metadata.txt --out Results/BetaDiversity/Figure-1.pdf
+git clone https://github.com/emrahkirdok/bioinformatics.git
+```
+
+Ardından kodlarımızın bulunduğu klasöre gidelim:
+
+```bash
+cd bioinformatics/02-practice/ancient-metagenomics
+```
+
+Çalışma kapsamında kulanacağımız R kodlarını çalıştırmak için öncelikle `conda` ile R paketlerinin olduğu çevreyi kuralım. Ancak `Metaphlan3` programı bu paket içerisinde yok. O programı siz sunucu üzerinde kurmalısınız:
+
+```bash
+conda create --file env/environment.yml
+conda activate harpix
+```
+
+Çalışma kapsamında kullanacağımız veri setini aşağıda [https://zenodo.org/records/1025296](https://zenodo.org/records/10252965) bağlantısından indirebilirsiniz. Bu veri setini indirin ve proje klasörü içerisinde `Data` olarak kaydediniz. Ham fastq dosyaları ve ara adımlara ait `bam` ve `Metaphlan` dosyaları ise ayrı bir bağlantı olarak verilecektir. 
+
+## Metaphlan3 ile analiz
+
+Bu programı çalıştırmak için öncelikle elinizde Metaphlan3 veri tabanının olması gereklidir. Programı indirdikten sonra ilk çalıştırmanızda bu veri tabanı otomatik bir şekilde kuruluyor. En basit şekilde `Metaphlan3` programını aşağıdaki şekilde çalıştırabilirsiniz:
+
+```bash
+metaphlan 
+    --input_type fastq data/ble004-b1e1l1p1_ACCAACT_L003_ARmerged.180518_ST-E00201_0274_AHLCM3CCXY.all_unmapped.fastq.gz 
+    -s results/metaphlan/le004-b1e1l1p1_ACCAACT_L003_ARmerged.180518_ST-E00201_0274_AHLCM3CCXY.all.sam 
+    --nproc 20
+    --bowtie2out results/metaphlan/le004-b1e1l1p1_ACCAACT_L003_ARmerged.180518_ST-E00201_0274_AHLCM3CCXY.all.bowtie2out \
+    --bowtie2db ${DB} 
+    -x ${DBNAME} > results/metaphlan/${BASE}_metaphlan.txt
+``` 
+
+Eğer elimizde aynı örneğe ait olan birden fazla fastq dosyası varsa, bir `for` döngüsü yazabiliriz. Sakız makalesinde de bu süreç uygulandı. Önce her örneğe ait `fastq` dosyaları analiz edildi, daha elde edilen `sam` dosyaları birleştirilerek son bir analiz yapıldı:
+
+```bash
+ml bioinfo-tools MetaPhlAn3 samtools
+
+# Database location
+DB=/sw/bioinfo/MetaPhlAn3/3.0.8/rackham/lib/python3.8/site-packages/metaphlan/metaphlan_databases
+# Database name
+DBNAME=mpa_v30_CHOCOPhlAn_201901
+
+ID=ble004
+FILES=sequences.txt
+THREADS=10
+
+# Run metaphlan for every fastq file of a specific sample
+for FASTQ in $(grep ${ID} ${FILES})
+do
+	BASE=$(basename $FASTQ _unmapped.fastq.gz)
+	metaphlan --input_type fastq ${FASTQ} -s results/metaphlan/${BASE}.sam --nproc ${THREADS} --bowtie2out results/metaphlan/${BASE}.bowtie2out --bowtie2db ${DB} -x ${DBNAME} > results/metaphlan/${BASE}_metaphlan.txt
+
+	# Convert sam files to a bam file, and sort
+	# This makes the process fast	
+	samtools view -Sb results/metaphlan/${BASE}.sam > results/metaphlan/${BASE}.bam
+	samtools sort results/metaphlan/${BASE}.bam > results/metaphlan/${BASE}.sorted.bam
+done
+```
+
+Daha sonra bütün örneklere ait `bam` dosyalarını birleştirelim:
+
+```bash
+# Collect all bam files for a specific sample	
+BAMS=""
+
+for FASTQ in $(grep ${ID} ${FILES})
+do
+	BASE=$(basename $FASTQ _unmapped.fastq.gz)
+	BAMS="${BAMS} results/metaphlan/${BASE}.sorted.bam"
+done
+
+# Merge all bam files that belongs to the specific sample
+samtools merge -o results/metaphlan/${ID}.bam ${BAMS}
+samtools sort results/metaphlan/${ID}.bam > results/metaphlan/${ID}.sorted.bam
+
+# Mark duplicates
+samtools markdup -r results/metaphlan/${ID}.sorted.bam  results/metaphlan/${ID}.sorted.rmdup.bam
+
+# Metaphlan3 can read sam files. But it has to be a sam file, so convert it to a sam file
+samtools view -h results/metaphlan/${ID}.sorted.rmdup.bam > results/metaphlan/${ID}.sorted.rmdup.sam
+
+# Run metaphlan3 for the sam file
+metaphlan --input_type sam results/metaphlan/${ID}.sorted.rmdup.sam \
+	-s ${ID}.sam --nproc ${THREADS} \
+	--bowtie2out results/metaphlan/${ID}.bowtie2out \
+	--bowtie2db ${DB} -x ${DBNAME} >  results/metaphlan/${ID}_metaphlan.txt
+
+```
+
+Her örneğe ait olan Metaphlan dosyalarını birleştirelim. Aşağıda gösterilen `merge_metaphlan_tables.py` kodu, metaphlan ile gelmekte. Ancak her zaman `PATH` içerisinde olmuyor:
+
+```bash
+merge_metaphlan_tables.py   results/metaphlan/ble*_metaphlan.txt  results/metaphlan/ble007_metaphlan.txt results/metaphlan/ble008_metaphlan.txt > results/metaphlan/ble.txt
+```
+
+Son olarak bu örnekler içerisindeki tür profillerini elde edelim:
+
+```bash
+grep -E "s__|clade" results/metaphlan/ble.txt | sed 's/^.*s__//g' |cut -f1,3-8 | sed -e 's/clade_name/body_site/g' > results/metaphlan/ble.txt
+```
+
+Bu tür profillerini `hclust2.py` programı ile bir ısı grafiğine çevirelim. Burada opsiyonları değiştirin, her zaman güzel grafikler oluşmuyor. Ayrıca bu programı ayrıca kurmanız gereklidir:
+
+```bash
+ hclust2.py -i results/metaphlan/ble.txt -o results/metaphlan/abundance_heatmap_species.png --f_dist_f braycurtis --s_dist_f braycurtis --cell_aspect_ratio 0.5 -l --flabel_size 10 --slabel_size 10 --max_flabel_len 100 --max_slabel_len 100 --minv 0.1 --dpi 300
+```
+
+## Alfa ve Beta çeşitlilik analizleri
+
+Örneklerimizde bulunan mikrobiyal içeriği incelemeye başlayabiliriz. Bunun için öncelikle iki tane dosyaya ihtiyacımız olacaktır:
+
+- `Data/microbial-profile.txt`: Antik diş taşları, diğer antik sakızlar, ve insan mikrobiyota projesinden elde edilmiş Metaphlan3 sonuçları
+- `Data/microbial-metadata.txt`: Bu örneklere ait metabilgiler
+
+İlk olarak örneklerde bulunan Phylum içeriklerine bakalım. Bunun figürü oluşturmak için aşağıdaki komutu çalıştırmalısınız:
+
+```bash
+Rscript scripts/Figure-S1.R --profile Data/microbial-profile.txt --metadata Data/microbial-metadata.txt --out Results/BetaDiversity/Figure-S1.pdf
+```
+
+Bu işlemin sonucunda @fig-S1'de gösterilen şekil oluşmalı. 
+
+![Antik sakız örnekleri ve karşılaştırma verisinin filum içerikleri](images/Figure-S1.png){#fig-S1}
+
+Bray curtis uzaklığı:
+
+```bash
+Rscript workflow/scripts/distance_plots.R --profile Data/microbial-profile.txt --metadata Data/microbial-metadata.txt --out1 results/BetaDiversity/Bray_Curtis.pdf --out2 results/esults/BetaDiversity/Figure-S3.pdf
+```
+
+Nmds figürü. Bu uzaklıkların projecte edlmiş halleri 
+
+
+```bash
+Rscript scripts/Figure-1.R --profile data/microbial-profile.txt --metadata data/microbial-metadata.txt --out results/BetaDiversity/Figure-1.pdf
 
 ```
 Figure 2 oluşturmak için
 
-```bash
-Rscript workflow/scripts/Figure-S1.R --profile Data/microbial-profile.txt --metadata Data/microbial-metadata.txt --out Results/BetaDiversity/Figure-S1.pdf
-```
 
