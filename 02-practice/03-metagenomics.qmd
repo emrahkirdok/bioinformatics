@@ -42,7 +42,8 @@ metaphlan
     --bowtie2out Results/metaphlan/le004-b1e1l1p1_ACCAACT_L003_ARmerged.180518_ST-E00201_0274_AHLCM3CCXY.all.bowtie2out \
     --bowtie2db ${DB} 
     -x ${DBNAME} > Results/metaphlan/${BASE}_metaphlan.txt
-``` 
+    
+```
 
 Eğer elimizde aynı örneğe ait olan birden fazla fastq dosyası varsa, bir `for` döngüsü yazabiliriz. Sakız makalesinde de bu süreç uygulandı. Önce her örneğe ait `fastq` dosyaları analiz edildi, daha elde edilen `sam` dosyaları birleştirilerek son bir analiz yapıldı:
 
