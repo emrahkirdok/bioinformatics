@@ -9,13 +9,15 @@ Bu sunum ve bununla ilgili çalışmalar daha çok ilk soru üzerine odaklamnaca
 
 ## Yeni nesil dizleme ve metagenomik
 
-![](images/fig-metagenomik.png)
+Yapılan şey aslında çevresel örneklerden elde edilen DNA dizilerinin hangi canlılara ait olduklarını bulmak (@fig-metagenomics1)
+
+![](images/fig-metagenomik.png){#fig-metagenomics1}
 
 ## Alfa çeşitlilik
 
 On bin yıllık antik sakızda bulunan mikrobiyal profili inceleyelim. Gösterilen şekilde hem antik sakız örnekleri kullanılmıştır hem de karşılaştırmalı bazı veri setleri bulunmaktadır. Antik diş taşları ve insan mikrobiyota örneklerinden elde edilen metaphlan3 profilleri bu çalışmanın temelini oluşturmaktadır.
 
-![Filum seviyesinde mikrobiyal profiller](images/Figure-S1.png)
+![Filum seviyesinde mikrobiyal profiller](https://emrahkirdok.github.io/bioinformatics/02-practice/images/Figure-S1.png)
 
 ## Beta çeşitlilik
 
@@ -37,5 +39,5 @@ Bu uzaklıkları görselleştrirelim:
 
 NMDS ile görselleştirelim. NMDS metrik veriyi, $k$ boyutlu bir uzaya projekisyon ediyor. 
 
-![NMDS k=7 grafiği](images/Figure-1.png)
+![Metrik olmayan çok boyutlu ölçekleme tekniği grafiği](https://emrahkirdok.github.io/bioinformatics/02-practice/images/Figure-1.png)
 
