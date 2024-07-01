@@ -1,12 +1,15 @@
-# Metagenomik
+# [Antik] Metagenomik 
 
-Metagenomik analizler, çevresel örneklerrde bulunan mikrobiyal içeriği incelemektedir. İki temel iş var:
-
+Metagenomik analizlerde temel amaç, çevresel bir örnekte bulunan canlı kompozisyonunu incelemek, sınıfladırmak ve farklı ekolojik çevreler arasındaki içeriği karşılaştırmaktır. Bu analizleri temel olarak iki temel aşamaya ayırabiliriz:
 
 1. Bir ortamda hangi canlılar var?
 2. O ortamda bulunan canlılar ne iş yapıyorlar?
 
+Bu sunum ve bununla ilgili çalışmalar daha çok ilk soru üzerine odaklamnacaktır.
 
+## Yeni nesil dizleme ve metagenomik
+
+![](images/fig-metagenomik.png)
 
 ## Alfa çeşitlilik
 
@@ -31,8 +34,6 @@ BC = \frac{S_i+ S_j}{2S_{ij}}
 $$
 
 Bu uzaklıkları görselleştrirelim:
-
-
 
 NMDS ile görselleştirelim. NMDS metrik veriyi, $k$ boyutlu bir uzaya projekisyon ediyor. 
 
