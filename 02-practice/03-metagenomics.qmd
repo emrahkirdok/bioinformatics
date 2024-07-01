@@ -149,12 +149,11 @@ Bu kodu çalıştırdığımızda iki farklı şekil oluşacak. @fig-braycurtis1
 
 ![Sadece sakız örneklerinin, diğer karşılaştırma örneklerine olan uzaklıkları](images/braycurtis2.png){#fig-braycurtis2}
 
-
+Ancak bu şekiller çok rahat okunmuyor. Bir görselleştirme yöntemi olan Non-metric multidimensional scaling metodunu kullanarak, elimizdeki Bray-Curtis matrisini görselleştrelim (@fig-nmds). Aşağıdaki kodu çalıştırmamız gereklidir:
 
 ```bash
 Rscript scripts/Figure-1.R --profile data/microbial-profile.txt --metadata data/microbial-metadata.txt --out results/BetaDiversity/Figure-1.pdf
-
 ```
-Figure 2 oluşturmak için
+![NMDS yöntemi ile görselleştirilmiş Bray Curtis uzaklık matrisi](images/Figure-1.png)
 
 
