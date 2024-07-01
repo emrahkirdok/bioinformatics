@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Biyoinformatik - 7&nbsp; Fastq işleme adımları</title>
+<title>Biyoinformatik - 13&nbsp; Metagenomik pratik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../01-lectures/04-alignment-variant-calling-01.html" rel="next">
-<link href="../01-lectures/02-fastq-quality-control.html" rel="prev">
+<link href="../references.html" rel="next">
+<link href="../02-practice/02-rnaseq-project.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-lectures/01-ynd.html">Dersler</a></li><li class="breadcrumb-item"><a href="../01-lectures/03-fastq-processing.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fastq işleme adımları</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-practice/01-variant-practice.html">Pratikler</a></li><li class="breadcrumb-item"><a href="../02-practice/03-metagenomics.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Metagenomik pratik</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -218,7 +218,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-lectures/03-fastq-processing.html" class="sidebar-item-text sidebar-link active">
+  <a href="../01-lectures/03-fastq-processing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fastq işleme adımları</span></span></a>
   </div>
 </li>
@@ -265,7 +265,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-practice/03-metagenomics.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-practice/03-metagenomics.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Metagenomik pratik</span></span></a>
   </div>
 </li>
@@ -300,14 +300,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Içindekiler</h2>
+   
+  <ul>
+  <li><a href="#proje-klasörünün-kurulumu" id="toc-proje-klasörünün-kurulumu" class="nav-link active" data-scroll-target="#proje-klasörünün-kurulumu"><span class="header-section-number">13.1</span> Proje klasörünün kurulumu</a></li>
+  <li><a href="#metaphlan3-ile-analiz" id="toc-metaphlan3-ile-analiz" class="nav-link" data-scroll-target="#metaphlan3-ile-analiz"><span class="header-section-number">13.2</span> Metaphlan3 ile analiz</a></li>
+  <li><a href="#alfa-ve-beta-çeşitlilik-analizleri" id="toc-alfa-ve-beta-çeşitlilik-analizleri" class="nav-link" data-scroll-target="#alfa-ve-beta-çeşitlilik-analizleri"><span class="header-section-number">13.3</span> Alfa ve Beta çeşitlilik analizleri</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-lectures/01-ynd.html">Dersler</a></li><li class="breadcrumb-item"><a href="../01-lectures/03-fastq-processing.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fastq işleme adımları</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-practice/01-variant-practice.html">Pratikler</a></li><li class="breadcrumb-item"><a href="../02-practice/03-metagenomics.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Metagenomik pratik</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fastq işleme adımları</span></h1>
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Metagenomik pratik</span></h1>
 </div>
 
 
@@ -324,43 +332,146 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Yeni nesil dizileme teknolojilerinin ardaından elde edilen DNA okumlarının işlenmeleri gerekir. Bir önceki derste <code>fastqc</code> aracı ile elde ettiğimiz raporda şu noktalara dikkat etmiştik:</p>
-<p>Tekrar sistemimize giriş yapalım ve daha önce kendi ismimizde oluşturduğumuz klasöre giriş yapalım:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> emrah</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Daha sonra ders kapsamında işleyeceğimiz komutları ve veriyi içeren klasörü kopyalayalım:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> /truba/home/egitim/Dersler/01-Fastq-kirpma .</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Şimdi kopyaladığımız klasöre girelim:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> 01-Fastq-kirpma</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Bu klasör içerisindeki dosyalara bakalım:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Bu klasör içeriisinde bulunan <code>data</code> klasörü, aslında kullanacağımız veriyi içermektedir. Aslında bir önceki derslerde kullandığımız verinin aynısını kullanıyoruz.</p>
-<p>Şimdi, elimizdeki <code>fastq</code> dosyasını, bir önceki derste elde ettiğimiz <code>fastqc</code> raporuna göre işleyelim.</p>
-<p>Bu iş için kullanacağımız program <code>cutadapt</code> olacak. Bu program, bir fastq dosyasında kalite kontrol işlemleri yapmak için kullanılmaktadır.</p>
-<p>Öncelikle kullanacağımız programın yolunu belirtelim ve programın opsiyonlarını inceleyelim:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="va">PATH</span><span class="op">=</span><span class="va">${PATH}</span>:/truba/home/egitim/miniconda3/envs/aMeta/bin/</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Şimdi <code>cutadapt --help</code> komutu ile programın bütün opsiyonlarını öğrenebilirisniz. Ancak en önemlililer aşağıda:</p>
+<section id="proje-klasörünün-kurulumu" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="proje-klasörünün-kurulumu"><span class="header-section-number">13.1</span> Proje klasörünün kurulumu</h2>
+<p>Öncelikle çalışmada kullanacağımız kodları indirmek için depoyu çalışma alanımza klonlayalım:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/emrahkirdok/bioinformatics.git</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ardından kodlarımızın bulunduğu klasöre gidelim:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> bioinformatics/02-practice/ancient-metagenomics</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Çalışma kapsamında kulanacağımız R kodlarını çalıştırmak için öncelikle <code>conda</code> ile R paketlerinin olduğu çevreyi kuralım. Ancak <code>Metaphlan3</code> programı bu paket içerisinde yok. O programı siz sunucu üzerinde kurmalısınız. Conda paketi kurulumu için <a href="../10-appendices/software-used.html#sec-kurulum" class="quarto-xref"><span>Bölüm A.1</span></a> kısmına bakabilirsiniz.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">--file</span> env/environment.yml</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate harpix</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Çalışma kapsamında kullanacağımız veri setini aşağıda <a href="https://zenodo.org/records/10252965">https://zenodo.org/records/1025296</a> bağlantısından indirebilirsiniz. Bu veri setini indirin ve proje klasörü içerisinde <code>Data</code> olarak kaydediniz. Ham fastq dosyaları ve ara adımlara ait <code>bam</code> ve <code>Metaphlan</code> dosyaları ise ayrı bir bağlantı olarak verilecektir.</p>
+<p>Son olarak çalışmada kullanacağımız çıktıları depolayacağımız klasörleri oluşturalım:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> Results/metaphlan</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-R</span> Results/BetaDiversity</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="metaphlan3-ile-analiz" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="metaphlan3-ile-analiz"><span class="header-section-number">13.2</span> Metaphlan3 ile analiz</h2>
+<p>Bu programı çalıştırmak için öncelikle elinizde Metaphlan3 veri tabanının olması gereklidir. Programı indirdikten sonra ilk çalıştırmanızda bu veri tabanı otomatik bir şekilde kuruluyor. En basit şekilde <code>Metaphlan3</code> programını aşağıdaki şekilde çalıştırabilirsiniz:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">metaphlan</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">--input_type</span> fastq data/ble004-b1e1l1p1_ACCAACT_L003_ARmerged.180518_ST-E00201_0274_AHLCM3CCXY.all_unmapped.fastq.gz </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-s</span> Results/metaphlan/le004-b1e1l1p1_ACCAACT_L003_ARmerged.180518_ST-E00201_0274_AHLCM3CCXY.all.sam </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">--nproc</span> 20</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">--bowtie2out</span> Results/metaphlan/le004-b1e1l1p1_ACCAACT_L003_ARmerged.180518_ST-E00201_0274_AHLCM3CCXY.all.bowtie2out <span class="dt">\</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">--bowtie2db</span> <span class="va">${DB}</span> </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-x</span> <span class="va">${DBNAME}</span> <span class="op">&gt;</span> Results/metaphlan/<span class="va">${BASE}</span>_metaphlan.txt</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">&nbsp;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Eğer</span> elimizde aynı örneğe ait olan birden fazla fastq dosyası varsa, bir <span class="kw">`</span>for<span class="kw">`</span> <span class="ex">döngüsü</span> yazabiliriz. Sakız makalesinde de bu süreç uygulandı. Önce her örneğe ait <span class="kw">`</span>fastq<span class="kw">`</span> <span class="ex">dosyaları</span> analiz edildi, daha elde edilen <span class="kw">`</span>sam<span class="kw">`</span> <span class="ex">dosyaları</span> birleştirilerek son bir analiz yapıldı:</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span>bash</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="ex">ml</span> bioinfo-tools MetaPhlAn3 samtools</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Database location</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="va">DB</span><span class="op">=</span>/sw/bioinfo/MetaPhlAn3/3.0.8/rackham/lib/python3.8/site-packages/metaphlan/metaphlan_databases</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Database name</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="va">DBNAME</span><span class="op">=</span>mpa_v30_CHOCOPhlAn_201901</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="va">ID</span><span class="op">=</span>ble004</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="va">FILES</span><span class="op">=</span>sequences.txt</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="va">THREADS</span><span class="op">=</span>10</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Run metaphlan for every fastq file of a specific sample</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> FASTQ <span class="kw">in</span> <span class="va">$(</span><span class="fu">grep</span> <span class="va">${ID}</span> <span class="va">${FILES})</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="va">BASE</span><span class="op">=</span><span class="va">$(</span><span class="fu">basename</span> <span class="va">$FASTQ</span> _unmapped.fastq.gz<span class="va">)</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    <span class="ex">metaphlan</span> <span class="at">--input_type</span> fastq <span class="va">${FASTQ}</span> <span class="at">-s</span> Results/metaphlan/<span class="va">${BASE}</span>.sam <span class="at">--nproc</span> <span class="va">${THREADS}</span> <span class="at">--bowtie2out</span> Results/metaphlan/<span class="va">${BASE}</span>.bowtie2out <span class="at">--bowtie2db</span> <span class="va">${DB}</span> <span class="at">-x</span> <span class="va">${DBNAME}</span> <span class="op">&gt;</span> Results/metaphlan/<span class="va">${BASE}</span>_metaphlan.txt</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Convert sam files to a bam file, and sort</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># This makes the process fast   </span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    <span class="ex">samtools</span> view <span class="at">-Sb</span> Results/metaphlan/<span class="va">${BASE}</span>.sam <span class="op">&gt;</span> Results/metaphlan/<span class="va">${BASE}</span>.bam</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    <span class="ex">samtools</span> sort Results/metaphlan/<span class="va">${BASE}</span>.bam <span class="op">&gt;</span> Results/metaphlan/<span class="va">${BASE}</span>.sorted.bam</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Daha sonra bütün örneklere ait <code>bam</code> dosyalarını birleştirelim:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Collect all bam files for a specific sample   </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="va">BAMS</span><span class="op">=</span><span class="st">""</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> FASTQ <span class="kw">in</span> <span class="va">$(</span><span class="fu">grep</span> <span class="va">${ID}</span> <span class="va">${FILES})</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="va">BASE</span><span class="op">=</span><span class="va">$(</span><span class="fu">basename</span> <span class="va">$FASTQ</span> _unmapped.fastq.gz<span class="va">)</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="va">BAMS</span><span class="op">=</span><span class="st">"</span><span class="va">${BAMS}</span><span class="st"> Results/metaphlan/</span><span class="va">${BASE}</span><span class="st">.sorted.bam"</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge all bam files that belongs to the specific sample</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> merge <span class="at">-o</span> Results/metaphlan/<span class="va">${ID}</span>.bam <span class="va">${BAMS}</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> sort Results/metaphlan/<span class="va">${ID}</span>.bam <span class="op">&gt;</span> Results/metaphlan/<span class="va">${ID}</span>.sorted.bam</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Mark duplicates</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> markdup <span class="at">-r</span> Results/metaphlan/<span class="va">${ID}</span>.sorted.bam  Results/metaphlan/<span class="va">${ID}</span>.sorted.rmdup.bam</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Metaphlan3 can read sam files. But it has to be a sam file, so convert it to a sam file</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-h</span> Results/metaphlan/<span class="va">${ID}</span>.sorted.rmdup.bam <span class="op">&gt;</span> Results/metaphlan/<span class="va">${ID}</span>.sorted.rmdup.sam</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Run metaphlan3 for the sam file</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="ex">metaphlan</span> <span class="at">--input_type</span> sam Results/metaphlan/<span class="va">${ID}</span>.sorted.rmdup.sam <span class="dt">\</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">-s</span> <span class="va">${ID}</span>.sam <span class="at">--nproc</span> <span class="va">${THREADS}</span> <span class="dt">\</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">--bowtie2out</span> Results/metaphlan/<span class="va">${ID}</span>.bowtie2out <span class="dt">\</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">--bowtie2db</span> <span class="va">${DB}</span> <span class="at">-x</span> <span class="va">${DBNAME}</span> <span class="op">&gt;</span>  Results/metaphlan/<span class="va">${ID}</span>_metaphlan.txt</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Her örneğe ait olan Metaphlan dosyalarını birleştirelim. Aşağıda gösterilen <code>merge_metaphlan_tables.py</code> kodu, metaphlan ile gelmekte. Ancak her zaman <code>PATH</code> içerisinde olmuyor:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">merge_metaphlan_tables.py</span>   Results/metaphlan/ble<span class="pp">*</span>_metaphlan.txt  Results/metaphlan/ble007_metaphlan.txt Results/metaphlan/ble008_metaphlan.txt <span class="op">&gt;</span> Results/metaphlan/ble.txt</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Son olarak bu örnekler içerisindeki tür profillerini elde edelim:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-E</span> <span class="st">"s__|clade"</span> Results/metaphlan/ble.txt <span class="kw">|</span> <span class="fu">sed</span> <span class="st">'s/^.*s__//g'</span> <span class="kw">|</span><span class="fu">cut</span> <span class="at">-f1,3-8</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="at">-e</span> <span class="st">'s/clade_name/body_site/g'</span> <span class="op">&gt;</span> Results/metaphlan/ble.txt</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Bu tür profillerini <code>hclust2.py</code> programı ile bir ısı grafiğine çevirelim. Burada opsiyonları değiştirin, her zaman güzel grafikler oluşmuyor. Ayrıca bu programı ayrıca kurmanız gereklidir:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">hclust2.py</span> <span class="at">-i</span> Results/metaphlan/ble.txt <span class="at">-o</span> Results/metaphlan/abundance_heatmap_species.png <span class="at">--f_dist_f</span> braycurtis <span class="at">--s_dist_f</span> braycurtis <span class="at">--cell_aspect_ratio</span> 0.5 <span class="at">-l</span> <span class="at">--flabel_size</span> 10 <span class="at">--slabel_size</span> 10 <span class="at">--max_flabel_len</span> 100 <span class="at">--max_slabel_len</span> 100 <span class="at">--minv</span> 0.1 <span class="at">--dpi</span> 300</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="alfa-ve-beta-çeşitlilik-analizleri" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="alfa-ve-beta-çeşitlilik-analizleri"><span class="header-section-number">13.3</span> Alfa ve Beta çeşitlilik analizleri</h2>
+<p>Örneklerimizde bulunan mikrobiyal içeriği incelemeye başlayabiliriz. Bunun için öncelikle iki tane dosyaya ihtiyacımız olacaktır:</p>
 <ul>
-<li><code>a</code>: ileri yönlü DNA okumalarında adaptörlerin kesilmesi</li>
-<li><code>A</code>: geri yönlü okumalardaki adaptörlerin kesilmesi</li>
-<li><code>q</code>: belirlenen eşik değerinin altındaki okuma kalitesine sahip nükleotidlerin kesilmesi</li>
-<li><code>minimum-length</code> kesimin ardından belirli nükleotidleriden kısa olan okumaları at</li>
+<li><code>Data/microbial-profile.txt</code>: Antik diş taşları, diğer antik sakızlar, ve insan mikrobiyota projesinden elde edilmiş Metaphlan3 sonuçları</li>
+<li><code>Data/microbial-metadata.txt</code>: Bu örneklere ait metabilgiler</li>
 </ul>
-<p>Bizim fastq dosyalarımız tek yönlü olduğu için, sadece <code>a</code> opsiyonunu kullanacağız.</p>
-<p>Şimdi sbatch dosyamıza bakalım. Unutmayın, <code>account</code> satırını, kendi hesabınıza göre değiştirmeniz gerek.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> Cutadapt_Adapter_Trimming.sh</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Şimdi de dosyamızı çalıştıralım:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> Cutadapt_Adapter_Trimming.sh</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Eğer işlem doğru bir şekilde sonlanmışsa <code>results</code> isimli bir klasör oluşması gerekir.</p>
-<p>Şimdi bakalım:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> results</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Uzantısı <code>.trimmed.fastq.gz</code> olan ik dosya oluşmuş olmalı.</p>
-<p>Peki gerçekten adaptörleri uzaklaştırdık mı? Bunun için tekrar <code>fastqc</code> programın çalıştırmalıyız. Aslında kullancağımız program, geçen hafta kullandığımızın aynısı. Ancak, <code>fastqc</code> programına işlenmiş dosyaları vermeliyiz.</p>
-<p>Bu işlemi yürütmek için ise <code>Fastqc_after_trimming.sh</code> dosyasını çalıştırmalıyız.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> Fastqc_after_trimming.sh</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Şimdi yeni bir konsol açalım ve oluşturduğumuz <code>fastqc</code> raporlarını incelemek için bilgisyarımıza indirelim:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scp</span> egitim@levrek1.ulakbim.gov.tr:/truba/home/egitim/emrah/01-Fastq-kirpma/results/<span class="pp">*</span>html .</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Gelin bu dosyaları inceleyelim:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> <span class="at">-S</span> Data/microbial-profile.txt</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> <span class="at">-S</span> Data/microbial-metadata.txt</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>İlk olarak örneklerde bulunan Phylum içeriklerine bakalım. Bu şekli oluşturmak için aşağıdaki komutu çalıştırmalısınız:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/Figure-S1.R <span class="at">--profile</span> Data/microbial-profile.txt <span class="at">--metadata</span> Data/microbial-metadata.txt <span class="at">--out</span> Results/BetaDiversity/Figure-S1.pdf</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Bu işlemin sonucunda <a href="#fig-S1" class="quarto-xref">Şekil&nbsp;<span>13.1</span></a>’de gösterilen şekil oluşmalı.</p>
+<div id="fig-S1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-S1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/Figure-S1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-S1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Şekil&nbsp;13.1: Antik sakız örnekleri ve karşılaştırma verisinin filum içerikleri
+</figcaption>
+</figure>
+</div>
+<p>Örneklerin arasındaki Bray-Curtis uzaklıklarına bakalım şimdi. Bunun için aşağıdaki kodu çalıştıralım:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> workflow/scripts/distance_plots.R <span class="at">--profile</span> Data/microbial-profile.txt <span class="at">--metadata</span> Data/microbial-metadata.txt <span class="at">--out1</span> Results/BetaDiversity/Bray_Curtis.pdf <span class="at">--out2</span> Results/BetaDiversity/Figure-S3.pdf</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Bu kodu çalıştırdığımızda iki farklı şekil oluşacak. <a href="#fig-braycurtis1" class="quarto-xref">Şekil&nbsp;<span>13.2</span></a> bize, her örneğin sahip olduğu bray curtis uzaklıklarını vermektedir. <a href="#fig-braycurtis2" class="quarto-xref">Şekil&nbsp;<span>13.3</span></a> ise sadece sakız örneklerinin, diğer karşılaştırma örneklerine olan uzaklıklarını göstermektedir.</p>
+<div id="fig-braycurtis1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-braycurtis1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/braycurtis1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-braycurtis1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Şekil&nbsp;13.2: Çalışma kapsamında kullanıan bütün örneklerin sahip oldukları tipik Bray Curtis uzaklıkları
+</figcaption>
+</figure>
+</div>
+<div id="fig-braycurtis2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-braycurtis2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/braycurtis2.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-braycurtis2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Şekil&nbsp;13.3: Sadece sakız örneklerinin, diğer karşılaştırma örneklerine olan uzaklıkları
+</figcaption>
+</figure>
+</div>
+<p>Ancak bu şekiller çok rahat okunmuyor. Bir görselleştirme yöntemi olan Non-metric multidimensional scaling metodunu kullanarak, elimizdeki Bray-Curtis matrisini görselleştrelim (<span class="quarto-unresolved-ref">?fig-nmds</span>). Aşağıdaki kodu çalıştırmamız gereklidir:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/Figure-1.R <span class="at">--profile</span> data/microbial-profile.txt <span class="at">--metadata</span> data/microbial-metadata.txt <span class="at">--out</span> Results/BetaDiversity/Figure-1.pdf</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Figure-1.png" class="img-fluid figure-img"></p>
+<figcaption>NMDS yöntemi ile görselleştirilmiş Bray Curtis uzaklık matrisi</figcaption>
+</figure>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -774,13 +885,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../01-lectures/02-fastq-quality-control.html" class="pagination-link" aria-label="Fastq kalite kontrol">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Fastq kalite kontrol</span></span>
+      <a href="../02-practice/02-rnaseq-project.html" class="pagination-link" aria-label="RNA Dizileme Proje Örneği">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">RNA Dizileme Proje Örneği</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../01-lectures/04-alignment-variant-calling-01.html" class="pagination-link" aria-label="Hizalama">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hizalama</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../references.html" class="pagination-link" aria-label="Kaynakça">
+        <span class="nav-page-text">Kaynakça</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

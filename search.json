@@ -458,6 +458,50 @@
     ]
   },
   {
+    "objectID": "02-practice/03-metagenomics.html",
+    "href": "02-practice/03-metagenomics.html",
+    "title": "13  Metagenomik pratik",
+    "section": "",
+    "text": "13.1 Proje klasörünün kurulumu\nÖncelikle çalışmada kullanacağımız kodları indirmek için depoyu çalışma alanımza klonlayalım:\nArdından kodlarımızın bulunduğu klasöre gidelim:\nÇalışma kapsamında kulanacağımız R kodlarını çalıştırmak için öncelikle conda ile R paketlerinin olduğu çevreyi kuralım. Ancak Metaphlan3 programı bu paket içerisinde yok. O programı siz sunucu üzerinde kurmalısınız. Conda paketi kurulumu için Bölüm A.1 kısmına bakabilirsiniz.\nÇalışma kapsamında kullanacağımız veri setini aşağıda https://zenodo.org/records/1025296 bağlantısından indirebilirsiniz. Bu veri setini indirin ve proje klasörü içerisinde Data olarak kaydediniz. Ham fastq dosyaları ve ara adımlara ait bam ve Metaphlan dosyaları ise ayrı bir bağlantı olarak verilecektir.\nSon olarak çalışmada kullanacağımız çıktıları depolayacağımız klasörleri oluşturalım:",
+    "crumbs": [
+      "Pratikler",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Metagenomik pratik</span>"
+    ]
+  },
+  {
+    "objectID": "02-practice/03-metagenomics.html#proje-klasörünün-kurulumu",
+    "href": "02-practice/03-metagenomics.html#proje-klasörünün-kurulumu",
+    "title": "13  Metagenomik pratik",
+    "section": "",
+    "text": "git clone https://github.com/emrahkirdok/bioinformatics.git\n\ncd bioinformatics/02-practice/ancient-metagenomics\n\nconda create --file env/environment.yml\nconda activate harpix\n\n\nmkdir -p Results/metaphlan\nmkdir -R Results/BetaDiversity",
+    "crumbs": [
+      "Pratikler",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Metagenomik pratik</span>"
+    ]
+  },
+  {
+    "objectID": "02-practice/03-metagenomics.html#metaphlan3-ile-analiz",
+    "href": "02-practice/03-metagenomics.html#metaphlan3-ile-analiz",
+    "title": "13  Metagenomik pratik",
+    "section": "13.2 Metaphlan3 ile analiz",
+    "text": "13.2 Metaphlan3 ile analiz\nBu programı çalıştırmak için öncelikle elinizde Metaphlan3 veri tabanının olması gereklidir. Programı indirdikten sonra ilk çalıştırmanızda bu veri tabanı otomatik bir şekilde kuruluyor. En basit şekilde Metaphlan3 programını aşağıdaki şekilde çalıştırabilirsiniz:\nmetaphlan \n    --input_type fastq data/ble004-b1e1l1p1_ACCAACT_L003_ARmerged.180518_ST-E00201_0274_AHLCM3CCXY.all_unmapped.fastq.gz \n    -s Results/metaphlan/le004-b1e1l1p1_ACCAACT_L003_ARmerged.180518_ST-E00201_0274_AHLCM3CCXY.all.sam \n    --nproc 20\n    --bowtie2out Results/metaphlan/le004-b1e1l1p1_ACCAACT_L003_ARmerged.180518_ST-E00201_0274_AHLCM3CCXY.all.bowtie2out \\\n    --bowtie2db ${DB} \n    -x ${DBNAME} &gt; Results/metaphlan/${BASE}_metaphlan.txt\n``` \n\nEğer elimizde aynı örneğe ait olan birden fazla fastq dosyası varsa, bir `for` döngüsü yazabiliriz. Sakız makalesinde de bu süreç uygulandı. Önce her örneğe ait `fastq` dosyaları analiz edildi, daha elde edilen `sam` dosyaları birleştirilerek son bir analiz yapıldı:\n\n```bash\nml bioinfo-tools MetaPhlAn3 samtools\n\n# Database location\nDB=/sw/bioinfo/MetaPhlAn3/3.0.8/rackham/lib/python3.8/site-packages/metaphlan/metaphlan_databases\n# Database name\nDBNAME=mpa_v30_CHOCOPhlAn_201901\n\nID=ble004\nFILES=sequences.txt\nTHREADS=10\n\n# Run metaphlan for every fastq file of a specific sample\nfor FASTQ in $(grep ${ID} ${FILES})\ndo\n    BASE=$(basename $FASTQ _unmapped.fastq.gz)\n    metaphlan --input_type fastq ${FASTQ} -s Results/metaphlan/${BASE}.sam --nproc ${THREADS} --bowtie2out Results/metaphlan/${BASE}.bowtie2out --bowtie2db ${DB} -x ${DBNAME} &gt; Results/metaphlan/${BASE}_metaphlan.txt\n\n    # Convert sam files to a bam file, and sort\n    # This makes the process fast   \n    samtools view -Sb Results/metaphlan/${BASE}.sam &gt; Results/metaphlan/${BASE}.bam\n    samtools sort Results/metaphlan/${BASE}.bam &gt; Results/metaphlan/${BASE}.sorted.bam\ndone\nDaha sonra bütün örneklere ait bam dosyalarını birleştirelim:\n# Collect all bam files for a specific sample   \nBAMS=\"\"\n\nfor FASTQ in $(grep ${ID} ${FILES})\ndo\n    BASE=$(basename $FASTQ _unmapped.fastq.gz)\n    BAMS=\"${BAMS} Results/metaphlan/${BASE}.sorted.bam\"\ndone\n\n# Merge all bam files that belongs to the specific sample\nsamtools merge -o Results/metaphlan/${ID}.bam ${BAMS}\nsamtools sort Results/metaphlan/${ID}.bam &gt; Results/metaphlan/${ID}.sorted.bam\n\n# Mark duplicates\nsamtools markdup -r Results/metaphlan/${ID}.sorted.bam  Results/metaphlan/${ID}.sorted.rmdup.bam\n\n# Metaphlan3 can read sam files. But it has to be a sam file, so convert it to a sam file\nsamtools view -h Results/metaphlan/${ID}.sorted.rmdup.bam &gt; Results/metaphlan/${ID}.sorted.rmdup.sam\n\n# Run metaphlan3 for the sam file\nmetaphlan --input_type sam Results/metaphlan/${ID}.sorted.rmdup.sam \\\n    -s ${ID}.sam --nproc ${THREADS} \\\n    --bowtie2out Results/metaphlan/${ID}.bowtie2out \\\n    --bowtie2db ${DB} -x ${DBNAME} &gt;  Results/metaphlan/${ID}_metaphlan.txt\nHer örneğe ait olan Metaphlan dosyalarını birleştirelim. Aşağıda gösterilen merge_metaphlan_tables.py kodu, metaphlan ile gelmekte. Ancak her zaman PATH içerisinde olmuyor:\nmerge_metaphlan_tables.py   Results/metaphlan/ble*_metaphlan.txt  Results/metaphlan/ble007_metaphlan.txt Results/metaphlan/ble008_metaphlan.txt &gt; Results/metaphlan/ble.txt\nSon olarak bu örnekler içerisindeki tür profillerini elde edelim:\ngrep -E \"s__|clade\" Results/metaphlan/ble.txt | sed 's/^.*s__//g' |cut -f1,3-8 | sed -e 's/clade_name/body_site/g' &gt; Results/metaphlan/ble.txt\nBu tür profillerini hclust2.py programı ile bir ısı grafiğine çevirelim. Burada opsiyonları değiştirin, her zaman güzel grafikler oluşmuyor. Ayrıca bu programı ayrıca kurmanız gereklidir:\n hclust2.py -i Results/metaphlan/ble.txt -o Results/metaphlan/abundance_heatmap_species.png --f_dist_f braycurtis --s_dist_f braycurtis --cell_aspect_ratio 0.5 -l --flabel_size 10 --slabel_size 10 --max_flabel_len 100 --max_slabel_len 100 --minv 0.1 --dpi 300",
+    "crumbs": [
+      "Pratikler",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Metagenomik pratik</span>"
+    ]
+  },
+  {
+    "objectID": "02-practice/03-metagenomics.html#alfa-ve-beta-çeşitlilik-analizleri",
+    "href": "02-practice/03-metagenomics.html#alfa-ve-beta-çeşitlilik-analizleri",
+    "title": "13  Metagenomik pratik",
+    "section": "13.3 Alfa ve Beta çeşitlilik analizleri",
+    "text": "13.3 Alfa ve Beta çeşitlilik analizleri\nÖrneklerimizde bulunan mikrobiyal içeriği incelemeye başlayabiliriz. Bunun için öncelikle iki tane dosyaya ihtiyacımız olacaktır:\n\nData/microbial-profile.txt: Antik diş taşları, diğer antik sakızlar, ve insan mikrobiyota projesinden elde edilmiş Metaphlan3 sonuçları\nData/microbial-metadata.txt: Bu örneklere ait metabilgiler\n\nGelin bu dosyaları inceleyelim:\nless -S Data/microbial-profile.txt\nless -S Data/microbial-metadata.txt\nİlk olarak örneklerde bulunan Phylum içeriklerine bakalım. Bu şekli oluşturmak için aşağıdaki komutu çalıştırmalısınız:\nRscript scripts/Figure-S1.R --profile Data/microbial-profile.txt --metadata Data/microbial-metadata.txt --out Results/BetaDiversity/Figure-S1.pdf\nBu işlemin sonucunda Şekil 13.1’de gösterilen şekil oluşmalı.\n\n\n\n\n\n\nŞekil 13.1: Antik sakız örnekleri ve karşılaştırma verisinin filum içerikleri\n\n\n\nÖrneklerin arasındaki Bray-Curtis uzaklıklarına bakalım şimdi. Bunun için aşağıdaki kodu çalıştıralım:\nRscript workflow/scripts/distance_plots.R --profile Data/microbial-profile.txt --metadata Data/microbial-metadata.txt --out1 Results/BetaDiversity/Bray_Curtis.pdf --out2 Results/BetaDiversity/Figure-S3.pdf\nBu kodu çalıştırdığımızda iki farklı şekil oluşacak. Şekil 13.2 bize, her örneğin sahip olduğu bray curtis uzaklıklarını vermektedir. Şekil 13.3 ise sadece sakız örneklerinin, diğer karşılaştırma örneklerine olan uzaklıklarını göstermektedir.\n\n\n\n\n\n\nŞekil 13.2: Çalışma kapsamında kullanıan bütün örneklerin sahip oldukları tipik Bray Curtis uzaklıkları\n\n\n\n\n\n\n\n\n\nŞekil 13.3: Sadece sakız örneklerinin, diğer karşılaştırma örneklerine olan uzaklıkları\n\n\n\nAncak bu şekiller çok rahat okunmuyor. Bir görselleştirme yöntemi olan Non-metric multidimensional scaling metodunu kullanarak, elimizdeki Bray-Curtis matrisini görselleştrelim (?fig-nmds). Aşağıdaki kodu çalıştırmamız gereklidir:\nRscript scripts/Figure-1.R --profile data/microbial-profile.txt --metadata data/microbial-metadata.txt --out Results/BetaDiversity/Figure-1.pdf\n\n\n\nNMDS yöntemi ile görselleştirilmiş Bray Curtis uzaklık matrisi",
+    "crumbs": [
+      "Pratikler",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Metagenomik pratik</span>"
+    ]
+  },
+  {
     "objectID": "10-appendices/software-used.html",
     "href": "10-appendices/software-used.html",
     "title": "Ek A — Kullanılan Programlar",
@@ -469,8 +513,8 @@
     ]
   },
   {
-    "objectID": "10-appendices/software-used.html#programların-kurulumu",
-    "href": "10-appendices/software-used.html#programların-kurulumu",
+    "objectID": "10-appendices/software-used.html#sec-kurulum",
+    "href": "10-appendices/software-used.html#sec-kurulum",
     "title": "Ek A — Kullanılan Programlar",
     "section": "",
     "text": "wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh\nbash Miniconda3-latest-Linux-x86_64.sh\n\n\nrm Miniconda3-latest-Linux-x86_64.sh\n\neval \"$(/truba/home/$USER/miniconda3/bin/conda shell.bash hook)\"\nconda update conda\n\nconda create --name quality-control\nconda activate quality-control\n\nconda install fastqc cutadapt -c bioconda",
