@@ -27,7 +27,7 @@ Son olarak çalışmada kullanacağımız çıktıları depolayacağımız klas�
 
 ```bash
 mkdir -p Results/metaphlan
-mkdir -R Results/BetaDiversity
+mkdir -p Results/BetaDiversity
 ```
 
 ## Metaphlan3 ile analiz
@@ -104,7 +104,7 @@ metaphlan --input_type sam Results/metaphlan/${ID}.sorted.rmdup.sam \
 Her örneğe ait olan Metaphlan dosyalarını birleştirelim. Aşağıda gösterilen `merge_metaphlan_tables.py` kodu, metaphlan ile gelmekte. Ancak her zaman `PATH` içerisinde olmuyor:
 
 ```bash
-merge_metaphlan_tables.py   Results/metaphlan/ble*_metaphlan.txt  Results/metaphlan/ble007_metaphlan.txt Results/metaphlan/ble008_metaphlan.txt > Results/metaphlan/ble.txt
+merge_metaphlan_tables.py  Results/metaphlan/ble*_metaphlan.txt  Results/metaphlan/ble007_metaphlan.txt Results/metaphlan/ble008_metaphlan.txt > Results/metaphlan/ble.txt
 ```
 
 Son olarak bu örnekler içerisindeki tür profillerini elde edelim:
