@@ -66,6 +66,42 @@ conda env update --file envs/rnaseq.yaml
 
 komutuyla en son güncellemeyi sağlayabiliriz.
 
+İlerleyen süreçte kullanacağımız R çerçevesini de kullanılacağı zaman aktive etmek üzere kuralım.
+
+```bash
+conda env create --file envs/r.yaml
+```
+
+## Okumaların ve Referans Genomların Alınması
+
+Bu kısımda örnek bir veri setiyle çalışacağız. Klonlanan klasörümüzdeki 'data_ena.txt' metin dosyasında bulunan işlenmemiş (ham) okumalar, bu okumalara ait bilgiler ve indirme linkleri bulunuyor. Aynı klasörde 'data.txt' metin dosyasında ise bir önceki metin dosyasından alınmış dört örnek mevucttur.
+
+Proje klasöründe bulunan 'raw' klasöründe işlenmemiş okumalar bulunurken 'ref' klasöründe referans genomumuz bulunmaktadır.
+
+```bash
+mkdir -p data/raw
+mkdir -p data/ref
+```
+
+### Ham Okumaların Alınması
+
+Tüm ham okumaları kapsayan listede hem çift yönlü (paired-end, pe) hem de tek yönlü (single-end, se) okumalar bulunuyor. Bu iki tip okumalar farklı işleneceği için klasörlerde bazı ayrımlar yapmamız gerekiyor. Bunun için 'raw' klasörüne bunun için 'pe' ve 'se' klasörleri oluşturalım.
+
+'data.txt' dosyasında mevcut olan örneklerimizin hepsi tek yönlüdür (se). Tek yönlü bu okumalarımız için gerekli klasöre gidelim.
+
+```bash
+cd data/raw/se
+```
+
+'data_ena.txt' dosyasından incelenecek okumanın linkini kopyalayıp indirelim ('ftp://' ön takısını ekleyelim.).
+
+```bash
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR702/005/SRR7029605/SRR7029605.fastq.gz
+```
+
+Diğer üç örnek için de aynı kodu oluşturup çalıştıralım. Sonuçta 'se' klasöründe toplamda dört tane 'fastq.gz' uzantılı dosya eklenmiş olduğunu kontrol edelim.
+
+### Referans Genomun Alınması
 
 
 
