@@ -1,0 +1,21 @@
+---
+title : "RNA dizileme veri analizi"
+author: "Yasemin İrem Şahin"
+
+---
+
+RNA dizileme veri analizi, modern biyolojik araştırmalarda gen ifadesini anlamak için kullanılan güçlü bir yöntemdir. Bu bağlamda, komut satırı üzerinden işlemlerimizi gerçekleştiriyoruz.
+
+RNA dizileme çalışması kapsamında şu aşamalar bulunmaktadır:
++ Biyolojik bir numuneden RNA izolasyonu
++ RNA’nın cDNA’ya dönüştürülmesi (ters transkripsiyon)
++ cDNA’nın fragmentlerine ayrılması
++ cDNA parçaları kitaplığının hazırlanması ve yeni nesil dizileme kullanılarak dizilenmesi
++ Ham fastq dosyalarının eldesi
++ Dizilerin 'cutadapt' ile işlenerek, 'fastqc' aracı ile kalite kontrolden geçirilmesi
++ Fastq’ların referans genoma hizalanması ve RNA dizileme verisi eldesi
++ Gen ekspresyonu belirlenmesi için referans genoma hizalanan dizilerin sayılması
++ Gene okumaları sayıldıktan sonra, sağlıklı ve hastalıklı koşulların karşılaştırılması
+
+
+
