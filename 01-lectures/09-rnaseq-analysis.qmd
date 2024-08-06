@@ -4,6 +4,8 @@ author: "Yasemin İrem Şahin"
 
 ---
 
+# RNAseq
+
 RNA dizileme veri analizi, modern biyolojik araştırmalarda gen ifadesini anlamak için kullanılan güçlü bir yöntemdir. Bu bağlamda, komut satırı üzerinden işlemlerimizi gerçekleştiriyoruz.
 
 RNA dizileme çalışması kapsamında şu aşamalar bulunmaktadır:
@@ -16,6 +18,67 @@ RNA dizileme çalışması kapsamında şu aşamalar bulunmaktadır:
 + Fastq’ların referans genoma hizalanması ve RNA dizileme verisi eldesi
 + Gen ekspresyonu belirlenmesi için referans genoma hizalanan dizilerin sayılması
 + Gene okumaları sayıldıktan sonra, sağlıklı ve hastalıklı koşulların karşılaştırılması
+
+# RNA Dizileme İşlemi
+
+## Git Deposu ile Klonlama
+
+İlk olarak, [Nursena Kocatürk'ün oluşturduğu Github deposuna](https://github.com/nursenakocaturk/rnaseq) giderek RNA dizileme için ihtiyaç duyduğumuz dosya ve betikleri bilgisayarımıza ekliyoruz.
+
+'Code' kutucuğuna tıklayarak çıkan https bağlantısını kopyalayalım.
+
+Terminalde oluşturduğumuz proje klasörüne girelim ve linki
+
+```bash
+git clone https://github.com/nursenakocaturk/rnaseq
+```
+komutuyla işleyelim.
+
+Kullanılacak referans genom ve ham DNA okumaları klasörümüzün içinde oluşacak `data` klasöründe yer alacaktır. İşlenen veriler (çıktılar ve DNA okumaları) de yine proje klasörü içinde `results` klasöründe yer alacaktır. Bu klasörleri indireceğimiz betiklerle oluşturacağız.
+
+## Conda (Miniconda) Kurulumu ve Aktifleştirilmesi
+
+[Conda](https://docs.conda.io/projects/conda/en/stable/user-guide/install/download.html) programlarından işletim sistemimize (Ubuntu için Linux) uygun olanı indirelim. Bağlantı linkini kopyalayıp
+
+```bash
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+```
+örneğindeki gibi yükleyelim. Ardından Conda çerçevelerini kurup aktive edelim. Bu çerçevelerde gerekli tüm paketler mevcuttur. Dolayısıyla sadece bize lazım olan çerçeveleri kullanacağız.
+
+Önce RNAseq çevresini kuralım.
+
+```bash
+conda env create --file envs/rnaseq.yaml
+```
+
+Ardından bu çerçeveyi aktive edelim.
+
+```bash
+conda activate rnaseq
+```
+Artık komut satırının başında aktive olan çerçevenin adı parantes içinde görünmelidir.
+
+Eğer Conda çerçevemizin güncel bir versiyonda olup olmadığından emin değilsek
+
+```bash
+conda env update --file envs/rnaseq.yaml
+```
+
+komutuyla en son güncellemeyi sağlayabiliriz.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
