@@ -170,7 +170,20 @@ ya da
 ./part4.sh data.txt
 ```
 
-# 
+# Hizalanan Verilerle Sayı Matrisi Oluşturma
+
+Bu kısımda 'part5.sh' betiği ve 'counts' aracı kullanacağız. Bu betikte hizalama sonucundaki veriler, artık gen ifadesi düzeyinde yapılacak analizlerin baş rolü olan gen ifadesi matrisleri yapılmaktadır. 'part5.sh' betiği r çerçevesinde çalıştırılmaktadır, dolayısıyla önce r çerçevesini aktive etmek gerekmektedir.
+
+```bash
+conda activate r
+```
+```bash
+./part5.sh data.txt bwa
+```
+
+
+
+
 
 
 
