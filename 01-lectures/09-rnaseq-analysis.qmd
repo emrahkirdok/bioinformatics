@@ -1,0 +1,184 @@
+---
+title : "RNA dizileme veri analizi"
+author: "Yasemin İrem Şahin"
+
+---
+
+# RNAseq
+
+RNA dizileme veri analizi, modern biyolojik araştırmalarda gen ifadesini anlamak için kullanılan güçlü bir yöntemdir. Bu bağlamda, komut satırı üzerinden işlemlerimizi gerçekleştiriyoruz.
+
+RNA dizileme çalışması kapsamında şu aşamalar bulunmaktadır:
++ Biyolojik bir numuneden RNA izolasyonu
++ RNA’nın cDNA’ya dönüştürülmesi (ters transkripsiyon)
++ cDNA’nın fragmentlerine ayrılması
++ cDNA parçaları kitaplığının hazırlanması ve yeni nesil dizileme kullanılarak dizilenmesi
++ Ham fastq dosyalarının eldesi
++ Dizilerin 'cutadapt' ile işlenerek, 'fastqc' aracı ile kalite kontrolden geçirilmesi
++ Fastq’ların referans genoma hizalanması ve RNA dizileme verisi eldesi
++ Gen ekspresyonu belirlenmesi için referans genoma hizalanan dizilerin sayılması
++ Gene okumaları sayıldıktan sonra, sağlıklı ve hastalıklı koşulların karşılaştırılması
+
+# RNA Dizileme İşlemi
+
+## Git Deposu ile Klonlama
+
+İlk olarak, [Nursena Kocatürk'ün oluşturduğu Github deposuna](https://github.com/nursenakocaturk/rnaseq) giderek RNA dizileme için ihtiyaç duyduğumuz dosya ve betikleri bilgisayarımıza ekliyoruz.
+
+'Code' kutucuğuna tıklayarak çıkan https bağlantısını kopyalayalım.
+
+Terminalde oluşturduğumuz proje klasörüne girelim ve linki
+
+```bash
+git clone https://github.com/nursenakocaturk/rnaseq
+```
+komutuyla işleyelim.
+
+Kullanılacak referans genom ve ham DNA okumaları klasörümüzün içinde oluşacak `data` klasöründe yer alacaktır. İşlenen veriler (çıktılar ve DNA okumaları) de yine proje klasörü içinde `results` klasöründe yer alacaktır. Bu klasörleri indireceğimiz betiklerle oluşturacağız.
+
+## Conda (Miniconda) Kurulumu ve Aktifleştirilmesi
+
+[Conda](https://docs.conda.io/projects/conda/en/stable/user-guide/install/download.html) programlarından işletim sistemimize (Ubuntu için Linux) uygun olanı indirelim. Bağlantı linkini kopyalayıp
+
+```bash
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+```
+örneğindeki gibi yükleyelim. Ardından Conda çerçevelerini kurup aktive edelim. Bu çerçevelerde gerekli tüm paketler mevcuttur. Dolayısıyla sadece bize lazım olan çerçeveleri kullanacağız.
+
+Önce RNAseq çevresini kuralım.
+
+```bash
+conda env create --file envs/rnaseq.yaml
+```
+
+Ardından bu çerçeveyi aktive edelim.
+
+```bash
+conda activate rnaseq
+```
+Artık komut satırının başında aktive olan çerçevenin adı parantes içinde görünmelidir.
+
+Eğer Conda çerçevemizin güncel bir versiyonda olup olmadığından emin değilsek
+
+```bash
+conda env update --file envs/rnaseq.yaml
+```
+
+komutuyla en son güncellemeyi sağlayabiliriz.
+
+İlerleyen süreçte kullanacağımız R çerçevesini de kullanılacağı zaman aktive etmek üzere kuralım.
+
+```bash
+conda env create --file envs/r.yaml
+```
+
+## Okumaların ve Referans Genomların Alınması
+
+Bu kısımda örnek bir veri setiyle çalışacağız. Klonlanan klasörümüzdeki 'data_ena.txt' metin dosyasında bulunan işlenmemiş (ham) okumalar, bu okumalara ait bilgiler ve indirme linkleri bulunuyor. Aynı klasörde 'data.txt' metin dosyasında ise bir önceki metin dosyasından alınmış dört örnek mevucttur.
+
+Proje klasöründe bulunan 'raw' klasöründe işlenmemiş okumalar bulunurken 'ref' klasöründe referans genomumuz bulunmaktadır.
+
+```bash
+mkdir -p data/raw
+mkdir -p data/ref
+```
+
+### Ham Okumaların Alınması
+
+Tüm ham okumaları kapsayan listede hem çift yönlü (paired-end, pe) hem de tek yönlü (single-end, se) okumalar bulunuyor. Bu iki tip okumalar farklı işleneceği için klasörlerde bazı ayrımlar yapmamız gerekiyor. Bunun için 'raw' klasörüne bunun için 'pe' ve 'se' klasörleri oluşturalım.
+
+'data.txt' dosyasında mevcut olan örneklerimizin hepsi tek yönlüdür (se). Tek yönlü bu okumalarımız için gerekli klasöre gidelim.
+
+```bash
+cd data/raw/se
+```
+
+'data_ena.txt' dosyasından incelenecek okumanın linkini kopyalayıp indirelim ('ftp://' ön takısını ekleyelim.).
+
+```bash
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR702/005/SRR7029605/SRR7029605.fastq.gz
+```
+
+Diğer üç örnek için de aynı kodu oluşturup çalıştıralım. Sonuçta 'se' klasöründe toplamda dört tane 'fastq.gz' uzantılı dosya eklenmiş olduğunu kontrol edelim.
+
+### Referans Genomun Alınması
+
+Referans genom için 'ref' klasöründeki referans dosyalarını 'gunzip' komutuyla çalıştıralım.
+
+```bash
+cd data/ref
+```
+
+```bash
+wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/007/565/GCA_000007565.2_ASM756v2/GCA_000007565.2_ASM756v2_genomic.fna.gz
+
+gunzip GCA_000007565.2_ASM756v2_genomic.fna.gz
+
+wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/007/565/GCA_000007565.2_ASM756v2/GCA_000007565.2_ASM756v2_genomic.gff.gz
+
+gunzip GCA_000007565.2_ASM756v2_genomic.gff.gz
+
+wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/007/565/GCA_000007565.2_ASM756v2/GCA_000007565.2_ASM756v2_genomic.gtf.gz
+
+gunzip GCA_000007565.2_ASM756v2_genomic.gtf.gz
+```
+
+İndirdiğimiz referans genom dosyasını 'gunzip' komutuyla çalışmalı ki indeksleme doğru şekilde olabilsin.
+
+# Yeni Nesil Dizileme Verilerinin Kalite Kontrolü
+
+Bu kısımda 'part1.sh' betiğini kullanacağız. Bu betik 'sra-tools' paketindeki programlarla fastq dosyalarını indirip `fastqc` programıyla kalite kontrol yapmaktadır. Fastqc programı, yüksek verimli DNA dizileme hatlarından gelen örnek veriler üzerinde kalite kontrol yapar. Fastq komutları `fastqc_se.sh’` ve `fastqc_pe.sh` betiklerinde mevcuttur. 'fastq' dosyalarının SRA kodlarını taşıyan 'data.txt' dosyasını oluşturalım ve içinde, indirilecek 'fastq' dosyasının SRA kodu ve dizilendiği uçların (pe/se) bilgilerine sahip iki sütun olsun.
+
+```
+ERR10671864 pe
+ERR10671865 pe
+```
+
+Çalıştırmak için betiği aktive edelim.
+
+```bash
+./part1.sh data.txt
+```
+
+# Fastq Dosyalarını İşleme
+
+Bu kısımda 'part2.sh' veya 'trimmomatic.sh' betiklerini kullanacağız. 'part2.sh' betiğindeki 'cutadapt' programı da 'trimmomatic.sh' betiğindeki 'trimmomatic' programı da fastqc dosyalarının işleme adımlarında etkilidir. Her iki program da adaptör dizilerini, primerleri ve diğer istemeyen dizileri yüksek verimli verilerden ayırır. Bu betikler kullanıldığında yeniden fastq aracı karşımıza çıkacaktır, çünkü 'part2.sh' betiği içinde 'part1.sh' betiği tekrar çalıştırılmaktadır.
+
+'cutadapt' komutları 'cutadapt_se.sh' ve 'cutadapt_pe.sh' betiklerinde bulunurken 'trimmomatic' komutları da 'trimmomatic_pe.sh' ve 'trimmomatic_se.sh' betiklerinde bulunmaktadır. Betik dosyaları 'scripts' klasöründe mevcuttur.
+
+```bash
+./part2.sh data.txt
+```
+
+ya da
+
+```bash
+./trimmomatic.sh data.txt
+```
+
+# İşlenmiş Yeni Nesil Dizileme Verilerinin Referans Genomuna hizalanması
+
+Bu kısımda 'part3.sh' veya 'part4.sh' betiklerini kullanacağız. 'part3.sh' betiği 'BWA' aracını, 'part4.sh' betiği ise 'Bowtie2' aracını çalıştırır. Bu araçlar, verileri referans genoma hizalamayı sağlamaktadır. Böylece RNA dizileme okumalarını referans genoma hiazalar ve hizalamaları 'sam' dosyası halinde çıkarırlar. BWA komutları 'bwa_se.sh' ve 'bwa_pe.sh' betiklerinde, Bowtie2 komutları ise 'bowtie_pe.sh' ve 'bowtie_se.sh' betiklerinde bulunmaktadır.
+
+```bash
+./part3.sh data.txt
+```
+
+ya da
+
+```bash
+./part4.sh data.txt
+```
+
+# Hizalanan Verilerle Sayı Matrisi Oluşturma
+
+Bu kısımda 'part5.sh' betiği ve 'counts' aracı kullanacağız. Bu betikte hizalama sonucundaki veriler, artık gen ifadesi düzeyinde yapılacak analizlerin baş rolü olan gen ifadesi matrisleri yapılmaktadır. 'part5.sh' betiği r çerçevesinde çalıştırılmaktadır, dolayısıyla önce r çerçevesini aktive etmek gerekmektedir.
+
+```bash
+conda activate r
+```
+```bash
+./part5.sh data.txt bwa
+```
+
+
