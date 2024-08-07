@@ -158,9 +158,19 @@ ya da
 
 # İşlenmiş Yeni Nesil Dizileme Verilerinin Referans Genomuna hizalanması
 
-Bu kısımda 'part3.sh' veya 'part4.sh' betiklerini kullanacağız. 
+Bu kısımda 'part3.sh' veya 'part4.sh' betiklerini kullanacağız. 'part3.sh' betiği 'BWA' aracını, 'part4.sh' betiği ise 'Bowtie2' aracını çalıştırır. Bu araçlar, verileri referans genoma hizalamayı sağlamaktadır. Böylece RNA dizileme okumalarını referans genoma hiazalar ve hizalamaları 'sam' dosyası halinde çıkarırlar. BWA komutları 'bwa_se.sh' ve 'bwa_pe.sh' betiklerinde, Bowtie2 komutları ise 'bowtie_pe.sh' ve 'bowtie_se.sh' betiklerinde bulunmaktadır.
 
+```bash
+./part3.sh data.txt
+```
 
+ya da
+
+```bash
+./part4.sh data.txt
+```
+
+# 
 
 
 
