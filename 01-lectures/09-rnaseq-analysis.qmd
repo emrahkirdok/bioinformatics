@@ -103,6 +103,63 @@ Diğer üç örnek için de aynı kodu oluşturup çalıştıralım. Sonuçta 's
 
 ### Referans Genomun Alınması
 
+Referans genom için 'ref' klasöründeki referans dosyalarını 'gunzip' komutuyla çalıştıralım.
+
+```bash
+cd data/ref
+```
+
+```bash
+wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/007/565/GCA_000007565.2_ASM756v2/GCA_000007565.2_ASM756v2_genomic.fna.gz
+
+gunzip GCA_000007565.2_ASM756v2_genomic.fna.gz
+
+wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/007/565/GCA_000007565.2_ASM756v2/GCA_000007565.2_ASM756v2_genomic.gff.gz
+
+gunzip GCA_000007565.2_ASM756v2_genomic.gff.gz
+
+wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/007/565/GCA_000007565.2_ASM756v2/GCA_000007565.2_ASM756v2_genomic.gtf.gz
+
+gunzip GCA_000007565.2_ASM756v2_genomic.gtf.gz
+```
+
+İndirdiğimiz referans genom dosyasını 'gunzip' komutuyla çalışmalı ki indeksleme doğru şekilde olabilsin.
+
+# Yeni Nesil Dizileme Verilerinin Kalite Kontrolü
+
+Bu kısımda 'part1.sh' betiğini kullanacağız. Bu betik 'sra-tools' paketindeki programlarla fastq dosyalarını indirip `fastqc` programıyla kalite kontrol yapmaktadır. Fastqc programı, yüksek verimli DNA dizileme hatlarından gelen örnek veriler üzerinde kalite kontrol yapar. Fastq komutları `fastqc_se.sh’` ve `fastqc_pe.sh` betiklerinde mevcuttur. 'fastq' dosyalarının SRA kodlarını taşıyan 'data.txt' dosyasını oluşturalım ve içinde, indirilecek 'fastq' dosyasının SRA kodu ve dizilendiği uçların (pe/se) bilgilerine sahip iki sütun olsun.
+
+```
+ERR10671864 pe
+ERR10671865 pe
+```
+
+Çalıştırmak için betiği aktive edelim.
+
+```bash
+./part1.sh data.txt
+```
+
+# Fastq Dosyalarını İşleme
+
+Bu kısımda 'part2.sh' veya 'trimmomatic.sh' betiklerini kullanacağız. 'part2.sh' betiğindeki 'cutadapt' programı da 'trimmomatic.sh' betiğindeki 'trimmomatic' programı da fastqc dosyalarının işleme adımlarında etkilidir. Her iki program da adaptör dizilerini, primerleri ve diğer istemeyen dizileri yüksek verimli verilerden ayırır. Bu betikler kullanıldığında yeniden fastq aracı karşımıza çıkacaktır, çünkü 'part2.sh' betiği içinde 'part1.sh' betiği tekrar çalıştırılmaktadır.
+
+'cutadapt' komutları 'cutadapt_se.sh' ve 'cutadapt_pe.sh' betiklerinde bulunurken 'trimmomatic' komutları da 'trimmomatic_pe.sh' ve 'trimmomatic_se.sh' betiklerinde bulunmaktadır. Betik dosyaları 'scripts' klasöründe mevcuttur.
+
+```bash
+./part2.sh data.txt
+```
+
+ya da
+
+```bash
+./trimmomatic.sh data.txt
+```
+
+# İşlenmiş Yeni Nesil Dizileme Verilerinin Referans Genomuna hizalanması
+
+Bu kısımda 'part3.sh' veya 'part4.sh' betiklerini kullanacağız. 
+
 
 
 
