@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Yasemin İrem Şahin">
 
-<title>6&nbsp; Fastq kalite kontrol – Biyoinformatik</title>
+<title>10&nbsp; RNA dizileme veri analizi – Biyoinformatik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../01-lectures/03-fastq-processing.html" rel="next">
-<link href="../01-lectures/01-ynd.html" rel="prev">
+<link href="../01-lectures/08-metagenomics.html" rel="next">
+<link href="../01-lectures/05-alignment-variant-calling-02.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-lectures/01-ynd.html">Dersler</a></li><li class="breadcrumb-item"><a href="../01-lectures/02-fastq-quality-control.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Fastq kalite kontrol</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-lectures/01-ynd.html">Dersler</a></li><li class="breadcrumb-item"><a href="../01-lectures/09-rnaseq-analysis.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">RNA dizileme veri analizi</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Aramak" onclick="window.quartoOpenSearch();">
@@ -212,7 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-lectures/02-fastq-quality-control.html" class="sidebar-item-text sidebar-link active">
+  <a href="../01-lectures/02-fastq-quality-control.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Fastq kalite kontrol</span></span></a>
   </div>
 </li>
@@ -236,7 +237,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-lectures/09-rnaseq-analysis.html" class="sidebar-item-text sidebar-link">
+  <a href="../01-lectures/09-rnaseq-analysis.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">RNA dizileme veri analizi</span></span></a>
   </div>
 </li>
@@ -311,21 +312,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Içindekiler</h2>
+   
+  <ul>
+  <li><a href="#rnaseq" id="toc-rnaseq" class="nav-link active" data-scroll-target="#rnaseq"><span class="header-section-number">11</span> RNAseq</a></li>
+  <li><a href="#rna-dizileme-işlemi" id="toc-rna-dizileme-işlemi" class="nav-link" data-scroll-target="#rna-dizileme-işlemi"><span class="header-section-number">12</span> RNA Dizileme İşlemi</a>
+  <ul class="collapse">
+  <li><a href="#git-deposu-ile-klonlama" id="toc-git-deposu-ile-klonlama" class="nav-link" data-scroll-target="#git-deposu-ile-klonlama"><span class="header-section-number">12.1</span> Git Deposu ile Klonlama</a></li>
+  <li><a href="#conda-miniconda-kurulumu-ve-aktifleştirilmesi" id="toc-conda-miniconda-kurulumu-ve-aktifleştirilmesi" class="nav-link" data-scroll-target="#conda-miniconda-kurulumu-ve-aktifleştirilmesi"><span class="header-section-number">12.2</span> Conda (Miniconda) Kurulumu ve Aktifleştirilmesi</a></li>
+  <li><a href="#okumaların-ve-referans-genomların-alınması" id="toc-okumaların-ve-referans-genomların-alınması" class="nav-link" data-scroll-target="#okumaların-ve-referans-genomların-alınması"><span class="header-section-number">12.3</span> Okumaların ve Referans Genomların Alınması</a>
+  <ul class="collapse">
+  <li><a href="#ham-okumaların-alınması" id="toc-ham-okumaların-alınması" class="nav-link" data-scroll-target="#ham-okumaların-alınması"><span class="header-section-number">12.3.1</span> Ham Okumaların Alınması</a></li>
+  <li><a href="#referans-genomun-alınması" id="toc-referans-genomun-alınması" class="nav-link" data-scroll-target="#referans-genomun-alınması"><span class="header-section-number">12.3.2</span> Referans Genomun Alınması</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#yeni-nesil-dizileme-verilerinin-kalite-kontrolü" id="toc-yeni-nesil-dizileme-verilerinin-kalite-kontrolü" class="nav-link" data-scroll-target="#yeni-nesil-dizileme-verilerinin-kalite-kontrolü"><span class="header-section-number">13</span> Yeni Nesil Dizileme Verilerinin Kalite Kontrolü</a></li>
+  <li><a href="#fastq-dosyalarını-işleme" id="toc-fastq-dosyalarını-işleme" class="nav-link" data-scroll-target="#fastq-dosyalarını-işleme"><span class="header-section-number">14</span> Fastq Dosyalarını İşleme</a></li>
+  <li><a href="#işlenmiş-yeni-nesil-dizileme-verilerinin-referans-genomuna-hizalanması" id="toc-işlenmiş-yeni-nesil-dizileme-verilerinin-referans-genomuna-hizalanması" class="nav-link" data-scroll-target="#işlenmiş-yeni-nesil-dizileme-verilerinin-referans-genomuna-hizalanması"><span class="header-section-number">15</span> İşlenmiş Yeni Nesil Dizileme Verilerinin Referans Genomuna hizalanması</a></li>
+  <li><a href="#hizalanan-verilerle-sayı-matrisi-oluşturma" id="toc-hizalanan-verilerle-sayı-matrisi-oluşturma" class="nav-link" data-scroll-target="#hizalanan-verilerle-sayı-matrisi-oluşturma"><span class="header-section-number">16</span> Hizalanan Verilerle Sayı Matrisi Oluşturma</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-lectures/01-ynd.html">Dersler</a></li><li class="breadcrumb-item"><a href="../01-lectures/02-fastq-quality-control.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Fastq kalite kontrol</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-lectures/01-ynd.html">Dersler</a></li><li class="breadcrumb-item"><a href="../01-lectures/09-rnaseq-analysis.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">RNA dizileme veri analizi</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Fastq kalite kontrol</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">RNA dizileme veri analizi</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Yazar</div>
+    <div class="quarto-title-meta-contents">
+             <p>Yasemin İrem Şahin </p>
+          </div>
+  </div>
     
   
     
@@ -336,57 +363,103 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>ilk olarak fastq dosyalarının kalite kontrolünü işleyeceğiz</p>
-<p>ncelikle TRUBA sistemimize girelim.</p>
-<p>Şu bağlantıya tıklayarak dosyalarımız indirelim ve TRUBA sistemine yükleyelim:</p>
-<p><a href="https://drive.google.com/file/d/1v3GF_Z9bLWfVim_IqQv_WPxngoSLQ2W6/view">Bağlantı</a></p>
-<p>Şu bağlantıya tıklayarak dosyalarımız indirelim ve TRUBA sistemine yükleyelim:</p>
-<p><a href="https://drive.google.com/file/d/1v3GF_Z9bLWfVim_IqQv_WPxngoSLQ2W6/view">Bağlantı</a></p>
-<p>Kendi oluşturduğumuz klasörlere girelim. Siz kendi isminizi yazınız.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> Dersler</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Dersler</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Daha sonra indirdiğimiz klasörü TRUBA sistemine yükleyerek aşağıdaki komutla açalım</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-xzf</span> 2024_04_03_ders_qc_01.tar.gz</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Ve klasör içerisine girelim:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> 2024_04_03_ders_qc_01</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>İçeriğe bakalım:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><code>Data</code> klasörü içeriğine bakalım:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span> data</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>İstersek dosyayı inceleyebiliriz:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> data/sample1.fastq.gz</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Bu dosyanın uzantısı <code>gz</code>. Biyoinformatik alanında kullanılan dosyalar genelde çok yer kapladıkları için sıkıştırılırlar. Bu uzantı da dosyanın sıkıştırıldığını bize söylüyor. Genelde <code>less</code> komutu sıkıştırılmış dosyaları açabilir. Ancak açamadıysa onun yerine <code>zless</code> komutunu deneyebilirsiniz. Bu program özel olarak <code>gz</code> uzantılı dosyaları açmak için tasarlanmıştır.</p>
-<p>Şimdi bu incelediğimiz dosyanın kalite kontrol işlemini gerçekleştireceğiz. Bunun için <code>fastqc</code> programını kullancağız.</p>
-<p>Bunun için TRUBA sistemine bir iş betiği göndermemiz gerekli. Bu iş betiği dosyasını inceleyelim:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> fastqc_before_trimming.sh</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Bu iş betiği dosyası, istediğimiz komutları TRUBA sistemine gönderip çalıştıracak.</p>
-<p>Bunun için Barbun isimli bilgisayardan, 4 tane işlemci rezerve ediyoruz ve egitim kullanıcı ismiyle işimizi slurm sistemine gönderityoruz.</p>
-<p>Bu iş dosyasını inceleyelim</p>
-<p>Birinci satır genelde zorunlu olarak kullanılması gereken bir satır. Bu aslında dosyanın <code>bash</code> ile çalıştırılması gerektiğini söylüyor:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><code>#SBATCH</code> ile başlayan satırlar ise, slurm sisteminde gerekli olan parametreleri belirliyor.</p>
-<ul>
-<li><code>--partition</code> opsiyonu ile kullanacağımız bilgisayarı belirleyebiliriyoruz</li>
-<li><code>--ntasks-per-node</code> opsyinu ile kaç tane çekirdek kullanmak istediğimizi belirliyoruz</li>
-<li><code>--user</code> opsiyonu ise kullancı ismimizi belirlememizi sağlıyor. Unutmayıni kullanıcı isminizi mutlaka belirlemeliziniz.</li>
-</ul>
-<p><code>PATH</code> ile başlayan satır ise, kullanılacak programların yolunu belirtiyor.</p>
-<p>Ardından ilk olarak <code>mkdir</code> ile çıktı dosyalarımızı yazacağımız klasörü belirliyoruz.</p>
-<p>Daha sonra <code>fastqc</code> programını çalıştırıyoruz.</p>
-<p>Öncelile kullanıcı isminizi <code>nano</code> programı ile düzeltiniz:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> fastqc_before_trimming.sh</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>İş dosyasını çalıştıralım:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> fastqc_before_trimming.sh</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Gönderdiğimiz işi şu şekilde kontrol edelim:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">-u</span> egitim</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Bunu ara ara takip edelim. İşimiz bittiğinide artık bu ekranda bir bilgi olmayacak.</p>
-<p>İşimiz bittiğinde sonra, çalışma klasörümüzde <code>slurm</code> ile başlayan bir dosya oluşacak. Bu dosyayı, <code>less</code> programı ile kontrol edelim. Bu doya bizim komutlarımızn çıktılarını gösterecek.</p>
-<p>Eğer başarılı olduysak <code>results/fastqc_before_trimming</code> klasörü içinde bir kaç dosya oluşacak. Onlara bakalım:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> results/fastqc_before_trimming</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Bu dosyayı bilgisayarımıza indirebiliriz. Önce yeni bir ubuntu ekranı ya da terminal ekranı açalım ve aşağıdaki komutu yazalım:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scp</span> egitim@levrek1.ulakbim.gov.tr:/truba/home/egitim/emrah/00-Fastq-Kalite-Kontrol/results/fastqc-before-trimming/<span class="pp">*</span>html .</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="rnaseq" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> RNAseq</h1>
+<p>RNA dizileme veri analizi, modern biyolojik araştırmalarda gen ifadesini anlamak için kullanılan güçlü bir yöntemdir. Bu bağlamda, komut satırı üzerinden işlemlerimizi gerçekleştiriyoruz.</p>
+<p>RNA dizileme çalışması kapsamında şu aşamalar bulunmaktadır: + Biyolojik bir numuneden RNA izolasyonu + RNA’nın cDNA’ya dönüştürülmesi (ters transkripsiyon) + cDNA’nın fragmentlerine ayrılması + cDNA parçaları kitaplığının hazırlanması ve yeni nesil dizileme kullanılarak dizilenmesi + Ham fastq dosyalarının eldesi + Dizilerin ‘cutadapt’ ile işlenerek, ‘fastqc’ aracı ile kalite kontrolden geçirilmesi + Fastq’ların referans genoma hizalanması ve RNA dizileme verisi eldesi + Gen ekspresyonu belirlenmesi için referans genoma hizalanan dizilerin sayılması + Gene okumaları sayıldıktan sonra, sağlıklı ve hastalıklı koşulların karşılaştırılması</p>
+</section>
+<section id="rna-dizileme-işlemi" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> RNA Dizileme İşlemi</h1>
+<section id="git-deposu-ile-klonlama" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="git-deposu-ile-klonlama"><span class="header-section-number">12.1</span> Git Deposu ile Klonlama</h2>
+<p>İlk olarak, <a href="https://github.com/nursenakocaturk/rnaseq">Nursena Kocatürk’ün oluşturduğu Github deposuna</a> giderek RNA dizileme için ihtiyaç duyduğumuz dosya ve betikleri bilgisayarımıza ekliyoruz.</p>
+<p>‘Code’ kutucuğuna tıklayarak çıkan https bağlantısını kopyalayalım.</p>
+<p>Terminalde oluşturduğumuz proje klasörüne girelim ve linki</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/nursenakocaturk/rnaseq</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>komutuyla işleyelim.</p>
+<p>Kullanılacak referans genom ve ham DNA okumaları klasörümüzün içinde oluşacak <code>data</code> klasöründe yer alacaktır. İşlenen veriler (çıktılar ve DNA okumaları) de yine proje klasörü içinde <code>results</code> klasöründe yer alacaktır. Bu klasörleri indireceğimiz betiklerle oluşturacağız.</p>
+</section>
+<section id="conda-miniconda-kurulumu-ve-aktifleştirilmesi" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="conda-miniconda-kurulumu-ve-aktifleştirilmesi"><span class="header-section-number">12.2</span> Conda (Miniconda) Kurulumu ve Aktifleştirilmesi</h2>
+<p><a href="https://docs.conda.io/projects/conda/en/stable/user-guide/install/download.html">Conda</a> programlarından işletim sistemimize (Ubuntu için Linux) uygun olanı indirelim. Bağlantı linkini kopyalayıp</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>örneğindeki gibi yükleyelim. Ardından Conda çerçevelerini kurup aktive edelim. Bu çerçevelerde gerekli tüm paketler mevcuttur. Dolayısıyla sadece bize lazım olan çerçeveleri kullanacağız.</p>
+<p>Önce RNAseq çevresini kuralım.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">--file</span> envs/rnaseq.yaml</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ardından bu çerçeveyi aktive edelim.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate rnaseq</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Artık komut satırının başında aktive olan çerçevenin adı parantes içinde görünmelidir.</p>
+<p>Eğer Conda çerçevemizin güncel bir versiyonda olup olmadığından emin değilsek</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env update <span class="at">--file</span> envs/rnaseq.yaml</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>komutuyla en son güncellemeyi sağlayabiliriz.</p>
+<p>İlerleyen süreçte kullanacağımız R çerçevesini de kullanılacağı zaman aktive etmek üzere kuralım.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">--file</span> envs/r.yaml</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="okumaların-ve-referans-genomların-alınması" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="okumaların-ve-referans-genomların-alınması"><span class="header-section-number">12.3</span> Okumaların ve Referans Genomların Alınması</h2>
+<p>Bu kısımda örnek bir veri setiyle çalışacağız. Klonlanan klasörümüzdeki ‘data_ena.txt’ metin dosyasında bulunan işlenmemiş (ham) okumalar, bu okumalara ait bilgiler ve indirme linkleri bulunuyor. Aynı klasörde ‘data.txt’ metin dosyasında ise bir önceki metin dosyasından alınmış dört örnek mevucttur.</p>
+<p>Proje klasöründe bulunan ‘raw’ klasöründe işlenmemiş okumalar bulunurken ‘ref’ klasöründe referans genomumuz bulunmaktadır.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> data/raw</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> data/ref</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="ham-okumaların-alınması" class="level3" data-number="12.3.1">
+<h3 data-number="12.3.1" class="anchored" data-anchor-id="ham-okumaların-alınması"><span class="header-section-number">12.3.1</span> Ham Okumaların Alınması</h3>
+<p>Tüm ham okumaları kapsayan listede hem çift yönlü (paired-end, pe) hem de tek yönlü (single-end, se) okumalar bulunuyor. Bu iki tip okumalar farklı işleneceği için klasörlerde bazı ayrımlar yapmamız gerekiyor. Bunun için ‘raw’ klasörüne bunun için ‘pe’ ve ‘se’ klasörleri oluşturalım.</p>
+<p>‘data.txt’ dosyasında mevcut olan örneklerimizin hepsi tek yönlüdür (se). Tek yönlü bu okumalarımız için gerekli klasöre gidelim.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> data/raw/se</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>‘data_ena.txt’ dosyasından incelenecek okumanın linkini kopyalayıp indirelim (‘ftp://’ ön takısını ekleyelim.).</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR702/005/SRR7029605/SRR7029605.fastq.gz</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Diğer üç örnek için de aynı kodu oluşturup çalıştıralım. Sonuçta ‘se’ klasöründe toplamda dört tane ‘fastq.gz’ uzantılı dosya eklenmiş olduğunu kontrol edelim.</p>
+</section>
+<section id="referans-genomun-alınması" class="level3" data-number="12.3.2">
+<h3 data-number="12.3.2" class="anchored" data-anchor-id="referans-genomun-alınması"><span class="header-section-number">12.3.2</span> Referans Genomun Alınması</h3>
+<p>Referans genom için ‘ref’ klasöründeki referans dosyalarını ‘gunzip’ komutuyla çalıştıralım.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> data/ref</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/007/565/GCA_000007565.2_ASM756v2/GCA_000007565.2_ASM756v2_genomic.fna.gz</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> GCA_000007565.2_ASM756v2_genomic.fna.gz</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/007/565/GCA_000007565.2_ASM756v2/GCA_000007565.2_ASM756v2_genomic.gff.gz</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> GCA_000007565.2_ASM756v2_genomic.gff.gz</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/007/565/GCA_000007565.2_ASM756v2/GCA_000007565.2_ASM756v2_genomic.gtf.gz</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> GCA_000007565.2_ASM756v2_genomic.gtf.gz</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>İndirdiğimiz referans genom dosyasını ‘gunzip’ komutuyla çalışmalı ki indeksleme doğru şekilde olabilsin.</p>
+</section>
+</section>
+</section>
+<section id="yeni-nesil-dizileme-verilerinin-kalite-kontrolü" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> Yeni Nesil Dizileme Verilerinin Kalite Kontrolü</h1>
+<p>Bu kısımda ‘part1.sh’ betiğini kullanacağız. Bu betik ‘sra-tools’ paketindeki programlarla fastq dosyalarını indirip <code>fastqc</code> programıyla kalite kontrol yapmaktadır. Fastqc programı, yüksek verimli DNA dizileme hatlarından gelen örnek veriler üzerinde kalite kontrol yapar. Fastq komutları <code>fastqc_se.sh’</code> ve <code>fastqc_pe.sh</code> betiklerinde mevcuttur. ‘fastq’ dosyalarının SRA kodlarını taşıyan ‘data.txt’ dosyasını oluşturalım ve içinde, indirilecek ‘fastq’ dosyasının SRA kodu ve dizilendiği uçların (pe/se) bilgilerine sahip iki sütun olsun.</p>
+<pre><code>ERR10671864 pe
+ERR10671865 pe</code></pre>
+<p>Çalıştırmak için betiği aktive edelim.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./part1.sh</span> data.txt</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="fastq-dosyalarını-işleme" class="level1" data-number="14">
+<h1 data-number="14"><span class="header-section-number">14</span> Fastq Dosyalarını İşleme</h1>
+<p>Bu kısımda ‘part2.sh’ veya ‘trimmomatic.sh’ betiklerini kullanacağız. ‘part2.sh’ betiğindeki ‘cutadapt’ programı da ‘trimmomatic.sh’ betiğindeki ‘trimmomatic’ programı da fastqc dosyalarının işleme adımlarında etkilidir. Her iki program da adaptör dizilerini, primerleri ve diğer istemeyen dizileri yüksek verimli verilerden ayırır. Bu betikler kullanıldığında yeniden fastq aracı karşımıza çıkacaktır, çünkü ‘part2.sh’ betiği içinde ‘part1.sh’ betiği tekrar çalıştırılmaktadır.</p>
+<p>‘cutadapt’ komutları ‘cutadapt_se.sh’ ve ‘cutadapt_pe.sh’ betiklerinde bulunurken ‘trimmomatic’ komutları da ‘trimmomatic_pe.sh’ ve ‘trimmomatic_se.sh’ betiklerinde bulunmaktadır. Betik dosyaları ‘scripts’ klasöründe mevcuttur.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./part2.sh</span> data.txt</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>ya da</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./trimmomatic.sh</span> data.txt</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="işlenmiş-yeni-nesil-dizileme-verilerinin-referans-genomuna-hizalanması" class="level1" data-number="15">
+<h1 data-number="15"><span class="header-section-number">15</span> İşlenmiş Yeni Nesil Dizileme Verilerinin Referans Genomuna hizalanması</h1>
+<p>Bu kısımda ‘part3.sh’ veya ‘part4.sh’ betiklerini kullanacağız. ‘part3.sh’ betiği ‘BWA’ aracını, ‘part4.sh’ betiği ise ‘Bowtie2’ aracını çalıştırır. Bu araçlar, verileri referans genoma hizalamayı sağlamaktadır. Böylece RNA dizileme okumalarını referans genoma hiazalar ve hizalamaları ‘sam’ dosyası halinde çıkarırlar. BWA komutları ‘bwa_se.sh’ ve ‘bwa_pe.sh’ betiklerinde, Bowtie2 komutları ise ‘bowtie_pe.sh’ ve ‘bowtie_se.sh’ betiklerinde bulunmaktadır.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./part3.sh</span> data.txt</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>ya da</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./part4.sh</span> data.txt</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="hizalanan-verilerle-sayı-matrisi-oluşturma" class="level1" data-number="16">
+<h1 data-number="16"><span class="header-section-number">16</span> Hizalanan Verilerle Sayı Matrisi Oluşturma</h1>
+<p>Bu kısımda ‘part5.sh’ betiği ve ‘counts’ aracı kullanacağız. Bu betikte hizalama sonucundaki veriler, artık gen ifadesi düzeyinde yapılacak analizlerin baş rolü olan gen ifadesi matrisleri yapılmaktadır. ‘part5.sh’ betiği r çerçevesinde çalıştırılmaktadır, dolayısıyla önce r çerçevesini aktive etmek gerekmektedir.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate r</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./part5.sh</span> data.txt bwa</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -811,13 +884,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../01-lectures/01-ynd.html" class="pagination-link" aria-label="Yeni Nesil Dizileme Teknolojileri">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Yeni Nesil Dizileme Teknolojileri</span></span>
+      <a href="../01-lectures/05-alignment-variant-calling-02.html" class="pagination-link" aria-label="Varyant Çağırma">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Varyant Çağırma</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../01-lectures/03-fastq-processing.html" class="pagination-link" aria-label="Fastq işleme adımları">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fastq işleme adımları</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../01-lectures/08-metagenomics.html" class="pagination-link" aria-label="[Antik] Metagenomik">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">[Antik] Metagenomik</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

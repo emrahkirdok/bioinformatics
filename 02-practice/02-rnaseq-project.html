@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>13&nbsp; RNA Dizileme Proje Örneği – Biyoinformatik</title>
+<title>14&nbsp; RNA Dizileme Proje Örneği – Biyoinformatik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-practice/01-variant-practice.html">Pratikler</a></li><li class="breadcrumb-item"><a href="../02-practice/02-rnaseq-project.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">RNA Dizileme Proje Örneği</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-practice/01-variant-practice.html">Pratikler</a></li><li class="breadcrumb-item"><a href="../02-practice/02-rnaseq-project.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">RNA Dizileme Proje Örneği</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Aramak" onclick="window.quartoOpenSearch();">
@@ -236,14 +236,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../01-lectures/09-rnaseq-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">RNA dizileme veri analizi</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../01-lectures/08-metagenomics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">[Antik] Metagenomik</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">[Antik] Metagenomik</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../01-lectures/06-bash-scripting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Bash ile betik oluşturma</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Bash ile betik oluşturma</span></span></a>
   </div>
 </li>
       </ul>
@@ -260,19 +266,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../02-practice/01-variant-practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Varyant çağırma pratiği</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Varyant çağırma pratiği</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../02-practice/02-rnaseq-project.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">RNA Dizileme Proje Örneği</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">RNA Dizileme Proje Örneği</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../02-practice/03-metagenomics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Metagenomik pratik</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Metagenomik pratik</span></span></a>
   </div>
 </li>
       </ul>
@@ -310,12 +316,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Içindekiler</h2>
    
   <ul>
-  <li><a href="#klasör-yapısı" id="toc-klasör-yapısı" class="nav-link active" data-scroll-target="#klasör-yapısı"><span class="header-section-number">13.1</span> Klasör yapısı</a></li>
-  <li><a href="#proje-kapsamında-eklenmesi-gerekenler" id="toc-proje-kapsamında-eklenmesi-gerekenler" class="nav-link" data-scroll-target="#proje-kapsamında-eklenmesi-gerekenler"><span class="header-section-number">13.2</span> Proje kapsamında eklenmesi gerekenler</a>
+  <li><a href="#klasör-yapısı" id="toc-klasör-yapısı" class="nav-link active" data-scroll-target="#klasör-yapısı"><span class="header-section-number">14.1</span> Klasör yapısı</a></li>
+  <li><a href="#proje-kapsamında-eklenmesi-gerekenler" id="toc-proje-kapsamında-eklenmesi-gerekenler" class="nav-link" data-scroll-target="#proje-kapsamında-eklenmesi-gerekenler"><span class="header-section-number">14.2</span> Proje kapsamında eklenmesi gerekenler</a>
   <ul class="collapse">
-  <li><a href="#fastq-dosyası-kalite-kontrol-sonuçları" id="toc-fastq-dosyası-kalite-kontrol-sonuçları" class="nav-link" data-scroll-target="#fastq-dosyası-kalite-kontrol-sonuçları"><span class="header-section-number">13.2.1</span> Fastq dosyası kalite kontrol sonuçları</a></li>
-  <li><a href="#hizalama-sonuçları" id="toc-hizalama-sonuçları" class="nav-link" data-scroll-target="#hizalama-sonuçları"><span class="header-section-number">13.2.2</span> Hizalama sonuçları</a></li>
-  <li><a href="#rnaseq-sayı-matirisleri" id="toc-rnaseq-sayı-matirisleri" class="nav-link" data-scroll-target="#rnaseq-sayı-matirisleri"><span class="header-section-number">13.2.3</span> RNAseq sayı matirisleri</a></li>
+  <li><a href="#fastq-dosyası-kalite-kontrol-sonuçları" id="toc-fastq-dosyası-kalite-kontrol-sonuçları" class="nav-link" data-scroll-target="#fastq-dosyası-kalite-kontrol-sonuçları"><span class="header-section-number">14.2.1</span> Fastq dosyası kalite kontrol sonuçları</a></li>
+  <li><a href="#hizalama-sonuçları" id="toc-hizalama-sonuçları" class="nav-link" data-scroll-target="#hizalama-sonuçları"><span class="header-section-number">14.2.2</span> Hizalama sonuçları</a></li>
+  <li><a href="#rnaseq-sayı-matirisleri" id="toc-rnaseq-sayı-matirisleri" class="nav-link" data-scroll-target="#rnaseq-sayı-matirisleri"><span class="header-section-number">14.2.3</span> RNAseq sayı matirisleri</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -323,9 +329,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-practice/01-variant-practice.html">Pratikler</a></li><li class="breadcrumb-item"><a href="../02-practice/02-rnaseq-project.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">RNA Dizileme Proje Örneği</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-practice/01-variant-practice.html">Pratikler</a></li><li class="breadcrumb-item"><a href="../02-practice/02-rnaseq-project.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">RNA Dizileme Proje Örneği</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">RNA Dizileme Proje Örneği</span></h1>
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">RNA Dizileme Proje Örneği</span></h1>
 </div>
 
 
@@ -438,7 +444,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-graph-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Şekil&nbsp;13.1: RNA dizileme veri analizi şeması
+Şekil&nbsp;14.1: RNA dizileme veri analizi şeması
 </figcaption>
 </figure>
 </div>
@@ -448,8 +454,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6066579/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6066579/</a></li>
 </ul>
-<section id="klasör-yapısı" class="level2" data-number="13.1">
-<h2 data-number="13.1" class="anchored" data-anchor-id="klasör-yapısı"><span class="header-section-number">13.1</span> Klasör yapısı</h2>
+<section id="klasör-yapısı" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="klasör-yapısı"><span class="header-section-number">14.1</span> Klasör yapısı</h2>
 <p>Yapacağınız çalışmada aşağıdaki klasör yapısını korumanız sizin için kullanışlı olur:</p>
 <pre><code>Project
     |
@@ -521,23 +527,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> results/alignment</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> results/counts</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="proje-kapsamında-eklenmesi-gerekenler" class="level2" data-number="13.2">
-<h2 data-number="13.2" class="anchored" data-anchor-id="proje-kapsamında-eklenmesi-gerekenler"><span class="header-section-number">13.2</span> Proje kapsamında eklenmesi gerekenler</h2>
+<section id="proje-kapsamında-eklenmesi-gerekenler" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="proje-kapsamında-eklenmesi-gerekenler"><span class="header-section-number">14.2</span> Proje kapsamında eklenmesi gerekenler</h2>
 <p>Projeniz aşağıda belirtilen adımları içermelidir:</p>
-<section id="fastq-dosyası-kalite-kontrol-sonuçları" class="level3" data-number="13.2.1">
-<h3 data-number="13.2.1" class="anchored" data-anchor-id="fastq-dosyası-kalite-kontrol-sonuçları"><span class="header-section-number">13.2.1</span> Fastq dosyası kalite kontrol sonuçları</h3>
+<section id="fastq-dosyası-kalite-kontrol-sonuçları" class="level3" data-number="14.2.1">
+<h3 data-number="14.2.1" class="anchored" data-anchor-id="fastq-dosyası-kalite-kontrol-sonuçları"><span class="header-section-number">14.2.1</span> Fastq dosyası kalite kontrol sonuçları</h3>
 <p>İlk olarak ham ve işlenmiş fastq dosyalarına ait <code>FastQC</code> raporlarını oluşturun. Bu dosyalar içerisinden aşağıdaki kısımlara odakalanabilirsiniz:</p>
 <ul>
 <li>Nucleotide quality per base</li>
 <li>Adapter content</li>
 </ul>
 </section>
-<section id="hizalama-sonuçları" class="level3" data-number="13.2.2">
-<h3 data-number="13.2.2" class="anchored" data-anchor-id="hizalama-sonuçları"><span class="header-section-number">13.2.2</span> Hizalama sonuçları</h3>
+<section id="hizalama-sonuçları" class="level3" data-number="14.2.2">
+<h3 data-number="14.2.2" class="anchored" data-anchor-id="hizalama-sonuçları"><span class="header-section-number">14.2.2</span> Hizalama sonuçları</h3>
 <p>Burada derste yaptığımız gibi <code>bam</code> dosyaları elde etmeniz gerekmektedir.</p>
 </section>
-<section id="rnaseq-sayı-matirisleri" class="level3" data-number="13.2.3">
-<h3 data-number="13.2.3" class="anchored" data-anchor-id="rnaseq-sayı-matirisleri"><span class="header-section-number">13.2.3</span> RNAseq sayı matirisleri</h3>
+<section id="rnaseq-sayı-matirisleri" class="level3" data-number="14.2.3">
+<h3 data-number="14.2.3" class="anchored" data-anchor-id="rnaseq-sayı-matirisleri"><span class="header-section-number">14.2.3</span> RNAseq sayı matirisleri</h3>
 <p>Bu kısımda ise, <code>results/counts</code> klasörü içerisinde, incelediğimiz 4 farklı dosyaya ait count matrisler olmalı.</p>
 
 
@@ -968,12 +974,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../02-practice/01-variant-practice.html" class="pagination-link" aria-label="Varyant çağırma pratiği">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Varyant çağırma pratiği</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Varyant çağırma pratiği</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../02-practice/03-metagenomics.html" class="pagination-link" aria-label="Metagenomik pratik">
-        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Metagenomik pratik</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Metagenomik pratik</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

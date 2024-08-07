@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>12&nbsp; Varyant çağırma pratiği – Biyoinformatik</title>
+<title>13&nbsp; Varyant çağırma pratiği – Biyoinformatik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-practice/01-variant-practice.html">Pratikler</a></li><li class="breadcrumb-item"><a href="../02-practice/01-variant-practice.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Varyant çağırma pratiği</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-practice/01-variant-practice.html">Pratikler</a></li><li class="breadcrumb-item"><a href="../02-practice/01-variant-practice.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Varyant çağırma pratiği</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Aramak" onclick="window.quartoOpenSearch();">
@@ -236,14 +236,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../01-lectures/09-rnaseq-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">RNA dizileme veri analizi</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../01-lectures/08-metagenomics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">[Antik] Metagenomik</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">[Antik] Metagenomik</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../01-lectures/06-bash-scripting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Bash ile betik oluşturma</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Bash ile betik oluşturma</span></span></a>
   </div>
 </li>
       </ul>
@@ -260,19 +266,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../02-practice/01-variant-practice.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Varyant çağırma pratiği</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Varyant çağırma pratiği</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../02-practice/02-rnaseq-project.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">RNA Dizileme Proje Örneği</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">RNA Dizileme Proje Örneği</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../02-practice/03-metagenomics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Metagenomik pratik</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Metagenomik pratik</span></span></a>
   </div>
 </li>
       </ul>
@@ -310,18 +316,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Içindekiler</h2>
    
   <ul>
-  <li><a href="#referans-genom-indeksleme" id="toc-referans-genom-indeksleme" class="nav-link active" data-scroll-target="#referans-genom-indeksleme"><span class="header-section-number">12.1</span> Referans genom indeksleme</a></li>
-  <li><a href="#örneklerle-varyant-analizi" id="toc-örneklerle-varyant-analizi" class="nav-link" data-scroll-target="#örneklerle-varyant-analizi"><span class="header-section-number">12.2</span> Örneklerle varyant analizi</a></li>
-  <li><a href="#döngüler-ile-otomatizasyon" id="toc-döngüler-ile-otomatizasyon" class="nav-link" data-scroll-target="#döngüler-ile-otomatizasyon"><span class="header-section-number">12.3</span> Döngüler ile otomatizasyon</a></li>
+  <li><a href="#referans-genom-indeksleme" id="toc-referans-genom-indeksleme" class="nav-link active" data-scroll-target="#referans-genom-indeksleme"><span class="header-section-number">13.1</span> Referans genom indeksleme</a></li>
+  <li><a href="#örneklerle-varyant-analizi" id="toc-örneklerle-varyant-analizi" class="nav-link" data-scroll-target="#örneklerle-varyant-analizi"><span class="header-section-number">13.2</span> Örneklerle varyant analizi</a></li>
+  <li><a href="#döngüler-ile-otomatizasyon" id="toc-döngüler-ile-otomatizasyon" class="nav-link" data-scroll-target="#döngüler-ile-otomatizasyon"><span class="header-section-number">13.3</span> Döngüler ile otomatizasyon</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-practice/01-variant-practice.html">Pratikler</a></li><li class="breadcrumb-item"><a href="../02-practice/01-variant-practice.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Varyant çağırma pratiği</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-practice/01-variant-practice.html">Pratikler</a></li><li class="breadcrumb-item"><a href="../02-practice/01-variant-practice.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Varyant çağırma pratiği</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Varyant çağırma pratiği</span></h1>
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Varyant çağırma pratiği</span></h1>
 </div>
 
 
@@ -378,8 +384,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Şimdi <code>ls</code> komutu ile, klasör içerisinde <code>index.sh</code>, <code>protokol.sh</code>, <code>protokol_otomatik.sh</code> dosyalarının olup olmadıklarına bakalım:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Bu betikleri incelersek, <code>index.sh</code> referans genomumuzu indekslemek için kullandığımız betik olacak. Diğer betik <code>protokol.sh</code> ise, örnek dosyalarımızı referans genoma hizalama ve varyant çağırma için kullanacağımız betik olacak.</p>
-<section id="referans-genom-indeksleme" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="referans-genom-indeksleme"><span class="header-section-number">12.1</span> Referans genom indeksleme</h2>
+<section id="referans-genom-indeksleme" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="referans-genom-indeksleme"><span class="header-section-number">13.1</span> Referans genom indeksleme</h2>
 <p>Bu işlem için öncelikle referenans genomu indekslemeniz gerekecektir. Bu işlemi bir kere yapmanız yeterli olacaktır.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> index.sh</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Bu işlemin bitip bitmediğini, <code>squeue</code> komutu ile kontrol edelim:</p>
@@ -389,8 +395,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> data</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>İndeks dosyaları oluşmuşsa, bir sonraki adıma geçebiliriz.</p>
 </section>
-<section id="örneklerle-varyant-analizi" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="örneklerle-varyant-analizi"><span class="header-section-number">12.2</span> Örneklerle varyant analizi</h2>
+<section id="örneklerle-varyant-analizi" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="örneklerle-varyant-analizi"><span class="header-section-number">13.2</span> Örneklerle varyant analizi</h2>
 <p>Bu adımıda ise <code>protokol.sh</code> betiğini kullanacağız. Bu betiği <code>nano</code> isimli programla açarak, <code>SAMPLE</code> değişkenini örnek isimleriyle değiştirmemiz gereklidir.</p>
 <p>Bunu her örnek için tekrar etmeliyiz.</p>
 <p>Örnek vermek gerekirse, öncelikle <code>ERR3079333</code> için bu adımı gerçekleştirelim:</p>
@@ -401,8 +407,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <p>Ardından bu işlemi her örnek için gerçekleştirelim.</p>
 </section>
-<section id="döngüler-ile-otomatizasyon" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="döngüler-ile-otomatizasyon"><span class="header-section-number">12.3</span> Döngüler ile otomatizasyon</h2>
+<section id="döngüler-ile-otomatizasyon" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="döngüler-ile-otomatizasyon"><span class="header-section-number">13.3</span> Döngüler ile otomatizasyon</h2>
 <p>Bunu istersek otomatize edebiliriz. Her örnek için bir protokol gönderebiliriz. Bunun için <code>protokol_otomatik.sh</code> isimli betiğe bakalım.</p>
 <p>Bu betiğin içindeki tek değişiklik şu:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="va">SAMPLE</span><span class="op">=</span><span class="va">$1</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -842,12 +848,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../01-lectures/06-bash-scripting.html" class="pagination-link" aria-label="Bash ile betik oluşturma">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Bash ile betik oluşturma</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Bash ile betik oluşturma</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../02-practice/02-rnaseq-project.html" class="pagination-link" aria-label="RNA Dizileme Proje Örneği">
-        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">RNA Dizileme Proje Örneği</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">RNA Dizileme Proje Örneği</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
