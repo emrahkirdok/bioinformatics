@@ -5,7 +5,7 @@ Ders kapsamında yapacağımız çalışmalarda öncelikle TRUBA üzerinde komut
 Öncelikle sistemimimize bağlanalım. Burada `egitim` yerine size verilen kullanıcı ismini girmelisiniz. Daha sonra yine size verilen şifrenizi yazarak sisteme bağlanabilirsiniz. Ancak şifrenizi yazarken ekrandaki imleç hareket etmeyecektir. Siz normal bir şekilde şifrenizi yazın:
 
 ```bash
-ssh egitim@172.16.7.1 
+ssh egitim@levrek.ulakbim.gov.tr
 ```
 
 Sisteme girdikten sonra çıkan ekranı `enter` tuşuna basarak geçelim.
@@ -31,22 +31,9 @@ Benim ekranımda bu komutun çıktısı şöyle oldu:
 
 `home` klasörü, kullanıcıların klasörlerinin bulunduğu konumu işaret etmektedir.
 
-## Klasör oluşturma
+## Dosya listeleme
 
-Şimdi komut satırını öğrenmek için gerekli olan dosyaları yükleyeceğimiz klasörü oluşturalum. `mkdir` komutu klasör oluşturmak için kullanılır. İlk olarak kendi ismimizi kullanarak bir klasör oluşturalım:
-
-
-```bash
-mkdir deneme_dersi
-```
-
-## Klasör içindekileri inceleme 
-
-Oluşturduğumuz klasör içindeki dosyaları listelemek için `ls` komutunu kullanabiliriz. Klasörün içinde değilsek klasör adını yazmalıyız; klasör adı yazmadığımız durumda her neredeysek oradaki dosyaları listeleyecektir: 
-
-```bash
-ls deneme_dersi
-```
+Şimdi `ls` komutunu yazalım. Bu komut bulunduğumuz klasördeki dosyaları ve klasörleri gösterir.
 
 Eğer daha ayrıntılı bilgi istersek, `ls -l` komutunu kullanabiliriz. Bu komut, dosya ve klasörleri listeler; yime istersek klasör adı belirtebiliriz:
 
@@ -58,25 +45,204 @@ Benim ekranımda şöyle bir görüntü çıktı (@fig-command-line).
 
 ![ls -l komutu çıktısı](images/command-line.png){#fig-command-line}
 
-## Klasörler arasında gezinti
+Klasörleri son değiştirme sırasına göre göster ve bayt bilgisini okunabilir hale getir:
 
-Bir klasörün içerisine girmek için `cd` (change directory) komutu kullanılır:
+```bash
+ls -ltrh
+```
+
+## Klasör oluşturma
+
+Şimdi komut satırını öğrenmek için gerekli olan dosyaları yükleyeceğimiz klasörü oluşturalum. `mkdir` komutu klasör oluşturmak için kullanılır. İlk olarak kendi ismimizi kullanarak bir klasör oluşturalım:
+
+Klasörü kendi ismimizde oluşturalım:
+
+```bash
+mkdir emrah
+```
+
+## Klasörlerde hareket
+
+Bunun için `cd` komutunu kullanıyoruz:
 
 ```bash
 cd emrah
 ```
-Şimdi hangi klasörde olduğumuza bakalım:
+
+Şimdi de `pwd` yazalım.
+
+Bir üst seviyeye çıkmak için `cd ..` yazın.
+
+Ama şimdi kendi ismizle oluşturduğunuz klasöre gidiniz.
+
+## Temel dosya işlemleri
+
+Öncelikle kullanacağımız veri setini indirelim:
 
 ```bash
-pwd
+wget https://github.com/emrahkirdok/bioinformatics/raw/3defc4590bf8a351c30747061be5fde3924eae5d/00-setup/test-data.tar.gz
 ```
+
+Kullandığımız `wget` komutu internet üzerindeki bir dosyayı indirmemizi sağlıyor.
+
+Dosyaya bakalaım:
+
+```bash
+ls -ltrh 
+```
+
+Burada sıkıştırılmış bir arşiv dosyası indirdik, `tar` bu dosyanın arşivlendiğini, `gz` ise sıkıştırıldığın bize belitirl. Rengi kurmızı çünkü sıkıştırılmış bir dosya.
+
+Bu dosyayı açalım:
+
+```bash
+tar -xzvf test-data.tar.gz
+```
+
+Bakalım arşivi açmış mıyız?
+
+```bash
+ls -ltrh
+```
+
+
+Açtığımız klasörü `ls` komutu ile inceleyebilirz. Klasörün içinde değilsek klasör adını yazmalıyız; klasör adı yazmadığımız durumda her neredeysek oradaki dosyaları listeleyecektir: 
+
+```bash
+ls -ltrh test-data
+```
+
+Bu klasör içerisine girelim:
+
+```bash
+cd test-data
+```
+
+Klasör içindekileri gösterelim:
+
+```bash
+ls -ltrh
+```
+
+## Dosya içeriğini gösterme
+
+Bir dosya içeriğini ekrana yazdırmak istiyorsak, `cat` komutunu kullanmalıyız:
+
+```bash
+cat ornek_fastq.fastq
+```
+
+Ancak dosya boyutumuz fazlaysa, bunu kullanamyaız. Çünkü her şeyi ekrana yazrırı.
+
+Dosyanın ilk 10 satırını ekrana yazdıralım:
+
+```bash
+head  ornek_fastq.fastq
+```
+
+Son 10 satırı yazdıralım
+
+```bash
+tail  ornek_fastq.fastq
+```
+
+## Dosyaları `less` ile inceleme
+
+Ama dosyaları incelemek istersek, `less` komutunu kullanalmım:
+
+```bash
+less  ornek_fastq.fastq
+```
+
+Bu programdan çıkmak için `q` tuşuna basın.
+
+## TArihçeyi inceleyelim:
+
+`history` komutu ile komut tarihçesini inceleyebiliriz.
+
+Bunu protokolünüzde kullandığnız kodları kaydetmek için kullanabilisiniz.
+
+## Yeniden yönlendirme işlemi yapalım
+
+Unix/Linux sistemlerinin en önemli özelliği pipe ve redirection. Bir komutuun çıktıdını başka bir komuta gönderebilirisnzi ya da baka bir dosyaya aktarabiliriniz.
+
+```bash
+history > tarihce.txt
+```
+
+Şimdi `ls -ltrh` ile inceleyim.
+
+Bir `tarihce.txt` isimli dosyanın oluşmuş olması gerekli.
+
+Ancak bu işlemde, `tarihce.txt` dosyası yoksa o dosya oluşturulur, böyle bir dosya varsa, silip üstüne yazar.
+
+Eğer bu dosyayı silmeden ekleme yapmak istersenz, `>>` kullanın. Bu sayede varolan dosyayı silmez, sonuna ekler.
+
+:::{.callout-warning}
+## Varolan dosyanın üzerine yazma
+
+Eğer `>` kullanırsanız, ve varolan bir dosyayı hedef gösterirseniz, o dosyanın üzerine yazmış olursunuz! Dosyanın içindeki eski bilgileri kaybederiz!
+:::
+
+## Dosyayı değiştirme
+
+`nano` programı ile, varolan metin dosyalarını açabilirsiniz.
+
+```bash
+nano tarihce.txt
+```
+
+CTRL + K metni keser
+CTRL + U metni yapıştırır
+CTRL + O dosyayı kaydeder
+CTRL + X çıkar
 
 ## Dosya ve klasör kopyalama
 
 İlk olarak örnek dosyamızı kopyalayarak işe başlayalım. `cp` komutu dosya ve klasörleri kopyalamak için kullanılır. Klasörleri kopyalamak istiyorsak `-r` işaretini eklememiz gerekir. Kopyalamak istediğimiz dosyanın tam konumunu bilmeliyiz ve eksiksiz olarak kodumuzda bu konumu vermeliyiz. Sondaki `.` işareti, bulunduğumuz yere bu klasörün kopyalanmasını sağlar.
 
 ```bash
-cp -r /truba/home/egitim90/ornek_veri .
+cp tarihce.txt duzenlemis-tarhice.txt
+```
+
+İsim değiştirme veya dosyayı başka bir konuma taşıma
+
+```bash
+mv tarihce.txt eski-tarihce.txt
+```
+ 
+Burada dosyaları aynı klasöre kopyalaıdık veya taşıdırk İstersek başka klasörlere kopyalyabilr ya da taşıyabilirnşz.:
+
+Mesela bir dosyayı kendi ev klasörümüze kopyalayım:
+
+```bash
+cp eski-tarihce.txt /truba/home/egitim123/
+```
+
+Şimdi klasörü kontrol edelim:
+
+```bash
+ls -ltrh /truba/home/egitim123/
+```
+
+İstersek başka bir klasöre de taşıyabilirz:
+
+```bash
+mv duzenlemis-tarhice.txt /truba/home/egitim123/duzenlemis-tarhice.txt
+```
+
+Öncelikle çalışma klasörümüzü okntrol edeliömm:
+
+```bash
+ls -ltrh
+```
+
+O dosya artık yok.
+
+Şimdi de ev klasörümüzü kontrol edelikm:
+
+```bash
+ls -ltrh /truba/home/egitim123/
 ```
 
 Linux üzerinde bunun gibi kısayollar bulunmaktadır.
@@ -84,68 +250,26 @@ Linux üzerinde bunun gibi kısayollar bulunmaktadır.
 + `.` bulunduğumuz klasör
 + `~` ev klasörümüz
 
-Şimdi tekrar bulunduğumuz klasör içindekileri listeleyelim, alternatif bir örnek olarak bu sefer içindekilerin değiştirilme tarihine göre sıralayan bir kodla çalışalım:
+Mesela az önce taşıdığımız dosyayı, başka bir isimde bulunduğunuz klasöre taşıyoların:
 
 ```bash
-ls -ltrh
+mv ~/duzenlenmis-tarihce.txt ./yeni-tarihce.txt
 ```
-
-Şimdi de `test` klasörüne girelim:
-
-```bash
-cd test
-```
-
-Ve içindekileri listeleyelim:
-
-```bash
-ls -l
-```
-
-## Dosyalarda işlem yapmak
-
-Şimdi `ornek.fasta` dosyasının içini inceleyelim. `cat` komutu bize bir dosyanın içindekileri ekrana yazdırma şansı verir:
-
-```bash
-cat ornek.fasta
-```
-
-Dikkat ederseniz hepsini ekrana yazdırdı. Ancak dosyamız çok büyükse bunu yapma şansımız yok. O zaman `less` komutunu kullanabiliriz:
-
-```bash
-less
-```
-
-`less` aslında metin dosyalarını incelememizi sağlayan bir komut satırı programı. Bu sayede bir dosyanın içindekilere bakabiliriz. Bu programdan çıkmak için `Q` tuşuna basınız.
-
-İstersek `less` programı ile dosyalar içerisinde arama da yapabiliriz. Bunun için ise, öncelikle `/` karakterine basalım, daha sonra da aramak istediğimiz kelimeyi yazalım. `less` programı sizin arama yaptığınızı anlayacaktır.
-
-Şimdi yine `ornek.fasta` dosyasını açalım ve "ENA" kelimesini arayalım
 
 ## Dosyalarda arama yapmak
 
 İstersek `grep` komutu ile de bir dosya içerisinde arama yapabiliriz. Ancak bu sefer yaptığımız arama ekrana yazdırılacaktır:
 
 ```bash
-grep ENA ornek.fasta
+grep ">" DNA-fasta.fna
 ```
-
-## Çıktı yönlendirme
-
-Linux temelli sistemlerin en önemli özelliklerinden bir tanesi de çıktı yönlendirmedir. Yukarıdaki komuta bakmıştık, istersek çıktıyı başka bir dosyaya yönlendirebiliriz. Bunun için `>` komutunu kullanmalıyız. Bu dosyayı önceden oluşturmuş olmamıza gerek yoktur, bu kodu yazdığımızda otomatik olarak oluşacaktır:
-
-```bash
-grep ENA ornek.fasta > arama.txt
-```
-
-Özetle: önce `ornek.fasta` dosyasında "ENA" kelimesini arayıp ekrana yazdırdık. Çıktıyı, yani içerisinde "ENA" kelimesi geçen kısımları başka bir metin dosyasına yönlendirdirdik ve bu dosyanın içinde saklamış olduk.
 
 ## Boru (Pipe)
 
 Diğer önemli bir özellik ise, elimizdeki çıktıyı başka bir dosyaya yönlendirmek. Bunun için `|` karakterini kullanıyoruz.
 
 ```bash
-grep ENA ornek.fasta | grep CAA
+grep ENA ornek.fasta | grep CAA
 ```
 
 Yukarıdaki komuta bakarsak, önce "ENA" kelimesini arıyoruyz, sonra çıktıyı başka bir `grep` komutuna yönlendirip, `CAA` kelimesini arıyoruyz.
@@ -153,16 +277,11 @@ Yukarıdaki komuta bakarsak, önce "ENA" kelimesini arıyoruyz, sonra çıktıy�
 İstersek o çıktıyı bir dosyaya gönderebiliriz:
 
 ```bash
-grep ENA ornek.fasta | grep CAA > arama.txt
+grep ENA ornek.fasta | grep CAA > arama.txt
 ```
 
 Ama dikkat edin! Artık `arama.txt` dosyasının üzerine yazdık! Eğer bu dosyayı korumak istiyorsanız başka bir dosya ismi vermelisiniz.
 
-:::{.callout-warning}
-## Varolan dosyanın üzerine yazma
-
-Eğer `>` kullanırsanız, ve varolan bir dosyayı hedef gösterirseniz, o dosyanın üzerine yazmış olursunuz! Dosyanın içindeki eski bilgileri kaybederiz!
-:::
 
 ## Metin dosyaları oluşturmak
 
