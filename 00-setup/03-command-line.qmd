@@ -18,7 +18,6 @@ Linux işletim sisteminde dosya yapısı kök `/` işareti ile başlar. Bu işar
 
 Bulunduğumuz klasör konumunu öğrenmek için `pwd` (print working directory) komutunu yazalım:
 
-
 ```bash
 pwd
 ```
@@ -31,7 +30,7 @@ Benim ekranımda bu komutun çıktısı şöyle oldu:
 
 `home` klasörü, kullanıcıların klasörlerinin bulunduğu konumu işaret etmektedir.
 
-## Dosya listeleme
+## Klasör içeriğini görüntüleme
 
 Şimdi `ls` komutunu yazalım. Bu komut bulunduğumuz klasördeki dosyaları ve klasörleri gösterir.
 
@@ -45,7 +44,7 @@ Benim ekranımda şöyle bir görüntü çıktı (@fig-command-line).
 
 ![ls -l komutu çıktısı](images/command-line.png){#fig-command-line}
 
-Klasörleri son değiştirme sırasına göre göster ve bayt bilgisini okunabilir hale getir:
+En çok aşağıdaki komutu kullanıyorm. Bu sayede klasörleri son değiştirme sırasına göre gösterebiliyoruz ve bayt bilgisini okunabilir hale getiriyoruz:
 
 ```bash
 ls -ltrh
@@ -69,15 +68,19 @@ Bunun için `cd` komutunu kullanıyoruz:
 cd emrah
 ```
 
-Şimdi de `pwd` yazalım.
+Şimdi de `pwd` yazalım. Artık yeni oluşturduğunuz klasör içerisindesiniz.
 
 Bir üst seviyeye çıkmak için `cd ..` yazın.
 
-Ama şimdi kendi ismizle oluşturduğunuz klasöre gidiniz.
+Ancak bu çalışma kapsamında şimdi kendi ismizle oluşturduğunuz klasöre gidiniz.
+
+```bash
+cd emrah
+```
 
 ## Temel dosya işlemleri
 
-Öncelikle kullanacağımız veri setini indirelim:
+Bu kısımda öncelikle kullanacağımız veri setini indirelim:
 
 ```bash
 wget https://github.com/emrahkirdok/bioinformatics/raw/3defc4590bf8a351c30747061be5fde3924eae5d/00-setup/test-data.tar.gz
@@ -91,7 +94,7 @@ Dosyaya bakalaım:
 ls -ltrh 
 ```
 
-Burada sıkıştırılmış bir arşiv dosyası indirdik, `tar` bu dosyanın arşivlendiğini, `gz` ise sıkıştırıldığın bize belitirl. Rengi kurmızı çünkü sıkıştırılmış bir dosya.
+Burada sıkıştırılmış bir arşiv dosyası indirdik, `tar` bu dosyanın arşivlendiğini, `gz` ise sıkıştırıldığın bize belitmektedir. Dosya rengi kırmızı çünkü sıkıştırılmış bir dosya.
 
 Bu dosyayı açalım:
 
@@ -99,14 +102,20 @@ Bu dosyayı açalım:
 tar -xzvf test-data.tar.gz
 ```
 
+Opsiyonlar:
+
++ `x` arşiv dosyasını aç
++ `z` arşiv dosyasının sıkıştırılmış bir dosya olduğunu belirtir, önce sıkıştırmayı açar
++ `v` açtığı dosyaların isimlerini gösterir
++ `f` çalışmak istediğimiz arşiv dosyasının ismi, veya tam yolu
+
 Bakalım arşivi açmış mıyız?
 
 ```bash
 ls -ltrh
 ```
 
-
-Açtığımız klasörü `ls` komutu ile inceleyebilirz. Klasörün içinde değilsek klasör adını yazmalıyız; klasör adı yazmadığımız durumda her neredeysek oradaki dosyaları listeleyecektir: 
+Açtığımız klasörü `ls` komutu ile inceleyebiliriz. Klasörün içinde değilsek klasör adını yazmalıyız; klasör adı yazmadığımız durumda her neredeysek oradaki dosyaları listeleyecektir: 
 
 ```bash
 ls -ltrh test-data
@@ -129,42 +138,50 @@ ls -ltrh
 Bir dosya içeriğini ekrana yazdırmak istiyorsak, `cat` komutunu kullanmalıyız:
 
 ```bash
-cat ornek_fastq.fastq
+cat ornek_fasta.fasta
 ```
 
-Ancak dosya boyutumuz fazlaysa, bunu kullanamyaız. Çünkü her şeyi ekrana yazrırı.
+Ancak dosya boyutumuz fazlaysa, bunu kullanamayız. Çünkü her şeyi ekrana yazdırır. Örnek olarak aşaüıdaki dosya uzun bir dosya:
+
+```bash
+cat ornek_fastq.fastq
+```
 
 Dosyanın ilk 10 satırını ekrana yazdıralım:
 
 ```bash
-head  ornek_fastq.fastq
+head  -n 10 ornek_fastq.fastq
 ```
 
 Son 10 satırı yazdıralım
 
 ```bash
-tail  ornek_fastq.fastq
+tail -n 10 ornek_fastq.fastq
 ```
+
+Ancak bu komutlar dosya içeriğini ekrana yazdırır.
 
 ## Dosyaları `less` ile inceleme
 
-Ama dosyaları incelemek istersek, `less` komutunu kullanalmım:
+Ama dosyaları ekrana yazdırmak yerine incelemek istersek, `less` komutunu kullanmamız gerekecektir:
 
 ```bash
 less  ornek_fastq.fastq
 ```
 
-Bu programdan çıkmak için `q` tuşuna basın.
+Ok tuşları ile dosyada yukarı ve aşağı hareket edebilirsiniz. Bu programdan çıkmak için `q` tuşuna basın.
 
-## TArihçeyi inceleyelim:
+## Tarihçeyi elde etmek
 
-`history` komutu ile komut tarihçesini inceleyebiliriz.
+Yazdığımız komutların tarihçesini elde etmek istersel `history` komutunu kullanabiliriz. Bunu protokolünüzde kullandığnız kodları kaydetmek için kullanabilisiniz.
 
-Bunu protokolünüzde kullandığnız kodları kaydetmek için kullanabilisiniz.
+```bash
+history
+```
 
-## Yeniden yönlendirme işlemi yapalım
+## Komut çıktısını yönlendirme
 
-Unix/Linux sistemlerinin en önemli özelliği pipe ve redirection. Bir komutuun çıktıdını başka bir komuta gönderebilirisnzi ya da baka bir dosyaya aktarabiliriniz.
+Unix/Linux sistemlerinin en önemli özelliklerinden bir tanesi, bir dosyadan elde edilen çıktıyı başka bir dosyaya yönlendirme. Bu sayede, elde ettiğiniz sonuçları dosyalara aktarabilirsiniz. Mesela tarihçeyi, `tarihce.txt` dosyasına aktaralım:
 
 ```bash
 history > tarihce.txt
@@ -174,23 +191,24 @@ history > tarihce.txt
 
 Bir `tarihce.txt` isimli dosyanın oluşmuş olması gerekli.
 
-Ancak bu işlemde, `tarihce.txt` dosyası yoksa o dosya oluşturulur, böyle bir dosya varsa, silip üstüne yazar.
-
-Eğer bu dosyayı silmeden ekleme yapmak istersenz, `>>` kullanın. Bu sayede varolan dosyayı silmez, sonuna ekler.
-
 :::{.callout-warning}
 ## Varolan dosyanın üzerine yazma
 
 Eğer `>` kullanırsanız, ve varolan bir dosyayı hedef gösterirseniz, o dosyanın üzerine yazmış olursunuz! Dosyanın içindeki eski bilgileri kaybederiz!
+
+Eğer bu dosyayı silmeden ekleme yapmak istersenz, `>>` kullanın. Bu sayede varolan dosyayı silmez, sonuna ekler.
+
 :::
 
-## Dosyayı değiştirme
+## Bir dosyayı değiştirme ve güncelleme
 
-`nano` programı ile, varolan metin dosyalarını açabilirsiniz.
+Şu ana kadar varolan dosyalarla salt okunur işlemler yaptık. Bir dosyayı açmak ve değiştirmek için `nano` programını kullanabilirsiniz:
 
 ```bash
 nano tarihce.txt
 ```
+
+Aşağıda bulunan kısayolları kullanarak işlemlerinizi gerçekleştirebilirsiniz:
 
 CTRL + K metni keser
 CTRL + U metni yapıştırır
@@ -199,19 +217,23 @@ CTRL + X çıkar
 
 ## Dosya ve klasör kopyalama
 
-İlk olarak örnek dosyamızı kopyalayarak işe başlayalım. `cp` komutu dosya ve klasörleri kopyalamak için kullanılır. Klasörleri kopyalamak istiyorsak `-r` işaretini eklememiz gerekir. Kopyalamak istediğimiz dosyanın tam konumunu bilmeliyiz ve eksiksiz olarak kodumuzda bu konumu vermeliyiz. Sondaki `.` işareti, bulunduğumuz yere bu klasörün kopyalanmasını sağlar.
+İlk olarak örnek dosyamızı kopyalayarak işe başlayalım. `cp` komutu dosya ve klasörleri kopyalamak için kullanılır. Kopyalamak istediğimiz dosyanın tam konumunu bilmeliyiz ve eksiksiz olarak kodumuzda bu konumu vermeliyiz. Sondaki `.` işareti, bulunduğumuz yere bu klasörün kopyalanmasını sağlar.
+
+Oluşturduğumuz dosyalardan bir tanesini kopyalayalım:
 
 ```bash
-cp tarihce.txt duzenlemis-tarhice.txt
+cp tarihce.txt duzenlenmis-tarihce.txt
 ```
 
-İsim değiştirme veya dosyayı başka bir konuma taşıma
+`ls` komutu ile yeni bir dosyanın oluştuğunu kontrol edin.
+
+Bir dosyanın ismini değiştirmek veya dosyayı başka bir konuma taşımak için `mv` komutu kullanılır:
 
 ```bash
 mv tarihce.txt eski-tarihce.txt
 ```
  
-Burada dosyaları aynı klasöre kopyalaıdık veya taşıdırk İstersek başka klasörlere kopyalyabilr ya da taşıyabilirnşz.:
+Burada dosyaları aynı klasöre kopyaladık veya taşıdırk İstersek başka klasörlere kopyalyabilr ya da taşıyabilirsiniz:
 
 Mesela bir dosyayı kendi ev klasörümüze kopyalayım:
 
@@ -228,16 +250,16 @@ ls -ltrh /truba/home/egitim123/
 İstersek başka bir klasöre de taşıyabilirz:
 
 ```bash
-mv duzenlemis-tarhice.txt /truba/home/egitim123/duzenlemis-tarhice.txt
+mv duzenlenmis-tarihce.txt /truba/home/egitim123/duzenlenmis-tarihce.txt
 ```
 
-Öncelikle çalışma klasörümüzü okntrol edeliömm:
+Öncelikle çalışma klasörümüzü kontrol edelim:
 
 ```bash
 ls -ltrh
 ```
 
-O dosya artık yok.
+Dikkat ederseniz artık o dosya artık yok.
 
 Şimdi de ev klasörümüzü kontrol edelikm:
 
@@ -245,12 +267,12 @@ O dosya artık yok.
 ls -ltrh /truba/home/egitim123/
 ```
 
-Linux üzerinde bunun gibi kısayollar bulunmaktadır.
+Bununla birlikte Linux üzerinde bazı klasörler için kısayollar bulunmaktadır.
 
 + `.` bulunduğumuz klasör
 + `~` ev klasörümüz
 
-Mesela az önce taşıdığımız dosyayı, başka bir isimde bulunduğunuz klasöre taşıyoların:
+Mesela az önce taşıdığımız dosyayı, ismini değiştirerek bulunduğumuz klasöre taşıyalım:
 
 ```bash
 mv ~/duzenlenmis-tarihce.txt ./yeni-tarihce.txt
@@ -258,50 +280,35 @@ mv ~/duzenlenmis-tarihce.txt ./yeni-tarihce.txt
 
 ## Dosyalarda arama yapmak
 
-İstersek `grep` komutu ile de bir dosya içerisinde arama yapabiliriz. Ancak bu sefer yaptığımız arama ekrana yazdırılacaktır:
+İstersek `grep` komutu ile de bir dosya içerisinde arama yapabiliriz. Ancak bu sefer yaptığımız arama ekrana yazdırılacaktır. `DNA-fasta.fna` dosyasında, `>` karakterine sahip satırları arayalım:
 
 ```bash
 grep ">" DNA-fasta.fna
 ```
 
-## Boru (Pipe)
+## Bir programın çıktısını başka bir programa aktarma (boru, pipe)
 
-Diğer önemli bir özellik ise, elimizdeki çıktıyı başka bir dosyaya yönlendirmek. Bunun için `|` karakterini kullanıyoruz.
+Diğer önemli bir özellik ise, elimizdeki çıktıyı başka bir dosyaya yönlendirmek. Bunun için `|` karakterini kullanıyoruz.. Mesela bir önceki çıktıda bulunan `>` karakterini silmek istediğimiz varsayalım.
+
+Bu çıktıyı, `sed` isimli programa aktarıyoruz ve `>` karakterini siliyoruz. Burada `s` karakter değiştirme komutunu simgeliyor.
 
 ```bash
-grep ENA ornek.fasta | grep CAA
+grep ">" DNA-fasta.fna | sed 's/>//g'
 ```
 
-Yukarıdaki komuta bakarsak, önce "ENA" kelimesini arıyoruyz, sonra çıktıyı başka bir `grep` komutuna yönlendirip, `CAA` kelimesini arıyoruyz.
+Hatta sadece tür isimlerini alalım. Bunun için `cut` komutu ile sütünlara ayırıp, ikinci sütüundan itibaren bütün bilgiyi toplayalım:
+
+```bash
+grep ">" DNA-fasta.fna | sed 's/>//g' | cut -d " " -f 2-
+```
+
+Bu komutta `-d` opsiyonu ayırma karakterini simgeliyor. Burada boşluk kullanılmış. `-f` opsiyonu ise kullanılacak sütunları gösteriyor. Boşluk karakteri ile ayırdığımızda ikinci sütüundan itibaren bütün sütünları elde edelim anlamına gelmektedir.
 
 İstersek o çıktıyı bir dosyaya gönderebiliriz:
 
 ```bash
-grep ENA ornek.fasta | grep CAA > arama.txt
+grep ">" DNA-fasta.fna | sed 's/>//g' | cut -d " " -f 2- > dizi-isimleri.txt
 ```
-
-Ama dikkat edin! Artık `arama.txt` dosyasının üzerine yazdık! Eğer bu dosyayı korumak istiyorsanız başka bir dosya ismi vermelisiniz.
-
-
-## Metin dosyaları oluşturmak
-
-Şimdi ise metin dosyalarını oluşturma ve kaydetmeye bakalım. Metin tabanlı sistemlerde `nano` isimli metin editörü, bize metin dosyaları ile çalışma imkanı sağlar. 
-
-Daha önce oluşturduğumuz `arama.txt` dosyasını metin editörü ile açalım. Yukarıda bahsedilen `cat` komutu ile düzenleme yapamayız, sadece okuyabiliriz:
-
-```bash
-nano arama.txt
-```
-
-Artık dosya içerisine istediğimiz bilgiyi yazabiliriz. Yazdıklarımız bittikten sonra `ctrl + o ` tuşu ile kaydedebiliriz. Ardından `ctrl + x` tuş kombinasyonuyla çıkış yapabilirsiniz.
-
-İsterseniz yeni bir dosya oluşturabilirsiniz, benzer şekilde önceden var olmasına gerek yoktur, bu komutu yazarken otomatik olarak oluşacaktır:
-
-```bash
-nano yeni-dosya.txt
-```
-
-Dikkat edin, boşluk karakteri kullanmadım. Onun yerine tire `-` karakterini kullandım.
 
 ## `for ` döngüsü kullanımı
 
