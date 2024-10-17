@@ -106,11 +106,11 @@
     ]
   },
   {
-    "objectID": "00-setup/03-command-line.html#dosya-listeleme",
-    "href": "00-setup/03-command-line.html#dosya-listeleme",
+    "objectID": "00-setup/03-command-line.html#klasör-içeriğini-görüntüleme",
+    "href": "00-setup/03-command-line.html#klasör-içeriğini-görüntüleme",
     "title": "3  Komut satırı kullanımı",
-    "section": "3.2 Dosya listeleme",
-    "text": "3.2 Dosya listeleme\nŞimdi ls komutunu yazalım. Bu komut bulunduğumuz klasördeki dosyaları ve klasörleri gösterir.\nEğer daha ayrıntılı bilgi istersek, ls -l komutunu kullanabiliriz. Bu komut, dosya ve klasörleri listeler; yime istersek klasör adı belirtebiliriz:\nls -l\nBenim ekranımda şöyle bir görüntü çıktı (Şekil 3.1).\n\n\n\n\n\n\nŞekil 3.1: ls -l komutu çıktısı\n\n\n\nKlasörleri son değiştirme sırasına göre göster ve bayt bilgisini okunabilir hale getir:\nls -ltrh",
+    "section": "3.2 Klasör içeriğini görüntüleme",
+    "text": "3.2 Klasör içeriğini görüntüleme\nŞimdi ls komutunu yazalım. Bu komut bulunduğumuz klasördeki dosyaları ve klasörleri gösterir.\nEğer daha ayrıntılı bilgi istersek, ls -l komutunu kullanabiliriz. Bu komut, dosya ve klasörleri listeler; yime istersek klasör adı belirtebiliriz:\nls -l\nBenim ekranımda şöyle bir görüntü çıktı (Şekil 3.1).\n\n\n\n\n\n\nŞekil 3.1: ls -l komutu çıktısı\n\n\n\nEn çok aşağıdaki komutu kullanıyorm. Bu sayede klasörleri son değiştirme sırasına göre gösterebiliyoruz ve bayt bilgisini okunabilir hale getiriyoruz:\nls -ltrh",
     "crumbs": [
       "Derse Hazırlık",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
@@ -132,7 +132,7 @@
     "href": "00-setup/03-command-line.html#klasörlerde-hareket",
     "title": "3  Komut satırı kullanımı",
     "section": "3.4 Klasörlerde hareket",
-    "text": "3.4 Klasörlerde hareket\nBunun için cd komutunu kullanıyoruz:\ncd emrah\nŞimdi de pwd yazalım.\nBir üst seviyeye çıkmak için cd .. yazın.\nAma şimdi kendi ismizle oluşturduğunuz klasöre gidiniz.",
+    "text": "3.4 Klasörlerde hareket\nBunun için cd komutunu kullanıyoruz:\ncd emrah\nŞimdi de pwd yazalım. Artık yeni oluşturduğunuz klasör içerisindesiniz.\nBir üst seviyeye çıkmak için cd .. yazın.\nAncak bu çalışma kapsamında şimdi kendi ismizle oluşturduğunuz klasöre gidiniz.\ncd emrah",
     "crumbs": [
       "Derse Hazırlık",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
@@ -143,7 +143,7 @@
     "href": "00-setup/03-command-line.html#temel-dosya-işlemleri",
     "title": "3  Komut satırı kullanımı",
     "section": "3.5 Temel dosya işlemleri",
-    "text": "3.5 Temel dosya işlemleri\nÖncelikle kullanacağımız veri setini indirelim:\nwget https://github.com/emrahkirdok/bioinformatics/raw/3defc4590bf8a351c30747061be5fde3924eae5d/00-setup/test-data.tar.gz\nKullandığımız wget komutu internet üzerindeki bir dosyayı indirmemizi sağlıyor.\nDosyaya bakalaım:\nls -ltrh \nBurada sıkıştırılmış bir arşiv dosyası indirdik, tar bu dosyanın arşivlendiğini, gz ise sıkıştırıldığın bize belitirl. Rengi kurmızı çünkü sıkıştırılmış bir dosya.\nBu dosyayı açalım:\ntar -xzvf test-data.tar.gz\nBakalım arşivi açmış mıyız?\nls -ltrh\nAçtığımız klasörü ls komutu ile inceleyebilirz. Klasörün içinde değilsek klasör adını yazmalıyız; klasör adı yazmadığımız durumda her neredeysek oradaki dosyaları listeleyecektir:\nls -ltrh test-data\nBu klasör içerisine girelim:\ncd test-data\nKlasör içindekileri gösterelim:\nls -ltrh",
+    "text": "3.5 Temel dosya işlemleri\nBu kısımda öncelikle kullanacağımız veri setini indirelim:\nwget https://github.com/emrahkirdok/bioinformatics/raw/3defc4590bf8a351c30747061be5fde3924eae5d/00-setup/test-data.tar.gz\nKullandığımız wget komutu internet üzerindeki bir dosyayı indirmemizi sağlıyor.\nDosyaya bakalaım:\nls -ltrh \nBurada sıkıştırılmış bir arşiv dosyası indirdik, tar bu dosyanın arşivlendiğini, gz ise sıkıştırıldığın bize belitmektedir. Dosya rengi kırmızı çünkü sıkıştırılmış bir dosya.\nBu dosyayı açalım:\ntar -xzvf test-data.tar.gz\nOpsiyonlar:\n\nx arşiv dosyasını aç\nz arşiv dosyasının sıkıştırılmış bir dosya olduğunu belirtir, önce sıkıştırmayı açar\nv açtığı dosyaların isimlerini gösterir\nf çalışmak istediğimiz arşiv dosyasının ismi, veya tam yolu\n\nBakalım arşivi açmış mıyız?\nls -ltrh\nAçtığımız klasörü ls komutu ile inceleyebiliriz. Klasörün içinde değilsek klasör adını yazmalıyız; klasör adı yazmadığımız durumda her neredeysek oradaki dosyaları listeleyecektir:\nls -ltrh test-data\nBu klasör içerisine girelim:\ncd test-data\nKlasör içindekileri gösterelim:\nls -ltrh",
     "crumbs": [
       "Derse Hazırlık",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
@@ -154,7 +154,7 @@
     "href": "00-setup/03-command-line.html#dosya-içeriğini-gösterme",
     "title": "3  Komut satırı kullanımı",
     "section": "3.6 Dosya içeriğini gösterme",
-    "text": "3.6 Dosya içeriğini gösterme\nBir dosya içeriğini ekrana yazdırmak istiyorsak, cat komutunu kullanmalıyız:\ncat ornek_fastq.fastq\nAncak dosya boyutumuz fazlaysa, bunu kullanamyaız. Çünkü her şeyi ekrana yazrırı.\nDosyanın ilk 10 satırını ekrana yazdıralım:\nhead  ornek_fastq.fastq\nSon 10 satırı yazdıralım\ntail  ornek_fastq.fastq",
+    "text": "3.6 Dosya içeriğini gösterme\nBir dosya içeriğini ekrana yazdırmak istiyorsak, cat komutunu kullanmalıyız:\ncat ornek_fasta.fasta\nAncak dosya boyutumuz fazlaysa, bunu kullanamayız. Çünkü her şeyi ekrana yazdırır. Örnek olarak aşaüıdaki dosya uzun bir dosya:\ncat ornek_fastq.fastq\nDosyanın ilk 10 satırını ekrana yazdıralım:\nhead  -n 10 ornek_fastq.fastq\nSon 10 satırı yazdıralım\ntail -n 10 ornek_fastq.fastq\nAncak bu komutlar dosya içeriğini ekrana yazdırır.",
     "crumbs": [
       "Derse Hazırlık",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
@@ -165,40 +165,40 @@
     "href": "00-setup/03-command-line.html#dosyaları-less-ile-inceleme",
     "title": "3  Komut satırı kullanımı",
     "section": "3.7 Dosyaları less ile inceleme",
-    "text": "3.7 Dosyaları less ile inceleme\nAma dosyaları incelemek istersek, less komutunu kullanalmım:\nless  ornek_fastq.fastq\nBu programdan çıkmak için q tuşuna basın.",
+    "text": "3.7 Dosyaları less ile inceleme\nAma dosyaları ekrana yazdırmak yerine incelemek istersek, less komutunu kullanmamız gerekecektir:\nless  ornek_fastq.fastq\nOk tuşları ile dosyada yukarı ve aşağı hareket edebilirsiniz. Bu programdan çıkmak için q tuşuna basın.",
     "crumbs": [
       "Derse Hazırlık",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
     ]
   },
   {
-    "objectID": "00-setup/03-command-line.html#tarihçeyi-inceleyelim",
-    "href": "00-setup/03-command-line.html#tarihçeyi-inceleyelim",
+    "objectID": "00-setup/03-command-line.html#tarihçeyi-elde-etmek",
+    "href": "00-setup/03-command-line.html#tarihçeyi-elde-etmek",
     "title": "3  Komut satırı kullanımı",
-    "section": "3.8 TArihçeyi inceleyelim:",
-    "text": "3.8 TArihçeyi inceleyelim:\nhistory komutu ile komut tarihçesini inceleyebiliriz.\nBunu protokolünüzde kullandığnız kodları kaydetmek için kullanabilisiniz.",
+    "section": "3.8 Tarihçeyi elde etmek",
+    "text": "3.8 Tarihçeyi elde etmek\nYazdığımız komutların tarihçesini elde etmek istersel history komutunu kullanabiliriz. Bunu protokolünüzde kullandığnız kodları kaydetmek için kullanabilisiniz.\nhistory",
     "crumbs": [
       "Derse Hazırlık",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
     ]
   },
   {
-    "objectID": "00-setup/03-command-line.html#yeniden-yönlendirme-işlemi-yapalım",
-    "href": "00-setup/03-command-line.html#yeniden-yönlendirme-işlemi-yapalım",
+    "objectID": "00-setup/03-command-line.html#komut-çıktısını-yönlendirme",
+    "href": "00-setup/03-command-line.html#komut-çıktısını-yönlendirme",
     "title": "3  Komut satırı kullanımı",
-    "section": "3.9 Yeniden yönlendirme işlemi yapalım",
-    "text": "3.9 Yeniden yönlendirme işlemi yapalım\nUnix/Linux sistemlerinin en önemli özelliği pipe ve redirection. Bir komutuun çıktıdını başka bir komuta gönderebilirisnzi ya da baka bir dosyaya aktarabiliriniz.\nhistory &gt; tarihce.txt\nŞimdi ls -ltrh ile inceleyim.\nBir tarihce.txt isimli dosyanın oluşmuş olması gerekli.\nAncak bu işlemde, tarihce.txt dosyası yoksa o dosya oluşturulur, böyle bir dosya varsa, silip üstüne yazar.\nEğer bu dosyayı silmeden ekleme yapmak istersenz, &gt;&gt; kullanın. Bu sayede varolan dosyayı silmez, sonuna ekler.\n\n\n\n\n\n\nVarolan dosyanın üzerine yazma\n\n\n\nEğer &gt; kullanırsanız, ve varolan bir dosyayı hedef gösterirseniz, o dosyanın üzerine yazmış olursunuz! Dosyanın içindeki eski bilgileri kaybederiz!",
+    "section": "3.9 Komut çıktısını yönlendirme",
+    "text": "3.9 Komut çıktısını yönlendirme\nUnix/Linux sistemlerinin en önemli özelliklerinden bir tanesi, bir dosyadan elde edilen çıktıyı başka bir dosyaya yönlendirme. Bu sayede, elde ettiğiniz sonuçları dosyalara aktarabilirsiniz. Mesela tarihçeyi, tarihce.txt dosyasına aktaralım:\nhistory &gt; tarihce.txt\nŞimdi ls -ltrh ile inceleyim.\nBir tarihce.txt isimli dosyanın oluşmuş olması gerekli.\n\n\n\n\n\n\nVarolan dosyanın üzerine yazma\n\n\n\nEğer &gt; kullanırsanız, ve varolan bir dosyayı hedef gösterirseniz, o dosyanın üzerine yazmış olursunuz! Dosyanın içindeki eski bilgileri kaybederiz!\nEğer bu dosyayı silmeden ekleme yapmak istersenz, &gt;&gt; kullanın. Bu sayede varolan dosyayı silmez, sonuna ekler.",
     "crumbs": [
       "Derse Hazırlık",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
     ]
   },
   {
-    "objectID": "00-setup/03-command-line.html#dosyayı-değiştirme",
-    "href": "00-setup/03-command-line.html#dosyayı-değiştirme",
+    "objectID": "00-setup/03-command-line.html#bir-dosyayı-değiştirme-ve-güncelleme",
+    "href": "00-setup/03-command-line.html#bir-dosyayı-değiştirme-ve-güncelleme",
     "title": "3  Komut satırı kullanımı",
-    "section": "3.10 Dosyayı değiştirme",
-    "text": "3.10 Dosyayı değiştirme\nnano programı ile, varolan metin dosyalarını açabilirsiniz.\nnano tarihce.txt\nCTRL + K metni keser CTRL + U metni yapıştırır CTRL + O dosyayı kaydeder CTRL + X çıkar",
+    "section": "3.10 Bir dosyayı değiştirme ve güncelleme",
+    "text": "3.10 Bir dosyayı değiştirme ve güncelleme\nŞu ana kadar varolan dosyalarla salt okunur işlemler yaptık. Bir dosyayı açmak ve değiştirmek için nano programını kullanabilirsiniz:\nnano tarihce.txt\nAşağıda bulunan kısayolları kullanarak işlemlerinizi gerçekleştirebilirsiniz:\nCTRL + K metni keser CTRL + U metni yapıştırır CTRL + O dosyayı kaydeder CTRL + X çıkar",
     "crumbs": [
       "Derse Hazırlık",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
@@ -209,7 +209,7 @@
     "href": "00-setup/03-command-line.html#dosya-ve-klasör-kopyalama",
     "title": "3  Komut satırı kullanımı",
     "section": "3.11 Dosya ve klasör kopyalama",
-    "text": "3.11 Dosya ve klasör kopyalama\nİlk olarak örnek dosyamızı kopyalayarak işe başlayalım. cp komutu dosya ve klasörleri kopyalamak için kullanılır. Klasörleri kopyalamak istiyorsak -r işaretini eklememiz gerekir. Kopyalamak istediğimiz dosyanın tam konumunu bilmeliyiz ve eksiksiz olarak kodumuzda bu konumu vermeliyiz. Sondaki . işareti, bulunduğumuz yere bu klasörün kopyalanmasını sağlar.\ncp tarihce.txt duzenlemis-tarhice.txt\nİsim değiştirme veya dosyayı başka bir konuma taşıma\nmv tarihce.txt eski-tarihce.txt\nBurada dosyaları aynı klasöre kopyalaıdık veya taşıdırk İstersek başka klasörlere kopyalyabilr ya da taşıyabilirnşz.:\nMesela bir dosyayı kendi ev klasörümüze kopyalayım:\ncp eski-tarihce.txt /truba/home/egitim123/\nŞimdi klasörü kontrol edelim:\nls -ltrh /truba/home/egitim123/\nİstersek başka bir klasöre de taşıyabilirz:\nmv duzenlemis-tarhice.txt /truba/home/egitim123/duzenlemis-tarhice.txt\nÖncelikle çalışma klasörümüzü okntrol edeliömm:\nls -ltrh\nO dosya artık yok.\nŞimdi de ev klasörümüzü kontrol edelikm:\nls -ltrh /truba/home/egitim123/\nLinux üzerinde bunun gibi kısayollar bulunmaktadır.\n\n. bulunduğumuz klasör\n~ ev klasörümüz\n\nMesela az önce taşıdığımız dosyayı, başka bir isimde bulunduğunuz klasöre taşıyoların:\nmv ~/duzenlenmis-tarihce.txt ./yeni-tarihce.txt",
+    "text": "3.11 Dosya ve klasör kopyalama\nİlk olarak örnek dosyamızı kopyalayarak işe başlayalım. cp komutu dosya ve klasörleri kopyalamak için kullanılır. Kopyalamak istediğimiz dosyanın tam konumunu bilmeliyiz ve eksiksiz olarak kodumuzda bu konumu vermeliyiz. Sondaki . işareti, bulunduğumuz yere bu klasörün kopyalanmasını sağlar.\nOluşturduğumuz dosyalardan bir tanesini kopyalayalım:\ncp tarihce.txt duzenlenmis-tarihce.txt\nls komutu ile yeni bir dosyanın oluştuğunu kontrol edin.\nBir dosyanın ismini değiştirmek veya dosyayı başka bir konuma taşımak için mv komutu kullanılır:\nmv tarihce.txt eski-tarihce.txt\nBurada dosyaları aynı klasöre kopyaladık veya taşıdırk İstersek başka klasörlere kopyalyabilr ya da taşıyabilirsiniz:\nMesela bir dosyayı kendi ev klasörümüze kopyalayım:\ncp eski-tarihce.txt /truba/home/egitim123/\nŞimdi klasörü kontrol edelim:\nls -ltrh /truba/home/egitim123/\nİstersek başka bir klasöre de taşıyabilirz:\nmv duzenlenmis-tarihce.txt /truba/home/egitim123/duzenlenmis-tarihce.txt\nÖncelikle çalışma klasörümüzü kontrol edelim:\nls -ltrh\nDikkat ederseniz artık o dosya artık yok.\nŞimdi de ev klasörümüzü kontrol edelikm:\nls -ltrh /truba/home/egitim123/\nBununla birlikte Linux üzerinde bazı klasörler için kısayollar bulunmaktadır.\n\n. bulunduğumuz klasör\n~ ev klasörümüz\n\nMesela az önce taşıdığımız dosyayı, ismini değiştirerek bulunduğumuz klasöre taşıyalım:\nmv ~/duzenlenmis-tarihce.txt ./yeni-tarihce.txt",
     "crumbs": [
       "Derse Hazırlık",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
@@ -220,29 +220,18 @@
     "href": "00-setup/03-command-line.html#dosyalarda-arama-yapmak",
     "title": "3  Komut satırı kullanımı",
     "section": "3.12 Dosyalarda arama yapmak",
-    "text": "3.12 Dosyalarda arama yapmak\nİstersek grep komutu ile de bir dosya içerisinde arama yapabiliriz. Ancak bu sefer yaptığımız arama ekrana yazdırılacaktır:\ngrep \"&gt;\" DNA-fasta.fna",
+    "text": "3.12 Dosyalarda arama yapmak\nİstersek grep komutu ile de bir dosya içerisinde arama yapabiliriz. Ancak bu sefer yaptığımız arama ekrana yazdırılacaktır. DNA-fasta.fna dosyasında, &gt; karakterine sahip satırları arayalım:\ngrep \"&gt;\" DNA-fasta.fna",
     "crumbs": [
       "Derse Hazırlık",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
     ]
   },
   {
-    "objectID": "00-setup/03-command-line.html#boru-pipe",
-    "href": "00-setup/03-command-line.html#boru-pipe",
+    "objectID": "00-setup/03-command-line.html#bir-programın-çıktısını-başka-bir-programa-aktarma-boru-pipe",
+    "href": "00-setup/03-command-line.html#bir-programın-çıktısını-başka-bir-programa-aktarma-boru-pipe",
     "title": "3  Komut satırı kullanımı",
-    "section": "3.13 Boru (Pipe)",
-    "text": "3.13 Boru (Pipe)\nDiğer önemli bir özellik ise, elimizdeki çıktıyı başka bir dosyaya yönlendirmek. Bunun için | karakterini kullanıyoruz.\ngrep ENA ornek.fasta | grep CAA\nYukarıdaki komuta bakarsak, önce “ENA” kelimesini arıyoruyz, sonra çıktıyı başka bir grep komutuna yönlendirip, CAA kelimesini arıyoruyz.\nİstersek o çıktıyı bir dosyaya gönderebiliriz:\ngrep ENA ornek.fasta | grep CAA &gt; arama.txt\nAma dikkat edin! Artık arama.txt dosyasının üzerine yazdık! Eğer bu dosyayı korumak istiyorsanız başka bir dosya ismi vermelisiniz.",
-    "crumbs": [
-      "Derse Hazırlık",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
-    ]
-  },
-  {
-    "objectID": "00-setup/03-command-line.html#metin-dosyaları-oluşturmak",
-    "href": "00-setup/03-command-line.html#metin-dosyaları-oluşturmak",
-    "title": "3  Komut satırı kullanımı",
-    "section": "3.14 Metin dosyaları oluşturmak",
-    "text": "3.14 Metin dosyaları oluşturmak\nŞimdi ise metin dosyalarını oluşturma ve kaydetmeye bakalım. Metin tabanlı sistemlerde nano isimli metin editörü, bize metin dosyaları ile çalışma imkanı sağlar.\nDaha önce oluşturduğumuz arama.txt dosyasını metin editörü ile açalım. Yukarıda bahsedilen cat komutu ile düzenleme yapamayız, sadece okuyabiliriz:\nnano arama.txt\nArtık dosya içerisine istediğimiz bilgiyi yazabiliriz. Yazdıklarımız bittikten sonra ctrl + o tuşu ile kaydedebiliriz. Ardından ctrl + x tuş kombinasyonuyla çıkış yapabilirsiniz.\nİsterseniz yeni bir dosya oluşturabilirsiniz, benzer şekilde önceden var olmasına gerek yoktur, bu komutu yazarken otomatik olarak oluşacaktır:\nnano yeni-dosya.txt\nDikkat edin, boşluk karakteri kullanmadım. Onun yerine tire - karakterini kullandım.",
+    "section": "3.13 Bir programın çıktısını başka bir programa aktarma (boru, pipe)",
+    "text": "3.13 Bir programın çıktısını başka bir programa aktarma (boru, pipe)\nDiğer önemli bir özellik ise, elimizdeki çıktıyı başka bir dosyaya yönlendirmek. Bunun için | karakterini kullanıyoruz.. Mesela bir önceki çıktıda bulunan &gt; karakterini silmek istediğimiz varsayalım.\nBu çıktıyı, sed isimli programa aktarıyoruz ve &gt; karakterini siliyoruz. Burada s karakter değiştirme komutunu simgeliyor.\ngrep \"&gt;\" DNA-fasta.fna | sed 's/&gt;//g'\nHatta sadece tür isimlerini alalım. Bunun için cut komutu ile sütünlara ayırıp, ikinci sütüundan itibaren bütün bilgiyi toplayalım:\ngrep \"&gt;\" DNA-fasta.fna | sed 's/&gt;//g' | cut -d \" \" -f 2-\nBu komutta -d opsiyonu ayırma karakterini simgeliyor. Burada boşluk kullanılmış. -f opsiyonu ise kullanılacak sütunları gösteriyor. Boşluk karakteri ile ayırdığımızda ikinci sütüundan itibaren bütün sütünları elde edelim anlamına gelmektedir.\nİstersek o çıktıyı bir dosyaya gönderebiliriz:\ngrep \"&gt;\" DNA-fasta.fna | sed 's/&gt;//g' | cut -d \" \" -f 2- &gt; dizi-isimleri.txt",
     "crumbs": [
       "Derse Hazırlık",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
@@ -252,8 +241,8 @@
     "objectID": "00-setup/03-command-line.html#for-döngüsü-kullanımı",
     "href": "00-setup/03-command-line.html#for-döngüsü-kullanımı",
     "title": "3  Komut satırı kullanımı",
-    "section": "3.15 for döngüsü kullanımı",
-    "text": "3.15 for döngüsü kullanımı\nFor döngüsü mantığına bakalım:\nBir klasör içerisinde 15 tane dosya var ve bu dosyaların hepsine uygulamak istediğimiz bir işlem var diyelim. Bu işlemi her dosyaya ayrı ayrı uygulamak yerine, for döngüsü kullanarak aynı anda hepsine uygulama yapılabilir. Dosyaların hepsini bir değişkende toplayalım, dosya isimlerini tek tek elle yazmamız gerekebilir, eğer bu dosya adlarında veya uzantılarında belli başlı ortak özellikler varsa, daha pratik bir kodlama yapabiliriz. Artık dosyaları tek tek yazmak yerine, değişken ismi ile bu dosyalar bütününü temsil edebiliriz. for döngüsü bu değişkendeki dosyaları tek tek alır, işlemi yapar, işlem tamamlanınca bir sonraki dosyaya geçer, işlemi yapar, tamamlar, ve bu şekilde artık işlem yapılacak dosya kalmayana kadar bu döngüyü devam ettirir.\nFor döngüsü şu şekilde kullanılır.\nBir değişken belirleyelim:\nFILES=\"a.txt b.txt c.txt\"\nElimizde 3 farklı dosya olsun. Bu üç dosyaya belirli işlemleri uygulamak istiyoruz. For döngüsü sayesinde bu işlemleri tek tek bütün dosyalara sırayla uygulayabiliriz:\nfor FILE in ${FILES}\ndo\n    echo ${FILE}\ndone\nBu betik, öncelikle FILES içersisindeki dosyaları sırayla FILE içersine atacak. ve do kısmından sonra gelen adımı uygulayacak.\nFor döngüsü özet:\nKlasördeki değişkendeki her bir dosya için; Klasöre işlem uygula, Dosyaların hepsi işlenince bitir.",
+    "section": "3.14 for döngüsü kullanımı",
+    "text": "3.14 for döngüsü kullanımı\nFor döngüsü mantığına bakalım:\nBir klasör içerisinde 15 tane dosya var ve bu dosyaların hepsine uygulamak istediğimiz bir işlem var diyelim. Bu işlemi her dosyaya ayrı ayrı uygulamak yerine, for döngüsü kullanarak aynı anda hepsine uygulama yapılabilir. Dosyaların hepsini bir değişkende toplayalım, dosya isimlerini tek tek elle yazmamız gerekebilir, eğer bu dosya adlarında veya uzantılarında belli başlı ortak özellikler varsa, daha pratik bir kodlama yapabiliriz. Artık dosyaları tek tek yazmak yerine, değişken ismi ile bu dosyalar bütününü temsil edebiliriz. for döngüsü bu değişkendeki dosyaları tek tek alır, işlemi yapar, işlem tamamlanınca bir sonraki dosyaya geçer, işlemi yapar, tamamlar, ve bu şekilde artık işlem yapılacak dosya kalmayana kadar bu döngüyü devam ettirir.\nFor döngüsü şu şekilde kullanılır.\nBir değişken belirleyelim:\nFILES=\"a.txt b.txt c.txt\"\nElimizde 3 farklı dosya olsun. Bu üç dosyaya belirli işlemleri uygulamak istiyoruz. For döngüsü sayesinde bu işlemleri tek tek bütün dosyalara sırayla uygulayabiliriz:\nfor FILE in ${FILES}\ndo\n    echo ${FILE}\ndone\nBu betik, öncelikle FILES içersisindeki dosyaları sırayla FILE içersine atacak. ve do kısmından sonra gelen adımı uygulayacak.\nFor döngüsü özet:\nKlasördeki değişkendeki her bir dosya için; Klasöre işlem uygula, Dosyaların hepsi işlenince bitir.",
     "crumbs": [
       "Derse Hazırlık",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
