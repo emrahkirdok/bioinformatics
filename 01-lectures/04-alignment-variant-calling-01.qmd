@@ -1,5 +1,28 @@
 # Hizalama
 
+
+```bash
+mkdir -p data/ref
+mkdir -p data/fastq
+mkdir -p logs
+mkdir -p envs
+```
+
+Çevre dosyamızı yükleyelim:
+
+
+
+
+```bash
+conda env create --file envs/alignment
+```
+
+
+## Kalite kontrol
+
+Bir önceki derste kalite kontrol yapmıştık. Genel olarak bütün çalışmalarda bir kez kalite kontrol yapmak faydalı bir işlem olacaktır. Ancak bunu nasıl yapacağınıza siz karar vermelisiniz.
+
+
 İlk olarak kullanım yolumuzu belirleyelim. Programlarımız bu klasör içerisinde bulunmaktadır. Linux üzerinde bulunan, `PATH` değişkeni, kullanılacak programların hangi klasörlerde aranacağını gösterir.
 
 İsterseniz öncelikle kendi sisteminizdeki `PATH` değişkenine bakınız:
