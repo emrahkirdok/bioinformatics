@@ -359,6 +359,17 @@
     ]
   },
   {
+    "objectID": "01-lectures/04-alignment-variant-calling-01.html#sam-dosyaları",
+    "href": "01-lectures/04-alignment-variant-calling-01.html#sam-dosyaları",
+    "title": "7  Hizalama",
+    "section": "7.2 SAM dosyaları",
+    "text": "7.2 SAM dosyaları\nDNA hizalama işleminin ardıdan, ham hizalama verisi bu dosya içerinde tutulur. Genotip ve varyant çağırma işleminden önce, bu dosya filtre edilir. Bu filtrasyon aşağıdaki basamakları kapsamaktadır:\n\nReferans genom ile hizalanmayan okumaların uzaklaştırılması\nKötü hizalama kalitesine sahip okumaların uzaklaştırılması (-q 30)\n\nSAM dosyalarında, hizalama bilgisi, flag adı verilen bir değişken içinde saklanır. Bu flag bilgilerine şu siteden erişebilirsiniz.\nHizalama kalitesi (-q) aslında, phred okuma kalitesinin bir fonksiyonu. Genelde 30 okuma kalitesinden daha düşük olan diziler, hizalama dosyasından uzaklaştırlır.",
+    "crumbs": [
+      "Dersler",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hizalama</span>"
+    ]
+  },
+  {
     "objectID": "01-lectures/05-alignment-variant-calling-02.html",
     "href": "01-lectures/05-alignment-variant-calling-02.html",
     "title": "8  Varyant Çağırma",

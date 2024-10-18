@@ -311,6 +311,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#hizalama" id="toc-hizalama" class="nav-link active" data-scroll-target="#hizalama"><span class="header-section-number">7.1</span> Hizalama</a></li>
+  <li><a href="#sam-dosyaları" id="toc-sam-dosyaları" class="nav-link" data-scroll-target="#sam-dosyaları"><span class="header-section-number">7.2</span> SAM dosyaları</a></li>
   </ul>
 </nav>
     </div>
@@ -392,6 +393,16 @@ gunzip data/ref/GCF_000014205.1_ASM1420v1_genomic.gtf.gz</code></pre>
 <div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> tview <span class="at">--reference</span> data/ref/GCF_000014205.1_ASM1420v1_genomic.fna results/alignment/ERR3079326.sorted.rmdup.bam</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dersin başında bulduğumuz geni inceleylim mi?</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> tview <span class="at">-p</span> NC_009009.1:254673 <span class="at">--reference</span> data/ref/GCF_000014205.1_ASM1420v1_genomic.fna results/alignment/ERR3079326.sorted.rmdup.bam</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="sam-dosyaları" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="sam-dosyaları"><span class="header-section-number">7.2</span> SAM dosyaları</h2>
+<p>DNA hizalama işleminin ardıdan, ham hizalama verisi bu dosya içerinde tutulur. Genotip ve varyant çağırma işleminden önce, bu dosya filtre edilir. Bu filtrasyon aşağıdaki basamakları kapsamaktadır:</p>
+<ul>
+<li>Referans genom ile hizalanmayan okumaların uzaklaştırılması</li>
+<li>Kötü hizalama kalitesine sahip okumaların uzaklaştırılması (<code>-q 30</code>)</li>
+</ul>
+<p>SAM dosyalarında, hizalama bilgisi, <code>flag</code> adı verilen bir değişken içinde saklanır. Bu <code>flag</code> bilgilerine <a href="https://broadinstitute.github.io/picard/explain-flags.html">şu siteden</a> erişebilirsiniz.</p>
+<p>Hizalama kalitesi (<code>-q</code>) aslında, phred okuma kalitesinin bir fonksiyonu. Genelde 30 okuma kalitesinden daha düşük olan diziler, hizalama dosyasından uzaklaştırlır.</p>
 
 
 </section>
