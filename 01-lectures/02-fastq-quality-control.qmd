@@ -1,6 +1,6 @@
 # Fastq kalite kontrol
 
-ilk olarak fastq dosyalarının kalite kontrolünü işleyeceğiz.
+İlk olarak fastq dosyalarının kalite kontrolünü işleyeceğiz.
 
 Öncelikle TRUBA sistemimize girelim.
 
@@ -35,7 +35,7 @@ eval "$(/truba/home/$USER/miniconda3/bin/conda shell.bash hook)"
 Şimdi, kullancağımız conda çevresinin dosyasını indirelim:
 
 ```bash
-wget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/01-environments/quality-control.yaml
+wget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/01-environments/quality-control.yaml -P envs/
 
 conda env create --file envs/quality-control.yaml
 conda activate quality-control
@@ -54,7 +54,7 @@ wget ftp.sra.ebi.ac.uk/vol1/fastq/SRR740/005/SRR7405885/SRR7405885_2.fastq.gz -P
 Bu iş için kullanacağımız betiği indirelim:
 
 ```bash
-wget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/02-sbatch-scripts/fastqc-before-trimming.sh -P scripts
+wget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/02-sbatch-scripts/fastqc-before-trimming.sh -P scripts/
 ```
 
 Klasörü kontrol edelim:
@@ -77,6 +77,46 @@ Kullanacağımız betiği indirelim:
 wget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/02-sbatch-scripts/cutadapt-adapter-trimming-se.sh -P scripts/
 ```
 
+Şimdi betiğimizi çalıştıralım:
+
+```bash
+sbatch scripts/cutadapt-adapter-trimming-se.sh
+```
+
+Kontrol edelim:
+
+```bash
+squeue
+```
+
+## Çift yönlü ham okumaların işlenmesi
+
+```bash
+wget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/02-sbatch-scripts/cutadapt-adapter-trimming-pe.sh -P scripts/
+```
+
+Şimdi betiğimizi çalıştıralım:
+
+```bash
+sbatch scripts/cutadapt-adapter-trimming-pe.sh
+```
+
+Kontrol edelim:
+
+```bash
+squeue
+```
+
+## Cutadapt parametreleri
+
+Şimdi `cutadapt --help` komutu ile programın bütün opsiyonlarını öğrenebilirisniz. Ancak en önemlililer aşağıda:
+
++ `a`: ileri yönlü DNA okumalarında adaptörlerin kesilmesi
++ `A`: geri yönlü okumalardaki adaptörlerin kesilmesi
++ `q`: belirlenen eşik değerinin altındaki okuma kalitesine sahip nükleotidlerin kesilmesi
++ `minimum-length` kesimin ardından belirli nükleotidleriden kısa olan okumaları at
+
+Bizim fastq dosyalarımız tek yönlü olduğu için, sadece `a` opsiyonunu kullanacağız.
 
 Şu bağlantıya tıklayarak dosyalarımız indirelim ve TRUBA sistemine yükleyelim:
 

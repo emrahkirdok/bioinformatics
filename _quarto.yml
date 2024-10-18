@@ -38,7 +38,7 @@ book:
       chapters:
         - 01-lectures/01-ynd.qmd
         - 01-lectures/02-fastq-quality-control.qmd
-        - 01-lectures/03-fastq-processing.qmd
+        #- 01-lectures/03-fastq-processing.qmd
         - 01-lectures/04-alignment-variant-calling-01.qmd
         - 01-lectures/05-alignment-variant-calling-02.qmd
         - 01-lectures/09-rnaseq-analysis.qmd
