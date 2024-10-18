@@ -297,7 +297,7 @@
     "href": "01-lectures/02-fastq-quality-control.html#ham-okumaların-kalite-kontrolü",
     "title": "6  Fastq kalite kontrol",
     "section": "",
-    "text": "wget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/02-sbatch-scripts/fastqc-before-trimming.sh -P scripts\n\nls -ltrh scripts\n\nsbatch scripts/fastqc-before-trimming.sh",
+    "text": "wget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/02-sbatch-scripts/fastqc-before-trimming.sh -P scripts/\n\nls -ltrh scripts\n\nsbatch scripts/fastqc-before-trimming.sh",
     "crumbs": [
       "Dersler",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Fastq kalite kontrol</span>"
@@ -308,318 +308,329 @@
     "href": "01-lectures/02-fastq-quality-control.html#tek-yönlü-ham-okumaların-işlenmesi",
     "title": "6  Fastq kalite kontrol",
     "section": "6.2 Tek yönlü ham okumaların işlenmesi",
-    "text": "6.2 Tek yönlü ham okumaların işlenmesi\nKullanacağımız betiği indirelim:\nwget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/02-sbatch-scripts/cutadapt-adapter-trimming-se.sh -P scripts/\nŞu bağlantıya tıklayarak dosyalarımız indirelim ve TRUBA sistemine yükleyelim:\nBağlantı\nŞu bağlantıya tıklayarak dosyalarımız indirelim ve TRUBA sistemine yükleyelim:\nBağlantı\nKendi oluşturduğumuz klasörlere girelim. Siz kendi isminizi yazınız.\nmkdir Dersler\ncd Dersler\nDaha sonra indirdiğimiz klasörü TRUBA sistemine yükleyerek aşağıdaki komutla açalım\ntar -xzf 2024_04_03_ders_qc_01.tar.gz\nVe klasör içerisine girelim:\ncd 2024_04_03_ders_qc_01\nİçeriğe bakalım:\nls -l\nData klasörü içeriğine bakalım:\nls -l data\nİstersek dosyayı inceleyebiliriz:\nless data/sample1.fastq.gz\nBu dosyanın uzantısı gz. Biyoinformatik alanında kullanılan dosyalar genelde çok yer kapladıkları için sıkıştırılırlar. Bu uzantı da dosyanın sıkıştırıldığını bize söylüyor. Genelde less komutu sıkıştırılmış dosyaları açabilir. Ancak açamadıysa onun yerine zless komutunu deneyebilirsiniz. Bu program özel olarak gz uzantılı dosyaları açmak için tasarlanmıştır.\nŞimdi bu incelediğimiz dosyanın kalite kontrol işlemini gerçekleştireceğiz. Bunun için fastqc programını kullancağız.\nBunun için TRUBA sistemine bir iş betiği göndermemiz gerekli. Bu iş betiği dosyasını inceleyelim:\ncat fastqc_before_trimming.sh\nBu iş betiği dosyası, istediğimiz komutları TRUBA sistemine gönderip çalıştıracak.\nBunun için Barbun isimli bilgisayardan, 4 tane işlemci rezerve ediyoruz ve egitim kullanıcı ismiyle işimizi slurm sistemine gönderityoruz.\nBu iş dosyasını inceleyelim\nBirinci satır genelde zorunlu olarak kullanılması gereken bir satır. Bu aslında dosyanın bash ile çalıştırılması gerektiğini söylüyor:\n#!/bin/bash\n#SBATCH ile başlayan satırlar ise, slurm sisteminde gerekli olan parametreleri belirliyor.\n\n--partition opsiyonu ile kullanacağımız bilgisayarı belirleyebiliriyoruz\n--ntasks-per-node opsyinu ile kaç tane çekirdek kullanmak istediğimizi belirliyoruz\n--user opsiyonu ise kullancı ismimizi belirlememizi sağlıyor. Unutmayıni kullanıcı isminizi mutlaka belirlemeliziniz.\n\nPATH ile başlayan satır ise, kullanılacak programların yolunu belirtiyor.\nArdından ilk olarak mkdir ile çıktı dosyalarımızı yazacağımız klasörü belirliyoruz.\nDaha sonra fastqc programını çalıştırıyoruz.\nÖncelile kullanıcı isminizi nano programı ile düzeltiniz:\nnano fastqc_before_trimming.sh\nİş dosyasını çalıştıralım:\nsbatch fastqc_before_trimming.sh\nGönderdiğimiz işi şu şekilde kontrol edelim:\nsqueue -u egitim\nBunu ara ara takip edelim. İşimiz bittiğinide artık bu ekranda bir bilgi olmayacak.\nİşimiz bittiğinde sonra, çalışma klasörümüzde slurm ile başlayan bir dosya oluşacak. Bu dosyayı, less programı ile kontrol edelim. Bu doya bizim komutlarımızn çıktılarını gösterecek.\nEğer başarılı olduysak results/fastqc_before_trimming klasörü içinde bir kaç dosya oluşacak. Onlara bakalım:\nls -lh results/fastqc_before_trimming\nBu dosyayı bilgisayarımıza indirebiliriz. Önce yeni bir ubuntu ekranı ya da terminal ekranı açalım ve aşağıdaki komutu yazalım:\nscp egitim@levrek1.ulakbim.gov.tr:/truba/home/egitim/emrah/00-Fastq-Kalite-Kontrol/results/fastqc-before-trimming/*html .",
+    "text": "6.2 Tek yönlü ham okumaların işlenmesi\nKullanacağımız betiği indirelim:\nwget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/02-sbatch-scripts/cutadapt-adapter-trimming-se.sh -P scripts/\nŞimdi betiğimizi çalıştıralım:\nsbatch scripts/cutadapt-adapter-trimming-se.sh\nKontrol edelim:\nsqueue",
     "crumbs": [
       "Dersler",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Fastq kalite kontrol</span>"
     ]
   },
   {
-    "objectID": "01-lectures/03-fastq-processing.html",
-    "href": "01-lectures/03-fastq-processing.html",
-    "title": "7  Fastq işleme adımları",
-    "section": "",
-    "text": "Yeni nesil dizileme teknolojilerinin ardaından elde edilen DNA okumlarının işlenmeleri gerekir. Bir önceki derste fastqc aracı ile elde ettiğimiz raporda şu noktalara dikkat etmiştik:\nTekrar sistemimize giriş yapalım ve daha önce kendi ismimizde oluşturduğumuz klasöre giriş yapalım:\ncd emrah\nDaha sonra ders kapsamında işleyeceğimiz komutları ve veriyi içeren klasörü kopyalayalım:\ncp -r /truba/home/egitim/Dersler/01-Fastq-kirpma .\nŞimdi kopyaladığımız klasöre girelim:\ncd 01-Fastq-kirpma\nBu klasör içerisindeki dosyalara bakalım:\nls -lh\nBu klasör içeriisinde bulunan data klasörü, aslında kullanacağımız veriyi içermektedir. Aslında bir önceki derslerde kullandığımız verinin aynısını kullanıyoruz.\nŞimdi, elimizdeki fastq dosyasını, bir önceki derste elde ettiğimiz fastqc raporuna göre işleyelim.\nBu iş için kullanacağımız program cutadapt olacak. Bu program, bir fastq dosyasında kalite kontrol işlemleri yapmak için kullanılmaktadır.\nÖncelikle kullanacağımız programın yolunu belirtelim ve programın opsiyonlarını inceleyelim:\nPATH=${PATH}:/truba/home/egitim/miniconda3/envs/aMeta/bin/\nŞimdi cutadapt --help komutu ile programın bütün opsiyonlarını öğrenebilirisniz. Ancak en önemlililer aşağıda:\n\na: ileri yönlü DNA okumalarında adaptörlerin kesilmesi\nA: geri yönlü okumalardaki adaptörlerin kesilmesi\nq: belirlenen eşik değerinin altındaki okuma kalitesine sahip nükleotidlerin kesilmesi\nminimum-length kesimin ardından belirli nükleotidleriden kısa olan okumaları at\n\nBizim fastq dosyalarımız tek yönlü olduğu için, sadece a opsiyonunu kullanacağız.\nŞimdi sbatch dosyamıza bakalım. Unutmayın, account satırını, kendi hesabınıza göre değiştirmeniz gerek.\ncat Cutadapt_Adapter_Trimming.sh\nŞimdi de dosyamızı çalıştıralım:\nsbatch Cutadapt_Adapter_Trimming.sh\nEğer işlem doğru bir şekilde sonlanmışsa results isimli bir klasör oluşması gerekir.\nŞimdi bakalım:\nls -lh results\nUzantısı .trimmed.fastq.gz olan ik dosya oluşmuş olmalı.\nPeki gerçekten adaptörleri uzaklaştırdık mı? Bunun için tekrar fastqc programın çalıştırmalıyız. Aslında kullancağımız program, geçen hafta kullandığımızın aynısı. Ancak, fastqc programına işlenmiş dosyaları vermeliyiz.\nBu işlemi yürütmek için ise Fastqc_after_trimming.sh dosyasını çalıştırmalıyız.\nsbatch Fastqc_after_trimming.sh\nŞimdi yeni bir konsol açalım ve oluşturduğumuz fastqc raporlarını incelemek için bilgisyarımıza indirelim:\nscp egitim@levrek1.ulakbim.gov.tr:/truba/home/egitim/emrah/01-Fastq-kirpma/results/*html .",
+    "objectID": "01-lectures/02-fastq-quality-control.html#çift-yönlü-ham-okumaların-işlenmesi",
+    "href": "01-lectures/02-fastq-quality-control.html#çift-yönlü-ham-okumaların-işlenmesi",
+    "title": "6  Fastq kalite kontrol",
+    "section": "6.3 Çift yönlü ham okumaların işlenmesi",
+    "text": "6.3 Çift yönlü ham okumaların işlenmesi\nwget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/02-sbatch-scripts/cutadapt-adapter-trimming-pe.sh -P scripts/\nŞimdi betiğimizi çalıştıralım:\nsbatch scripts/cutadapt-adapter-trimming-pe.sh\nKontrol edelim:\nsqueue",
     "crumbs": [
       "Dersler",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Fastq işleme adımları</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Fastq kalite kontrol</span>"
+    ]
+  },
+  {
+    "objectID": "01-lectures/02-fastq-quality-control.html#cutadapt-parametreleri",
+    "href": "01-lectures/02-fastq-quality-control.html#cutadapt-parametreleri",
+    "title": "6  Fastq kalite kontrol",
+    "section": "6.4 Cutadapt parametreleri",
+    "text": "6.4 Cutadapt parametreleri\nŞimdi cutadapt --help komutu ile programın bütün opsiyonlarını öğrenebilirisniz. Ancak en önemlililer aşağıda:\n\na: ileri yönlü DNA okumalarında adaptörlerin kesilmesi\nA: geri yönlü okumalardaki adaptörlerin kesilmesi\nq: belirlenen eşik değerinin altındaki okuma kalitesine sahip nükleotidlerin kesilmesi\nminimum-length kesimin ardından belirli nükleotidleriden kısa olan okumaları at\n\nBizim fastq dosyalarımız tek yönlü olduğu için, sadece a opsiyonunu kullanacağız.\nŞu bağlantıya tıklayarak dosyalarımız indirelim ve TRUBA sistemine yükleyelim:\nBağlantı\nŞu bağlantıya tıklayarak dosyalarımız indirelim ve TRUBA sistemine yükleyelim:\nBağlantı\nKendi oluşturduğumuz klasörlere girelim. Siz kendi isminizi yazınız.\nmkdir Dersler\ncd Dersler\nDaha sonra indirdiğimiz klasörü TRUBA sistemine yükleyerek aşağıdaki komutla açalım\ntar -xzf 2024_04_03_ders_qc_01.tar.gz\nVe klasör içerisine girelim:\ncd 2024_04_03_ders_qc_01\nİçeriğe bakalım:\nls -l\nData klasörü içeriğine bakalım:\nls -l data\nİstersek dosyayı inceleyebiliriz:\nless data/sample1.fastq.gz\nBu dosyanın uzantısı gz. Biyoinformatik alanında kullanılan dosyalar genelde çok yer kapladıkları için sıkıştırılırlar. Bu uzantı da dosyanın sıkıştırıldığını bize söylüyor. Genelde less komutu sıkıştırılmış dosyaları açabilir. Ancak açamadıysa onun yerine zless komutunu deneyebilirsiniz. Bu program özel olarak gz uzantılı dosyaları açmak için tasarlanmıştır.\nŞimdi bu incelediğimiz dosyanın kalite kontrol işlemini gerçekleştireceğiz. Bunun için fastqc programını kullancağız.\nBunun için TRUBA sistemine bir iş betiği göndermemiz gerekli. Bu iş betiği dosyasını inceleyelim:\ncat fastqc_before_trimming.sh\nBu iş betiği dosyası, istediğimiz komutları TRUBA sistemine gönderip çalıştıracak.\nBunun için Barbun isimli bilgisayardan, 4 tane işlemci rezerve ediyoruz ve egitim kullanıcı ismiyle işimizi slurm sistemine gönderityoruz.\nBu iş dosyasını inceleyelim\nBirinci satır genelde zorunlu olarak kullanılması gereken bir satır. Bu aslında dosyanın bash ile çalıştırılması gerektiğini söylüyor:\n#!/bin/bash\n#SBATCH ile başlayan satırlar ise, slurm sisteminde gerekli olan parametreleri belirliyor.\n\n--partition opsiyonu ile kullanacağımız bilgisayarı belirleyebiliriyoruz\n--ntasks-per-node opsyinu ile kaç tane çekirdek kullanmak istediğimizi belirliyoruz\n--user opsiyonu ise kullancı ismimizi belirlememizi sağlıyor. Unutmayıni kullanıcı isminizi mutlaka belirlemeliziniz.\n\nPATH ile başlayan satır ise, kullanılacak programların yolunu belirtiyor.\nArdından ilk olarak mkdir ile çıktı dosyalarımızı yazacağımız klasörü belirliyoruz.\nDaha sonra fastqc programını çalıştırıyoruz.\nÖncelile kullanıcı isminizi nano programı ile düzeltiniz:\nnano fastqc_before_trimming.sh\nİş dosyasını çalıştıralım:\nsbatch fastqc_before_trimming.sh\nGönderdiğimiz işi şu şekilde kontrol edelim:\nsqueue -u egitim\nBunu ara ara takip edelim. İşimiz bittiğinide artık bu ekranda bir bilgi olmayacak.\nİşimiz bittiğinde sonra, çalışma klasörümüzde slurm ile başlayan bir dosya oluşacak. Bu dosyayı, less programı ile kontrol edelim. Bu doya bizim komutlarımızn çıktılarını gösterecek.\nEğer başarılı olduysak results/fastqc_before_trimming klasörü içinde bir kaç dosya oluşacak. Onlara bakalım:\nls -lh results/fastqc_before_trimming\nBu dosyayı bilgisayarımıza indirebiliriz. Önce yeni bir ubuntu ekranı ya da terminal ekranı açalım ve aşağıdaki komutu yazalım:\nscp egitim@levrek1.ulakbim.gov.tr:/truba/home/egitim/emrah/00-Fastq-Kalite-Kontrol/results/fastqc-before-trimming/*html .",
+    "crumbs": [
+      "Dersler",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Fastq kalite kontrol</span>"
     ]
   },
   {
     "objectID": "01-lectures/04-alignment-variant-calling-01.html",
     "href": "01-lectures/04-alignment-variant-calling-01.html",
-    "title": "8  Hizalama",
+    "title": "7  Hizalama",
     "section": "",
     "text": "İlk olarak kullanım yolumuzu belirleyelim. Programlarımız bu klasör içerisinde bulunmaktadır. Linux üzerinde bulunan, PATH değişkeni, kullanılacak programların hangi klasörlerde aranacağını gösterir.\nİsterseniz öncelikle kendi sisteminizdeki PATH değişkenine bakınız:\necho ${PATH}\nGeri dönen satıra baktığınızda, : ile ayrılan klasörler, programların aranacağı klasörleri göstermektedir. Çalıştırmak istediğiniz program, en soldaki klasörden başlayarak aranır. İlk bulunan klasördeki program çalıştırılır.\nŞimdi programları yükleyeceğimiz konumu PATH değişkeni içine ekleyelim:\nPATH=${PATH}:/truba/home/egitim/miniconda3/envs/bioinformatics/bin/\nŞimdi klasörün eklenip eklenmediğini kontrol edelim:\necho ${PATH}\nKullanacağımız programın ismi bwa. Öncelikle opsyionlarına bakalım:\nbwa\nŞimdi çalışmaya başlayalım (siz kendi klasörünüze giriniz):\ncd emrah\n\ncp -r /truba/home/egitim/Dersler/02-Hizalama/ .\nBir sonraki adımda, referans genomu indeksleyelim\nbwa index data/GCF_000191105.1_ASM19110v1_genomic.fna\nOluşan dosyalara bakalım:\nls -l data\nÖncelikle çıktı klasörümüzü oluşturalım:\n\nmkdir results\nSiz bu satırları doğrudan çalıştırmayın. Genel olarak slurm sistemi üzerinden komutları çalıştırıyoruz\nbwa aln data/GCF_000191105.1_ASM19110v1_genomic.fna data/ERR3079326_1.fastq.gz &gt; results/ERR3079326_1.sai\nbwa aln data/GCF_000191105.1_ASM19110v1_genomic.fna data/ERR3079326_2.fastq.gz &gt; results/ERR3079326_2.sai\nSon olarak bütün dosyaları birleştirerek, hizalama sam dosyası elde ediyoruz.\nbwa sampe data/GCF_000191105.1_ASM19110v1_genomic.fna results/ERR3079326_1.sai results/ERR3079326_2.sai data/ERR3079326_1.fastq.gz data/ERR3079326_2.fastq.gz &gt; results/ERR3079326.sam\nBu komutların hepsini çalıştırmak için kısaca şunu yazabilirsiniz:\nsbatch hizalama.sh\nİşimiz bittiğinde, oluşan sam dosyasını inceleyelim:\nless results/ERR3079326.sam\nSam dosya formatı hakkında bilgi almak için Şu dosyayı inceleyebilirsiniz.",
     "crumbs": [
       "Dersler",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Hizalama</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hizalama</span>"
     ]
   },
   {
     "objectID": "01-lectures/05-alignment-variant-calling-02.html",
     "href": "01-lectures/05-alignment-variant-calling-02.html",
-    "title": "9  Varyant Çağırma",
+    "title": "8  Varyant Çağırma",
     "section": "",
-    "text": "9.1 SAM dosyaları\nDNA hizalama işleminin ardıdan, ham hizalama verisi bu dosya içerinde tutulur. Genotip ve varyant çağırma işleminden önce, bu dosya filtre edilir. Bu filtrasyon aşağıdaki basamakları kapsamaktadır:\nSAM dosyalarında, hizalama bilgisi, flag adı verilen bir değişken içinde saklanır. Bu flag bilgilerine şu siteden erişebilirsiniz.\nHizalama kalitesi (-q) aslında, phred okuma kalitesinin bir fonksiyonu. Genelde 30 okuma kalitesinden daha düşük olan diziler, hizalama dosyasından uzaklaştırlır.\nBunun ardından, sam dosyasını, daha az yer kaplayan bam dosyasına dönüştüreceğiz.\nSon olarak, bam dosyası içerindeki okumaları, pozisyonlara göre sıralayarak varyant çağırma adımına geçeceğiz.",
+    "text": "8.1 SAM dosyaları\nDNA hizalama işleminin ardıdan, ham hizalama verisi bu dosya içerinde tutulur. Genotip ve varyant çağırma işleminden önce, bu dosya filtre edilir. Bu filtrasyon aşağıdaki basamakları kapsamaktadır:\nSAM dosyalarında, hizalama bilgisi, flag adı verilen bir değişken içinde saklanır. Bu flag bilgilerine şu siteden erişebilirsiniz.\nHizalama kalitesi (-q) aslında, phred okuma kalitesinin bir fonksiyonu. Genelde 30 okuma kalitesinden daha düşük olan diziler, hizalama dosyasından uzaklaştırlır.\nBunun ardından, sam dosyasını, daha az yer kaplayan bam dosyasına dönüştüreceğiz.\nSon olarak, bam dosyası içerindeki okumaları, pozisyonlara göre sıralayarak varyant çağırma adımına geçeceğiz.",
     "crumbs": [
       "Dersler",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Varyant Çağırma</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Varyant Çağırma</span>"
     ]
   },
   {
     "objectID": "01-lectures/05-alignment-variant-calling-02.html#sam-dosyaları",
     "href": "01-lectures/05-alignment-variant-calling-02.html#sam-dosyaları",
-    "title": "9  Varyant Çağırma",
+    "title": "8  Varyant Çağırma",
     "section": "",
     "text": "Referans genom ile hizalanmayan okumaların uzaklaştırılması\nKötü hizalama kalitesine sahip okumaların uzaklaştırılması (-q 30)",
     "crumbs": [
       "Dersler",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Varyant Çağırma</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Varyant Çağırma</span>"
     ]
   },
   {
     "objectID": "01-lectures/05-alignment-variant-calling-02.html#pratik",
     "href": "01-lectures/05-alignment-variant-calling-02.html#pratik",
-    "title": "9  Varyant Çağırma",
-    "section": "9.2 Pratik",
-    "text": "9.2 Pratik\nProgramları ekleyelim:\nPATH=${PATH}:/truba/home/egitim/miniconda3/envs/bioinformatics/bin/\nÖncelikle varyant çağırma dersini kopyalayalım:\ncp -r /truba/home/egitim/Dersler/03-Varyant-Cagirma/ .\nÖncelikle, sam dosyasının içeriğine flagstat komutu ile bakalım:\nsamtools flagstat results/ERR3079326.sam\nŞimdi sam dosyasını filtreleyelim ve bam haline çevirelim:\nsamtools view -F 12 -q 30 -Sb results/ERR3079326.sam &gt; results/ERR3079326.bam\nOluşturduğumuz bam dosyasını sıralayarak indexleyelim:\nsamtools sort results/ERR3079326.bam -o results/ERR3079326.sorted.bam\n\nsamtools index results/ERR3079326.sorted.bam\nGenotip çağıralım:\nbcftools mpileup -Ov --fasta-ref data/GCF_000191105.1_ASM19110v1_genomic.fna results/ERR3079326.sorted.bam &gt; results/ERR3079326.sorted.vcf\nSon olarak varyant çağırma işlemini gerçekleştirelim:\nbcftools call -mv -Ov -o results/calls.vcf results/ERR3079326.sorted.vcf\nBütün bu adımları çalıştırmak için:\nsbatch hizalama-varyant.sh",
+    "title": "8  Varyant Çağırma",
+    "section": "8.2 Pratik",
+    "text": "8.2 Pratik\nProgramları ekleyelim:\nPATH=${PATH}:/truba/home/egitim/miniconda3/envs/bioinformatics/bin/\nÖncelikle varyant çağırma dersini kopyalayalım:\ncp -r /truba/home/egitim/Dersler/03-Varyant-Cagirma/ .\nÖncelikle, sam dosyasının içeriğine flagstat komutu ile bakalım:\nsamtools flagstat results/ERR3079326.sam\nŞimdi sam dosyasını filtreleyelim ve bam haline çevirelim:\nsamtools view -F 12 -q 30 -Sb results/ERR3079326.sam &gt; results/ERR3079326.bam\nOluşturduğumuz bam dosyasını sıralayarak indexleyelim:\nsamtools sort results/ERR3079326.bam -o results/ERR3079326.sorted.bam\n\nsamtools index results/ERR3079326.sorted.bam\nGenotip çağıralım:\nbcftools mpileup -Ov --fasta-ref data/GCF_000191105.1_ASM19110v1_genomic.fna results/ERR3079326.sorted.bam &gt; results/ERR3079326.sorted.vcf\nSon olarak varyant çağırma işlemini gerçekleştirelim:\nbcftools call -mv -Ov -o results/calls.vcf results/ERR3079326.sorted.vcf\nBütün bu adımları çalıştırmak için:\nsbatch hizalama-varyant.sh",
     "crumbs": [
       "Dersler",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Varyant Çağırma</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Varyant Çağırma</span>"
     ]
   },
   {
     "objectID": "01-lectures/09-rnaseq-analysis.html",
     "href": "01-lectures/09-rnaseq-analysis.html",
-    "title": "10  RNA dizileme veri analizi",
+    "title": "9  RNA dizileme veri analizi",
     "section": "",
-    "text": "11 RNAseq\nRNA dizileme veri analizi, modern biyolojik araştırmalarda gen ifadesini anlamak için kullanılan güçlü bir yöntemdir. Bu bağlamda, komut satırı üzerinden işlemlerimizi gerçekleştiriyoruz.\nRNA dizileme çalışması kapsamında şu aşamalar bulunmaktadır: + Biyolojik bir numuneden RNA izolasyonu + RNA’nın cDNA’ya dönüştürülmesi (ters transkripsiyon) + cDNA’nın fragmentlerine ayrılması + cDNA parçaları kitaplığının hazırlanması ve yeni nesil dizileme kullanılarak dizilenmesi + Ham fastq dosyalarının eldesi + Dizilerin ‘cutadapt’ ile işlenerek, ‘fastqc’ aracı ile kalite kontrolden geçirilmesi + Fastq’ların referans genoma hizalanması ve RNA dizileme verisi eldesi + Gen ekspresyonu belirlenmesi için referans genoma hizalanan dizilerin sayılması + Gene okumaları sayıldıktan sonra, sağlıklı ve hastalıklı koşulların karşılaştırılması",
+    "text": "10 RNAseq\nRNA dizileme veri analizi, modern biyolojik araştırmalarda gen ifadesini anlamak için kullanılan güçlü bir yöntemdir. Bu bağlamda, komut satırı üzerinden işlemlerimizi gerçekleştiriyoruz.\nRNA dizileme çalışması kapsamında şu aşamalar bulunmaktadır: + Biyolojik bir numuneden RNA izolasyonu + RNA’nın cDNA’ya dönüştürülmesi (ters transkripsiyon) + cDNA’nın fragmentlerine ayrılması + cDNA parçaları kitaplığının hazırlanması ve yeni nesil dizileme kullanılarak dizilenmesi + Ham fastq dosyalarının eldesi + Dizilerin ‘cutadapt’ ile işlenerek, ‘fastqc’ aracı ile kalite kontrolden geçirilmesi + Fastq’ların referans genoma hizalanması ve RNA dizileme verisi eldesi + Gen ekspresyonu belirlenmesi için referans genoma hizalanan dizilerin sayılması + Gene okumaları sayıldıktan sonra, sağlıklı ve hastalıklı koşulların karşılaştırılması",
     "crumbs": [
       "Dersler",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>RNA dizileme veri analizi</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>RNA dizileme veri analizi</span>"
     ]
   },
   {
     "objectID": "01-lectures/09-rnaseq-analysis.html#git-deposu-ile-klonlama",
     "href": "01-lectures/09-rnaseq-analysis.html#git-deposu-ile-klonlama",
-    "title": "10  RNA dizileme veri analizi",
-    "section": "12.1 Git Deposu ile Klonlama",
-    "text": "12.1 Git Deposu ile Klonlama\nİlk olarak, Nursena Kocatürk’ün oluşturduğu Github deposuna giderek RNA dizileme için ihtiyaç duyduğumuz dosya ve betikleri bilgisayarımıza ekliyoruz.\n‘Code’ kutucuğuna tıklayarak çıkan https bağlantısını kopyalayalım.\nTerminalde oluşturduğumuz proje klasörüne girelim ve linki\ngit clone https://github.com/nursenakocaturk/rnaseq\nkomutuyla işleyelim.\nKullanılacak referans genom ve ham DNA okumaları klasörümüzün içinde oluşacak data klasöründe yer alacaktır. İşlenen veriler (çıktılar ve DNA okumaları) de yine proje klasörü içinde results klasöründe yer alacaktır. Bu klasörleri indireceğimiz betiklerle oluşturacağız.",
+    "title": "9  RNA dizileme veri analizi",
+    "section": "11.1 Git Deposu ile Klonlama",
+    "text": "11.1 Git Deposu ile Klonlama\nİlk olarak, Nursena Kocatürk’ün oluşturduğu Github deposuna giderek RNA dizileme için ihtiyaç duyduğumuz dosya ve betikleri bilgisayarımıza ekliyoruz.\n‘Code’ kutucuğuna tıklayarak çıkan https bağlantısını kopyalayalım.\nTerminalde oluşturduğumuz proje klasörüne girelim ve linki\ngit clone https://github.com/nursenakocaturk/rnaseq\nkomutuyla işleyelim.\nKullanılacak referans genom ve ham DNA okumaları klasörümüzün içinde oluşacak data klasöründe yer alacaktır. İşlenen veriler (çıktılar ve DNA okumaları) de yine proje klasörü içinde results klasöründe yer alacaktır. Bu klasörleri indireceğimiz betiklerle oluşturacağız.",
     "crumbs": [
       "Dersler",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>RNA dizileme veri analizi</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>RNA dizileme veri analizi</span>"
     ]
   },
   {
     "objectID": "01-lectures/09-rnaseq-analysis.html#conda-miniconda-kurulumu-ve-aktifleştirilmesi",
     "href": "01-lectures/09-rnaseq-analysis.html#conda-miniconda-kurulumu-ve-aktifleştirilmesi",
-    "title": "10  RNA dizileme veri analizi",
-    "section": "12.2 Conda (Miniconda) Kurulumu ve Aktifleştirilmesi",
-    "text": "12.2 Conda (Miniconda) Kurulumu ve Aktifleştirilmesi\nConda programlarından işletim sistemimize (Ubuntu için Linux) uygun olanı indirelim. Bağlantı linkini kopyalayıp\nwget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh\nörneğindeki gibi yükleyelim. Ardından Conda çerçevelerini kurup aktive edelim. Bu çerçevelerde gerekli tüm paketler mevcuttur. Dolayısıyla sadece bize lazım olan çerçeveleri kullanacağız.\nÖnce RNAseq çevresini kuralım.\nconda env create --file envs/rnaseq.yaml\nArdından bu çerçeveyi aktive edelim.\nconda activate rnaseq\nArtık komut satırının başında aktive olan çerçevenin adı parantes içinde görünmelidir.\nEğer Conda çerçevemizin güncel bir versiyonda olup olmadığından emin değilsek\nconda env update --file envs/rnaseq.yaml\nkomutuyla en son güncellemeyi sağlayabiliriz.\nİlerleyen süreçte kullanacağımız R çerçevesini de kullanılacağı zaman aktive etmek üzere kuralım.\nconda env create --file envs/r.yaml",
+    "title": "9  RNA dizileme veri analizi",
+    "section": "11.2 Conda (Miniconda) Kurulumu ve Aktifleştirilmesi",
+    "text": "11.2 Conda (Miniconda) Kurulumu ve Aktifleştirilmesi\nConda programlarından işletim sistemimize (Ubuntu için Linux) uygun olanı indirelim. Bağlantı linkini kopyalayıp\nwget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh\nörneğindeki gibi yükleyelim. Ardından Conda çerçevelerini kurup aktive edelim. Bu çerçevelerde gerekli tüm paketler mevcuttur. Dolayısıyla sadece bize lazım olan çerçeveleri kullanacağız.\nÖnce RNAseq çevresini kuralım.\nconda env create --file envs/rnaseq.yaml\nArdından bu çerçeveyi aktive edelim.\nconda activate rnaseq\nArtık komut satırının başında aktive olan çerçevenin adı parantes içinde görünmelidir.\nEğer Conda çerçevemizin güncel bir versiyonda olup olmadığından emin değilsek\nconda env update --file envs/rnaseq.yaml\nkomutuyla en son güncellemeyi sağlayabiliriz.\nİlerleyen süreçte kullanacağımız R çerçevesini de kullanılacağı zaman aktive etmek üzere kuralım.\nconda env create --file envs/r.yaml",
     "crumbs": [
       "Dersler",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>RNA dizileme veri analizi</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>RNA dizileme veri analizi</span>"
     ]
   },
   {
     "objectID": "01-lectures/09-rnaseq-analysis.html#okumaların-ve-referans-genomların-alınması",
     "href": "01-lectures/09-rnaseq-analysis.html#okumaların-ve-referans-genomların-alınması",
-    "title": "10  RNA dizileme veri analizi",
-    "section": "12.3 Okumaların ve Referans Genomların Alınması",
-    "text": "12.3 Okumaların ve Referans Genomların Alınması\nBu kısımda örnek bir veri setiyle çalışacağız. Klonlanan klasörümüzdeki ‘data_ena.txt’ metin dosyasında bulunan işlenmemiş (ham) okumalar, bu okumalara ait bilgiler ve indirme linkleri bulunuyor. Aynı klasörde ‘data.txt’ metin dosyasında ise bir önceki metin dosyasından alınmış dört örnek mevucttur.\nProje klasöründe bulunan ‘raw’ klasöründe işlenmemiş okumalar bulunurken ‘ref’ klasöründe referans genomumuz bulunmaktadır.\nmkdir -p data/raw\nmkdir -p data/ref\n\n12.3.1 Ham Okumaların Alınması\nTüm ham okumaları kapsayan listede hem çift yönlü (paired-end, pe) hem de tek yönlü (single-end, se) okumalar bulunuyor. Bu iki tip okumalar farklı işleneceği için klasörlerde bazı ayrımlar yapmamız gerekiyor. Bunun için ‘raw’ klasörüne bunun için ‘pe’ ve ‘se’ klasörleri oluşturalım.\n‘data.txt’ dosyasında mevcut olan örneklerimizin hepsi tek yönlüdür (se). Tek yönlü bu okumalarımız için gerekli klasöre gidelim.\ncd data/raw/se\n‘data_ena.txt’ dosyasından incelenecek okumanın linkini kopyalayıp indirelim (‘ftp://’ ön takısını ekleyelim.).\nwget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR702/005/SRR7029605/SRR7029605.fastq.gz\nDiğer üç örnek için de aynı kodu oluşturup çalıştıralım. Sonuçta ‘se’ klasöründe toplamda dört tane ‘fastq.gz’ uzantılı dosya eklenmiş olduğunu kontrol edelim.\n\n\n12.3.2 Referans Genomun Alınması\nReferans genom için ‘ref’ klasöründeki referans dosyalarını ‘gunzip’ komutuyla çalıştıralım.\ncd data/ref\nwget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/007/565/GCA_000007565.2_ASM756v2/GCA_000007565.2_ASM756v2_genomic.fna.gz\n\ngunzip GCA_000007565.2_ASM756v2_genomic.fna.gz\n\nwget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/007/565/GCA_000007565.2_ASM756v2/GCA_000007565.2_ASM756v2_genomic.gff.gz\n\ngunzip GCA_000007565.2_ASM756v2_genomic.gff.gz\n\nwget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/007/565/GCA_000007565.2_ASM756v2/GCA_000007565.2_ASM756v2_genomic.gtf.gz\n\ngunzip GCA_000007565.2_ASM756v2_genomic.gtf.gz\nİndirdiğimiz referans genom dosyasını ‘gunzip’ komutuyla çalışmalı ki indeksleme doğru şekilde olabilsin.",
+    "title": "9  RNA dizileme veri analizi",
+    "section": "11.3 Okumaların ve Referans Genomların Alınması",
+    "text": "11.3 Okumaların ve Referans Genomların Alınması\nBu kısımda örnek bir veri setiyle çalışacağız. Klonlanan klasörümüzdeki ‘data_ena.txt’ metin dosyasında bulunan işlenmemiş (ham) okumalar, bu okumalara ait bilgiler ve indirme linkleri bulunuyor. Aynı klasörde ‘data.txt’ metin dosyasında ise bir önceki metin dosyasından alınmış dört örnek mevucttur.\nProje klasöründe bulunan ‘raw’ klasöründe işlenmemiş okumalar bulunurken ‘ref’ klasöründe referans genomumuz bulunmaktadır.\nmkdir -p data/raw\nmkdir -p data/ref\n\n11.3.1 Ham Okumaların Alınması\nTüm ham okumaları kapsayan listede hem çift yönlü (paired-end, pe) hem de tek yönlü (single-end, se) okumalar bulunuyor. Bu iki tip okumalar farklı işleneceği için klasörlerde bazı ayrımlar yapmamız gerekiyor. Bunun için ‘raw’ klasörüne bunun için ‘pe’ ve ‘se’ klasörleri oluşturalım.\n‘data.txt’ dosyasında mevcut olan örneklerimizin hepsi tek yönlüdür (se). Tek yönlü bu okumalarımız için gerekli klasöre gidelim.\ncd data/raw/se\n‘data_ena.txt’ dosyasından incelenecek okumanın linkini kopyalayıp indirelim (‘ftp://’ ön takısını ekleyelim.).\nwget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR702/005/SRR7029605/SRR7029605.fastq.gz\nDiğer üç örnek için de aynı kodu oluşturup çalıştıralım. Sonuçta ‘se’ klasöründe toplamda dört tane ‘fastq.gz’ uzantılı dosya eklenmiş olduğunu kontrol edelim.\n\n\n11.3.2 Referans Genomun Alınması\nReferans genom için ‘ref’ klasöründeki referans dosyalarını ‘gunzip’ komutuyla çalıştıralım.\ncd data/ref\nwget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/007/565/GCA_000007565.2_ASM756v2/GCA_000007565.2_ASM756v2_genomic.fna.gz\n\ngunzip GCA_000007565.2_ASM756v2_genomic.fna.gz\n\nwget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/007/565/GCA_000007565.2_ASM756v2/GCA_000007565.2_ASM756v2_genomic.gff.gz\n\ngunzip GCA_000007565.2_ASM756v2_genomic.gff.gz\n\nwget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/007/565/GCA_000007565.2_ASM756v2/GCA_000007565.2_ASM756v2_genomic.gtf.gz\n\ngunzip GCA_000007565.2_ASM756v2_genomic.gtf.gz\nİndirdiğimiz referans genom dosyasını ‘gunzip’ komutuyla çalışmalı ki indeksleme doğru şekilde olabilsin.",
     "crumbs": [
       "Dersler",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>RNA dizileme veri analizi</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>RNA dizileme veri analizi</span>"
     ]
   },
   {
     "objectID": "01-lectures/08-metagenomics.html",
     "href": "01-lectures/08-metagenomics.html",
-    "title": "11  [Antik] Metagenomik",
+    "title": "10  [Antik] Metagenomik",
     "section": "",
-    "text": "11.1 Alfa çeşitlilik\nOn bin yıllık antik sakızda bulunan mikrobiyal profili inceleyelim. Gösterilen şekilde hem antik sakız örnekleri kullanılmıştır hem de karşılaştırmalı bazı veri setleri bulunmaktadır. Antik diş taşları ve insan mikrobiyota örneklerinden elde edilen metaphlan3 profilleri bu çalışmanın temelini oluşturmaktadır.\n## Beta çeşitlilik\nBray curtis uzaklığı oluşturalım. Elimizde \\(i\\) ve \\(j\\) olmak üzere iki farklı ekolojik çevre olsun. Bu çevreler için aşağıdaki değişkenleri tanımlayalım:\nBu tanımları kullanırsak, Bray-Curts uzaklığını aşağıdaki gibi hesaplayabiliriz:\n$$\nBC =\n$$\nBu uzaklıkları görselleştrirelim:\nNMDS ile görselleştirelim. NMDS metrik veriyi, \\(k\\) boyutlu bir uzaya projekisyon ediyor.",
+    "text": "10.1 Alfa çeşitlilik\nOn bin yıllık antik sakızda bulunan mikrobiyal profili inceleyelim. Gösterilen şekilde hem antik sakız örnekleri kullanılmıştır hem de karşılaştırmalı bazı veri setleri bulunmaktadır. Antik diş taşları ve insan mikrobiyota örneklerinden elde edilen metaphlan3 profilleri bu çalışmanın temelini oluşturmaktadır.\n## Beta çeşitlilik\nBray curtis uzaklığı oluşturalım. Elimizde \\(i\\) ve \\(j\\) olmak üzere iki farklı ekolojik çevre olsun. Bu çevreler için aşağıdaki değişkenleri tanımlayalım:\nBu tanımları kullanırsak, Bray-Curts uzaklığını aşağıdaki gibi hesaplayabiliriz:\n$$\nBC =\n$$\nBu uzaklıkları görselleştrirelim:\nNMDS ile görselleştirelim. NMDS metrik veriyi, \\(k\\) boyutlu bir uzaya projekisyon ediyor.",
     "crumbs": [
       "Dersler",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>[Antik] Metagenomik</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>[Antik] Metagenomik</span>"
     ]
   },
   {
     "objectID": "01-lectures/08-metagenomics.html#alfa-çeşitlilik",
     "href": "01-lectures/08-metagenomics.html#alfa-çeşitlilik",
-    "title": "11  [Antik] Metagenomik",
+    "title": "10  [Antik] Metagenomik",
     "section": "",
     "text": "Filum seviyesinde mikrobiyal profiller\n\n\n\n\n\nSadece \\(i\\) çevreseinde bulunan mikrobiyal tür sayısı: \\(S_i\\)\nSadece \\(j\\) çevreseinde bulunan mikrobiyal tür sayısı: \\(S_j\\)\nHer iki ekolojik alanda birden bulunan tür sayısı: \\(S_{ij}\\)\n\n\n\n\n\n\n\n\n\n\nMetrik olmayan çok boyutlu ölçekleme tekniği grafiği",
     "crumbs": [
       "Dersler",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>[Antik] Metagenomik</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>[Antik] Metagenomik</span>"
     ]
   },
   {
     "objectID": "01-lectures/06-bash-scripting.html",
     "href": "01-lectures/06-bash-scripting.html",
-    "title": "12  Bash ile betik oluşturma",
+    "title": "11  Bash ile betik oluşturma",
     "section": "",
-    "text": "12.1 Değişken oluşturma\nBu işlemleri konsol üzerinde yapalım. Bir değişken oluşturalım:\nBu değişkeni ekrana yazdıralım:\nArtık değişken içerisindeki bilgiyi ekrana yazdırabildiniz.\nİsterseniz, bu değişkenin sağına ve soluna başka şeyler ekleyebilirsiniz. Bu sayede, tek bir değişken kullanımı ile, birden fazla dosyayı işaret edebilirsiniz:\nBir değişkeni, tanımlamadan kullanamazsınız. Mesela daha önce hiç tanımlamadığıız bir değişken kullanalım. Değişkenin ismi BOS olsun:\nBunu yazdığımızda, ekrana boş bir satır yazdırıldı.\nAma bu değişkeni tanımlarsak, artık kullanabilirz:",
+    "text": "11.1 Değişken oluşturma\nBu işlemleri konsol üzerinde yapalım. Bir değişken oluşturalım:\nBu değişkeni ekrana yazdıralım:\nArtık değişken içerisindeki bilgiyi ekrana yazdırabildiniz.\nİsterseniz, bu değişkenin sağına ve soluna başka şeyler ekleyebilirsiniz. Bu sayede, tek bir değişken kullanımı ile, birden fazla dosyayı işaret edebilirsiniz:\nBir değişkeni, tanımlamadan kullanamazsınız. Mesela daha önce hiç tanımlamadığıız bir değişken kullanalım. Değişkenin ismi BOS olsun:\nBunu yazdığımızda, ekrana boş bir satır yazdırıldı.\nAma bu değişkeni tanımlarsak, artık kullanabilirz:",
     "crumbs": [
       "Dersler",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bash ile betik oluşturma</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Bash ile betik oluşturma</span>"
     ]
   },
   {
     "objectID": "01-lectures/06-bash-scripting.html#değişken-oluşturma",
     "href": "01-lectures/06-bash-scripting.html#değişken-oluşturma",
-    "title": "12  Bash ile betik oluşturma",
+    "title": "11  Bash ile betik oluşturma",
     "section": "",
     "text": "SAMPLE=ERR3079326\n\n\n\n\n\n\nKarakter kullanımı\n\n\n\nDeğişken oluştururken, sadece İngilizce karakterler kullanın!\n\n\n\necho ${SAMPLE}\n\n\necho data/${SAMPLE}_1.fastq.gz\n\necho ${BOS}\n\n\nBOS=ERR65245\necho ${BOS}",
     "crumbs": [
       "Dersler",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bash ile betik oluşturma</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Bash ile betik oluşturma</span>"
     ]
   },
   {
     "objectID": "01-lectures/06-bash-scripting.html#dosya-sistemleri",
     "href": "01-lectures/06-bash-scripting.html#dosya-sistemleri",
-    "title": "12  Bash ile betik oluşturma",
-    "section": "12.2 Dosya sistemleri",
-    "text": "12.2 Dosya sistemleri\nBir projede dosya sistemi önemlidir. Çünkü uzun vadede, biyoinformatik projelerinde büyük miktarda dosya oluşturulur. Bu çıktıları ve dosyaları uygun konumlarda saklarsanız, projeleri daha rahat yönetebilirsiniz.\nDers kapsamında yaptığımız projede, aşağıdaki dosya sistemi kullanıldı:\n04-Bash-scripting\n|\n|----------------- data\n|                    |\n|                    |---- ERR3079326_1.fastq.gz\n|                    |---- ERR3079326_2.fastq.gz\n|                    |---- GCF_000191105.1_ASM19110v1_genomic.fna\n|\n|----------------- results\n|                     |\n|                     |--- processed\n|                     |\n|                     |--- alignment\n|                     |\n|                     |--- variant\n|\n|----------------- protokol.sh\nBurada, data klasöründe, ham veri bulunmakta.\nSonuçlar klasöründe ise, bu ham verinin işlenerek elde edilen çıktıların depolandığı yer.\nSonuçlar klasöründe, processed klasörü, ham fastq dosyalarının işlenmesi, sonucunda elde edilen çıktıları depoluyor.\nSonuçlar klasöründe, alignment klasörü, işlenmiş fastq dosyalarının, data klasörü içerisinde bulunan referans genoma hizlanması sonucunda elde edilen verileri depoluyor.\nSonuçlar klasöründeki, variant klasörü ise, hizalama dosyalarından elde edlen varyant bilgilerini depoluyor.",
+    "title": "11  Bash ile betik oluşturma",
+    "section": "11.2 Dosya sistemleri",
+    "text": "11.2 Dosya sistemleri\nBir projede dosya sistemi önemlidir. Çünkü uzun vadede, biyoinformatik projelerinde büyük miktarda dosya oluşturulur. Bu çıktıları ve dosyaları uygun konumlarda saklarsanız, projeleri daha rahat yönetebilirsiniz.\nDers kapsamında yaptığımız projede, aşağıdaki dosya sistemi kullanıldı:\n04-Bash-scripting\n|\n|----------------- data\n|                    |\n|                    |---- ERR3079326_1.fastq.gz\n|                    |---- ERR3079326_2.fastq.gz\n|                    |---- GCF_000191105.1_ASM19110v1_genomic.fna\n|\n|----------------- results\n|                     |\n|                     |--- processed\n|                     |\n|                     |--- alignment\n|                     |\n|                     |--- variant\n|\n|----------------- protokol.sh\nBurada, data klasöründe, ham veri bulunmakta.\nSonuçlar klasöründe ise, bu ham verinin işlenerek elde edilen çıktıların depolandığı yer.\nSonuçlar klasöründe, processed klasörü, ham fastq dosyalarının işlenmesi, sonucunda elde edilen çıktıları depoluyor.\nSonuçlar klasöründe, alignment klasörü, işlenmiş fastq dosyalarının, data klasörü içerisinde bulunan referans genoma hizlanması sonucunda elde edilen verileri depoluyor.\nSonuçlar klasöründeki, variant klasörü ise, hizalama dosyalarından elde edlen varyant bilgilerini depoluyor.",
     "crumbs": [
       "Dersler",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bash ile betik oluşturma</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Bash ile betik oluşturma</span>"
     ]
   },
   {
     "objectID": "01-lectures/06-bash-scripting.html#fastq-ön-işleme",
     "href": "01-lectures/06-bash-scripting.html#fastq-ön-işleme",
-    "title": "12  Bash ile betik oluşturma",
-    "section": "12.3 Fastq ön işleme",
-    "text": "12.3 Fastq ön işleme\n# Oncelikle cikti dosyalarimizi saklayacagimiz klasoru olusturalim\n\nmkdir -p results/processed/\n\n# Daha sonra cutadapt araci ile, fastq dosyalarini isleyelim\ncutadapt -q ${QUALITY} -m 10 \\\n        --trim-n -a AGATCGGAAGAG -A AGATCGGAAGAG \\\n        -j ${THREADS} \\\n        -o results/processed/${SAMPLE}_1.fastq.gz \\\n        -p results/processed/${SAMPLE}_2.fastq.gz data/${SAMPLE}_1.fastq.gz data/${SAMPLE}_2.fastq.gz",
+    "title": "11  Bash ile betik oluşturma",
+    "section": "11.3 Fastq ön işleme",
+    "text": "11.3 Fastq ön işleme\n# Oncelikle cikti dosyalarimizi saklayacagimiz klasoru olusturalim\n\nmkdir -p results/processed/\n\n# Daha sonra cutadapt araci ile, fastq dosyalarini isleyelim\ncutadapt -q ${QUALITY} -m 10 \\\n        --trim-n -a AGATCGGAAGAG -A AGATCGGAAGAG \\\n        -j ${THREADS} \\\n        -o results/processed/${SAMPLE}_1.fastq.gz \\\n        -p results/processed/${SAMPLE}_2.fastq.gz data/${SAMPLE}_1.fastq.gz data/${SAMPLE}_2.fastq.gz",
     "crumbs": [
       "Dersler",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bash ile betik oluşturma</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Bash ile betik oluşturma</span>"
     ]
   },
   {
     "objectID": "01-lectures/06-bash-scripting.html#hizalama-adımı",
     "href": "01-lectures/06-bash-scripting.html#hizalama-adımı",
-    "title": "12  Bash ile betik oluşturma",
-    "section": "12.4 Hizalama adımı",
-    "text": "12.4 Hizalama adımı\n# Oncelikle referans genomu indeksleyelim\nbwa index data/${REFERENCE}\n\n# cikti klasorunu olusturalim\nmkdir -p results/alignment\n\n# Daha sonra ileri ve geri okumalarimizi referans genoma hizalayalim\nbwa aln -t ${THREADS} data/${REFERENCE} results/processed/${SAMPLE}_1.fastq.gz &gt; results/alignment/${SAMPLE}_1.sai\n\nbwa aln -t ${THREADS} data/${REFERENCE} results/processed/${SAMPLE}_2.fastq.gz &gt; results/alignment/${SAMPLE}_2.sai\n\n# hizalama dosyasi olsturalim\nbwa sampe data/${REFERENCE} \\\n        results/alignment/${SAMPLE}_1.sai results/alignment/${SAMPLE}_2.sai \\\n        data/${SAMPLE}_1.fastq.gz data/${SAMPLE}_2.fastq.gz &gt; results/alignment/${SAMPLE}.sam\n\n# hizalama istatistiklerini elde edelim\nsamtools flagstat results/alignment/${SAMPLE}.sam &gt; results/alignment/istatistik_${SAMPLE}.txt\n\n# hizalanmamis ve kotu hizalanan okumalarari filtreleylim\nsamtools view -F 12 -q 30 -Sb results/alignment/${SAMPLE}.sam &gt; results/alignment/${SAMPLE}.bam\n\n# hizalama dosyasini siralayalim\nsamtools sort results/alignment/${SAMPLE}.bam -o results/alignment/${SAMPLE}.sorted.bam\n\nsamtools index results/alignment/${SAMPLE}.sorted.bam",
+    "title": "11  Bash ile betik oluşturma",
+    "section": "11.4 Hizalama adımı",
+    "text": "11.4 Hizalama adımı\n# Oncelikle referans genomu indeksleyelim\nbwa index data/${REFERENCE}\n\n# cikti klasorunu olusturalim\nmkdir -p results/alignment\n\n# Daha sonra ileri ve geri okumalarimizi referans genoma hizalayalim\nbwa aln -t ${THREADS} data/${REFERENCE} results/processed/${SAMPLE}_1.fastq.gz &gt; results/alignment/${SAMPLE}_1.sai\n\nbwa aln -t ${THREADS} data/${REFERENCE} results/processed/${SAMPLE}_2.fastq.gz &gt; results/alignment/${SAMPLE}_2.sai\n\n# hizalama dosyasi olsturalim\nbwa sampe data/${REFERENCE} \\\n        results/alignment/${SAMPLE}_1.sai results/alignment/${SAMPLE}_2.sai \\\n        data/${SAMPLE}_1.fastq.gz data/${SAMPLE}_2.fastq.gz &gt; results/alignment/${SAMPLE}.sam\n\n# hizalama istatistiklerini elde edelim\nsamtools flagstat results/alignment/${SAMPLE}.sam &gt; results/alignment/istatistik_${SAMPLE}.txt\n\n# hizalanmamis ve kotu hizalanan okumalarari filtreleylim\nsamtools view -F 12 -q 30 -Sb results/alignment/${SAMPLE}.sam &gt; results/alignment/${SAMPLE}.bam\n\n# hizalama dosyasini siralayalim\nsamtools sort results/alignment/${SAMPLE}.bam -o results/alignment/${SAMPLE}.sorted.bam\n\nsamtools index results/alignment/${SAMPLE}.sorted.bam",
     "crumbs": [
       "Dersler",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bash ile betik oluşturma</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Bash ile betik oluşturma</span>"
     ]
   },
   {
     "objectID": "01-lectures/06-bash-scripting.html#varyant-cağırma",
     "href": "01-lectures/06-bash-scripting.html#varyant-cağırma",
-    "title": "12  Bash ile betik oluşturma",
-    "section": "12.5 Varyant cağırma",
-    "text": "12.5 Varyant cağırma\n# Oncelikle sonuclari depolayacagimiz klasorleri olsuturalim\nmkdir -p results/variant\n\n# genotip cagirma gerceklestirelim\nbcftools mpileup -Ov --fasta-ref data/${REFERENCE} results/alignment/${SAMPLE}.sorted.bam &gt; results/variant/${SAMPLE}.genotype.vcf\n\n# son olarak, varyant cagirma adimini yapalim\nbcftools call -mv -Ov -o results/variant/${SAMPLE}.calls.vcf results/variant/${SAMPLE}.genotype.vcf",
+    "title": "11  Bash ile betik oluşturma",
+    "section": "11.5 Varyant cağırma",
+    "text": "11.5 Varyant cağırma\n# Oncelikle sonuclari depolayacagimiz klasorleri olsuturalim\nmkdir -p results/variant\n\n# genotip cagirma gerceklestirelim\nbcftools mpileup -Ov --fasta-ref data/${REFERENCE} results/alignment/${SAMPLE}.sorted.bam &gt; results/variant/${SAMPLE}.genotype.vcf\n\n# son olarak, varyant cagirma adimini yapalim\nbcftools call -mv -Ov -o results/variant/${SAMPLE}.calls.vcf results/variant/${SAMPLE}.genotype.vcf",
     "crumbs": [
       "Dersler",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bash ile betik oluşturma</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Bash ile betik oluşturma</span>"
     ]
   },
   {
     "objectID": "02-practice/01-variant-practice.html",
     "href": "02-practice/01-variant-practice.html",
-    "title": "13  Varyant çağırma pratiği",
+    "title": "12  Varyant çağırma pratiği",
     "section": "",
-    "text": "13.1 Referans genom indeksleme\nBu işlem için öncelikle referenans genomu indekslemeniz gerekecektir. Bu işlemi bir kere yapmanız yeterli olacaktır.\nBu işlemin bitip bitmediğini, squeue komutu ile kontrol edelim:\nBurada egitim kullanıcı adını siz kendi kullanıcı isminizle değiştirmelisiniz.\nBu adım tamamlandıktan sonra data klasörü içinde indeks dosyaları oluşmuş mu onları kontrol edelim:\nİndeks dosyaları oluşmuşsa, bir sonraki adıma geçebiliriz.",
+    "text": "12.1 Referans genom indeksleme\nBu işlem için öncelikle referenans genomu indekslemeniz gerekecektir. Bu işlemi bir kere yapmanız yeterli olacaktır.\nBu işlemin bitip bitmediğini, squeue komutu ile kontrol edelim:\nBurada egitim kullanıcı adını siz kendi kullanıcı isminizle değiştirmelisiniz.\nBu adım tamamlandıktan sonra data klasörü içinde indeks dosyaları oluşmuş mu onları kontrol edelim:\nİndeks dosyaları oluşmuşsa, bir sonraki adıma geçebiliriz.",
     "crumbs": [
       "Pratikler",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Varyant çağırma pratiği</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Varyant çağırma pratiği</span>"
     ]
   },
   {
     "objectID": "02-practice/01-variant-practice.html#referans-genom-indeksleme",
     "href": "02-practice/01-variant-practice.html#referans-genom-indeksleme",
-    "title": "13  Varyant çağırma pratiği",
+    "title": "12  Varyant çağırma pratiği",
     "section": "",
     "text": "sbatch index.sh\n\nsqueue -u egitim\n\n\nls data",
     "crumbs": [
       "Pratikler",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Varyant çağırma pratiği</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Varyant çağırma pratiği</span>"
     ]
   },
   {
     "objectID": "02-practice/01-variant-practice.html#örneklerle-varyant-analizi",
     "href": "02-practice/01-variant-practice.html#örneklerle-varyant-analizi",
-    "title": "13  Varyant çağırma pratiği",
-    "section": "13.2 Örneklerle varyant analizi",
-    "text": "13.2 Örneklerle varyant analizi\nBu adımıda ise protokol.sh betiğini kullanacağız. Bu betiği nano isimli programla açarak, SAMPLE değişkenini örnek isimleriyle değiştirmemiz gereklidir.\nBunu her örnek için tekrar etmeliyiz.\nÖrnek vermek gerekirse, öncelikle ERR3079333 için bu adımı gerçekleştirelim:\n\nprotokol.sh dosyasını aç\nSAMPLE değişkenini değiştir\nsbatch protokol.sh ile protokolu çalıştır.\n\nArdından bu işlemi her örnek için gerçekleştirelim.",
+    "title": "12  Varyant çağırma pratiği",
+    "section": "12.2 Örneklerle varyant analizi",
+    "text": "12.2 Örneklerle varyant analizi\nBu adımıda ise protokol.sh betiğini kullanacağız. Bu betiği nano isimli programla açarak, SAMPLE değişkenini örnek isimleriyle değiştirmemiz gereklidir.\nBunu her örnek için tekrar etmeliyiz.\nÖrnek vermek gerekirse, öncelikle ERR3079333 için bu adımı gerçekleştirelim:\n\nprotokol.sh dosyasını aç\nSAMPLE değişkenini değiştir\nsbatch protokol.sh ile protokolu çalıştır.\n\nArdından bu işlemi her örnek için gerçekleştirelim.",
     "crumbs": [
       "Pratikler",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Varyant çağırma pratiği</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Varyant çağırma pratiği</span>"
     ]
   },
   {
     "objectID": "02-practice/01-variant-practice.html#döngüler-ile-otomatizasyon",
     "href": "02-practice/01-variant-practice.html#döngüler-ile-otomatizasyon",
-    "title": "13  Varyant çağırma pratiği",
-    "section": "13.3 Döngüler ile otomatizasyon",
-    "text": "13.3 Döngüler ile otomatizasyon\nBunu istersek otomatize edebiliriz. Her örnek için bir protokol gönderebiliriz. Bunun için protokol_otomatik.sh isimli betiğe bakalım.\nBu betiğin içindeki tek değişiklik şu:\nSAMPLE=$1\nBurada, biz betiğe komut satırı üzerinden bir opsiyon atıyoruz. Bu sayede sürekli dosyayı değiştirmekten kurtuluyoruz. Yani sürekli SAMPLE değişkenini değiştirmektense, sbatch protokol_otomatize.sh ERR3079326 yazdığımızda, SAMPLE değişkenine otomatik olarak ERR3079326 değeri atanmış oluyor.\nTabii bir for dongüsü yazarak, bunu tamamen otomatize edebiliriz:\nSAMPLES=\"ERR3079326 ERR3079327 ERR3079328 ERR3079329 ERR3079331 ERR3079333\"\nfor SAMPLE in ${SAMPLES}\ndo\n    sbatch protokol_otomatik.sh ${SAMPLE}\ndone\nBu işlemi yaptığımızda, SAMPLES içerisindeki bütün örnek isimleri için, protokol_otomatik.sh betiği çalıştırılacaktır.",
+    "title": "12  Varyant çağırma pratiği",
+    "section": "12.3 Döngüler ile otomatizasyon",
+    "text": "12.3 Döngüler ile otomatizasyon\nBunu istersek otomatize edebiliriz. Her örnek için bir protokol gönderebiliriz. Bunun için protokol_otomatik.sh isimli betiğe bakalım.\nBu betiğin içindeki tek değişiklik şu:\nSAMPLE=$1\nBurada, biz betiğe komut satırı üzerinden bir opsiyon atıyoruz. Bu sayede sürekli dosyayı değiştirmekten kurtuluyoruz. Yani sürekli SAMPLE değişkenini değiştirmektense, sbatch protokol_otomatize.sh ERR3079326 yazdığımızda, SAMPLE değişkenine otomatik olarak ERR3079326 değeri atanmış oluyor.\nTabii bir for dongüsü yazarak, bunu tamamen otomatize edebiliriz:\nSAMPLES=\"ERR3079326 ERR3079327 ERR3079328 ERR3079329 ERR3079331 ERR3079333\"\nfor SAMPLE in ${SAMPLES}\ndo\n    sbatch protokol_otomatik.sh ${SAMPLE}\ndone\nBu işlemi yaptığımızda, SAMPLES içerisindeki bütün örnek isimleri için, protokol_otomatik.sh betiği çalıştırılacaktır.",
     "crumbs": [
       "Pratikler",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Varyant çağırma pratiği</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Varyant çağırma pratiği</span>"
     ]
   },
   {
     "objectID": "02-practice/02-rnaseq-project.html",
     "href": "02-practice/02-rnaseq-project.html",
-    "title": "14  RNA Dizileme Proje Örneği",
+    "title": "13  RNA Dizileme Proje Örneği",
     "section": "",
-    "text": "14.1 Klasör yapısı\nYapacağınız çalışmada aşağıdaki klasör yapısını korumanız sizin için kullanışlı olur:\n## Veri\nProje kapsamında kullanılacak veri:\nVeriyi indirmek için öncelikle aşağıda bulunan belgeye bakalım. Bu belgede kullancağımız örnekler ve bu örneklerin metaveri bilgileri bulunmaktadır:\nhttps://github.com/emrahkirdok/rnaseq/blob/main/data.txt\nBu belgeye göre aşağıdaki tabloya bakalım:\nÖncelikle Proje dosyamızı oluşturalım. İlk olarak hangi klasördeyiz ona bakalım, rastgele bir yere proje dosyası oluşturmayalım:\nTercihen ev klasörümüze gelelim ve yeni bir proje klasörü oluşturalım:\nArtık kendimize bir data klasörü oluşturalım ve bu klasör içinde de raw isimli başka bir klasör olsun:\nbu klasör içine girelim ve çalışacağımız dosyaları indirelim:\nAşağıdaki satırları tek tek yazarak çalışacağımız dosyaları indirebiliriz. Burada kullanılan wget komutu, uzaktaki bir sunucudan dosyaları indirmek için kullanılmaktadır.\nİşlem bittiğinde ls -ltrh ile kontrol edelim.\nDaha sonra proje klasörümüze geri dönüp, referans genom dosyaları için kullancağımız klasörü oluşturalım:\nReferans genom dosyalarını, son dersimzideki klasörden alabilirsiniz.\nSon olarak diğer klasörlerimizi oluşturalım. Sonuçları bu klasörler içerisinde depolayacağız:",
+    "text": "13.1 Klasör yapısı\nYapacağınız çalışmada aşağıdaki klasör yapısını korumanız sizin için kullanışlı olur:\n## Veri\nProje kapsamında kullanılacak veri:\nVeriyi indirmek için öncelikle aşağıda bulunan belgeye bakalım. Bu belgede kullancağımız örnekler ve bu örneklerin metaveri bilgileri bulunmaktadır:\nhttps://github.com/emrahkirdok/rnaseq/blob/main/data.txt\nBu belgeye göre aşağıdaki tabloya bakalım:\nÖncelikle Proje dosyamızı oluşturalım. İlk olarak hangi klasördeyiz ona bakalım, rastgele bir yere proje dosyası oluşturmayalım:\nTercihen ev klasörümüze gelelim ve yeni bir proje klasörü oluşturalım:\nArtık kendimize bir data klasörü oluşturalım ve bu klasör içinde de raw isimli başka bir klasör olsun:\nbu klasör içine girelim ve çalışacağımız dosyaları indirelim:\nAşağıdaki satırları tek tek yazarak çalışacağımız dosyaları indirebiliriz. Burada kullanılan wget komutu, uzaktaki bir sunucudan dosyaları indirmek için kullanılmaktadır.\nİşlem bittiğinde ls -ltrh ile kontrol edelim.\nDaha sonra proje klasörümüze geri dönüp, referans genom dosyaları için kullancağımız klasörü oluşturalım:\nReferans genom dosyalarını, son dersimzideki klasörden alabilirsiniz.\nSon olarak diğer klasörlerimizi oluşturalım. Sonuçları bu klasörler içerisinde depolayacağız:",
     "crumbs": [
       "Pratikler",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>RNA Dizileme Proje Örneği</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>RNA Dizileme Proje Örneği</span>"
     ]
   },
   {
     "objectID": "02-practice/02-rnaseq-project.html#klasör-yapısı",
     "href": "02-practice/02-rnaseq-project.html#klasör-yapısı",
-    "title": "14  RNA Dizileme Proje Örneği",
+    "title": "13  RNA Dizileme Proje Örneği",
     "section": "",
     "text": "Project\n    |\n    |\n    |-- data\n    |    |\n    |    |--- raw\n    |    |--- ref\n    |\n    |-- results\n         |\n         |--- processed\n         |--- alignment\n         |--- counts\n\n\n\n\n\n\n\n\n\nÖrnek ID\nKoşul\n\n\n\n\nSRR7029607\ncontrol\n\n\nSRR7029605\ncontrol\n\n\nSRR7405887\nzinc\n\n\nSRR7405886\nzinc\n\n\n\n\npwd\n\ncd\nmkdir Proje\ncd Proje\n\nmkdir data/raw\n\ncd data/raw\n\nwget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR702/007/SRR7029607/SRR7029607.fastq.gz\nwget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR702/005/SRR7029605/SRR7029605.fastq.gz\nwget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR740/007/SRR7405887/SRR7405887.fastq.gz\nwget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR740/006/SRR7405886/SRR7405886.fastq.gz\n\n\ncd ../../\nmkdir data/raw\n\n\nmkdir -p results/processed\nmkdir -p results/alignment\nmkdir -p results/counts",
     "crumbs": [
       "Pratikler",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>RNA Dizileme Proje Örneği</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>RNA Dizileme Proje Örneği</span>"
     ]
   },
   {
     "objectID": "02-practice/02-rnaseq-project.html#proje-kapsamında-eklenmesi-gerekenler",
     "href": "02-practice/02-rnaseq-project.html#proje-kapsamında-eklenmesi-gerekenler",
-    "title": "14  RNA Dizileme Proje Örneği",
-    "section": "14.2 Proje kapsamında eklenmesi gerekenler",
-    "text": "14.2 Proje kapsamında eklenmesi gerekenler\nProjeniz aşağıda belirtilen adımları içermelidir:\n\n14.2.1 Fastq dosyası kalite kontrol sonuçları\nİlk olarak ham ve işlenmiş fastq dosyalarına ait FastQC raporlarını oluşturun. Bu dosyalar içerisinden aşağıdaki kısımlara odakalanabilirsiniz:\n\nNucleotide quality per base\nAdapter content\n\n\n\n14.2.2 Hizalama sonuçları\nBurada derste yaptığımız gibi bam dosyaları elde etmeniz gerekmektedir.\n\n\n14.2.3 RNAseq sayı matirisleri\nBu kısımda ise, results/counts klasörü içerisinde, incelediğimiz 4 farklı dosyaya ait count matrisler olmalı.",
+    "title": "13  RNA Dizileme Proje Örneği",
+    "section": "13.2 Proje kapsamında eklenmesi gerekenler",
+    "text": "13.2 Proje kapsamında eklenmesi gerekenler\nProjeniz aşağıda belirtilen adımları içermelidir:\n\n13.2.1 Fastq dosyası kalite kontrol sonuçları\nİlk olarak ham ve işlenmiş fastq dosyalarına ait FastQC raporlarını oluşturun. Bu dosyalar içerisinden aşağıdaki kısımlara odakalanabilirsiniz:\n\nNucleotide quality per base\nAdapter content\n\n\n\n13.2.2 Hizalama sonuçları\nBurada derste yaptığımız gibi bam dosyaları elde etmeniz gerekmektedir.\n\n\n13.2.3 RNAseq sayı matirisleri\nBu kısımda ise, results/counts klasörü içerisinde, incelediğimiz 4 farklı dosyaya ait count matrisler olmalı.",
     "crumbs": [
       "Pratikler",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>RNA Dizileme Proje Örneği</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>RNA Dizileme Proje Örneği</span>"
     ]
   },
   {
     "objectID": "02-practice/03-metagenomics.html",
     "href": "02-practice/03-metagenomics.html",
-    "title": "15  Metagenomik pratik",
+    "title": "14  Metagenomik pratik",
     "section": "",
-    "text": "15.1 Proje klasörünün kurulumu\nÖncelikle çalışmada kullanacağımız kodları indirmek için depoyu çalışma alanımza klonlayalım:\nArdından kodlarımızın bulunduğu klasöre gidelim:\nÇalışma kapsamında kulanacağımız R kodlarını çalıştırmak için öncelikle conda ile R paketlerinin olduğu çevreyi kuralım. Ancak Metaphlan3 programı bu paket içerisinde yok. O programı siz sunucu üzerinde kurmalısınız. Conda paketi kurulumu için Bölüm A.1 kısmına bakabilirsiniz.\nÇalışma kapsamında kullanacağımız veri setini aşağıda https://zenodo.org/records/1025296 bağlantısından indirebilirsiniz. Bu veri setini indirin ve proje klasörü içerisinde Data olarak kaydediniz.\nBununla birlikte, Metaphlan programını çalıştırmak için gerekli olan ham fastq dosyaları ve ara adımlara ait bam ve Metaphlan dosyaları ise ayrı bir bağlantı olarak verilecektir.\nSon olarak çalışmada kullanacağımız çıktıları depolayacağımız klasörleri oluşturalım:",
+    "text": "14.1 Proje klasörünün kurulumu\nÖncelikle çalışmada kullanacağımız kodları indirmek için depoyu çalışma alanımza klonlayalım:\nArdından kodlarımızın bulunduğu klasöre gidelim:\nÇalışma kapsamında kulanacağımız R kodlarını çalıştırmak için öncelikle conda ile R paketlerinin olduğu çevreyi kuralım. Ancak Metaphlan3 programı bu paket içerisinde yok. O programı siz sunucu üzerinde kurmalısınız. Conda paketi kurulumu için Bölüm A.1 kısmına bakabilirsiniz.\nÇalışma kapsamında kullanacağımız veri setini aşağıda https://zenodo.org/records/1025296 bağlantısından indirebilirsiniz. Bu veri setini indirin ve proje klasörü içerisinde Data olarak kaydediniz.\nBununla birlikte, Metaphlan programını çalıştırmak için gerekli olan ham fastq dosyaları ve ara adımlara ait bam ve Metaphlan dosyaları ise ayrı bir bağlantı olarak verilecektir.\nSon olarak çalışmada kullanacağımız çıktıları depolayacağımız klasörleri oluşturalım:",
     "crumbs": [
       "Pratikler",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Metagenomik pratik</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Metagenomik pratik</span>"
     ]
   },
   {
     "objectID": "02-practice/03-metagenomics.html#proje-klasörünün-kurulumu",
     "href": "02-practice/03-metagenomics.html#proje-klasörünün-kurulumu",
-    "title": "15  Metagenomik pratik",
+    "title": "14  Metagenomik pratik",
     "section": "",
     "text": "git clone https://github.com/emrahkirdok/bioinformatics.git\n\ncd bioinformatics/02-practice/ancient-metagenomics\n\nconda create --file env/environment.yml\nconda activate harpix\n\n\n\nmkdir -p Results/metaphlan\nmkdir -p Results/BetaDiversity",
     "crumbs": [
       "Pratikler",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Metagenomik pratik</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Metagenomik pratik</span>"
     ]
   },
   {
     "objectID": "02-practice/03-metagenomics.html#metaphlan3-ile-analiz",
     "href": "02-practice/03-metagenomics.html#metaphlan3-ile-analiz",
-    "title": "15  Metagenomik pratik",
-    "section": "15.2 Metaphlan3 ile analiz",
-    "text": "15.2 Metaphlan3 ile analiz\nBu programı çalıştırmak için öncelikle elinizde Metaphlan3 veri tabanının olması gereklidir. Programı indirdikten sonra ilk çalıştırmanızda bu veri tabanı otomatik bir şekilde kuruluyor.\nBu kısımda kullanılacak koda bağlantıdan ulaşabilirsiniz.\nEn basit şekilde Metaphlan3 programını aşağıdaki şekilde çalıştırabilirsiniz:\nmetaphlan \n    --input_type fastq data/ble004-b1e1l1p1_ACCAACT_L003_ARmerged.180518_ST-E00201_0274_AHLCM3CCXY.all_unmapped.fastq.gz \n    -s Results/metaphlan/ble004-b1e1l1p1_ACCAACT_L003_ARmerged.180518_ST-E00201_0274_AHLCM3CCXY.all.sam \n    --nproc 20\n    --bowtie2out Results/metaphlan/le004-b1e1l1p1_ACCAACT_L003_ARmerged.180518_ST-E00201_0274_AHLCM3CCXY.all.bowtie2out \\\n    --bowtie2db ${DB} \n    -x ${DBNAME} &gt; Results/metaphlan/${BASE}_metaphlan.txt\n    \nEğer elimizde aynı örneğe ait olan birden fazla fastq dosyası varsa, bir for döngüsü yazabiliriz. Sakız makalesinde de bu süreç uygulandı. Önce her örneğe ait fastq dosyaları analiz edildi, daha elde edilen sam dosyaları birleştirilerek son bir analiz yapıldı:\nml bioinfo-tools MetaPhlAn3 samtools\n\n# Database location\nDB=/sw/bioinfo/MetaPhlAn3/3.0.8/rackham/lib/python3.8/site-packages/metaphlan/metaphlan_databases\n# Database name\nDBNAME=mpa_v30_CHOCOPhlAn_201901\n\nID=ble004\nFILES=sequences.txt\nTHREADS=10\n\n# Run metaphlan for every fastq file of a specific sample\nfor FASTQ in $(grep ${ID} ${FILES})\ndo\n    BASE=$(basename $FASTQ _unmapped.fastq.gz)\n    metaphlan --input_type fastq ${FASTQ} -s Results/metaphlan/${BASE}.sam --nproc ${THREADS} --bowtie2out Results/metaphlan/${BASE}.bowtie2out --bowtie2db ${DB} -x ${DBNAME} &gt; Results/metaphlan/${BASE}_metaphlan.txt\n\n    # Convert sam files to a bam file, and sort\n    # This makes the process fast   \n    samtools view -Sb Results/metaphlan/${BASE}.sam &gt; Results/metaphlan/${BASE}.bam\n    samtools sort Results/metaphlan/${BASE}.bam &gt; Results/metaphlan/${BASE}.sorted.bam\ndone\nDaha sonra bütün örneklere ait bam dosyalarını birleştirelim:\n# Collect all bam files for a specific sample   \nBAMS=\"\"\n\nfor FASTQ in $(grep ${ID} ${FILES})\ndo\n    BASE=$(basename $FASTQ _unmapped.fastq.gz)\n    BAMS=\"${BAMS} Results/metaphlan/${BASE}.sorted.bam\"\ndone\n\n# Merge all bam files that belongs to the specific sample\nsamtools merge -o Results/metaphlan/${ID}.bam ${BAMS}\nsamtools sort Results/metaphlan/${ID}.bam &gt; Results/metaphlan/${ID}.sorted.bam\n\n# Mark duplicates\nsamtools markdup -r Results/metaphlan/${ID}.sorted.bam  Results/metaphlan/${ID}.sorted.rmdup.bam\n\n# Metaphlan3 can read sam files. But it has to be a sam file, so convert it to a sam file\nsamtools view -h Results/metaphlan/${ID}.sorted.rmdup.bam &gt; Results/metaphlan/${ID}.sorted.rmdup.sam\n\n# Run metaphlan3 for the sam file\nmetaphlan --input_type sam Results/metaphlan/${ID}.sorted.rmdup.sam \\\n    -s ${ID}.sam --nproc ${THREADS} \\\n    --bowtie2out Results/metaphlan/${ID}.bowtie2out \\\n    --bowtie2db ${DB} -x ${DBNAME} &gt;  Results/metaphlan/${ID}_metaphlan.txt\nHer örneğe ait olan Metaphlan dosyalarını birleştirelim. Aşağıda gösterilen merge_metaphlan_tables.py kodu, metaphlan ile gelmekte. Ancak her zaman PATH içerisinde olmuyor:\nmerge_metaphlan_tables.py  Results/metaphlan/ble*_metaphlan.txt  Results/metaphlan/ble007_metaphlan.txt Results/metaphlan/ble008_metaphlan.txt &gt; Results/metaphlan/ble.txt\nSon olarak bu örnekler içerisindeki tür profillerini elde edelim:\ngrep -E \"s__|clade\" Results/metaphlan/ble.txt | sed 's/^.*s__//g' |cut -f1,3-8 | sed -e 's/clade_name/body_site/g' &gt; Results/metaphlan/ble.txt\nBu tür profillerini hclust2.py programı ile bir ısı grafiğine çevirelim. Burada opsiyonları değiştirin, her zaman güzel grafikler oluşmuyor. Ayrıca bu programı ayrıca kurmanız gereklidir:\n hclust2.py -i Results/metaphlan/ble.txt -o Results/metaphlan/abundance_heatmap_species.png --f_dist_f braycurtis --s_dist_f braycurtis --cell_aspect_ratio 0.5 -l --flabel_size 10 --slabel_size 10 --max_flabel_len 100 --max_slabel_len 100 --minv 0.1 --dpi 300",
+    "title": "14  Metagenomik pratik",
+    "section": "14.2 Metaphlan3 ile analiz",
+    "text": "14.2 Metaphlan3 ile analiz\nBu programı çalıştırmak için öncelikle elinizde Metaphlan3 veri tabanının olması gereklidir. Programı indirdikten sonra ilk çalıştırmanızda bu veri tabanı otomatik bir şekilde kuruluyor.\nBu kısımda kullanılacak koda bağlantıdan ulaşabilirsiniz.\nEn basit şekilde Metaphlan3 programını aşağıdaki şekilde çalıştırabilirsiniz:\nmetaphlan \n    --input_type fastq data/ble004-b1e1l1p1_ACCAACT_L003_ARmerged.180518_ST-E00201_0274_AHLCM3CCXY.all_unmapped.fastq.gz \n    -s Results/metaphlan/ble004-b1e1l1p1_ACCAACT_L003_ARmerged.180518_ST-E00201_0274_AHLCM3CCXY.all.sam \n    --nproc 20\n    --bowtie2out Results/metaphlan/le004-b1e1l1p1_ACCAACT_L003_ARmerged.180518_ST-E00201_0274_AHLCM3CCXY.all.bowtie2out \\\n    --bowtie2db ${DB} \n    -x ${DBNAME} &gt; Results/metaphlan/${BASE}_metaphlan.txt\n    \nEğer elimizde aynı örneğe ait olan birden fazla fastq dosyası varsa, bir for döngüsü yazabiliriz. Sakız makalesinde de bu süreç uygulandı. Önce her örneğe ait fastq dosyaları analiz edildi, daha elde edilen sam dosyaları birleştirilerek son bir analiz yapıldı:\nml bioinfo-tools MetaPhlAn3 samtools\n\n# Database location\nDB=/sw/bioinfo/MetaPhlAn3/3.0.8/rackham/lib/python3.8/site-packages/metaphlan/metaphlan_databases\n# Database name\nDBNAME=mpa_v30_CHOCOPhlAn_201901\n\nID=ble004\nFILES=sequences.txt\nTHREADS=10\n\n# Run metaphlan for every fastq file of a specific sample\nfor FASTQ in $(grep ${ID} ${FILES})\ndo\n    BASE=$(basename $FASTQ _unmapped.fastq.gz)\n    metaphlan --input_type fastq ${FASTQ} -s Results/metaphlan/${BASE}.sam --nproc ${THREADS} --bowtie2out Results/metaphlan/${BASE}.bowtie2out --bowtie2db ${DB} -x ${DBNAME} &gt; Results/metaphlan/${BASE}_metaphlan.txt\n\n    # Convert sam files to a bam file, and sort\n    # This makes the process fast   \n    samtools view -Sb Results/metaphlan/${BASE}.sam &gt; Results/metaphlan/${BASE}.bam\n    samtools sort Results/metaphlan/${BASE}.bam &gt; Results/metaphlan/${BASE}.sorted.bam\ndone\nDaha sonra bütün örneklere ait bam dosyalarını birleştirelim:\n# Collect all bam files for a specific sample   \nBAMS=\"\"\n\nfor FASTQ in $(grep ${ID} ${FILES})\ndo\n    BASE=$(basename $FASTQ _unmapped.fastq.gz)\n    BAMS=\"${BAMS} Results/metaphlan/${BASE}.sorted.bam\"\ndone\n\n# Merge all bam files that belongs to the specific sample\nsamtools merge -o Results/metaphlan/${ID}.bam ${BAMS}\nsamtools sort Results/metaphlan/${ID}.bam &gt; Results/metaphlan/${ID}.sorted.bam\n\n# Mark duplicates\nsamtools markdup -r Results/metaphlan/${ID}.sorted.bam  Results/metaphlan/${ID}.sorted.rmdup.bam\n\n# Metaphlan3 can read sam files. But it has to be a sam file, so convert it to a sam file\nsamtools view -h Results/metaphlan/${ID}.sorted.rmdup.bam &gt; Results/metaphlan/${ID}.sorted.rmdup.sam\n\n# Run metaphlan3 for the sam file\nmetaphlan --input_type sam Results/metaphlan/${ID}.sorted.rmdup.sam \\\n    -s ${ID}.sam --nproc ${THREADS} \\\n    --bowtie2out Results/metaphlan/${ID}.bowtie2out \\\n    --bowtie2db ${DB} -x ${DBNAME} &gt;  Results/metaphlan/${ID}_metaphlan.txt\nHer örneğe ait olan Metaphlan dosyalarını birleştirelim. Aşağıda gösterilen merge_metaphlan_tables.py kodu, metaphlan ile gelmekte. Ancak her zaman PATH içerisinde olmuyor:\nmerge_metaphlan_tables.py  Results/metaphlan/ble*_metaphlan.txt  Results/metaphlan/ble007_metaphlan.txt Results/metaphlan/ble008_metaphlan.txt &gt; Results/metaphlan/ble.txt\nSon olarak bu örnekler içerisindeki tür profillerini elde edelim:\ngrep -E \"s__|clade\" Results/metaphlan/ble.txt | sed 's/^.*s__//g' |cut -f1,3-8 | sed -e 's/clade_name/body_site/g' &gt; Results/metaphlan/ble.txt\nBu tür profillerini hclust2.py programı ile bir ısı grafiğine çevirelim. Burada opsiyonları değiştirin, her zaman güzel grafikler oluşmuyor. Ayrıca bu programı ayrıca kurmanız gereklidir:\n hclust2.py -i Results/metaphlan/ble.txt -o Results/metaphlan/abundance_heatmap_species.png --f_dist_f braycurtis --s_dist_f braycurtis --cell_aspect_ratio 0.5 -l --flabel_size 10 --slabel_size 10 --max_flabel_len 100 --max_slabel_len 100 --minv 0.1 --dpi 300",
     "crumbs": [
       "Pratikler",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Metagenomik pratik</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Metagenomik pratik</span>"
     ]
   },
   {
     "objectID": "02-practice/03-metagenomics.html#alfa-ve-beta-çeşitlilik-analizleri",
     "href": "02-practice/03-metagenomics.html#alfa-ve-beta-çeşitlilik-analizleri",
-    "title": "15  Metagenomik pratik",
-    "section": "15.3 Alfa ve Beta çeşitlilik analizleri",
-    "text": "15.3 Alfa ve Beta çeşitlilik analizleri\nÖrneklerimizde bulunan mikrobiyal içeriği incelemeye başlayabiliriz. Bunun için öncelikle iki tane dosyaya ihtiyacımız olacaktır:\n\nData/microbial-profile.txt: Antik diş taşları, diğer antik sakızlar, ve insan mikrobiyota projesinden elde edilmiş Metaphlan3 sonuçları\nData/microbial-metadata.txt: Bu örneklere ait metabilgiler\n\nGelin bu dosyaları inceleyelim:\nless -S Data/microbial-profile.txt\nless -S Data/microbial-metadata.txt\nİlk olarak örneklerde bulunan Phylum içeriklerine bakalım. Bu şekli oluşturmak için aşağıdaki komutu çalıştırmalısınız:\nRscript scripts/Figure-S1.R --profile Data/microbial-profile.txt --metadata Data/microbial-metadata.txt --out Results/BetaDiversity/Figure-S1.pdf\nBu işlemin sonucunda Şekil 15.1’de gösterilen şekil oluşmalı.\n\n\n\n\n\n\nŞekil 15.1: Antik sakız örnekleri ve karşılaştırma verisinin filum içerikleri\n\n\n\nÖrneklerin arasındaki Bray-Curtis uzaklıklarına bakalım şimdi. Bunun için aşağıdaki kodu çalıştıralım:\nRscript workflow/scripts/distance_plots.R --profile Data/microbial-profile.txt --metadata Data/microbial-metadata.txt --out1 Results/BetaDiversity/Bray_Curtis.pdf --out2 Results/BetaDiversity/Figure-S3.pdf\nBu kodu çalıştırdığımızda iki farklı şekil oluşacak. Şekil 15.2 bize, her örneğin sahip olduğu bray curtis uzaklıklarını vermektedir. Şekil 15.3 ise sadece sakız örneklerinin, diğer karşılaştırma örneklerine olan uzaklıklarını göstermektedir.\n\n\n\n\n\n\nŞekil 15.2: Çalışma kapsamında kullanıan bütün örneklerin sahip oldukları tipik Bray Curtis uzaklıkları\n\n\n\n\n\n\n\n\n\nŞekil 15.3: Sadece sakız örneklerinin, diğer karşılaştırma örneklerine olan uzaklıkları\n\n\n\nAncak bu şekiller çok rahat okunmuyor. Bir görselleştirme yöntemi olan Non-metric multidimensional scaling metodunu kullanarak, elimizdeki Bray-Curtis matrisini görselleştrelim (?fig-nmds). Aşağıdaki kodu çalıştırmamız gereklidir:\nRscript scripts/Figure-1.R --profile data/microbial-profile.txt --metadata data/microbial-metadata.txt --out Results/BetaDiversity/Figure-1.pdf\n\n\n\nNMDS yöntemi ile görselleştirilmiş Bray Curtis uzaklık matrisi",
+    "title": "14  Metagenomik pratik",
+    "section": "14.3 Alfa ve Beta çeşitlilik analizleri",
+    "text": "14.3 Alfa ve Beta çeşitlilik analizleri\nÖrneklerimizde bulunan mikrobiyal içeriği incelemeye başlayabiliriz. Bunun için öncelikle iki tane dosyaya ihtiyacımız olacaktır:\n\nData/microbial-profile.txt: Antik diş taşları, diğer antik sakızlar, ve insan mikrobiyota projesinden elde edilmiş Metaphlan3 sonuçları\nData/microbial-metadata.txt: Bu örneklere ait metabilgiler\n\nGelin bu dosyaları inceleyelim:\nless -S Data/microbial-profile.txt\nless -S Data/microbial-metadata.txt\nİlk olarak örneklerde bulunan Phylum içeriklerine bakalım. Bu şekli oluşturmak için aşağıdaki komutu çalıştırmalısınız:\nRscript scripts/Figure-S1.R --profile Data/microbial-profile.txt --metadata Data/microbial-metadata.txt --out Results/BetaDiversity/Figure-S1.pdf\nBu işlemin sonucunda Şekil 14.1’de gösterilen şekil oluşmalı.\n\n\n\n\n\n\nŞekil 14.1: Antik sakız örnekleri ve karşılaştırma verisinin filum içerikleri\n\n\n\nÖrneklerin arasındaki Bray-Curtis uzaklıklarına bakalım şimdi. Bunun için aşağıdaki kodu çalıştıralım:\nRscript workflow/scripts/distance_plots.R --profile Data/microbial-profile.txt --metadata Data/microbial-metadata.txt --out1 Results/BetaDiversity/Bray_Curtis.pdf --out2 Results/BetaDiversity/Figure-S3.pdf\nBu kodu çalıştırdığımızda iki farklı şekil oluşacak. Şekil 14.2 bize, her örneğin sahip olduğu bray curtis uzaklıklarını vermektedir. Şekil 14.3 ise sadece sakız örneklerinin, diğer karşılaştırma örneklerine olan uzaklıklarını göstermektedir.\n\n\n\n\n\n\nŞekil 14.2: Çalışma kapsamında kullanıan bütün örneklerin sahip oldukları tipik Bray Curtis uzaklıkları\n\n\n\n\n\n\n\n\n\nŞekil 14.3: Sadece sakız örneklerinin, diğer karşılaştırma örneklerine olan uzaklıkları\n\n\n\nAncak bu şekiller çok rahat okunmuyor. Bir görselleştirme yöntemi olan Non-metric multidimensional scaling metodunu kullanarak, elimizdeki Bray-Curtis matrisini görselleştrelim (?fig-nmds). Aşağıdaki kodu çalıştırmamız gereklidir:\nRscript scripts/Figure-1.R --profile data/microbial-profile.txt --metadata data/microbial-metadata.txt --out Results/BetaDiversity/Figure-1.pdf\n\n\n\nNMDS yöntemi ile görselleştirilmiş Bray Curtis uzaklık matrisi",
     "crumbs": [
       "Pratikler",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Metagenomik pratik</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Metagenomik pratik</span>"
     ]
   },
   {
