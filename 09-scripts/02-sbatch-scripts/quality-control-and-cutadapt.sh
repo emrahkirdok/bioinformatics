@@ -15,8 +15,6 @@ eval "$(/truba/home/$USER/miniconda3/bin/conda shell.bash hook)"
 # activate conda environment
 conda activate quality-control
 
-mkdir -p results/processed
-
 # this time let's create a parameter
 # with this way we can reuse our scripts on different samples
 
@@ -29,6 +27,8 @@ mkdir -p results/fastqc-before-trimming
 fastqc data/fastq/${ID}_1.fastq.gz data/fastq/${ID}_2.fastq.gz --thread 4 --nogroup --outdir results/fastqc-before-trimming
 
 # run cutadapt
+
+mkdir -p results/processed
 
 cutadapt -q 20 --minimum_length  30 --trim-n -Z -j 4 -a AGATCGGAAGAG -A AGATCGGAAGAG -o results/processed/${ID}_1.fastq.gz -p results/processed/${ID}_2.fastq.gz data/fastq/${ID}_1.fastq.gz data/fastq/${ID}_2.fastq.gz
 
