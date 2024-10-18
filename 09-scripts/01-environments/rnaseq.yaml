@@ -1,0 +1,7 @@
+name: rnaseq
+channels:
+  - bioconda
+dependencies:
+  - samtools
+  - bowtie2
+  - subread
