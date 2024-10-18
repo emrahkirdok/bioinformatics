@@ -305,15 +305,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Içindekiler</h2>
-   
-  <ul>
-  <li><a href="#sam-dosyaları" id="toc-sam-dosyaları" class="nav-link active" data-scroll-target="#sam-dosyaları"><span class="header-section-number">8.1</span> SAM dosyaları</a></li>
-  <li><a href="#pratik" id="toc-pratik" class="nav-link" data-scroll-target="#pratik"><span class="header-section-number">8.2</span> Pratik</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -337,41 +330,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="sam-dosyaları" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="sam-dosyaları"><span class="header-section-number">8.1</span> SAM dosyaları</h2>
-<p>DNA hizalama işleminin ardıdan, ham hizalama verisi bu dosya içerinde tutulur. Genotip ve varyant çağırma işleminden önce, bu dosya filtre edilir. Bu filtrasyon aşağıdaki basamakları kapsamaktadır:</p>
-<ul>
-<li>Referans genom ile hizalanmayan okumaların uzaklaştırılması</li>
-<li>Kötü hizalama kalitesine sahip okumaların uzaklaştırılması (<code>-q 30</code>)</li>
-</ul>
-<p>SAM dosyalarında, hizalama bilgisi, <code>flag</code> adı verilen bir değişken içinde saklanır. Bu <code>flag</code> bilgilerine <a href="https://broadinstitute.github.io/picard/explain-flags.html">şu siteden</a> erişebilirsiniz.</p>
-<p>Hizalama kalitesi (<code>-q</code>) aslında, phred okuma kalitesinin bir fonksiyonu. Genelde 30 okuma kalitesinden daha düşük olan diziler, hizalama dosyasından uzaklaştırlır.</p>
-<p>Bunun ardından, <code>sam</code> dosyasını, daha az yer kaplayan <code>bam</code> dosyasına dönüştüreceğiz.</p>
-<p>Son olarak, <code>bam</code> dosyası içerindeki okumaları, pozisyonlara göre sıralayarak varyant çağırma adımına geçeceğiz.</p>
-</section>
-<section id="pratik" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="pratik"><span class="header-section-number">8.2</span> Pratik</h2>
-<p>Programları ekleyelim:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">PATH</span><span class="op">=</span><span class="va">${PATH}</span>:/truba/home/egitim/miniconda3/envs/bioinformatics/bin/</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Öncelikle varyant çağırma dersini kopyalayalım:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> /truba/home/egitim/Dersler/03-Varyant-Cagirma/ .</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Öncelikle, <code>sam</code> dosyasının içeriğine <code>flagstat</code> komutu ile bakalım:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> flagstat results/ERR3079326.sam</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Şimdi <code>sam</code> dosyasını filtreleyelim ve <code>bam</code> haline çevirelim:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-F</span> 12 <span class="at">-q</span> 30 <span class="at">-Sb</span> results/ERR3079326.sam <span class="op">&gt;</span> results/ERR3079326.bam</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Oluşturduğumuz <code>bam</code> dosyasını sıralayarak indexleyelim:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> sort results/ERR3079326.bam <span class="at">-o</span> results/ERR3079326.sorted.bam</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> index results/ERR3079326.sorted.bam</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Genotip çağıralım:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bcftools</span> mpileup <span class="at">-Ov</span> <span class="at">--fasta-ref</span> data/GCF_000191105.1_ASM19110v1_genomic.fna results/ERR3079326.sorted.bam <span class="op">&gt;</span> results/ERR3079326.sorted.vcf</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Son olarak varyant çağırma işlemini gerçekleştirelim:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bcftools</span> call <span class="at">-mv</span> <span class="at">-Ov</span> <span class="at">-o</span> results/calls.vcf results/ERR3079326.sorted.vcf</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Bütün bu adımları çalıştırmak için:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> hizalama-varyant.sh</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Varyant çağırma işlemi için dosyamızı indirelim:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">wget</span> https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/02-sbatch-scripts/variant-calling.sh <span class="at">-P</span> scripts/</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Şimdi işimizi gönderelim:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> scripts/variant-callint.sh</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-ltrh</span> results/variants</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> results/variants/ERR3079326.sorted.rmdup.likelihoods.vcf</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Şimdi de varyantlar:</p>
+<p>``bash less results/variants/ERR3079326.sorted.rmdup.calls.vcf ```</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

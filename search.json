@@ -374,29 +374,7 @@
     "href": "01-lectures/05-alignment-variant-calling-02.html",
     "title": "8  Varyant Çağırma",
     "section": "",
-    "text": "8.1 SAM dosyaları\nDNA hizalama işleminin ardıdan, ham hizalama verisi bu dosya içerinde tutulur. Genotip ve varyant çağırma işleminden önce, bu dosya filtre edilir. Bu filtrasyon aşağıdaki basamakları kapsamaktadır:\nSAM dosyalarında, hizalama bilgisi, flag adı verilen bir değişken içinde saklanır. Bu flag bilgilerine şu siteden erişebilirsiniz.\nHizalama kalitesi (-q) aslında, phred okuma kalitesinin bir fonksiyonu. Genelde 30 okuma kalitesinden daha düşük olan diziler, hizalama dosyasından uzaklaştırlır.\nBunun ardından, sam dosyasını, daha az yer kaplayan bam dosyasına dönüştüreceğiz.\nSon olarak, bam dosyası içerindeki okumaları, pozisyonlara göre sıralayarak varyant çağırma adımına geçeceğiz.",
-    "crumbs": [
-      "Dersler",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Varyant Çağırma</span>"
-    ]
-  },
-  {
-    "objectID": "01-lectures/05-alignment-variant-calling-02.html#sam-dosyaları",
-    "href": "01-lectures/05-alignment-variant-calling-02.html#sam-dosyaları",
-    "title": "8  Varyant Çağırma",
-    "section": "",
-    "text": "Referans genom ile hizalanmayan okumaların uzaklaştırılması\nKötü hizalama kalitesine sahip okumaların uzaklaştırılması (-q 30)",
-    "crumbs": [
-      "Dersler",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Varyant Çağırma</span>"
-    ]
-  },
-  {
-    "objectID": "01-lectures/05-alignment-variant-calling-02.html#pratik",
-    "href": "01-lectures/05-alignment-variant-calling-02.html#pratik",
-    "title": "8  Varyant Çağırma",
-    "section": "8.2 Pratik",
-    "text": "8.2 Pratik\nProgramları ekleyelim:\nPATH=${PATH}:/truba/home/egitim/miniconda3/envs/bioinformatics/bin/\nÖncelikle varyant çağırma dersini kopyalayalım:\ncp -r /truba/home/egitim/Dersler/03-Varyant-Cagirma/ .\nÖncelikle, sam dosyasının içeriğine flagstat komutu ile bakalım:\nsamtools flagstat results/ERR3079326.sam\nŞimdi sam dosyasını filtreleyelim ve bam haline çevirelim:\nsamtools view -F 12 -q 30 -Sb results/ERR3079326.sam &gt; results/ERR3079326.bam\nOluşturduğumuz bam dosyasını sıralayarak indexleyelim:\nsamtools sort results/ERR3079326.bam -o results/ERR3079326.sorted.bam\n\nsamtools index results/ERR3079326.sorted.bam\nGenotip çağıralım:\nbcftools mpileup -Ov --fasta-ref data/GCF_000191105.1_ASM19110v1_genomic.fna results/ERR3079326.sorted.bam &gt; results/ERR3079326.sorted.vcf\nSon olarak varyant çağırma işlemini gerçekleştirelim:\nbcftools call -mv -Ov -o results/calls.vcf results/ERR3079326.sorted.vcf\nBütün bu adımları çalıştırmak için:\nsbatch hizalama-varyant.sh",
+    "text": "Varyant çağırma işlemi için dosyamızı indirelim:\n wget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/02-sbatch-scripts/variant-calling.sh -P scripts/\nŞimdi işimizi gönderelim:\nsbatch scripts/variant-callint.sh\nls -ltrh results/variants\nless results/variants/ERR3079326.sorted.rmdup.likelihoods.vcf\nŞimdi de varyantlar:\n``bash less results/variants/ERR3079326.sorted.rmdup.calls.vcf ```",
     "crumbs": [
       "Dersler",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Varyant Çağırma</span>"
