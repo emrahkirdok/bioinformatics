@@ -49,6 +49,30 @@ wget ftp.sra.ebi.ac.uk/vol1/fastq/SRR740/005/SRR7405885/SRR7405885_1.fastq.gz -P
 wget ftp.sra.ebi.ac.uk/vol1/fastq/SRR740/005/SRR7405885/SRR7405885_2.fastq.gz -P data/
 ```
 
+## Ham okumaların kalite kontrolü
+
+Bu iş için kullanacağımız betiği indirelim:
+
+```bash
+wget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/02-sbatch-scripts/fastqc-before-trimming.sh -P scripts
+```
+
+Klasörü kontrol edelim:
+
+```bash
+ls -ltrh scripts
+```
+
+Şimdi de işimizi gönderelim:
+
+```bash
+sbatch scripts/fastqc-before-trimming.sh
+```
+
+## Tek yönlü ham okumaların işlenmesi
+
+
+
 
 Şu bağlantıya tıklayarak dosyalarımız indirelim ve TRUBA sistemine yükleyelim:
 
