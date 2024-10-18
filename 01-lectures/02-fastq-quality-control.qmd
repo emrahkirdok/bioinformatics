@@ -71,7 +71,11 @@ sbatch scripts/fastqc-before-trimming.sh
 
 ## Tek yönlü ham okumaların işlenmesi
 
+Kullanacağımız betiği indirelim:
 
+```bash
+wget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/02-sbatch-scripts/cutadapt-adapter-trimming-se.sh -P scripts/
+```
 
 
 Şu bağlantıya tıklayarak dosyalarımız indirelim ve TRUBA sistemine yükleyelim:
