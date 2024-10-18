@@ -31,7 +31,7 @@ bwa sampe data/ref/GCF_000014205.1_ASM1420v1_genomic.fna results/alignment/ERR30
 
 # remove unaligned reads and create bam file
 
-samtools view -Sb -F4 results/alignment/data/fastq/ERR3079326.sam > results/alignment/data/fastq/ERR3079326.bam
+samtools view -Sb -F4 results/alignment/ERR3079326.sam > results/alignment/ERR3079326.bam
 
 # sort bam file and index it for fast process
 
