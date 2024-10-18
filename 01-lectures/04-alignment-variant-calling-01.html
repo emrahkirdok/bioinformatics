@@ -305,8 +305,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Içindekiler</h2>
+   
+  <ul>
+  <li><a href="#kalite-kontrol" id="toc-kalite-kontrol" class="nav-link active" data-scroll-target="#kalite-kontrol"><span class="header-section-number">7.1</span> Kalite kontrol</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -330,39 +336,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> data/ref</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> data/fastq</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> logs</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> envs</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Çevre dosyamızı yükleyelim:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">--file</span> envs/alignment</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="kalite-kontrol" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="kalite-kontrol"><span class="header-section-number">7.1</span> Kalite kontrol</h2>
+<p>Bir önceki derste kalite kontrol yapmıştık. Genel olarak bütün çalışmalarda bir kez kalite kontrol yapmak faydalı bir işlem olacaktır. Ancak bunu nasıl yapacağınıza siz karar vermelisiniz.</p>
 <p>İlk olarak kullanım yolumuzu belirleyelim. Programlarımız bu klasör içerisinde bulunmaktadır. Linux üzerinde bulunan, <code>PATH</code> değişkeni, kullanılacak programların hangi klasörlerde aranacağını gösterir.</p>
 <p>İsterseniz öncelikle kendi sisteminizdeki <code>PATH</code> değişkenine bakınız:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">${PATH}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">${PATH}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Geri dönen satıra baktığınızda, <code>:</code> ile ayrılan klasörler, programların aranacağı klasörleri göstermektedir. Çalıştırmak istediğiniz program, en soldaki klasörden başlayarak aranır. İlk bulunan klasördeki program çalıştırılır.</p>
 <p>Şimdi programları yükleyeceğimiz konumu <code>PATH</code> değişkeni içine ekleyelim:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="va">PATH</span><span class="op">=</span><span class="va">${PATH}</span>:/truba/home/egitim/miniconda3/envs/bioinformatics/bin/</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="va">PATH</span><span class="op">=</span><span class="va">${PATH}</span>:/truba/home/egitim/miniconda3/envs/bioinformatics/bin/</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Şimdi klasörün eklenip eklenmediğini kontrol edelim:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">${PATH}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">${PATH}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Kullanacağımız programın ismi <code>bwa</code>. Öncelikle opsyionlarına bakalım:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Şimdi çalışmaya başlayalım (siz kendi klasörünüze giriniz):</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> emrah</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> /truba/home/egitim/Dersler/02-Hizalama/ .</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> emrah</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> /truba/home/egitim/Dersler/02-Hizalama/ .</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Bir sonraki adımda, referans genomu indeksleyelim</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> index data/GCF_000191105.1_ASM19110v1_genomic.fna</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> index data/GCF_000191105.1_ASM19110v1_genomic.fna</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Oluşan dosyalara bakalım:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span> data</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span> data</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Öncelikle çıktı klasörümüzü oluşturalım:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> results</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> results</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Siz bu satırları doğrudan çalıştırmayın. Genel olarak <code>slurm</code> sistemi üzerinden komutları çalıştırıyoruz</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> aln data/GCF_000191105.1_ASM19110v1_genomic.fna data/ERR3079326_1.fastq.gz <span class="op">&gt;</span> results/ERR3079326_1.sai</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> aln data/GCF_000191105.1_ASM19110v1_genomic.fna data/ERR3079326_2.fastq.gz <span class="op">&gt;</span> results/ERR3079326_2.sai</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> aln data/GCF_000191105.1_ASM19110v1_genomic.fna data/ERR3079326_1.fastq.gz <span class="op">&gt;</span> results/ERR3079326_1.sai</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> aln data/GCF_000191105.1_ASM19110v1_genomic.fna data/ERR3079326_2.fastq.gz <span class="op">&gt;</span> results/ERR3079326_2.sai</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Son olarak bütün dosyaları birleştirerek, hizalama <code>sam</code> dosyası elde ediyoruz.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> sampe data/GCF_000191105.1_ASM19110v1_genomic.fna results/ERR3079326_1.sai results/ERR3079326_2.sai data/ERR3079326_1.fastq.gz data/ERR3079326_2.fastq.gz <span class="op">&gt;</span> results/ERR3079326.sam</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> sampe data/GCF_000191105.1_ASM19110v1_genomic.fna results/ERR3079326_1.sai results/ERR3079326_2.sai data/ERR3079326_1.fastq.gz data/ERR3079326_2.fastq.gz <span class="op">&gt;</span> results/ERR3079326.sam</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Bu komutların hepsini çalıştırmak için kısaca şunu yazabilirsiniz:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> hizalama.sh</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> hizalama.sh</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>İşimiz bittiğinde, oluşan <code>sam</code> dosyasını inceleyelim:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> results/ERR3079326.sam</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> results/ERR3079326.sam</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Sam dosya formatı hakkında bilgi almak için <a href="https://samtools.github.io/hts-specs/SAMv1.pdf">Şu dosyayı inceleyebilirsiniz</a>.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
