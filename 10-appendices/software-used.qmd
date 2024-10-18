@@ -19,9 +19,15 @@ rm Miniconda3-latest-Linux-x86_64.sh
 
 Conda'yı güncelleyelim:
 
-```
+```bash
 eval "$(/truba/home/$USER/miniconda3/bin/conda shell.bash hook)"
 conda update conda
+```
+
+Artık conda'yı kullanabilmek için TRUBA sistemine girdiğinizde ilk olarak aşağıdaki komutu çalıştırmanız gerekecektir:
+
+```bash
+eval "$(/truba/home/$USER/miniconda3/bin/conda shell.bash hook)"
 ```
 
 Sonra ilk çevremizi kuralım:
@@ -32,6 +38,7 @@ conda activate quality-control
 
 conda install fastqc cutadapt -c bioconda
 ```
+
 ## FASTQ işleme
 
 + [fastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
