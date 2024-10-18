@@ -30,7 +30,7 @@ fastqc data/fastq/${ID}_1.fastq.gz data/fastq/${ID}_2.fastq.gz --thread 4 --nogr
 
 mkdir -p results/processed
 
-cutadapt -q 20 --minimum_length  30 --trim-n -Z -j 4 -a AGATCGGAAGAG -A AGATCGGAAGAG -o results/processed/${ID}_1.fastq.gz -p results/processed/${ID}_2.fastq.gz data/fastq/${ID}_1.fastq.gz data/fastq/${ID}_2.fastq.gz
+cutadapt -q 20 -m 30 --trim-n -Z -j 4 -a AGATCGGAAGAG -A AGATCGGAAGAG -o results/processed/${ID}_1.fastq.gz -p results/processed/${ID}_2.fastq.gz data/fastq/${ID}_1.fastq.gz data/fastq/${ID}_2.fastq.gz
 
 # run fastqc on processed reads
 
