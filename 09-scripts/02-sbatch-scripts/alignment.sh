@@ -27,7 +27,7 @@ bwa aln -t 4 data/ref/GCF_000014205.1_ASM1420v1_genomic.fna data/fastq/ERR307932
 
 # now create sam file
 
-bwa sampe data/ref/GCF_000014205.1_ASM1420v1_genomic.fna results/alignment/ERR3079326_1.sai esults/alignment/ERR3079326_2.sai data/fastq/ERR3079326_1.fastq.gz data/fastq/ERR3079326_2.fastq.gz > results/alignment/data/fastq/ERR3079326.sam
+bwa sampe data/ref/GCF_000014205.1_ASM1420v1_genomic.fna results/alignment/ERR3079326_1.sai results/alignment/ERR3079326_2.sai data/fastq/ERR3079326_1.fastq.gz data/fastq/ERR3079326_2.fastq.gz > results/alignment/data/fastq/ERR3079326.sam
 
 # remove unaligned reads and create bam file
 
