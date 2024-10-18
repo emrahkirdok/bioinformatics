@@ -8,102 +8,132 @@ mkdir -p logs
 mkdir -p envs
 ```
 
-Çevre dosyamızı yükleyelim:
-
-
-
+Conda programını aktive edelim:
 
 ```bash
-conda env create --file envs/alignment
+eval "$(/truba/home/$USER/miniconda3/bin/conda shell.bash hook)"
 ```
 
+Çevre dosyamızı yükleyelim:
+
+```bash
+wget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/01-environments/alignment.yaml -P envs/
+```
+
+Şimdi de çevremizi oluşturalım:
+
+```bash
+conda env create --file envs/alignment.yaml
+```
+
+Çevremizi aktive edelim:
+
+```bash
+conda activate alignment
+```
+
+Şimdi çalışmada kullanacağımız *Streptococcus sanguinis SK36* referans genomunu indirelim ve sıkıştırılmış dosyayı açalım:
+
+```
+wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/014/205/GCF_000014205.1_ASM1420v1/GCF_000014205.1_ASM1420v1_genomic.fna.gz -P data/ref
+gunzip data/ref/GCF_000014205.1_ASM1420v1_genomic.fna.gz
+```
+
+Şimdi dosyaya bakalım:
+
+```bash
+less data/ref/GCF_000014205.1_ASM1420v1_genomic.fna.gz
+```
+
+Kaç tane dizi var?
+
+```bash
+grep ">" data/ref/GCF_000014205.1_ASM1420v1_genomic.fna.gz
+```
+
+Hatta genom anotasyon dosyasını da indirelim:
+
+```
+wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/014/205/GCF_000014205.1_ASM1420v1/GCF_000014205.1_ASM1420v1_genomic.gtf.gz -P data/ref
+gunzip data/ref/GCF_000014205.1_ASM1420v1_genomic.gtf.gz
+```
+
+Genom anotasyon dosyası, bu canlının genomunda bulunan gen bilgilerini göstermektedir:
+
+```bash
+less data/ref/GCF_000014205.1_ASM1420v1_genomic.gtf
+```
+
+Bir tane protein arayalım, SsaB
+
+```bash
+grep SsaB data/ref/GCF_000014205.1_ASM1420v1_genomic.gtf
+```
+
+Bir sonraki adımda kullanacağımız DNA dizileme dosyaların indirelim:
+
+```bash
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR307/006/ERR3079326/ERR3079326_1.fastq.gz -P data/fastq/
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR307/006/ERR3079326/ERR3079326_2.fastq.gz -P data/fastq/
+``` 
 
 ## Kalite kontrol
 
-Bir önceki derste kalite kontrol yapmıştık. Genel olarak bütün çalışmalarda bir kez kalite kontrol yapmak faydalı bir işlem olacaktır. Ancak bunu nasıl yapacağınıza siz karar vermelisiniz.
-
-
-İlk olarak kullanım yolumuzu belirleyelim. Programlarımız bu klasör içerisinde bulunmaktadır. Linux üzerinde bulunan, `PATH` değişkeni, kullanılacak programların hangi klasörlerde aranacağını gösterir.
-
-İsterseniz öncelikle kendi sisteminizdeki `PATH` değişkenine bakınız:
+Bir önceki derste kalite kontrol yapmıştık. Genel olarak bütün çalışmalarda bir kez kalite kontrol yapmak faydalı bir işlem olacaktır. Ancak bunu nasıl yapacağınıza siz karar vermelisiniz. Kullanacağımız betiği indirelim:
 
 ```bash
-echo ${PATH}
+wget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/02-sbatch-scripts/quality-control-and-cutadapt.sh -P scripts/
 ```
 
-Geri dönen satıra baktığınızda, `:` ile ayrılan klasörler, programların aranacağı klasörleri göstermektedir. Çalıştırmak istediğiniz program, en soldaki klasörden başlayarak aranır. İlk bulunan klasördeki program çalıştırılır.
+Bu işlemin sonucunda elde ettiğimiz çıktıları inceleyelim:
 
-Şimdi programları yükleyeceğimiz konumu `PATH` değişkeni içine ekleyelim:
+## Hizalama
 
-```bash
-PATH=${PATH}:/truba/home/egitim/miniconda3/envs/bioinformatics/bin/
-``` 
+Şimdi ilk olarak elimizdeki referans genomu indekslemeliyiz. Bunun için `bwa` programında bulunan `index` komutunu kullanacağız. Bakteri genomlarını hızlıca konsolda indeksleyebiliriz. Ancak ökaryotik genomlar için ayrı sbatch işleri hazırlamamız çok daha iyi olacaktır.
 
-Şimdi klasörün eklenip eklenmediğini kontrol edelim:
 
 ```bash
-echo ${PATH}
-```
-
-Kullanacağımız programın ismi `bwa`. Öncelikle opsyionlarına bakalım:
-
-```bash
-bwa
-```
-
-Şimdi çalışmaya başlayalım (siz kendi klasörünüze giriniz):
-
-```bash
-cd emrah
-
-cp -r /truba/home/egitim/Dersler/02-Hizalama/ .
-```
-
-Bir sonraki adımda, referans genomu indeksleyelim
-
-```bash
-bwa index data/GCF_000191105.1_ASM19110v1_genomic.fna
+bwa index data/ref/GCF_000014205.1_ASM1420v1_genomic.fna
 ```
 
 Oluşan dosyalara bakalım:
 
 ```bash
-ls -l data
+ls -ltrh data/ref
 ```
 
-Öncelikle çıktı klasörümüzü oluşturalım:
+Bir sonraki adımda okumalarımızı referans genoma hizalamaya başlayacağız. İhtiyacımız olan dosyayı indirelim:
 
 ```bash
-
-mkdir results
+wget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/02-sbatch-scripts/alignment.sh -P scripts
 ```
 
-Siz bu satırları doğrudan çalıştırmayın. Genel olarak `slurm` sistemi üzerinden komutları çalıştırıyoruz
+Şimdi ise `samtools flagstat` ile, elde ettiğimiz sam dosyalarını inceleyelim. Önce ham sam dosyası:
 
 ```bash
-bwa aln data/GCF_000191105.1_ASM19110v1_genomic.fna data/ERR3079326_1.fastq.gz > results/ERR3079326_1.sai
-bwa aln data/GCF_000191105.1_ASM19110v1_genomic.fna data/ERR3079326_2.fastq.gz > results/ERR3079326_2.sai
+samtools flagstat results/alignment/ERR3079326.sam
 ```
 
-Son olarak bütün dosyaları birleştirerek, hizalama `sam` dosyası elde ediyoruz.
+Şimdi, hizalanmayan okumalardan arındırılmış bam dosyası
 
 ```bash
-bwa sampe data/GCF_000191105.1_ASM19110v1_genomic.fna results/ERR3079326_1.sai results/ERR3079326_2.sai data/ERR3079326_1.fastq.gz data/ERR3079326_2.fastq.gz > results/ERR3079326.sam
-
+samtools flagstat results/alignment/ERR3079326.bam
 ```
 
-Bu komutların hepsini çalıştırmak için kısaca şunu yazabilirsiniz:
+Duplikasyonlardan arındırılmış bam dosyası:
 
 ```bash
-sbatch hizalama.sh
-``` 
-
-İşimiz bittiğinde, oluşan `sam` dosyasını inceleyelim:
-
-```bash
-less results/ERR3079326.sam
+samtools flagstat results/alignment/ERR3079326.sorted.rmdup.bam
 ```
 
-Sam dosya formatı hakkında bilgi almak için [Şu dosyayı inceleyebilirsiniz](https://samtools.github.io/hts-specs/SAMv1.pdf).
+Şimdi, elimizdeki dosyayı görselleştirelim:
 
+```bash
+samtools tview --reference data/ref/GCF_000014205.1_ASM1420v1_genomic.fna results/alignment/ERR3079326.sorted.rmdup.bam
+````
 
+Dersin başında bulduğumuz geni inceleylim mi?
+
+```bash
+samtools tview -p NC_009009.1:254673 --reference data/ref/GCF_000014205.1_ASM1420v1_genomic.fna results/alignment/ERR3079326.sorted.rmdup.bam
+````
