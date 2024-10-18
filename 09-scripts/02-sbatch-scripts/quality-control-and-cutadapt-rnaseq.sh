@@ -30,7 +30,7 @@ fastqc data/fastq/${ID}.fastq.gz --thread 4 --nogroup --outdir results/fastqc-be
 
 mkdir -p results/processed
 
-cutadapt -q 20 -m 30 --trim-n -Z -j 4 -a AGATCGGAAGAG -o results/processed/${ID}.fastq.gz data/fastq/${ID}_1.fastq.gz 
+cutadapt -q 20 -m 30 --trim-n -Z -j 4 -a AGATCGGAAGAG -o results/processed/${ID}.fastq.gz data/fastq/${ID}.fastq.gz 
 
 # run fastqc on processed reads
 
