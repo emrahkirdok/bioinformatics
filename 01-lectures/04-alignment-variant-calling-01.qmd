@@ -137,3 +137,14 @@ Dersin başında bulduğumuz geni inceleylim mi?
 ```bash
 samtools tview -p NC_009009.1:254673 --reference data/ref/GCF_000014205.1_ASM1420v1_genomic.fna results/alignment/ERR3079326.sorted.rmdup.bam
 ````
+
+## SAM dosyaları
+
+DNA hizalama işleminin ardıdan, ham hizalama verisi bu dosya içerinde tutulur. Genotip ve varyant çağırma işleminden önce, bu dosya filtre edilir. Bu filtrasyon aşağıdaki basamakları kapsamaktadır:
+
++ Referans genom ile hizalanmayan okumaların uzaklaştırılması
++ Kötü hizalama kalitesine sahip okumaların uzaklaştırılması (`-q 30`)
+
+SAM dosyalarında, hizalama bilgisi, `flag` adı verilen bir değişken içinde saklanır. Bu `flag` bilgilerine [şu siteden](https://broadinstitute.github.io/picard/explain-flags.html) erişebilirsiniz.
+
+Hizalama kalitesi (`-q`) aslında, phred okuma kalitesinin bir fonksiyonu. Genelde 30 okuma kalitesinden daha düşük olan diziler, hizalama dosyasından uzaklaştırlır.
