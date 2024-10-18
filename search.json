@@ -341,18 +341,18 @@
     "href": "01-lectures/04-alignment-variant-calling-01.html",
     "title": "7  Hizalama",
     "section": "",
-    "text": "7.1 Kalite kontrol\nBir önceki derste kalite kontrol yapmıştık. Genel olarak bütün çalışmalarda bir kez kalite kontrol yapmak faydalı bir işlem olacaktır. Ancak bunu nasıl yapacağınıza siz karar vermelisiniz.\nİlk olarak kullanım yolumuzu belirleyelim. Programlarımız bu klasör içerisinde bulunmaktadır. Linux üzerinde bulunan, PATH değişkeni, kullanılacak programların hangi klasörlerde aranacağını gösterir.\nİsterseniz öncelikle kendi sisteminizdeki PATH değişkenine bakınız:\nGeri dönen satıra baktığınızda, : ile ayrılan klasörler, programların aranacağı klasörleri göstermektedir. Çalıştırmak istediğiniz program, en soldaki klasörden başlayarak aranır. İlk bulunan klasördeki program çalıştırılır.\nŞimdi programları yükleyeceğimiz konumu PATH değişkeni içine ekleyelim:\nŞimdi klasörün eklenip eklenmediğini kontrol edelim:\nKullanacağımız programın ismi bwa. Öncelikle opsyionlarına bakalım:\nŞimdi çalışmaya başlayalım (siz kendi klasörünüze giriniz):\nBir sonraki adımda, referans genomu indeksleyelim\nOluşan dosyalara bakalım:\nÖncelikle çıktı klasörümüzü oluşturalım:\nSiz bu satırları doğrudan çalıştırmayın. Genel olarak slurm sistemi üzerinden komutları çalıştırıyoruz\nSon olarak bütün dosyaları birleştirerek, hizalama sam dosyası elde ediyoruz.\nBu komutların hepsini çalıştırmak için kısaca şunu yazabilirsiniz:\nİşimiz bittiğinde, oluşan sam dosyasını inceleyelim:\nSam dosya formatı hakkında bilgi almak için Şu dosyayı inceleyebilirsiniz.",
+    "text": "7.1 Hizalama\nŞimdi ilk olarak elimizdeki referans genomu indekslemeliyiz. Bunun için bwa programında bulunan index komutunu kullanacağız. Bakteri genomlarını hızlıca konsolda indeksleyebiliriz. Ancak ökaryotik genomlar için ayrı sbatch işleri hazırlamamız çok daha iyi olacaktır.\nOluşan dosyalara bakalım:\nBir sonraki adımda okumalarımızı referans genoma hizalamaya başlayacağız. İhtiyacımız olan dosyayı indirelim:\nŞimdi ise samtools flagstat ile, elde ettiğimiz sam dosyalarını inceleyelim. Önce ham sam dosyası:\nŞimdi, hizalanmayan okumalardan arındırılmış bam dosyası\nDuplikasyonlardan arındırılmış bam dosyası:\nŞimdi, elimizdeki dosyayı görselleştirelim:\nDersin başında bulduğumuz geni inceleylim mi?",
     "crumbs": [
       "Dersler",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hizalama</span>"
     ]
   },
   {
-    "objectID": "01-lectures/04-alignment-variant-calling-01.html#kalite-kontrol",
-    "href": "01-lectures/04-alignment-variant-calling-01.html#kalite-kontrol",
+    "objectID": "01-lectures/04-alignment-variant-calling-01.html#hizalama",
+    "href": "01-lectures/04-alignment-variant-calling-01.html#hizalama",
     "title": "7  Hizalama",
     "section": "",
-    "text": "echo ${PATH}\n\n\nPATH=${PATH}:/truba/home/egitim/miniconda3/envs/bioinformatics/bin/\n\necho ${PATH}\n\nbwa\n\ncd emrah\n\ncp -r /truba/home/egitim/Dersler/02-Hizalama/ .\n\nbwa index data/GCF_000191105.1_ASM19110v1_genomic.fna\n\nls -l data\n\n\nmkdir results\n\nbwa aln data/GCF_000191105.1_ASM19110v1_genomic.fna data/ERR3079326_1.fastq.gz &gt; results/ERR3079326_1.sai\nbwa aln data/GCF_000191105.1_ASM19110v1_genomic.fna data/ERR3079326_2.fastq.gz &gt; results/ERR3079326_2.sai\n\nbwa sampe data/GCF_000191105.1_ASM19110v1_genomic.fna results/ERR3079326_1.sai results/ERR3079326_2.sai data/ERR3079326_1.fastq.gz data/ERR3079326_2.fastq.gz &gt; results/ERR3079326.sam\n\nsbatch hizalama.sh\n\nless results/ERR3079326.sam",
+    "text": "bwa index data/ref/GCF_000014205.1_ASM1420v1_genomic.fna\n\nls -ltrh data/ref\n\nwget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/02-sbatch-scripts/alignment.sh -P scripts\n\nsamtools flagstat results/alignment/ERR3079326.sam\n\nsamtools flagstat results/alignment/ERR3079326.bam\n\nsamtools flagstat results/alignment/ERR3079326.sorted.rmdup.bam\n\nsamtools tview --reference data/ref/GCF_000014205.1_ASM1420v1_genomic.fna results/alignment/ERR3079326.sorted.rmdup.bam\n\nsamtools tview -p NC_009009.1:254673 --reference data/ref/GCF_000014205.1_ASM1420v1_genomic.fna results/alignment/ERR3079326.sorted.rmdup.bam",
     "crumbs": [
       "Dersler",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hizalama</span>"

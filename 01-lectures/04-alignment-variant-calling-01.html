@@ -310,7 +310,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Içindekiler</h2>
    
   <ul>
-  <li><a href="#kalite-kontrol" id="toc-kalite-kontrol" class="nav-link active" data-scroll-target="#kalite-kontrol"><span class="header-section-number">7.1</span> Kalite kontrol</a></li>
+  <li><a href="#hizalama" id="toc-hizalama" class="nav-link active" data-scroll-target="#hizalama"><span class="header-section-number">7.1</span> Hizalama</a></li>
   </ul>
 </nav>
     </div>
@@ -340,42 +340,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> data/fastq</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> logs</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> envs</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Conda programını aktive edelim:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">eval</span> <span class="st">"</span><span class="va">$(</span><span class="ex">/truba/home/</span><span class="va">$USER</span><span class="ex">/miniconda3/bin/conda</span> shell.bash hook<span class="va">)</span><span class="st">"</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Çevre dosyamızı yükleyelim:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">--file</span> envs/alignment</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="kalite-kontrol" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="kalite-kontrol"><span class="header-section-number">7.1</span> Kalite kontrol</h2>
-<p>Bir önceki derste kalite kontrol yapmıştık. Genel olarak bütün çalışmalarda bir kez kalite kontrol yapmak faydalı bir işlem olacaktır. Ancak bunu nasıl yapacağınıza siz karar vermelisiniz.</p>
-<p>İlk olarak kullanım yolumuzu belirleyelim. Programlarımız bu klasör içerisinde bulunmaktadır. Linux üzerinde bulunan, <code>PATH</code> değişkeni, kullanılacak programların hangi klasörlerde aranacağını gösterir.</p>
-<p>İsterseniz öncelikle kendi sisteminizdeki <code>PATH</code> değişkenine bakınız:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">${PATH}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Geri dönen satıra baktığınızda, <code>:</code> ile ayrılan klasörler, programların aranacağı klasörleri göstermektedir. Çalıştırmak istediğiniz program, en soldaki klasörden başlayarak aranır. İlk bulunan klasördeki program çalıştırılır.</p>
-<p>Şimdi programları yükleyeceğimiz konumu <code>PATH</code> değişkeni içine ekleyelim:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="va">PATH</span><span class="op">=</span><span class="va">${PATH}</span>:/truba/home/egitim/miniconda3/envs/bioinformatics/bin/</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Şimdi klasörün eklenip eklenmediğini kontrol edelim:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">${PATH}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Kullanacağımız programın ismi <code>bwa</code>. Öncelikle opsyionlarına bakalım:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Şimdi çalışmaya başlayalım (siz kendi klasörünüze giriniz):</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> emrah</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> /truba/home/egitim/Dersler/02-Hizalama/ .</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Bir sonraki adımda, referans genomu indeksleyelim</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> index data/GCF_000191105.1_ASM19110v1_genomic.fna</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/01-environments/alignment.yaml <span class="at">-P</span> envs/</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Şimdi de çevremizi oluşturalım:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">--file</span> envs/alignment.yaml</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Çevremizi aktive edelim:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate alignment</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Şimdi çalışmada kullanacağımız <em>Streptococcus sanguinis SK36</em> referans genomunu indirelim ve sıkıştırılmış dosyayı açalım:</p>
+<pre><code>wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/014/205/GCF_000014205.1_ASM1420v1/GCF_000014205.1_ASM1420v1_genomic.fna.gz -P data/ref
+gunzip data/ref/GCF_000014205.1_ASM1420v1_genomic.fna.gz</code></pre>
+<p>Şimdi dosyaya bakalım:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> data/ref/GCF_000014205.1_ASM1420v1_genomic.fna.gz</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Kaç tane dizi var?</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"&gt;"</span> data/ref/GCF_000014205.1_ASM1420v1_genomic.fna.gz</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Hatta genom anotasyon dosyasını da indirelim:</p>
+<pre><code>wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/014/205/GCF_000014205.1_ASM1420v1/GCF_000014205.1_ASM1420v1_genomic.gtf.gz -P data/ref
+gunzip data/ref/GCF_000014205.1_ASM1420v1_genomic.gtf.gz</code></pre>
+<p>Genom anotasyon dosyası, bu canlının genomunda bulunan gen bilgilerini göstermektedir:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> data/ref/GCF_000014205.1_ASM1420v1_genomic.gtf</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Bir tane protein arayalım, SsaB</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> SsaB data/ref/GCF_000014205.1_ASM1420v1_genomic.gtf</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Bir sonraki adımda kullanacağımız DNA dizileme dosyaların indirelim:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR307/006/ERR3079326/ERR3079326_1.fastq.gz <span class="at">-P</span> data/fastq/</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR307/006/ERR3079326/ERR3079326_2.fastq.gz <span class="at">-P</span> data/fastq/</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">&nbsp;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">## Kalite kontrol</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Bir</span> önceki derste kalite kontrol yapmıştık. Genel olarak bütün çalışmalarda bir kez kalite kontrol yapmak faydalı bir işlem olacaktır. Ancak bunu nasıl yapacağınıza siz karar vermelisiniz. Kullanacağımız betiği indirelim:</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span>bash</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/02-sbatch-scripts/quality-control-and-cutadapt.sh <span class="at">-P</span> scripts/</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Bu işlemin sonucunda elde ettiğimiz çıktıları inceleyelim:</p>
+<section id="hizalama" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="hizalama"><span class="header-section-number">7.1</span> Hizalama</h2>
+<p>Şimdi ilk olarak elimizdeki referans genomu indekslemeliyiz. Bunun için <code>bwa</code> programında bulunan <code>index</code> komutunu kullanacağız. Bakteri genomlarını hızlıca konsolda indeksleyebiliriz. Ancak ökaryotik genomlar için ayrı sbatch işleri hazırlamamız çok daha iyi olacaktır.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> index data/ref/GCF_000014205.1_ASM1420v1_genomic.fna</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Oluşan dosyalara bakalım:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span> data</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Öncelikle çıktı klasörümüzü oluşturalım:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> results</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Siz bu satırları doğrudan çalıştırmayın. Genel olarak <code>slurm</code> sistemi üzerinden komutları çalıştırıyoruz</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> aln data/GCF_000191105.1_ASM19110v1_genomic.fna data/ERR3079326_1.fastq.gz <span class="op">&gt;</span> results/ERR3079326_1.sai</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> aln data/GCF_000191105.1_ASM19110v1_genomic.fna data/ERR3079326_2.fastq.gz <span class="op">&gt;</span> results/ERR3079326_2.sai</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Son olarak bütün dosyaları birleştirerek, hizalama <code>sam</code> dosyası elde ediyoruz.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> sampe data/GCF_000191105.1_ASM19110v1_genomic.fna results/ERR3079326_1.sai results/ERR3079326_2.sai data/ERR3079326_1.fastq.gz data/ERR3079326_2.fastq.gz <span class="op">&gt;</span> results/ERR3079326.sam</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Bu komutların hepsini çalıştırmak için kısaca şunu yazabilirsiniz:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> hizalama.sh</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>İşimiz bittiğinde, oluşan <code>sam</code> dosyasını inceleyelim:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> results/ERR3079326.sam</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Sam dosya formatı hakkında bilgi almak için <a href="https://samtools.github.io/hts-specs/SAMv1.pdf">Şu dosyayı inceleyebilirsiniz</a>.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-ltrh</span> data/ref</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Bir sonraki adımda okumalarımızı referans genoma hizalamaya başlayacağız. İhtiyacımız olan dosyayı indirelim:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/02-sbatch-scripts/alignment.sh <span class="at">-P</span> scripts</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Şimdi ise <code>samtools flagstat</code> ile, elde ettiğimiz sam dosyalarını inceleyelim. Önce ham sam dosyası:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> flagstat results/alignment/ERR3079326.sam</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Şimdi, hizalanmayan okumalardan arındırılmış bam dosyası</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> flagstat results/alignment/ERR3079326.bam</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Duplikasyonlardan arındırılmış bam dosyası:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> flagstat results/alignment/ERR3079326.sorted.rmdup.bam</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Şimdi, elimizdeki dosyayı görselleştirelim:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> tview <span class="at">--reference</span> data/ref/GCF_000014205.1_ASM1420v1_genomic.fna results/alignment/ERR3079326.sorted.rmdup.bam</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dersin başında bulduğumuz geni inceleylim mi?</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> tview <span class="at">-p</span> NC_009009.1:254673 <span class="at">--reference</span> data/ref/GCF_000014205.1_ASM1420v1_genomic.fna results/alignment/ERR3079326.sorted.rmdup.bam</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
