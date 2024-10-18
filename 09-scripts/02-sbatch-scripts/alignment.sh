@@ -36,6 +36,7 @@ samtools view -Sb -F4 results/alignment/ERR3079326.sam > results/alignment/ERR30
 # sort bam file and index it for fast process
 
 samtools sort results/alignment/ERR3079326.bam -o results/alignment/ERR3079326.sorted.bam
+samtools index results/alignment/ERR3079326.sorted.bam
 
 # remove optical pcr duplicates and index
 
