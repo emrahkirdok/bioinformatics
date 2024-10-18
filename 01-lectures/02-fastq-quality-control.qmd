@@ -23,20 +23,30 @@ Her projede temel klasörler olmalı. Ham veriler, betikler, sonuçlar, tarihçe
 mkdir data
 mkdir logs
 mkdir scripts
+mkdir envs
+```
+
+Conda programını aktive edelim:
+
+```bash
+eval "$(/truba/home/$USER/miniconda3/bin/conda shell.bash hook)"
 ```
 
 Şimdi, kullancağımız conda çevresinin dosyasını indirelim:
 
 ```bash
-wget ftp.sra.ebi.ac.uk/vol1/fastq/SRR702/004/SRR7029604/SRR7029604.fastq.gz -P data/
-wget ftp.sra.ebi.ac.uk/vol1/fastq/SRR740/005/SRR7405885/SRR7405885_1.fastq.gz -P data/
-wget ftp.sra.ebi.ac.uk/vol1/fastq/SRR740/005/SRR7405885/SRR7405885_2.fastq.gz -P data/
+wget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/01-environments/quality-control.yaml
+
+conda env create --file envs/quality-control.yaml
+conda activate quality-control
 ```
 
 Şimdi de kullanacağımız örnek veriyi indirelim:
 
 ```bash
-
+wget ftp.sra.ebi.ac.uk/vol1/fastq/SRR702/004/SRR7029604/SRR7029604.fastq.gz -P data/
+wget ftp.sra.ebi.ac.uk/vol1/fastq/SRR740/005/SRR7405885/SRR7405885_1.fastq.gz -P data/
+wget ftp.sra.ebi.ac.uk/vol1/fastq/SRR740/005/SRR7405885/SRR7405885_2.fastq.gz -P data/
 ```
 
 
