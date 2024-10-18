@@ -39,5 +39,5 @@ samtools sort results/alignment/data/fastq/ERR3079326.bam -o results/alignment/E
 
 # remove optical pcr duplicates and index
 
-samtools rmdup results/alignment/ERR3079326.sorted.bam results/alignment7/ERR3079326.sorted.rmdup.bam
+samtools rmdup results/alignment/ERR3079326.sorted.bam results/alignment/ERR3079326.sorted.rmdup.bam
 samtools index results/alignment/ERR3079326.sorted.rmdup.bam
