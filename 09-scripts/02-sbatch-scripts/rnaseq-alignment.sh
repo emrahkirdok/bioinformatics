@@ -22,8 +22,8 @@ mkdir -p results/alignment
 
 # align reads, directly
 
-bowtie2-align-s -x dat/ref/GCA_000007565.2_ASM756v2_genomic.fna -p 4 -U results/processed/SRR7029605.fastq.gz |  samtools view -F4 -q30 -Sb > results/alignment/SRR7029605.bam
+bowtie2-align-s -x data/ref/GCA_000007565.2_ASM756v2_genomic.fna -p 4 -U results/processed/SRR7029605.fastq.gz |  samtools view -F4 -q30 -Sb > results/alignment/SRR7029605.bam
 
-samtools sort results/alignment/SRR7029605.bam -o $results/alignment/SRR7029605.sorted.bam
+samtools sort results/alignment/SRR7029605.bam -o results/alignment/SRR7029605.sorted.bam
 
-samtools index results/alignment/SRR7029605.bam
+samtools index results/alignment/SRR7029605.sorted.bam
