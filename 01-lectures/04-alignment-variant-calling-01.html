@@ -356,15 +356,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Çevremizi aktive edelim:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate alignment</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Şimdi çalışmada kullanacağımız <em>Streptococcus sanguinis SK36</em> referans genomunu indirelim ve sıkıştırılmış dosyayı açalım:</p>
-<pre><code>wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/014/205/GCF_000014205.1_ASM1420v1/GCF_000014205.1_ASM1420v1_genomic.fna.gz -P data/ref
-gunzip data/ref/GCF_000014205.1_ASM1420v1_genomic.fna.gz</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/014/205/GCF_000014205.1_ASM1420v1/GCF_000014205.1_ASM1420v1_genomic.fna.gz <span class="at">-P</span> data/ref</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> data/ref/GCF_000014205.1_ASM1420v1_genomic.fna.gz</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Şimdi dosyaya bakalım:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> data/ref/GCF_000014205.1_ASM1420v1_genomic.fna.gz</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Kaç tane dizi var?</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"&gt;"</span> data/ref/GCF_000014205.1_ASM1420v1_genomic.fna.gz</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Hatta genom anotasyon dosyasını da indirelim:</p>
-<pre><code>wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/014/205/GCF_000014205.1_ASM1420v1/GCF_000014205.1_ASM1420v1_genomic.gtf.gz -P data/ref
-gunzip data/ref/GCF_000014205.1_ASM1420v1_genomic.gtf.gz</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/014/205/GCF_000014205.1_ASM1420v1/GCF_000014205.1_ASM1420v1_genomic.gtf.gz <span class="at">-P</span> data/ref</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> data/ref/GCF_000014205.1_ASM1420v1_genomic.gtf.gz</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Genom anotasyon dosyası, bu canlının genomunda bulunan gen bilgilerini göstermektedir:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> data/ref/GCF_000014205.1_ASM1420v1_genomic.gtf</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Bir tane protein arayalım, SsaB</p>
