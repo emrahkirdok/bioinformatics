@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>11&nbsp; Bash ile betik oluşturma – Biyoinformatik</title>
+<title>12&nbsp; Bash ile betik oluşturma – Biyoinformatik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-lectures/01-ynd.html">Dersler</a></li><li class="breadcrumb-item"><a href="../01-lectures/06-bash-scripting.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Bash ile betik oluşturma</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-lectures/01-ynd.html">Dersler</a></li><li class="breadcrumb-item"><a href="../01-lectures/06-bash-scripting.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Bash ile betik oluşturma</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Aramak" onclick="window.quartoOpenSearch();">
@@ -230,20 +230,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../01-lectures/07-rnaseq.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">RNA Dizileme</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../01-lectures/09-rnaseq-analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">RNA dizileme veri analizi</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">RNA dizileme veri analizi</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../01-lectures/08-metagenomics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">[Antik] Metagenomik</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">[Antik] Metagenomik</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../01-lectures/06-bash-scripting.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Bash ile betik oluşturma</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Bash ile betik oluşturma</span></span></a>
   </div>
 </li>
       </ul>
@@ -260,19 +266,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../02-practice/01-variant-practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Varyant çağırma pratiği</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Varyant çağırma pratiği</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../02-practice/02-rnaseq-project.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">RNA Dizileme Proje Örneği</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">RNA Dizileme Proje Örneği</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../02-practice/03-metagenomics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Metagenomik pratik</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Metagenomik pratik</span></span></a>
   </div>
 </li>
       </ul>
@@ -310,20 +316,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Içindekiler</h2>
    
   <ul>
-  <li><a href="#değişken-oluşturma" id="toc-değişken-oluşturma" class="nav-link active" data-scroll-target="#değişken-oluşturma"><span class="header-section-number">11.1</span> Değişken oluşturma</a></li>
-  <li><a href="#dosya-sistemleri" id="toc-dosya-sistemleri" class="nav-link" data-scroll-target="#dosya-sistemleri"><span class="header-section-number">11.2</span> Dosya sistemleri</a></li>
-  <li><a href="#fastq-ön-işleme" id="toc-fastq-ön-işleme" class="nav-link" data-scroll-target="#fastq-ön-işleme"><span class="header-section-number">11.3</span> Fastq ön işleme</a></li>
-  <li><a href="#hizalama-adımı" id="toc-hizalama-adımı" class="nav-link" data-scroll-target="#hizalama-adımı"><span class="header-section-number">11.4</span> Hizalama adımı</a></li>
-  <li><a href="#varyant-cağırma" id="toc-varyant-cağırma" class="nav-link" data-scroll-target="#varyant-cağırma"><span class="header-section-number">11.5</span> Varyant cağırma</a></li>
+  <li><a href="#değişken-oluşturma" id="toc-değişken-oluşturma" class="nav-link active" data-scroll-target="#değişken-oluşturma"><span class="header-section-number">12.1</span> Değişken oluşturma</a></li>
+  <li><a href="#dosya-sistemleri" id="toc-dosya-sistemleri" class="nav-link" data-scroll-target="#dosya-sistemleri"><span class="header-section-number">12.2</span> Dosya sistemleri</a></li>
+  <li><a href="#fastq-ön-işleme" id="toc-fastq-ön-işleme" class="nav-link" data-scroll-target="#fastq-ön-işleme"><span class="header-section-number">12.3</span> Fastq ön işleme</a></li>
+  <li><a href="#hizalama-adımı" id="toc-hizalama-adımı" class="nav-link" data-scroll-target="#hizalama-adımı"><span class="header-section-number">12.4</span> Hizalama adımı</a></li>
+  <li><a href="#varyant-cağırma" id="toc-varyant-cağırma" class="nav-link" data-scroll-target="#varyant-cağırma"><span class="header-section-number">12.5</span> Varyant cağırma</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-lectures/01-ynd.html">Dersler</a></li><li class="breadcrumb-item"><a href="../01-lectures/06-bash-scripting.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Bash ile betik oluşturma</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-lectures/01-ynd.html">Dersler</a></li><li class="breadcrumb-item"><a href="../01-lectures/06-bash-scripting.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Bash ile betik oluşturma</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Bash ile betik oluşturma</span></h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Bash ile betik oluşturma</span></h1>
 </div>
 
 
@@ -351,8 +357,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> index data/<span class="va">${REFERENCE}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Burada, tanımladığımız değişkeni <code>${}</code> karakterleri ile tekrar kullanabildik.</p>
 <p>Dolayısıyla, artık oluşturduğumuz komut daha genel olmaya başladı.</p>
-<section id="değişken-oluşturma" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="değişken-oluşturma"><span class="header-section-number">11.1</span> Değişken oluşturma</h2>
+<section id="değişken-oluşturma" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="değişken-oluşturma"><span class="header-section-number">12.1</span> Değişken oluşturma</h2>
 <p>Bu işlemleri konsol üzerinde yapalım. Bir değişken oluşturalım:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="va">SAMPLE</span><span class="op">=</span>ERR3079326</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -380,8 +386,8 @@ Karakter kullanımı
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="va">BOS</span><span class="op">=</span>ERR65245</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">${BOS}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="dosya-sistemleri" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="dosya-sistemleri"><span class="header-section-number">11.2</span> Dosya sistemleri</h2>
+<section id="dosya-sistemleri" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="dosya-sistemleri"><span class="header-section-number">12.2</span> Dosya sistemleri</h2>
 <p>Bir projede dosya sistemi önemlidir. Çünkü uzun vadede, biyoinformatik projelerinde büyük miktarda dosya oluşturulur. Bu çıktıları ve dosyaları uygun konumlarda saklarsanız, projeleri daha rahat yönetebilirsiniz.</p>
 <p>Ders kapsamında yaptığımız projede, aşağıdaki dosya sistemi kullanıldı:</p>
 <pre><code>04-Bash-scripting
@@ -407,8 +413,8 @@ Karakter kullanımı
 <p>Sonuçlar klasöründe, <code>alignment</code> klasörü, işlenmiş <code>fastq</code> dosyalarının, <code>data</code> klasörü içerisinde bulunan referans genoma hizlanması sonucunda elde edilen verileri depoluyor.</p>
 <p>Sonuçlar klasöründeki, <code>variant</code> klasörü ise, hizalama dosyalarından elde edlen varyant bilgilerini depoluyor.</p>
 </section>
-<section id="fastq-ön-işleme" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="fastq-ön-işleme"><span class="header-section-number">11.3</span> Fastq ön işleme</h2>
+<section id="fastq-ön-işleme" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="fastq-ön-işleme"><span class="header-section-number">12.3</span> Fastq ön işleme</h2>
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Oncelikle cikti dosyalarimizi saklayacagimiz klasoru olusturalim</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> results/processed/</span>
@@ -420,8 +426,8 @@ Karakter kullanımı
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">-o</span> results/processed/<span class="va">${SAMPLE}</span>_1.fastq.gz <span class="dt">\</span></span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">-p</span> results/processed/<span class="va">${SAMPLE}</span>_2.fastq.gz data/<span class="va">${SAMPLE}</span>_1.fastq.gz data/<span class="va">${SAMPLE}</span>_2.fastq.gz</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="hizalama-adımı" class="level2" data-number="11.4">
-<h2 data-number="11.4" class="anchored" data-anchor-id="hizalama-adımı"><span class="header-section-number">11.4</span> Hizalama adımı</h2>
+<section id="hizalama-adımı" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="hizalama-adımı"><span class="header-section-number">12.4</span> Hizalama adımı</h2>
 <div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Oncelikle referans genomu indeksleyelim</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> index data/<span class="va">${REFERENCE}</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -449,8 +455,8 @@ Karakter kullanımı
 <span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> index results/alignment/<span class="va">${SAMPLE}</span>.sorted.bam</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="varyant-cağırma" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="varyant-cağırma"><span class="header-section-number">11.5</span> Varyant cağırma</h2>
+<section id="varyant-cağırma" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="varyant-cağırma"><span class="header-section-number">12.5</span> Varyant cağırma</h2>
 <div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Oncelikle sonuclari depolayacagimiz klasorleri olsuturalim</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> results/variant</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -887,12 +893,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../01-lectures/08-metagenomics.html" class="pagination-link" aria-label="[Antik] Metagenomik">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">[Antik] Metagenomik</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">[Antik] Metagenomik</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../02-practice/01-variant-practice.html" class="pagination-link" aria-label="Varyant çağırma pratiği">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Varyant çağırma pratiği</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Varyant çağırma pratiği</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
