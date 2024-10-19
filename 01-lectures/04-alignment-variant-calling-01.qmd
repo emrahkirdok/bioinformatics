@@ -42,13 +42,13 @@ gunzip data/ref/GCF_000014205.1_ASM1420v1_genomic.fna.gz
 Şimdi dosyaya bakalım:
 
 ```bash
-less data/ref/GCF_000014205.1_ASM1420v1_genomic.fna.gz
+less data/ref/GCF_000014205.1_ASM1420v1_genomic.fna
 ```
 
 Kaç tane dizi var?
 
 ```bash
-grep ">" data/ref/GCF_000014205.1_ASM1420v1_genomic.fna.gz
+grep ">" data/ref/GCF_000014205.1_ASM1420v1_genomic.fna
 ```
 
 Hatta genom anotasyon dosyasını da indirelim:
