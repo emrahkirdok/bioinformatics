@@ -34,7 +34,7 @@ conda activate alignment
 
 Şimdi çalışmada kullanacağımız *Streptococcus sanguinis SK36* referans genomunu indirelim ve sıkıştırılmış dosyayı açalım:
 
-```
+```bash
 wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/014/205/GCF_000014205.1_ASM1420v1/GCF_000014205.1_ASM1420v1_genomic.fna.gz -P data/ref
 gunzip data/ref/GCF_000014205.1_ASM1420v1_genomic.fna.gz
 ```
@@ -53,7 +53,7 @@ grep ">" data/ref/GCF_000014205.1_ASM1420v1_genomic.fna.gz
 
 Hatta genom anotasyon dosyasını da indirelim:
 
-```
+```bash
 wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/014/205/GCF_000014205.1_ASM1420v1/GCF_000014205.1_ASM1420v1_genomic.gtf.gz -P data/ref
 gunzip data/ref/GCF_000014205.1_ASM1420v1_genomic.gtf.gz
 ```
