@@ -34,7 +34,7 @@ mkdir -p data/ref
 mkdir logs
 mkdir envs
 mkdir scripts
-``` 
+```
 
 Conda programını aktive edelim:
 
@@ -123,5 +123,5 @@ Son olarak dosyalardan bir tanesini `samtools tview` ile inceleyelim.
 ```bash
 mkdir -p results/counts
 
-featureCounts -T4 -t CDS -a data/ref/GCA_000007565.2_ASM756v2_genomic.fna -o results/counts/counts-SRR7029605.txt results/alignment/SRR7029605.sorted.bam
+featureCounts -T4 -t CDS -a data/ref/GCA_000007565.2_ASM756v2_genomic.gtf -o results/counts/counts-SRR7029605.txt results/alignment/SRR7029605.sorted.bam
 ```
