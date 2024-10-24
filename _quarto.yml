@@ -65,6 +65,7 @@ language:
 format:
   html:
     mainfont: helvetica
+    fontsize: "15px"
     theme:
       - darkly
     code-link: true

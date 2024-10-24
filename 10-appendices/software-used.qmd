@@ -9,7 +9,9 @@ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
 ```
 
-Ancak `conda init` komutunu çalıştırmayalım!
+Burada kurulumu üç farklı aşamada gerçekleştirilmektedir. 
+
+TRUBA sistemiAncak `conda init` komutunu çalıştırmayalım!
 
 Sonra betiği silelim:
 

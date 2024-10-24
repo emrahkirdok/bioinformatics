@@ -1,4 +1,4 @@
-# [Antik] Metagenomik 
+# Metagenomik 
 
 Metagenomik analizlerde temel amaç, çevresel bir örnekte bulunan canlı kompozisyonunu incelemek, sınıfladırmak ve farklı ekolojik çevreler arasındaki içeriği karşılaştırmaktır. Bu analizleri temel olarak iki temel aşamaya ayırabiliriz:
 
@@ -7,7 +7,7 @@ Metagenomik analizlerde temel amaç, çevresel bir örnekte bulunan canlı kompo
 
 Bu sunum ve bununla ilgili çalışmalar daha çok ilk soru üzerine odaklamnacaktır.
 
-## Yeni nesil dizleme ve metagenomik
+## Yeni nesil dizleme ve metagenomik
 
 Yapılan şey aslında çevresel örneklerden elde edilen DNA dizilerinin hangi canlılara ait olduklarını bulmak (@fig-metagenomics1)
 
@@ -19,7 +19,7 @@ On bin yıllık antik sakızda bulunan mikrobiyal profili inceleyelim. Gösteril
 
 ![Filum seviyesinde mikrobiyal profiller](https://emrahkirdok.github.io/bioinformatics/02-practice/images/Figure-S1.png)
 
-## Beta çeşitlilik
+## Beta çeşitlilik
 
 Bray curtis uzaklığı oluşturalım. Elimizde $i$ ve $j$ olmak üzere iki farklı ekolojik çevre olsun. Bu çevreler için aşağıdaki değişkenleri tanımlayalım:
 
