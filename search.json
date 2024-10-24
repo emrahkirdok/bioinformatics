@@ -460,23 +460,45 @@
   {
     "objectID": "01-lectures/08-metagenomics.html",
     "href": "01-lectures/08-metagenomics.html",
-    "title": "11  [Antik] Metagenomik",
+    "title": "11  Metagenomik",
     "section": "",
-    "text": "11.1 Alfa çeşitlilik\nOn bin yıllık antik sakızda bulunan mikrobiyal profili inceleyelim. Gösterilen şekilde hem antik sakız örnekleri kullanılmıştır hem de karşılaştırmalı bazı veri setleri bulunmaktadır. Antik diş taşları ve insan mikrobiyota örneklerinden elde edilen metaphlan3 profilleri bu çalışmanın temelini oluşturmaktadır.\n## Beta çeşitlilik\nBray curtis uzaklığı oluşturalım. Elimizde \\(i\\) ve \\(j\\) olmak üzere iki farklı ekolojik çevre olsun. Bu çevreler için aşağıdaki değişkenleri tanımlayalım:\nBu tanımları kullanırsak, Bray-Curts uzaklığını aşağıdaki gibi hesaplayabiliriz:\n$$\nBC =\n$$\nBu uzaklıkları görselleştrirelim:\nNMDS ile görselleştirelim. NMDS metrik veriyi, \\(k\\) boyutlu bir uzaya projekisyon ediyor.",
+    "text": "11.1 Yeni nesil dizleme ve metagenomik\nYapılan şey aslında çevresel örneklerden elde edilen DNA dizilerinin hangi canlılara ait olduklarını bulmak (Şekil 11.1)",
     "crumbs": [
       "Dersler",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>[Antik] Metagenomik</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Metagenomik</span>"
+    ]
+  },
+  {
+    "objectID": "01-lectures/08-metagenomics.html#yeni-nesil-dizleme-ve-metagenomik",
+    "href": "01-lectures/08-metagenomics.html#yeni-nesil-dizleme-ve-metagenomik",
+    "title": "11  Metagenomik",
+    "section": "",
+    "text": "Şekil 11.1",
+    "crumbs": [
+      "Dersler",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Metagenomik</span>"
     ]
   },
   {
     "objectID": "01-lectures/08-metagenomics.html#alfa-çeşitlilik",
     "href": "01-lectures/08-metagenomics.html#alfa-çeşitlilik",
-    "title": "11  [Antik] Metagenomik",
-    "section": "",
-    "text": "Filum seviyesinde mikrobiyal profiller\n\n\n\n\n\nSadece \\(i\\) çevreseinde bulunan mikrobiyal tür sayısı: \\(S_i\\)\nSadece \\(j\\) çevreseinde bulunan mikrobiyal tür sayısı: \\(S_j\\)\nHer iki ekolojik alanda birden bulunan tür sayısı: \\(S_{ij}\\)\n\n\n\n\n\n\n\n\n\n\nMetrik olmayan çok boyutlu ölçekleme tekniği grafiği",
+    "title": "11  Metagenomik",
+    "section": "11.2 Alfa çeşitlilik",
+    "text": "11.2 Alfa çeşitlilik\nOn bin yıllık antik sakızda bulunan mikrobiyal profili inceleyelim. Gösterilen şekilde hem antik sakız örnekleri kullanılmıştır hem de karşılaştırmalı bazı veri setleri bulunmaktadır. Antik diş taşları ve insan mikrobiyota örneklerinden elde edilen metaphlan3 profilleri bu çalışmanın temelini oluşturmaktadır.\n\n\n\nFilum seviyesinde mikrobiyal profiller",
     "crumbs": [
       "Dersler",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>[Antik] Metagenomik</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Metagenomik</span>"
+    ]
+  },
+  {
+    "objectID": "01-lectures/08-metagenomics.html#beta-çeşitlilik",
+    "href": "01-lectures/08-metagenomics.html#beta-çeşitlilik",
+    "title": "11  Metagenomik",
+    "section": "11.3 Beta çeşitlilik",
+    "text": "11.3 Beta çeşitlilik\nBray curtis uzaklığı oluşturalım. Elimizde \\(i\\) ve \\(j\\) olmak üzere iki farklı ekolojik çevre olsun. Bu çevreler için aşağıdaki değişkenleri tanımlayalım:\n\nSadece \\(i\\) çevreseinde bulunan mikrobiyal tür sayısı: \\(S_i\\)\nSadece \\(j\\) çevreseinde bulunan mikrobiyal tür sayısı: \\(S_j\\)\nHer iki ekolojik alanda birden bulunan tür sayısı: \\(S_{ij}\\)\n\nBu tanımları kullanırsak, Bray-Curts uzaklığını aşağıdaki gibi hesaplayabiliriz:\n$$\nBC = \n$$\nBu uzaklıkları görselleştrirelim:\nNMDS ile görselleştirelim. NMDS metrik veriyi, \\(k\\) boyutlu bir uzaya projekisyon ediyor.\n\n\n\nMetrik olmayan çok boyutlu ölçekleme tekniği grafiği",
+    "crumbs": [
+      "Dersler",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Metagenomik</span>"
     ]
   },
   {
@@ -671,7 +693,7 @@
     "href": "10-appendices/software-used.html",
     "title": "Ek A — Kullanılan Programlar",
     "section": "",
-    "text": "A.1 Programların kurulumu\nProgramlar genel olarak Conda sistemi ile kurulacaktır. Kurmak için aşağıdaki komutları uygulayalım:\nAncak conda init komutunu çalıştırmayalım!\nSonra betiği silelim:\nConda’yı güncelleyelim:\nArtık conda’yı kullanabilmek için TRUBA sistemine girdiğinizde ilk olarak aşağıdaki komutu çalıştırmanız gerekecektir:\nSonra ilk çevremizi kuralım:",
+    "text": "A.1 Programların kurulumu\nProgramlar genel olarak Conda sistemi ile kurulacaktır. Kurmak için aşağıdaki komutları uygulayalım:\nBurada kurulumu üç farklı aşamada gerçekleştirilmektedir.\nTRUBA sistemiAncak conda init komutunu çalıştırmayalım!\nSonra betiği silelim:\nConda’yı güncelleyelim:\nArtık conda’yı kullanabilmek için TRUBA sistemine girdiğinizde ilk olarak aşağıdaki komutu çalıştırmanız gerekecektir:\nSonra ilk çevremizi kuralım:",
     "crumbs": [
       "Ekler",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Kullanılan Programlar</span>"
@@ -682,7 +704,7 @@
     "href": "10-appendices/software-used.html#sec-kurulum",
     "title": "Ek A — Kullanılan Programlar",
     "section": "",
-    "text": "wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh\nbash Miniconda3-latest-Linux-x86_64.sh\n\n\nrm Miniconda3-latest-Linux-x86_64.sh\n\neval \"$(/truba/home/$USER/miniconda3/bin/conda shell.bash hook)\"\nconda update conda\n\neval \"$(/truba/home/$USER/miniconda3/bin/conda shell.bash hook)\"\n\nconda create --name quality-control\nconda activate quality-control\n\nconda install fastqc cutadapt -c bioconda",
+    "text": "wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh\nbash Miniconda3-latest-Linux-x86_64.sh\n\n\n\nrm Miniconda3-latest-Linux-x86_64.sh\n\neval \"$(/truba/home/$USER/miniconda3/bin/conda shell.bash hook)\"\nconda update conda\n\neval \"$(/truba/home/$USER/miniconda3/bin/conda shell.bash hook)\"\n\nconda create --name quality-control\nconda activate quality-control\n\nconda install fastqc cutadapt -c bioconda",
     "crumbs": [
       "Ekler",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Kullanılan Programlar</span>"
