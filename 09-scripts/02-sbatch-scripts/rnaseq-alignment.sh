@@ -2,8 +2,11 @@
 
 #SBATCH -J rnaseq-alignment
 
-#SBATCH --partition=barbun
-#SBATCH --ntasks-per-node=4
+#SBATCH -p barbun
+#SBATCH -N 1
+#SBATCH -n 1
+#SBATCH -c 40
+#SBATCH -C weka
 #SBATCH --time=01:00:00
 
 #SBATCH -o logs/%x-%j-%N-%u.out
