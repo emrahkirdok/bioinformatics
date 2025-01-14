@@ -88,7 +88,7 @@
     "href": "00-setup/03-command-line.html",
     "title": "3  Komut satırı kullanımı",
     "section": "",
-    "text": "3.1 Linux’ta dosya yapısı\nGirdiğimiz ekran aslında bizim kullanıcı klasörümüz olacaktır. TRUBA - ve genel olarak linux sistemleri - çok kullancılı bilgisayarlardır. Bunun anlamı, sistem üzerinde farklı kullanıcılar bulunmakta ve TRUBA sistemi de bütün işleyişi kontrol etmektedir. Her kullanıcı, kendi klasörü içerisinde bütün yazma (W), okuma (R), ve çalıştırma (X) haklarına sahiptir. Ancak diğer kullanıcıların klasörlerinde, ve sistem ile ilgili klasörlerde çok kısıtlı haklara sahip olabilirler.\nLinux işletim sisteminde dosya yapısı kök / işareti ile başlar. Bu işaret aynı zamanda klasörleri birbirinden ayrır.\nBulunduğumuz klasör konumunu öğrenmek için pwd (print working directory) komutunu yazalım:\nBenim ekranımda bu komutun çıktısı şöyle oldu:\nhome klasörü, kullanıcıların klasörlerinin bulunduğu konumu işaret etmektedir.",
+    "text": "3.1 Linux’ta dosya yapısı\nDers kapsamında yapacağımız çalışmalarda öncelikle TRUBA üzerinde komut satırı kullanımını inceleyeceğiz.\nÖncelikle sistemimimize bağlanalım. Burada egitim yerine size verilen kullanıcı ismini girmelisiniz. Daha sonra yine size verilen şifrenizi yazarak sisteme bağlanabilirsiniz. Ancak şifrenizi yazarken ekrandaki imleç hareket etmeyecektir. Siz normal bir şekilde şifrenizi yazın:\nSisteme girdikten sonra çıkan ekranı enter tuşuna basarak geçelim.\nGirdiğimiz ekran aslında bizim kullanıcı klasörümüz olacaktır. TRUBA - ve genel olarak linux sistemleri - çok kullancılı bilgisayarlardır. Bunun anlamı, sistem üzerinde farklı kullanıcılar bulunmakta ve TRUBA sistemi de bütün işleyişi kontrol etmektedir. Her kullanıcı, kendi klasörü içerisinde bütün yazma (W), okuma (R), ve çalıştırma (X) haklarına sahiptir. Ancak diğer kullanıcıların klasörlerinde, ve sistem ile ilgili klasörlerde çok kısıtlı haklara sahip olabilirler.\nLinux işletim sisteminde dosya yapısı kök / işareti ile başlar. Bu işaret aynı zamanda klasörleri birbirinden ayrır.\nBulunduğumuz klasör konumunu öğrenmek için pwd (print working directory) komutunu yazalım:\nBenim ekranımda bu komutun çıktısı şöyle oldu:\nhome klasörü, kullanıcıların klasörlerinin bulunduğu konumu işaret etmektedir.",
     "crumbs": [
       "Derse Hazırlık",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
@@ -253,7 +253,7 @@
     "href": "00-setup/04-markdown-kullanim.html",
     "title": "4  Markdown Kullanımı",
     "section": "",
-    "text": "4.1 Üzerinde Durulacak Konular",
+    "text": "4.1 Üzerinde Durulacak Konular\nBu belgede markdown kullanımının öğretilmesi amaçlanmıştır.",
     "crumbs": [
       "Derse Hazırlık",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Markdown Kullanımı</span>"
@@ -286,7 +286,7 @@
     "href": "01-lectures/02-fastq-quality-control.html",
     "title": "6  Fastq kalite kontrol",
     "section": "",
-    "text": "6.1 Ham okumaların kalite kontrolü\nBu iş için kullanacağımız betiği indirelim:\nKlasörü kontrol edelim:\nŞimdi de işimizi gönderelim:",
+    "text": "6.1 Ham okumaların kalite kontrolü\nİlk olarak fastq dosyalarının kalite kontrolünü işleyeceğiz.\nÖncelikle TRUBA sistemimize girelim.\nŞimdi Lectures klasörünü ve projemizin klasörün oluşturalım:\nHer projede temel klasörler olmalı. Ham veriler, betikler, sonuçlar, tarihçeler ve conda çevreleri hep belli yerlerde olmalı:\nConda programını aktive edelim:\nŞimdi, kullancağımız conda çevresinin dosyasını indirelim:\nŞimdi de kullanacağımız örnek veriyi indirelim:\nBu iş için kullanacağımız betiği indirelim:\nKlasörü kontrol edelim:\nŞimdi de işimizi gönderelim:",
     "crumbs": [
       "Dersler",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Fastq kalite kontrol</span>"
@@ -341,7 +341,7 @@
     "href": "01-lectures/04-alignment-variant-calling-01.html",
     "title": "7  Hizalama",
     "section": "",
-    "text": "7.1 Hizalama\nŞimdi ilk olarak elimizdeki referans genomu indekslemeliyiz. Bunun için bwa programında bulunan index komutunu kullanacağız. Bakteri genomlarını hızlıca konsolda indeksleyebiliriz. Ancak ökaryotik genomlar için ayrı sbatch işleri hazırlamamız çok daha iyi olacaktır.\nOluşan dosyalara bakalım:\nBir sonraki adımda okumalarımızı referans genoma hizalamaya başlayacağız. İhtiyacımız olan dosyayı indirelim:\nŞimdi ise samtools flagstat ile, elde ettiğimiz sam dosyalarını inceleyelim. Önce ham sam dosyası:\nŞimdi, hizalanmayan okumalardan arındırılmış bam dosyası\nDuplikasyonlardan arındırılmış bam dosyası:\nŞimdi, elimizdeki dosyayı görselleştirelim:\nDersin başında bulduğumuz geni inceleylim mi?",
+    "text": "7.1 Hizalama\nConda programını aktive edelim:\nÇevre dosyamızı yükleyelim:\nŞimdi de çevremizi oluşturalım:\nÇevremizi aktive edelim:\nŞimdi çalışmada kullanacağımız Streptococcus sanguinis SK36 referans genomunu indirelim ve sıkıştırılmış dosyayı açalım:\nŞimdi dosyaya bakalım:\nKaç tane dizi var?\nHatta genom anotasyon dosyasını da indirelim:\nGenom anotasyon dosyası, bu canlının genomunda bulunan gen bilgilerini göstermektedir:\nBir tane protein arayalım, SsaB\nBir sonraki adımda kullanacağımız DNA dizileme dosyaların indirelim:\nBu işlemin sonucunda elde ettiğimiz çıktıları inceleyelim:\nŞimdi ilk olarak elimizdeki referans genomu indekslemeliyiz. Bunun için bwa programında bulunan index komutunu kullanacağız. Bakteri genomlarını hızlıca konsolda indeksleyebiliriz. Ancak ökaryotik genomlar için ayrı sbatch işleri hazırlamamız çok daha iyi olacaktır.\nOluşan dosyalara bakalım:\nBir sonraki adımda okumalarımızı referans genoma hizalamaya başlayacağız. İhtiyacımız olan dosyayı indirelim:\nŞimdi ise samtools flagstat ile, elde ettiğimiz sam dosyalarını inceleyelim. Önce ham sam dosyası:\nŞimdi, hizalanmayan okumalardan arındırılmış bam dosyası\nDuplikasyonlardan arındırılmış bam dosyası:\nŞimdi, elimizdeki dosyayı görselleştirelim:\nDersin başında bulduğumuz geni inceleylim mi?",
     "crumbs": [
       "Dersler",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hizalama</span>"
@@ -385,7 +385,7 @@
     "href": "01-lectures/07-rnaseq.html",
     "title": "9  RNA Dizileme",
     "section": "",
-    "text": "9.1 Kalite kontrol\nBütün işlemler her zaman kalite kontrol ile başlamalı. Bu yüzden öncelikle bir kalite kontrol adımı uygylayacağız.",
+    "text": "9.1 Kalite kontrol\nBu proje kapsamında, RNA dizileme veri analizi çalışması yapılacaktır. Projeyi aşağıdaki şekilde şematize edebiliriz (?fig-graph-4):\n## Klasör kurulumu\nÖncelikle çalışma klasörümüze gelip, yeni bir proje alanı oluşturalım:\nŞimdi de gerekli klasörleri oluşturalım:\nConda programını aktive edelim:\nKonda çevresini kuralım ve aktive edelim:\nÇalışmamızda kullanacağımız Pseudomonas putida KT2440 referans genomunu alalım:\nŞimdi de okumaları alalım:\nBütün işlemler her zaman kalite kontrol ile başlamalı. Bu yüzden öncelikle bir kalite kontrol adımı uygylayacağız.",
     "crumbs": [
       "Dersler",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>RNA Dizileme</span>"
@@ -462,7 +462,7 @@
     "href": "01-lectures/08-metagenomics.html",
     "title": "11  Metagenomik",
     "section": "",
-    "text": "11.1 Yeni nesil dizleme ve metagenomik\nYapılan şey aslında çevresel örneklerden elde edilen DNA dizilerinin hangi canlılara ait olduklarını bulmak (Şekil 11.1)",
+    "text": "11.1 Yeni nesil dizleme ve metagenomik\nMetagenomik analizlerde temel amaç, çevresel bir örnekte bulunan canlı kompozisyonunu incelemek, sınıfladırmak ve farklı ekolojik çevreler arasındaki içeriği karşılaştırmaktır. Bu analizleri temel olarak iki temel aşamaya ayırabiliriz:\nBu sunum ve bununla ilgili çalışmalar daha çok ilk soru üzerine odaklamnacaktır.\nYapılan şey aslında çevresel örneklerden elde edilen DNA dizilerinin hangi canlılara ait olduklarını bulmak (Şekil 11.1)",
     "crumbs": [
       "Dersler",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Metagenomik</span>"
@@ -506,7 +506,7 @@
     "href": "01-lectures/06-bash-scripting.html",
     "title": "12  Bash ile betik oluşturma",
     "section": "",
-    "text": "12.1 Değişken oluşturma\nBu işlemleri konsol üzerinde yapalım. Bir değişken oluşturalım:\nBu değişkeni ekrana yazdıralım:\nArtık değişken içerisindeki bilgiyi ekrana yazdırabildiniz.\nİsterseniz, bu değişkenin sağına ve soluna başka şeyler ekleyebilirsiniz. Bu sayede, tek bir değişken kullanımı ile, birden fazla dosyayı işaret edebilirsiniz:\nBir değişkeni, tanımlamadan kullanamazsınız. Mesela daha önce hiç tanımlamadığıız bir değişken kullanalım. Değişkenin ismi BOS olsun:\nBunu yazdığımızda, ekrana boş bir satır yazdırıldı.\nAma bu değişkeni tanımlarsak, artık kullanabilirz:",
+    "text": "12.1 Değişken oluşturma\nNeden betik oluşturmak isteriz? Çünkü, yaptığımız işlemleri otomatize etmeyi hedefliyoruz.\nBunu yaparken, aslında bash üzerinde yazdığımız bütün komultları, bir sh dosyası içerisinde topluyoruz. Ardından, bash’in değişken oluşutrma özelliğini kullanarak, komutlarımızı genelleştiriyoruz.\nBir örnek verelim. bwa programı ile bir referans genomu indeksleyelim:\nBu komutu yazdığımızda, bwa programı, data/GCF_000191105.1_ASM19110v1_genomic.fna konumundaki dosyasyı indekslemeye başlar. Ancak bu komut, sadece belirli bir dosyaya özgüdür. Ancak bash ile betik oluşturma işinde, amacımız komultarı genelleştirmek.\nŞimdi REFERENCE isminde bir değişken tanımlayalım:\nArtık, bwa komutumuzu şu şekilde değiştirebiliriz:\nBurada, tanımladığımız değişkeni ${} karakterleri ile tekrar kullanabildik.\nDolayısıyla, artık oluşturduğumuz komut daha genel olmaya başladı.\nBu işlemleri konsol üzerinde yapalım. Bir değişken oluşturalım:\nBu değişkeni ekrana yazdıralım:\nArtık değişken içerisindeki bilgiyi ekrana yazdırabildiniz.\nİsterseniz, bu değişkenin sağına ve soluna başka şeyler ekleyebilirsiniz. Bu sayede, tek bir değişken kullanımı ile, birden fazla dosyayı işaret edebilirsiniz:\nBir değişkeni, tanımlamadan kullanamazsınız. Mesela daha önce hiç tanımlamadığıız bir değişken kullanalım. Değişkenin ismi BOS olsun:\nBunu yazdığımızda, ekrana boş bir satır yazdırıldı.\nAma bu değişkeni tanımlarsak, artık kullanabilirz:",
     "crumbs": [
       "Dersler",
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bash ile betik oluşturma</span>"
@@ -572,7 +572,7 @@
     "href": "02-practice/01-variant-practice.html",
     "title": "13  Varyant çağırma pratiği",
     "section": "",
-    "text": "13.1 Referans genom indeksleme\nBu işlem için öncelikle referenans genomu indekslemeniz gerekecektir. Bu işlemi bir kere yapmanız yeterli olacaktır.\nBu işlemin bitip bitmediğini, squeue komutu ile kontrol edelim:\nBurada egitim kullanıcı adını siz kendi kullanıcı isminizle değiştirmelisiniz.\nBu adım tamamlandıktan sonra data klasörü içinde indeks dosyaları oluşmuş mu onları kontrol edelim:\nİndeks dosyaları oluşmuşsa, bir sonraki adıma geçebiliriz.",
+    "text": "13.1 Referans genom indeksleme\nŞu klasörü kendi çalışma alanınıza kopyalayınız:\nBu klasör içerisinde aşağıdaki dosyalar bulunmaktadır:\nBu pratik kapsamında, farklı klinik Streptococcus sanguinis örnekleri üzerinde varyant çağırma çalışması gerçekleştireceğiz. Sonrasında, elimizdeki varyantları kullanarak filogenetik ağaçlar oluşturacğız.\nBu fast dosyalarının elde edildiği makale aşağıdadır:\nBu makalenin SRA biyoproje numarası ise:\nKlasörde verilen, protokol.sh dosyasını kullanarak; data klasöründeki fastq dosyalarını işleyin ve her dosyadan varyant çağırın.\nÖncelikle kopyaladığımız klasör içerisinde girelim\nŞimdi ls komutu ile, klasör içerisinde index.sh, protokol.sh, protokol_otomatik.sh dosyalarının olup olmadıklarına bakalım:\nBu betikleri incelersek, index.sh referans genomumuzu indekslemek için kullandığımız betik olacak. Diğer betik protokol.sh ise, örnek dosyalarımızı referans genoma hizalama ve varyant çağırma için kullanacağımız betik olacak.\nBu işlem için öncelikle referenans genomu indekslemeniz gerekecektir. Bu işlemi bir kere yapmanız yeterli olacaktır.\nBu işlemin bitip bitmediğini, squeue komutu ile kontrol edelim:\nBurada egitim kullanıcı adını siz kendi kullanıcı isminizle değiştirmelisiniz.\nBu adım tamamlandıktan sonra data klasörü içinde indeks dosyaları oluşmuş mu onları kontrol edelim:\nİndeks dosyaları oluşmuşsa, bir sonraki adıma geçebiliriz.",
     "crumbs": [
       "Pratikler",
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Varyant çağırma pratiği</span>"
@@ -616,7 +616,7 @@
     "href": "02-practice/02-rnaseq-project.html",
     "title": "14  RNA Dizileme Proje Örneği",
     "section": "",
-    "text": "14.1 Klasör yapısı\nYapacağınız çalışmada aşağıdaki klasör yapısını korumanız sizin için kullanışlı olur:\n## Veri\nProje kapsamında kullanılacak veri:\nVeriyi indirmek için öncelikle aşağıda bulunan belgeye bakalım. Bu belgede kullancağımız örnekler ve bu örneklerin metaveri bilgileri bulunmaktadır:\nhttps://github.com/emrahkirdok/rnaseq/blob/main/data.txt\nBu belgeye göre aşağıdaki tabloya bakalım:\nÖncelikle Proje dosyamızı oluşturalım. İlk olarak hangi klasördeyiz ona bakalım, rastgele bir yere proje dosyası oluşturmayalım:\nTercihen ev klasörümüze gelelim ve yeni bir proje klasörü oluşturalım:\nArtık kendimize bir data klasörü oluşturalım ve bu klasör içinde de raw isimli başka bir klasör olsun:\nbu klasör içine girelim ve çalışacağımız dosyaları indirelim:\nAşağıdaki satırları tek tek yazarak çalışacağımız dosyaları indirebiliriz. Burada kullanılan wget komutu, uzaktaki bir sunucudan dosyaları indirmek için kullanılmaktadır.\nİşlem bittiğinde ls -ltrh ile kontrol edelim.\nDaha sonra proje klasörümüze geri dönüp, referans genom dosyaları için kullancağımız klasörü oluşturalım:\nReferans genom dosyalarını, son dersimzideki klasörden alabilirsiniz.\nSon olarak diğer klasörlerimizi oluşturalım. Sonuçları bu klasörler içerisinde depolayacağız:",
+    "text": "14.1 Klasör yapısı\nBu proje kapsamında, RNA dizileme veri analizi çalışması yapılacaktır. Projeyi aşağıdaki şekilde şematize edebiliriz (?fig-graph-4):\nVerilerini kullanacağımız makaleye aşağıdaki bağlantıdan ulaşabilirsiniz:\nYapacağınız çalışmada aşağıdaki klasör yapısını korumanız sizin için kullanışlı olur:\n## Veri\nProje kapsamında kullanılacak veri:\nVeriyi indirmek için öncelikle aşağıda bulunan belgeye bakalım. Bu belgede kullancağımız örnekler ve bu örneklerin metaveri bilgileri bulunmaktadır:\nhttps://github.com/emrahkirdok/rnaseq/blob/main/data.txt\nBu belgeye göre aşağıdaki tabloya bakalım:\nÖncelikle Proje dosyamızı oluşturalım. İlk olarak hangi klasördeyiz ona bakalım, rastgele bir yere proje dosyası oluşturmayalım:\nTercihen ev klasörümüze gelelim ve yeni bir proje klasörü oluşturalım:\nArtık kendimize bir data klasörü oluşturalım ve bu klasör içinde de raw isimli başka bir klasör olsun:\nbu klasör içine girelim ve çalışacağımız dosyaları indirelim:\nAşağıdaki satırları tek tek yazarak çalışacağımız dosyaları indirebiliriz. Burada kullanılan wget komutu, uzaktaki bir sunucudan dosyaları indirmek için kullanılmaktadır.\nİşlem bittiğinde ls -ltrh ile kontrol edelim.\nDaha sonra proje klasörümüze geri dönüp, referans genom dosyaları için kullancağımız klasörü oluşturalım:\nReferans genom dosyalarını, son dersimzideki klasörden alabilirsiniz.\nSon olarak diğer klasörlerimizi oluşturalım. Sonuçları bu klasörler içerisinde depolayacağız:",
     "crumbs": [
       "Pratikler",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>RNA Dizileme Proje Örneği</span>"
