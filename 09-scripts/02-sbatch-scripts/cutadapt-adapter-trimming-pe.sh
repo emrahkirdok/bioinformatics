@@ -2,9 +2,12 @@
 
 #SBATCH -J cutadapt-trimming-pe
 
-#SBATCH --partition=barbun
-#SBATCH --ntasks-per-node=4
-#SBATCH --time=00:30:00
+#SBATCH -p barbun
+#SBATCH -N 1
+#SBATCH -n 1
+#SBATCH -c 40
+#SBATCH -C weka
+#SBATCH --time=01:00:00
 
 #SBATCH -o logs/%x-%j-%N-%u.out
 #SBATCH -e logs/%x-%j-%N-%u.err
