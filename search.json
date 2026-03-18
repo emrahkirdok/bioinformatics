@@ -187,7 +187,7 @@
     "href": "00-setup/03-command-line.html#komut-çıktısını-yönlendirme",
     "title": "3  Komut satırı kullanımı",
     "section": "3.9 Komut çıktısını yönlendirme",
-    "text": "3.9 Komut çıktısını yönlendirme\nUnix/Linux sistemlerinin en önemli özelliklerinden bir tanesi, bir dosyadan elde edilen çıktıyı başka bir dosyaya yönlendirme. Bu sayede, elde ettiğiniz sonuçları dosyalara aktarabilirsiniz. Mesela tarihçeyi, tarihce.txt dosyasına aktaralım:\nhistory &gt; tarihce.txt\nŞimdi ls -ltrh ile inceleyim.\nBir tarihce.txt isimli dosyanın oluşmuş olması gerekli.\n\n\n\n\n\n\nVarolan dosyanın üzerine yazma\n\n\n\nEğer &gt; kullanırsanız, ve varolan bir dosyayı hedef gösterirseniz, o dosyanın üzerine yazmış olursunuz! Dosyanın içindeki eski bilgileri kaybederiz!\nEğer bu dosyayı silmeden ekleme yapmak istersenz, &gt;&gt; kullanın. Bu sayede varolan dosyayı silmez, sonuna ekler.",
+    "text": "3.9 Komut çıktısını yönlendirme\nUnix/Linux sistemlerinin en önemli özelliklerinden bir tanesi, bir dosyadan elde edilen çıktıyı başka bir dosyaya yönlendirme. Bu sayede, elde ettiğiniz sonuçları dosyalara aktarabilirsiniz. Mesela tarihçeyi, tarihce.txt dosyasına aktaralım:\nhistory &gt; tarihce.txt\nŞimdi ls -ltrh ile inceleyim.\nBir tarihce.txt isimli dosyanın oluşmuş olması gerekli.\n\n\n\n\n\n\nUyarıVarolan dosyanın üzerine yazma\n\n\n\nEğer &gt; kullanırsanız, ve varolan bir dosyayı hedef gösterirseniz, o dosyanın üzerine yazmış olursunuz! Dosyanın içindeki eski bilgileri kaybederiz!\nEğer bu dosyayı silmeden ekleme yapmak istersenz, &gt;&gt; kullanın. Bu sayede varolan dosyayı silmez, sonuna ekler.",
     "crumbs": [
       "Derse Hazırlık",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Komut satırı kullanımı</span>"
@@ -517,7 +517,7 @@
     "href": "01-lectures/06-bash-scripting.html#değişken-oluşturma",
     "title": "12  Bash ile betik oluşturma",
     "section": "",
-    "text": "SAMPLE=ERR3079326\n\n\n\n\n\n\nKarakter kullanımı\n\n\n\nDeğişken oluştururken, sadece İngilizce karakterler kullanın!\n\n\n\necho ${SAMPLE}\n\n\necho data/${SAMPLE}_1.fastq.gz\n\necho ${BOS}\n\n\nBOS=ERR65245\necho ${BOS}",
+    "text": "SAMPLE=ERR3079326\n\n\n\n\n\n\nÖnemliKarakter kullanımı\n\n\n\nDeğişken oluştururken, sadece İngilizce karakterler kullanın!\n\n\n\necho ${SAMPLE}\n\n\necho data/${SAMPLE}_1.fastq.gz\n\necho ${BOS}\n\n\nBOS=ERR65245\necho ${BOS}",
     "crumbs": [
       "Dersler",
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bash ile betik oluşturma</span>"
