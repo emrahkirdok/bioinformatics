@@ -5,25 +5,27 @@
 #SBATCH -p barbun
 #SBATCH -N 1
 #SBATCH -n 1
-#SBATCH -c 40
-#SBATCH -C weka
-#SBATCH --time=01:00:00
+#SBATCH -c 20
+#SBATCH --time=02:00:00
 
 #SBATCH -o logs/%x-%j-%N-%u.out
 #SBATCH -e logs/%x-%j-%N-%u.err
 
-# activate conda 
-eval "$(/truba/home/$USER/miniconda3/bin/conda shell.bash hook)"
+# containers
+SINGULARITY_CUTADAPT=/arf/home/egitimg14/Projects/Lectures/00-Quality-Control/containers/cutadapt\:5.0--py39hbcbf7aa_0
+SINGULARITY_FASTQC=/arf/home/egitimg14/Projects/Lectures/00-Quality-Control/containers/fastqc\:0.12.1--hdfd78af_0
 
-# activate conda environment
-conda activate quality-control
+# tool parameters
+THREADS=10
+QUALITY=20
+MIN_LENGTH=10
+ADAPTER=AGATCGGAAGAG
 
+# create output folders
 mkdir -p results/processed
 
-cutadapt -q 20 -a AGATCGGAAGAG --minimum-length 30 -j 4 -o results/processed/SRR7029604.fastq.gz data/SRR7029604.fastq.gz
+singularity run ${SINGULARITY_CUTADAPT} cutadapt -q ${QUALITY} -a ${ADAPTER} --minimum-length ${MIN_LEN} -j ${THREADS} -o results/processed/SRR7029604.fastq.gz data/SRR7029604.fastq.gz
 
 mkdir -p results/fastqc-after-trimming
 
-fastqc results/processed/SRR7029604.fastq.gz --thread 4 --nogroup --outdir results/fastqc-after-trimming
-
-
+singularity run ${SINGULARITY_FASTQC} fastqc results/processed/SRR7029604.fastq.gz --thread ${THREADS} --nogroup --outdir results/fastqc-after-trimming
