@@ -23,7 +23,7 @@ QUALITY=20
 MIN_LENGTH=10
 ADAPTER=AGATCGGAAGAG
 
-singularity run ${SINGULARITY_CUTADAPT} cutadapt -q ${QUALITY} --minimum_length ${MIN_LENGTH} --trim-n -Z -j ${THREADS} -a ${ADAPTER} -A ${ADAPTER} -o results/processed/SRR7405885_1.fastq.gz -p results/processed/SRR7405885_2.fastq.gz data/SRR7405885_1.fastq.gz data/SRR7405885_2.fastq.gz
+singularity run ${SINGULARITY_CUTADAPT} cutadapt -q ${QUALITY} --minimum-length ${MIN_LENGTH} --trim-n -Z -j ${THREADS} -a ${ADAPTER} -A ${ADAPTER} -o results/processed/SRR7405885_1.fastq.gz -p results/processed/SRR7405885_2.fastq.gz data/SRR7405885_1.fastq.gz data/SRR7405885_2.fastq.gz
 
 mkdir -p results/fastqc-after-trimming
 
