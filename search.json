@@ -341,7 +341,18 @@
     "href": "01-lectures/04-alignment-variant-calling-01.html",
     "title": "7  Hizalama",
     "section": "",
-    "text": "7.1 Hizalama\nConda programını aktive edelim:\nÇevre dosyamızı yükleyelim:\nŞimdi de çevremizi oluşturalım:\nÇevremizi aktive edelim:\nŞimdi çalışmada kullanacağımız Streptococcus sanguinis SK36 referans genomunu indirelim ve sıkıştırılmış dosyayı açalım:\nŞimdi dosyaya bakalım:\nKaç tane dizi var?\nHatta genom anotasyon dosyasını da indirelim:\nGenom anotasyon dosyası, bu canlının genomunda bulunan gen bilgilerini göstermektedir:\nBir tane protein arayalım, SsaB\nBir sonraki adımda kullanacağımız DNA dizileme dosyaların indirelim:\nBu işlemin sonucunda elde ettiğimiz çıktıları inceleyelim:\nŞimdi ilk olarak elimizdeki referans genomu indekslemeliyiz. Bunun için bwa programında bulunan index komutunu kullanacağız. Bakteri genomlarını hızlıca konsolda indeksleyebiliriz. Ancak ökaryotik genomlar için ayrı sbatch işleri hazırlamamız çok daha iyi olacaktır.\nOluşan dosyalara bakalım:\nBir sonraki adımda okumalarımızı referans genoma hizalamaya başlayacağız. İhtiyacımız olan dosyayı indirelim:\nŞimdi ise samtools flagstat ile, elde ettiğimiz sam dosyalarını inceleyelim. Önce ham sam dosyası:\nŞimdi, hizalanmayan okumalardan arındırılmış bam dosyası\nDuplikasyonlardan arındırılmış bam dosyası:\nŞimdi, elimizdeki dosyayı görselleştirelim:\nDersin başında bulduğumuz geni inceleylim mi?",
+    "text": "7.1 Kalite kontrol\nİlk olarak proje klasörü:\nSonra klasörlerimiz oluşturalım:\nŞimdi çalışmada kullanacağımız Streptococcus sanguinis SK36 referans genomunu indirelim ve sıkıştırılmış dosyayı açalım:\nŞimdi dosyaya bakalım:\nKaç tane dizi var?\nHatta genom anotasyon dosyasını da indirelim:\nGenom anotasyon dosyası, bu canlının genomunda bulunan gen bilgilerini göstermektedir:\nBir tane protein arayalım, SsaB\nBir sonraki adımda kullanacağımız DNA dizileme dosyaların indirelim:\nBir önceki derste kalite kontrol yapmıştık. Genel olarak bütün çalışmalarda bir kez kalite kontrol yapmak faydalı bir işlem olacaktır. Ancak bunu nasıl yapacağınıza siz karar vermelisiniz. Kullanacağımız betiği indirelim:\nBu işlemin sonucunda elde ettiğimiz çıktıları inceleyelim:\nilk olarak bu betiği çalıştıralım:",
+    "crumbs": [
+      "Dersler",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hizalama</span>"
+    ]
+  },
+  {
+    "objectID": "01-lectures/04-alignment-variant-calling-01.html#kalite-kontrol",
+    "href": "01-lectures/04-alignment-variant-calling-01.html#kalite-kontrol",
+    "title": "7  Hizalama",
+    "section": "",
+    "text": "wget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/02-sbatch-scripts/quality-control-and-cutadapt.sh -P scripts/\n\n\nsbatch scripts/quality-control-and-cutadapt.sh",
     "crumbs": [
       "Dersler",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hizalama</span>"
@@ -351,8 +362,8 @@
     "objectID": "01-lectures/04-alignment-variant-calling-01.html#hizalama",
     "href": "01-lectures/04-alignment-variant-calling-01.html#hizalama",
     "title": "7  Hizalama",
-    "section": "",
-    "text": "bwa index data/ref/GCF_000014205.1_ASM1420v1_genomic.fna\n\nls -ltrh data/ref\n\nwget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/02-sbatch-scripts/alignment.sh -P scripts\n\nsamtools flagstat results/alignment/ERR3079326.sam\n\nsamtools flagstat results/alignment/ERR3079326.bam\n\nsamtools flagstat results/alignment/ERR3079326.sorted.rmdup.bam\n\nsamtools tview --reference data/ref/GCF_000014205.1_ASM1420v1_genomic.fna results/alignment/ERR3079326.sorted.rmdup.bam\n\nsamtools tview -p NC_009009.1:254673 --reference data/ref/GCF_000014205.1_ASM1420v1_genomic.fna results/alignment/ERR3079326.sorted.rmdup.bam",
+    "section": "7.2 Hizalama",
+    "text": "7.2 Hizalama\nŞimdi ilk olarak elimizdeki referans genomu indekslemeliyiz. Bunun için bwa programında bulunan index komutunu kullanacağız. Bakteri genomlarını hızlıca konsolda indeksleyebiliriz. Ancak ökaryotik genomlar için ayrı sbatch işleri hazırlamamız çok daha iyi olacaktır.\nBurada bahsedilen adımların hepsi betikte bulunmaktadır. Bu yüzden biz çalıştırmayalım.\nbwa index data/ref/GCF_000014205.1_ASM1420v1_genomic.fna\nOluşan dosyalara bakalım:\nls -ltrh data/ref\nBir sonraki adımda okumalarımızı referans genoma hizalamaya başlayacağız. İhtiyacımız olan dosyayı indirelim:\nwget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/02-sbatch-scripts/alignment.sh -P scripts\nBetiği çalıştıralım\nsbatch scripts/alignment.sh\n``` \n\nŞimdi ise `samtools flagstat` ile, elde ettiğimiz sam dosyalarını inceleyelim. Önce ham sam dosyası:\n\n```bash\nsamtools flagstat results/alignment/ERR3079326.sam\nŞimdi, hizalanmayan okumalardan arındırılmış bam dosyası\nsamtools flagstat results/alignment/ERR3079326.bam\nDuplikasyonlardan arındırılmış bam dosyası:\nsamtools flagstat results/alignment/ERR3079326.sorted.rmdup.bam\nŞimdi, elimizdeki dosyayı görselleştirelim:\nsamtools tview --reference data/ref/GCF_000014205.1_ASM1420v1_genomic.fna results/alignment/ERR3079326.sorted.rmdup.bam\nDersin başında bulduğumuz geni inceleylim mi?\nsamtools tview -p NC_009009.1:254673 --reference data/ref/GCF_000014205.1_ASM1420v1_genomic.fna results/alignment/ERR3079326.sorted.rmdup.bam",
     "crumbs": [
       "Dersler",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hizalama</span>"
@@ -362,8 +373,8 @@
     "objectID": "01-lectures/04-alignment-variant-calling-01.html#sam-dosyaları",
     "href": "01-lectures/04-alignment-variant-calling-01.html#sam-dosyaları",
     "title": "7  Hizalama",
-    "section": "7.2 SAM dosyaları",
-    "text": "7.2 SAM dosyaları\nDNA hizalama işleminin ardıdan, ham hizalama verisi bu dosya içerinde tutulur. Genotip ve varyant çağırma işleminden önce, bu dosya filtre edilir. Bu filtrasyon aşağıdaki basamakları kapsamaktadır:\n\nReferans genom ile hizalanmayan okumaların uzaklaştırılması\nKötü hizalama kalitesine sahip okumaların uzaklaştırılması (-q 30)\n\nSAM dosyalarında, hizalama bilgisi, flag adı verilen bir değişken içinde saklanır. Bu flag bilgilerine şu siteden erişebilirsiniz.\nHizalama kalitesi (-q) aslında, phred okuma kalitesinin bir fonksiyonu. Genelde 30 okuma kalitesinden daha düşük olan diziler, hizalama dosyasından uzaklaştırlır.",
+    "section": "7.3 SAM dosyaları",
+    "text": "7.3 SAM dosyaları\nDNA hizalama işleminin ardıdan, ham hizalama verisi bu dosya içerinde tutulur. Genotip ve varyant çağırma işleminden önce, bu dosya filtre edilir. Bu filtrasyon aşağıdaki basamakları kapsamaktadır:\n\nReferans genom ile hizalanmayan okumaların uzaklaştırılması\nKötü hizalama kalitesine sahip okumaların uzaklaştırılması (-q 30)\n\nSAM dosyalarında, hizalama bilgisi, flag adı verilen bir değişken içinde saklanır. Bu flag bilgilerine şu siteden erişebilirsiniz.\nHizalama kalitesi (-q) aslında, phred okuma kalitesinin bir fonksiyonu. Genelde 30 okuma kalitesinden daha düşük olan diziler, hizalama dosyasından uzaklaştırlır.",
     "crumbs": [
       "Dersler",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hizalama</span>"
