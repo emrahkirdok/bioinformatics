@@ -1,35 +1,20 @@
 # Hizalama
 
+İlk olarak proje klasörü:
+
+```bash
+cd Lectures
+mkdir 01-Alignment
+cd 01-Alignment
+```
+
+Sonra klasörlerimiz oluşturalım:
 
 ```bash
 mkdir -p data/ref
 mkdir -p data/fastq
 mkdir -p logs
-mkdir -p envs
-```
-
-Conda programını aktive edelim:
-
-```bash
-eval "$(/truba/home/$USER/miniconda3/bin/conda shell.bash hook)"
-```
-
-Çevre dosyamızı yükleyelim:
-
-```bash
-wget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/01-environments/alignment.yaml -P envs/
-```
-
-Şimdi de çevremizi oluşturalım:
-
-```bash
-conda env create --file envs/alignment.yaml
-```
-
-Çevremizi aktive edelim:
-
-```bash
-conda activate alignment
+mkdir -p containers
 ```
 
 Şimdi çalışmada kullanacağımız *Streptococcus sanguinis SK36* referans genomunu indirelim ve sıkıştırılmış dosyayı açalım:
@@ -75,7 +60,7 @@ Bir sonraki adımda kullanacağımız DNA dizileme dosyaların indirelim:
 ```bash
 wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR307/006/ERR3079326/ERR3079326_1.fastq.gz -P data/fastq/
 wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR307/006/ERR3079326/ERR3079326_2.fastq.gz -P data/fastq/
-``` 
+```
 
 ## Kalite kontrol
 
@@ -87,10 +72,17 @@ wget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/mai
 
 Bu işlemin sonucunda elde ettiğimiz çıktıları inceleyelim:
 
+ilk olarak bu betiği çalıştıralım:
+
+```bash
+sbatch scripts/quality-control-and-cutadapt.sh
+```
+
 ## Hizalama
 
 Şimdi ilk olarak elimizdeki referans genomu indekslemeliyiz. Bunun için `bwa` programında bulunan `index` komutunu kullanacağız. Bakteri genomlarını hızlıca konsolda indeksleyebiliriz. Ancak ökaryotik genomlar için ayrı sbatch işleri hazırlamamız çok daha iyi olacaktır.
 
+Burada bahsedilen adımların hepsi betikte bulunmaktadır. Bu yüzden biz çalıştırmayalım.
 
 ```bash
 bwa index data/ref/GCF_000014205.1_ASM1420v1_genomic.fna
@@ -107,6 +99,12 @@ Bir sonraki adımda okumalarımızı referans genoma hizalamaya başlayacağız.
 ```bash
 wget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/02-sbatch-scripts/alignment.sh -P scripts
 ```
+
+Betiği çalıştıralım
+
+```bash
+sbatch scripts/alignment.sh
+``` 
 
 Şimdi ise `samtools flagstat` ile, elde ettiğimiz sam dosyalarını inceleyelim. Önce ham sam dosyası:
 
