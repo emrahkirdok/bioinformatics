@@ -18,6 +18,10 @@ mkdir -p results/alignment
 SINGULARITY_BWA=/arf/home/egitimg14/Lectures/01-Alignment/containers/bwa_latest.sif
 SINGULARITY_SAMTOOLS=/arf/home/egitimg14/Lectures/01-Alignment/containers/samtools_1.21.sif
 
+# index reference genome
+
+singularity run ${SINGULARITY_BWA} bwa index data/ref/GCF_000014205.1_ASM1420v1_genomic.fna
+
 # align reads, first create index files
 
 singularity run ${SINGULARITY_BWA} bwa aln -t 4 data/ref/GCF_000014205.1_ASM1420v1_genomic.fna results/processed/ERR3079326_1.fastq.gz > results/alignment/ERR3079326_1.sai
