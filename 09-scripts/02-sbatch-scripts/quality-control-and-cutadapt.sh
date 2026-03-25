@@ -21,13 +21,13 @@ mkdir -p results/fastqc-before-trimming
 
 # run fastqc on raw reads
 
-singularity run ${SINGULARITY_FASTQC} data/fastq/${ID}_1.fastq.gz data/fastq/${ID}_2.fastq.gz --thread 4 --nogroup --outdir results/fastqc-before-trimming
+singularity run ${SINGULARITY_FASTQC} fastqc data/fastq/${ID}_1.fastq.gz data/fastq/${ID}_2.fastq.gz --thread 4 --nogroup --outdir results/fastqc-before-trimming
 
 # run cutadapt
 
 mkdir -p results/processed
 
-singularity run ${SINGULARITY_CUTADAPT} -q 20 -m 30 --trim-n -Z -j 4 -a AGATCGGAAGAG -A AGATCGGAAGAG -o results/processed/${ID}_1.fastq.gz -p results/processed/${ID}_2.fastq.gz data/fastq/${ID}_1.fastq.gz data/fastq/${ID}_2.fastq.gz
+singularity run ${SINGULARITY_CUTADAPT} cutadapt -q 20 -m 30 --trim-n -Z -j 4 -a AGATCGGAAGAG -A AGATCGGAAGAG -o results/processed/${ID}_1.fastq.gz -p results/processed/${ID}_2.fastq.gz data/fastq/${ID}_1.fastq.gz data/fastq/${ID}_2.fastq.gz
 
 # run fastqc on processed reads
 
