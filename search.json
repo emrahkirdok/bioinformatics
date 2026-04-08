@@ -385,7 +385,7 @@
     "href": "01-lectures/05-alignment-variant-calling-02.html",
     "title": "8  Varyant Çağırma",
     "section": "",
-    "text": "Varyant çağırma işlemi için dosyamızı indirelim:\n wget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/02-sbatch-scripts/variant-calling.sh -P scripts/\nŞimdi işimizi gönderelim:\nsbatch scripts/variant-callint.sh\nls -ltrh results/variants\nless results/variants/ERR3079326.sorted.rmdup.likelihoods.vcf\nŞimdi de varyantlar:\n``bash less results/variants/ERR3079326.sorted.rmdup.calls.vcf ```",
+    "text": "Varyant çağırma işlemi için dosyamızı indirelim:\n wget https://raw.githubusercontent.com/emrahkirdok/bioinformatics/refs/heads/main/09-scripts/02-sbatch-scripts/variant-calling.sh -P scripts/\nŞimdi işimizi gönderelim:\nsbatch scripts/variant-calling.sh\nVaryant klasörüne bakalım\nls -ltrh results/variants\nGenotiplere bakalım:\nless results/variants/ERR3079326.sorted.rmdup.likelihoods.vcf\nŞimdi de varyantlar:\nless results/variants/ERR3079326.sorted.rmdup.calls.vcf",
     "crumbs": [
       "Dersler",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Varyant Çağırma</span>"
