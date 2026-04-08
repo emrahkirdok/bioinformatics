@@ -9,12 +9,16 @@ Varyant çağırma işlemi için dosyamızı indirelim:
 Şimdi işimizi gönderelim:
 
 ```bash
-sbatch scripts/variant-callint.sh
+sbatch scripts/variant-calling.sh
 ```
+
+Varyant klasörüne bakalım
 
 ```bash
 ls -ltrh results/variants
 ```
+
+Genotiplere bakalım:
 
 ```bash
 less results/variants/ERR3079326.sorted.rmdup.likelihoods.vcf
@@ -22,6 +26,6 @@ less results/variants/ERR3079326.sorted.rmdup.likelihoods.vcf
 
 Şimdi de varyantlar:
 
-``bash
+```bash
 less results/variants/ERR3079326.sorted.rmdup.calls.vcf
 ```
