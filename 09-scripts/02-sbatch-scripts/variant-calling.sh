@@ -5,19 +5,15 @@
 #SBATCH -p barbun
 #SBATCH -N 1
 #SBATCH -n 1
-#SBATCH -c 40
-#SBATCH -C weka
-#SBATCH --time=01:00:00
+#SBATCH -c 20
+#SBATCH --time=02:00:00
 
 #SBATCH -o logs/%x-%j-%N-%u.out
 #SBATCH -e logs/%x-%j-%N-%u.err
 
-# activate conda 
-eval "$(/truba/home/$USER/miniconda3/bin/conda shell.bash hook)"
+# define containers
 
-# activate environment
-
-conda activate alignment
+BCFTOOLS=/arf/home/egitimg14/Containers/bcftools:1.21--h3a4d415_1
 
 # create folders
 
@@ -25,12 +21,12 @@ mkdir -p results/variants
 
 # create pileup file
 
-bcftools mpileup -Ov -f data/ref/GCF_000014205.1_ASM1420v1_genomic.fna results/alignment/ERR3079326.sorted.rmdup.bam > results/variants/ERR3079326.sorted.rmdup.likelihoods.vcf
+singularity run ${BCFTOOLS} bcftools mpileup -Ov -f data/ref/GCF_000014205.1_ASM1420v1_genomic.fna results/alignment/ERR3079326.sorted.rmdup.bam > results/variants/ERR3079326.sorted.rmdup.likelihoods.vcf
 
 # call variants
 
-bcftools call -mv -Ov -o results/variants/ERR3079326.sorted.rmdup.calls.vcf results/variants/ERR3079326.sorted.rmdup.likelihoods.vcf
+singularity run ${BCFTOOLS} bcftools call -mv -Ov -o results/variants/ERR3079326.sorted.rmdup.calls.vcf results/variants/ERR3079326.sorted.rmdup.likelihoods.vcf
 
 # this can be done easily with a oneliner, bcf is a compressed file
 
-bcftools mpileup -Ou --threads 4 -f data/ref/GCF_000014205.1_ASM1420v1_genomic.fna results/alignment/ERR3079326.sorted.rmdup.bam | bcftools call -mv -Ob --threads 4 -o results/variants/ERR3079326.sorted.rmdup.calls.bcf
+#bcftools mpileup -Ou --threads 4 -f data/ref/GCF_000014205.1_ASM1420v1_genomic.fna results/alignment/ERR3079326.sorted.rmdup.bam | bcftools call -mv -Ob --threads 4 -o results/variants/ERR3079326.sorted.rmdup.calls.bcf
